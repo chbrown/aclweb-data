@@ -1,0 +1,42 @@
+{
+  "sections": [
+    {
+      "title": "ACL 2014 52nd Annual Meeting of the Association for Computational Linguistics Proceedings of the Conference Tutorial Abstracts 22 June 2014 Baltimore, Maryland, USA c⃝2014 The Association for Computational Linguistics Order copies of this and other ACL proceedings from: Association for Computational Linguistics (ACL) 209 N. Eighth Street Stroudsburg, PA 18360 USA Tel: +1-570-476-8006 Fax: +1-570-476-0860 acl@aclweb.org ISBN 978-1-941643-01-3",
+      "paragraphs": [
+        "ii"
+      ]
+    },
+    {
+      "title": "Introduction",
+      "paragraphs": [
+        "This volume contains the abstracts of the ACL 2014 tutorials. We received 19 high-quality proposals, and it was a difficult task to make a final selection. We applied the following criteria for evaluation: appropriateness, technical fit, novelty, potential interest, presenters, and experience. In the end we accepted eight tutorials. All eight of these are organized as half-day tutorials. We are very grateful to David Yarowsky (local chair), Alexander Koller and Yusuke Miyao (publication chairs), Daniel Marcu (general chair), Johan Bos and Keith Hall (the ACL 2013 tutorial chairs), and of course Priscilla Rasmussen, for various kinds of help, advice and assistance offered during the process of putting the tutorial programme and materials together. Most importantly, we would like to thank the tutorial presenters for the time and effort in preparing and presenting the tutorials. We hope you will enjoy the tutorials! ACL 2014 Tutorial Chairs Alex Fraser (CIS, University of Munich) Yang Liu (Tsinghua University) iii Organizers: Alex Fraser (CIS, University of Munich) Yang Liu (Tsinghua University) v"
+      ]
+    },
+    {
+      "title": "Table of Contents",
+      "paragraphs": [
+        "Gaussian Processes for Natural Language Processing Trevor Cohn, Daniel Preotiuc-Pietro and Neil Lawrence . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1",
+        "Scalable Large-Margin Structured Learning: Theory and Algorithms Liang Huang, Kai Zhao and Lemao Liu . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4",
+        "Semantics for Large-Scale Multimedia: New Challenges for NLP Florian Metze and Koichi Shinoda . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6",
+        "Wikification and Beyond: The Challenges of Entity and Concept Grounding Dan Roth, Heng Ji, Ming-Wei Chang and Taylor Cassidy . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7",
+        "New Directions in Vector Space Models of Meaning Phil Blunsom, Georgiana Dinu, Edward Grefenstette and Karl Moritz Hermann . . . . . . . . . . . . . . . . 8",
+        "Structured Belief Propagation for NLP Matthew Gormley and Jason Eisner . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9",
+        "Semantics, Discourse and Statistical Machine Translation Deyi Xiong and Min Zhang . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11",
+        "Syntactic Processing Using Global Discriminative Learning and Beam-Search Decoding Yue Zhang, Meishan Zhang and Ting Liu . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 13 vii"
+      ]
+    },
+    {
+      "title": "Conference Program June 22, 2014 Morning",
+      "paragraphs": [
+        "9:00–12:30 Gaussian Processes for Natural Language Processing Trevor Cohn, Daniel Preotiuc-Pietro and Neil Lawrence",
+        "9:00–12:30 Scalable Large-Margin Structured Learning: Theory and Algorithms Liang Huang, Kai Zhao and Lemao Liu",
+        "9:00–12:30 Semantics for Large-Scale Multimedia: New Challenges for NLP Florian Metze and Koichi Shinoda",
+        "9:00–12:30 Wikification and Beyond: The Challenges of Entity and Concept Grounding Dan Roth, Heng Ji, Ming-Wei Chang and Taylor Cassidy Afternoon",
+        "14:00–17:30 New Directions in Vector Space Models of Meaning Phil Blunsom, Georgiana Dinu, Edward Grefenstette and Karl Moritz Hermann",
+        "14:00–17:30 Structured Belief Propagation for NLP Matthew Gormley and Jason Eisner",
+        "14:00–17:30 Semantics, Discourse and Statistical Machine Translation Deyi Xiong and Min Zhang",
+        "14:00–17:30 Syntactic Processing Using Global Discriminative Learning and Beam-Search Decoding Yue Zhang, Meishan Zhang and Ting Liu ix"
+      ]
+    }
+  ]
+}
