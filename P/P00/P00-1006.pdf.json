@@ -1,0 +1,20 @@
+{
+  "sections": [
+    {
+      "title": "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                20 25 30 35 40 45 0 5000 10000 15000 20000 25000 30000",
+      "paragraphs": [
+        "test corpus perplexity "
+      ]
+    },
+    {
+      "title": "number of features MI MEMD IBM1                                                                                                                                                                                                                              42 44 46 48 50 52 54 56 58 100 1000 10000 100000 1e+06 1e+07 1e+08",
+      "paragraphs": [
+        "test corpus perplexity "
+      ]
+    },
+    {
+      "title": "number of parameters trigram+IBM1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ",
+      "paragraphs": []
+    }
+  ]
+}
