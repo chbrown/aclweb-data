@@ -7,7 +7,7 @@
       ]
     },
     {
-      "title": "kLogNLP: Graph Kernel–based Relational Learning of Natural LanguageMathias Verbeke",
+      "title": "kLogNLP: Graph Kernel–based Relational Learning of Natural Language Mathias Verbeke",
       "paragraphs": [
         "♦"
       ]
@@ -37,19 +37,19 @@
       ]
     },
     {
-      "title": "Department of Computer Science, KU Leuven, Belgium{mathias.verbeke, kurt.degrave, luc.deraedt}@cs.kuleuven.be",
+      "title": "Department of Computer Science, KU Leuven, Belgium {mathias.verbeke, kurt.degrave, luc.deraedt}@cs.kuleuven.be",
       "paragraphs": [
         "♠"
       ]
     },
     {
-      "title": "Dipartimento di Sistemi e Informatica, Università degli Studi di Firenze, Italy,p-f@dsi.unifi.it",
+      "title": "Dipartimento di Sistemi e Informatica, Università degli Studi di Firenze, Italy, p-f@dsi.unifi.it",
       "paragraphs": [
         "♣"
       ]
     },
     {
-      "title": "Institut für Informatik, Albert-Ludwigs-Universität, Germany,costa@informatik.uni-freiburg.deAbstract",
+      "title": "Institut für Informatik, Albert-Ludwigs-Universität, Germany, costa@informatik.uni-freiburg.de Abstract",
       "paragraphs": [
         "kLog is a framework for kernel-based learning that has already proven successful in solving a number of relational tasks in natural language processing. In this paper, we present kLogNLP, a natural language processing module for kLog. This module enriches kLog with NLP-specific preprocessors, enabling the use of existing libraries and toolkits within an elegant and powerful declarative machine learning framework. The resulting relational model of the domain can be extended by specifying additional relational features in a declarative way using a logic programming language. This declarative approach offers a flexible way of experimentation and a way to insert domain knowledge."
       ]
@@ -62,9 +62,13 @@
         "These properties prove especially advantageous in the case of NLP. The graphical approach of kLog is able to exploit the full relational representation that is often a natural way to express language structures, and in this way allows to fully exploit contextual features. On top of this relational learning approach, the declarative feature specification allows to include additional background knowledge, which is often essential for solving NLP problems.",
         "In this paper, we present kLogNLP1",
         ", an NLP module for kLog. Starting from a dataset and a declaratively specified model of the domain (based on entity-relationship modeling from database the-ory), it transforms the dataset into a graph-based relational format. We propose a general model that fits most tasks in NLP, which can be extended by specifying additional relational features in a declarative way. The resulting relational representation then serves as input for kLog, and thus results in a full relational learning pipeline for NLP.",
-        "kLogNLP is most related to Learning-Based Java (LBJ) (Rizzolo and Roth, 2010) in that it offers a declarative pipeline for modeling and learning tasks in NLP. The aims are similar, namely abstracting away the technical details from the programmer, and leaving him to reason about the modeling. However, whereas LBJ focuses more on the learning side (by the specification of constraints on features which are reconciled at in-ference time, using the constrained conditional 1 Software available at http://dtai.cs. kuleuven.be/klognlp 85",
+        "kLogNLP is most related to Learning-Based Java (LBJ) (Rizzolo and Roth, 2010) in that it offers a declarative pipeline for modeling and learning tasks in NLP. The aims are similar, namely abstracting away the technical details from the programmer, and leaving him to reason about the modeling. However, whereas LBJ focuses more on the learning side (by the specification of constraints on features which are reconciled at in-ference time, using the constrained conditional 1 Software available at http://dtai.cs.",
+        "kuleuven.be/klognlp 85",
         "Interpretations (small relational DBs)",
-        "Extensionalized database Graph Kernel matrix/ feature vectors Statistical learner Raw dataset (sentence) Feature extraction based on model Declarative feature construction Graphicalization Feature generation Graph kernel (NSPDK) kLog kLogNLP kLogNLP (E/R-)model Figure 1: General kLog workflow extended with the kLogNLP module model framework), due to its embedding in kLog, kLogNLP focuses on the relational modeling, in addition to declarative feature construction and feature generation using graph kernels. kLog in it-self is related to several frameworks for relational learning, for which we refer the reader to (Frasconi et al., 2012).",
+        "Extensionalized database Graph Kernel matrix/",
+        "feature vectors Statistical learner Raw dataset (sentence) Feature extraction based on model Declarative feature construction Graphicalization Feature",
+        "generation Graph kernel (NSPDK)",
+        "kLog kLogNLP kLogNLP (E/R-)model Figure 1: General kLog workflow extended with the kLogNLP module model framework), due to its embedding in kLog, kLogNLP focuses on the relational modeling, in addition to declarative feature construction and feature generation using graph kernels. kLog in it-self is related to several frameworks for relational learning, for which we refer the reader to (Frasconi et al., 2012).",
         "The remainder of this paper is organized according to the general kLog workflow, preceded with the kLogNLP module, as outlined in Figure 1. In Section 2, we discuss the modeling of the data, and present a general relational data model for NLP tasks. Also the option to declaratively construct new features using logic programming is outlined. In the subsequent parts, we will illustrate the remaining steps in the kLog pipeline, namely graphicalization and feature generation (Section 3), and learning (Section 4) in an NLP setting. The last section draws conclusions and presents ideas for future work."
       ]
     },
@@ -72,40 +76,24 @@
       "title": "2 Data Modeling",
       "paragraphs": [
         "kLog employs a learning from interpretations setting (De Raedt et al., 2008). In learning from interpretations, each interpretation is a set of tuples that are true in the example, and can be seen as a small relational database. Listing 3, to be discussed later, shows a concise example. In the NLP setting, an interpretation most commonly corresponds to a document or a sentence. The scope of an interpretation is either determined by the task (e.g., for document classification, the interpretations will at least need to comprise a single document), or by the amount of context that is taken into account (e.g., in case the task is sentence classification, the interpretation can either be a single sentence, or a full document, depending on the scope of the context that you want to take into account).",
-        "Since kLog is rooted in database theory, the modeling of the problem domain is done using an entity-relationship (E/R) model (Chen, 1976). It gives an abstract representation of the interpretations. E/R models can be seen as a tool that is tai-word depRel nextW wordID depType lemma POS-tag wordString namedEntity hasWord sentID nextS coref synonymous sentence Figure 2: Entity-relationship diagram of the kLogNLP model lored to model the domain at hand. As the name indicates, E/R models consist of entities, which we will represent as purple rectangles, and relations, represented as orange diamonds. Both entities and relations can have several attributes (yellow ovals). Key attributes (green ovals) uniquely identify an instance of an entity. We will now discuss the E/R model we propose as a starting point in the kLogNLP pipeline. 2.1",
-        "kLogNLP model Since in NLP, most tasks are situated at either the document, sentence, or token level, we propose the E/R model in Figure 2 as a general domain model suitable for most settings. It is able to represent interpretations of documents as a sequence (nextS) of sentence entities, which are composed of a sequence (nextW) of word entities. Next to the sequence relations, also the dependency relations between words (depRel) are taken into account, where each relation has its type (depType) as a property. Furthermore, also the coreference relationship between words or phrases (coref) and possibly synonymy relations (synonymous) are taken into account. The entities in our model also have a primary key, namely wordID and sentID for words and sentences respectively. Additional properties can be attached to words such as the wordString it-self, its lemma and POS-tag, and an indication whether the word is a namedEntity.",
+        "Since kLog is rooted in database theory, the modeling of the problem domain is done using an entity-relationship (E/R) model (Chen, 1976). It gives an abstract representation of the interpretations. E/R models can be seen as a tool that is tai-word depRel nextW wordID depType lemma POS-tag wordString namedEntity hasWord sentID",
+        "nextS coref",
+        "synonymous sentence Figure 2: Entity-relationship diagram of the kLogNLP model lored to model the domain at hand. As the name indicates, E/R models consist of entities, which we will represent as purple rectangles, and relations, represented as orange diamonds. Both entities and relations can have several attributes (yellow ovals). Key attributes (green ovals) uniquely identify an instance of an entity. We will now discuss the E/R model we propose as a starting point in the kLogNLP pipeline. 2.1 kLogNLP model Since in NLP, most tasks are situated at either the document, sentence, or token level, we propose the E/R model in Figure 2 as a general domain model suitable for most settings. It is able to represent interpretations of documents as a sequence (nextS) of sentence entities, which are composed of a sequence (nextW) of word entities. Next to the sequence relations, also the dependency relations between words (depRel) are taken into account, where each relation has its type (depType) as a property. Furthermore, also the coreference relationship between words or phrases (coref) and possibly synonymy relations (synonymous) are taken into account. The entities in our model also have a primary key, namely wordID and sentID for words and sentences respectively. Additional properties can be attached to words such as the wordString it-self, its lemma and POS-tag, and an indication whether the word is a namedEntity.",
         "This E/R model of Figure 2 is coded declaratively in kLog as shown in Listing 1. The kLog syntax is an extension of the logical programming language Prolog. In the next step this script will be used for feature extraction and generation. Ev-86 ery entity or relationship is declared with the key-word signature. Each signature is of a certain type; either extensional or intensional. kLogNLP only acts at the extensional level. Each signature is characterized by a name and a list of typed arguments. There are three possible argument types. First of all, the type can be the name of an entity set which has been declared in another signature (e.g., line 4 in Listing 1; the nextS signature represents the sequence relation between two entities of type sentence, namely sent 1 and sent 2). The type self is used to denote the primary key of an entity. An example is word id (line 6), which denotes the unique identifier of a certain word in the interpretation. The last possible type is property, in case the argument is neither a reference to another entity nor a primary key (e.g., postag, line 9).",
         "We will first discuss extensional signatures, and the automated extensional feature extraction provided by kLogNLP, before illustrating how the user can further enrich the model with intensional predicates. 1 begin_domain. 2 signature sentence(sent_id::self)::",
         "extensional. 3 4 signature nextS(sent_1::sentence, sent_2",
-        "::sentence)::extensional. 5 6 signature word(word_id::self, 7 word_string::property, 8 lemma::property, 9 postag::property,",
-        "10 namedentity::property",
-        "11 )::extensional.",
-        "12",
-        "13 signature nextW(word_1::word, word_2::",
+        "::sentence)::extensional. 5 6 signature word(word_id::self, 7 word_string::property, 8 lemma::property, 9 postag::property, 10 namedentity::property 11 )::extensional. 12 13 signature nextW(word_1::word, word_2::",
         "word)::extensional.",
         "14",
-        "15 signature corefPhrase(coref_id::self)::",
-        "extensional.",
-        "16 signature isPartOfCorefPhrase(",
-        "coref_phrase::corefPhrase, word::",
-        "word)::extensional.",
-        "17 signature coref(coref_phrase_1::",
-        "corefPhrase, coref_phrase_2::",
-        "corefPhrase)::extensional.",
-        "18",
-        "19 signature synonymous(word_1::word,",
-        "word_2::word)::extensional.",
-        "20",
-        "21 signature dependency(word_1::word,",
-        "22 word_2::word,",
-        "23 dep_rel::property",
-        "24 )::extensional.",
-        "25",
-        "26 kernel_points([word]).",
-        "27 end_domain. Listing 1: Declarative representation of the kLogNLP model 2.2 Extensional Feature Extraction kLog assumes a closed-world, which means that atoms that are not known to be true, are assumed to be false. For extensional signatures, this entails that all ground atoms need to be listed explicitly in the relational database of interpretations. These atoms are generated automatically by the kLogNLP module based on the kLog script and the input dataset. Considering the defined attributes and relations in the model presented in Listing 1, the module interfaces with NLP toolkits to preprocess the data to the relational format. The user can remove unnecessary extensional signatures or modify the number of attributes given in the standard kLogNLP script as given in Listing 1 according to the needs of the task under consideration.",
+        "15 signature corefPhrase(coref_id::self):: extensional.",
+        "16 signature isPartOfCorefPhrase( coref_phrase::corefPhrase, word:: word)::extensional.",
+        "17 signature coref(coref_phrase_1:: corefPhrase, coref_phrase_2:: corefPhrase)::extensional. 18 19 signature synonymous(word_1::word,",
+        "word_2::word)::extensional. 20 21 signature dependency(word_1::word, 22 word_2::word, 23 dep_rel::property 24 )::extensional. 25 26 kernel_points([word]). 27 end_domain. Listing 1: Declarative representation of the kLogNLP model 2.2 Extensional Feature Extraction kLog assumes a closed-world, which means that atoms that are not known to be true, are assumed to be false. For extensional signatures, this entails that all ground atoms need to be listed explicitly in the relational database of interpretations. These atoms are generated automatically by the kLogNLP module based on the kLog script and the input dataset. Considering the defined attributes and relations in the model presented in Listing 1, the module interfaces with NLP toolkits to preprocess the data to the relational format. The user can remove unnecessary extensional signatures or modify the number of attributes given in the standard kLogNLP script as given in Listing 1 according to the needs of the task under consideration.",
         "An important choice is the inclusion of the sentence signature. By inclusion, the granularity of the interpretation is set to the document level, which implies that more context can be taken into account. By excluding this signature, the granularity of the interpretation is set to the sentence level.",
         "Currently, kLogNLP interfaces with the follow-ing NLP toolkits:",
-        "NLTK The Python Natural Language Toolkit (NLTK) (Bird et al., 2009) offers a suite of text processing libraries for tokenization, stemming, tagging and parsing, and offers an interface to WordNet. Stanford CoreNLP Stanford CoreNLP2 provides POS tagging, NER, parsing and coreference resolution functionality.",
+        "NLTK The Python Natural Language Toolkit (NLTK) (Bird et al., 2009) offers a suite of text processing libraries for tokenization, stemming, tagging and parsing, and offers an interface to WordNet.",
+        "Stanford CoreNLP Stanford CoreNLP2",
+        "provides POS tagging, NER, parsing and coreference resolution functionality.",
         "The preprocessing toolkit to be used can be set using the kLogNLP flags mechanism, as illustrated by line 3 of Listing 2. Subsequently, the dataset predicate (illustrated in line 4 of Listing 2) calls kLogNLP to preprocess a given dataset3",
         ". This is done according to the specified kLogNLP model, i.e., the necessary preprocessing modules to be called in the preprocessing toolkit are determined based on the presence of the entities, relationships, and their attributes in the kLogNLP script. For example, the presence",
         "2",
@@ -128,26 +116,27 @@
         "sentence, header::property)::",
         "intensional. 14 hasSectionHeader(S,X) :- 15 nextS(S1,S), 16 hasHeaderWord(S1,X). 17 hasSectionHeader(S,X) :- 18 nextS(S1,S), 19 not isHeaderSentence(S), 20 once(hasSectionHeader(S1,X)).",
         "In this case, first the sentences that contain a header word are identified using the helper pred-88 word(often,often,rb,0,1) word(the,the,dt,0,2) word(response,response,nn,0,3) word(variable,variable,nn,0,4) word(may,may,md,0,5) nextW depRel(adv) nextW depRel(nmod) nextW depRel(nmod) nextW depRel(sbj) Figure 3: Graphicalization of the (partial) interpretation in Listing 3. For the sake of clarity, attributes of entities and relationships are depicted inside the respective entity or relationship.",
-        "r=0 d=2 r=1 d=2 v u INSTANCE G FEATURES A Figure 4: Illustration of the NSPDK feature concept. Left: instance G with 2 vertices v, u as roots for neighborhood subgraphs (A, B) at distance 2. Right: some of the neighborhood pairs, which form the NSPDK features, at distance d = 2 and radius r = 0 and 1 respectively. Note that neighborhood subgraphs can overlap. icate hasHeaderWord, where a header word is defined as an upper case string that has more than four letters (lines 1-7). Next, all sentences that represent a section header are identified using the intensional signature isHeaderSentence (lines 9-11), and each sentence in the paragraphs follow-ing a particular section header is labeled with this header, using the hasSectionHeader predicate (lines 13-20).",
+        "r=0 d=2 r=1 d=2 v uINSTANCE G FEATURES A Figure 4: Illustration of the NSPDK feature concept. Left: instance G with 2 vertices v, u as roots for neighborhood subgraphs (A, B) at distance 2. Right: some of the neighborhood pairs, which form the NSPDK features, at distance d = 2 and radius r = 0 and 1 respectively. Note that neighborhood subgraphs can overlap. icate hasHeaderWord, where a header word is defined as an upper case string that has more than four letters (lines 1-7). Next, all sentences that represent a section header are identified using the intensional signature isHeaderSentence (lines 9-11), and each sentence in the paragraphs follow-ing a particular section header is labeled with this header, using the hasSectionHeader predicate (lines 13-20).",
         "Due to the relational approach, the span can be very large. Furthermore, since these features are defined declaratively, there is no need to reprocess the dataset each time a new feature is introduced, which renders experimentation very flexible 4",
         "."
       ]
     },
     {
-      "title": "3 Graphicalization and FeatureGeneration",
+      "title": "3 Graphicalization and Feature Generation",
       "paragraphs": [
         "In this step, a technique called graphicalization transforms the relational representations from the previous step into graph-based ones and derives features from a grounded entity/relationship diagram using graph kernels. This can be interpreted as unfolding the E/R diagram over the data. An example of the graphicalization of the interpretation part in Listing 3 can be found in Figure 3.",
         "From the resulting graphs, features can be extracted using a feature generation technique that is based on Neighborhood Subgraph Pairwise Dis-",
         "4",
         "Note that changes in the extensional signatures do require reprocessing the dataset. However, for different runs of an experiment with varying parameters for the feature generator or the learner, kLogNLP uses a caching mechanism to check if the extensional signatures have changed, when call-ing the dataset predicate. tance Kernel (NSPDK) (Costa and De Grave, 2010), a particular type of graph kernel. Informally the idea of this kernel is to decompose a graph into small neighborhood subgraphs of in-creasing radii r ≤ rmax. Then, all pairs of such subgraphs whose roots are at a distance not greater than d ≤ dmax are considered as individual features. The kernel notion is finally given as the frac-tion of features in common between two graphs.",
         "Formally, the kernel is defined as:",
-        "κr,d(G, G′ ) = ∑",
+        "κr,d(G, G′",
+        ") = ∑",
         "A,B∈R−1",
         "r,d(G)",
         "A′",
         ",B′ ∈R−1",
         "r,d(G′",
-        ")1A∼=A′ · 1B∼=B′ (1)",
+        ") 1A∼=A′ · 1B∼=B′ (1)",
         "where R−1",
         "r,d (G) indicates the multiset of all pairs of neighborhoods of radius r with roots at distance d that exist in G, and where 1 denotes the indicator function and ∼= the isomorphism between graphs. For the full details, we refer the reader to (Costa and De Grave, 2010). The neighborhood pairs are illustrated in Figure 4 for a distance of 2 between two arbitrary roots (v and u).",
         "In kLog, the feature set is generated in a combinatorial fashion by explicitly enumerating all pairs of neighborhood subgraphs; this yields a high-dimensional feature space that is much richer than most of the direct propositionalization approaches. The result is an extended high-dimensional feature space on which a statistical learning algorithm can be applied. The feature generator is initialized using the new feature generator predicate and hyperparameters (e.g., maximum distance and radius, and match type) can be set using the kLog flags mechanism (Listing 2, lines 6-10). 89"

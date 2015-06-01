@@ -7,7 +7,7 @@
       ]
     },
     {
-      "title": "Towards a Discourse Relation-aware Approachfor Chinese-English Machine TranslationFrances YungNara Institute of Science and Technology8916-5 Takayama, Ikoma, Nara, 630-0192 Japanpikyufrances-y@is.naist.jpAbstract",
+      "title": "Towards a Discourse Relation-aware Approach for Chinese-English Machine Translation Frances Yung Nara Institute of Science and Technology 8916-5 Takayama, Ikoma, Nara, 630-0192 Japan pikyufrances-y@is.naist.jp Abstract",
       "paragraphs": [
         "Translation of discourse relations is one of the recent efforts of incorporating discourse information to statistical machine translation (SMT). While existing works focus on disambiguation of ambiguous discourse connectives, or transformation of discourse trees, only explicit discourse relations are tackled. A greater challenge exists in machine translation of Chinese, since implicit discourse relations are abundant and occur both inside and outside a sentence. This thesis proposal describes ongoing work on bilingual discourse annotation and plans towards incorporating discourse relation knowledge to a Chinese-English SMT system with consideration of implicit discourse relations. The final goal is a discourse-unit-based translation model unbounded by the traditional assumption of sentence-to-sentence translation."
       ]
@@ -22,7 +22,7 @@
       ]
     },
     {
-      "title": "2 Survey2.1 English discourse processing",
+      "title": "2 Survey 2.1 English discourse processing",
       "paragraphs": [
         "There are a number of discourse-annotated English resources, including the ‘RST Treebank’ (Carlson et al., 2001) and the ‘Discourse Graph-Bank’ (Wolf and Gibson, 2005), which consist 18 of 385 and 135 articles respectively. Recent discourse research often make use of the large-scaled Penn Discourse Treebank (PDTB) (Prasad et al., 2008). Departed from annotation using pre-defined discourse relations, such as ‘Rhetorical Structure Theory’ (Mann and Thompson, 1988), PDTB introduces a lexically-ground formalism to annotate discourse relations by identifying the discourse connectives (DCs). An example is shown in the following. Example 1: Since McDonald’s menu prices rose this year, the actual decline may have been more. (PDTB 1280)",
         "‘Since’ is an explicit DC taking the italic segment as the first argument (Arg1), and the bolded segment as the second argument (Arg2), which is syntactically attached to the DC. Implicit DCs are inserted by annotators between adjacent sentences of the same paragraph to represent inferred discourse relations. Each DC is annotated with defined senses classified into 3 levels of granularity.",
@@ -40,7 +40,7 @@
       ]
     },
     {
-      "title": "4 Work in progress: Cross-lingualannotation of discourse relations",
+      "title": "4 Work in progress: Cross-lingual annotation of discourse relations",
       "paragraphs": [
         "Towards building a statistical machine translation system that tackles discourse relations specifically, I started manually annotating a Chinese-English translation corpus with discourse relations. The purpose of annotation is not only to create data but also to understand the problems in Chinese discourse processing and translation. The completed annotation is planned to be released.",
         "Comparing with representation of discourse relations by analytical definitions, the PDTB-styled association of discourse relations to lexical connectives is more compatible to the procedures of statistical machine translation. Therefore, the PDTB convention is adopted for the annotation of connectives on both sides of the parallel corpus. Instead of sense annotation, the DCs are aligned in similar manner as the ‘translation spotting’ approach (Meyer et al., 2011; Popescu-Belis et al., 2012; Cartoni et al., 2013). In other words, the ‘senses’ are disambiguated by the translation of the DCs. The data used is the English Chinese Translation Treebank (Bies et al., 2007), which consists of 325 Chinese news stories translated into 146,300 words of English. Adaptations made to capture the cross-lingual difference in discourse relations are explained in the following. 4.1 EDU segmented by punctuations In the PDTB, the span of each EDU (Arg1 or Arg2), which can range from a single noun to multiple sentences, are manually annotated. While 20 each WSJ paragraph1",
@@ -80,7 +80,8 @@
         "Ann Bies, Martha Palmer, Justin Mott, and Colin Warner. 2007. English chinese translation treebank v 1.0. Linguistic Data Consortium LDC2007T02, January.",
         "Houda Bouamor, Behrang Mohit, and Kemal Oflazer. 2013. Sumt: A framework of summarization and mt. Proceedings of the International Conference on Natural Language Processing.",
         "Lynn Carlson, Daniel Marcu, and Mary Ellen Okurowski. 2001. Building a discourse-tagged corpus in the framework of rhetorical structure theory. Proceedings of the SIGdial Workshop on Discourse and Dialogue.",
-        "Bruno Cartoni, Sandrine Zufferey, and Thomas Meyer. 2013. Annotating the meaning of discourse connectives by looking at their translation: The translation-spotting technique. Dialogue and Discourse, 4(2). Najeh Hajlaoui and Andrei Popescu-Belis. 2012. Translating english discourse connectives into arabic: a corpus-based analysis and an evaluation metric. Proceedings of the Workshop on Computational Approaches to Arabic Script-based Languages.",
+        "Bruno Cartoni, Sandrine Zufferey, and Thomas Meyer. 2013. Annotating the meaning of discourse connectives by looking at their translation: The translation-spotting technique. Dialogue and Discourse, 4(2).",
+        "Najeh Hajlaoui and Andrei Popescu-Belis. 2012. Translating english discourse connectives into arabic: a corpus-based analysis and an evaluation metric. Proceedings of the Workshop on Computational Approaches to Arabic Script-based Languages.",
         "Najeh Hajlaoui and Andrei Popescu-Belis. 2013. As-sessing the accuracy of discourse connective trans-lations: Validation of an automatic metric. Computational LInguistics and Intelligent Text Processing, 7617.",
         "Christian Hardmeier, Joakim Nivre, and Jörg Tiedemann. 2012. Document-wide decoding for phrase-based statistical machine translation. Proceedings of the Joint Conference on Empirical Methods in Natural Language Processing and Computational Natural Language Learning.",
         "Hen-Hsen Huang and Hsin-Hsi Chen. 2011. Chinese discourse relation recognition. Proceedings of the International Conference on Natural Language Processing.",

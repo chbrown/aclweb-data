@@ -7,7 +7,7 @@
       ]
     },
     {
-      "title": "Multilingual Models for Compositional Distributed SemanticsKarl Moritz Hermann and Phil BlunsomDepartment of Computer ScienceUniversity of OxfordOxford, OX1 3QD, UK{karl.moritz.hermann,phil.blunsom}@cs.ox.ac.ukAbstract",
+      "title": "Multilingual Models for Compositional Distributed Semantics Karl Moritz Hermann and Phil Blunsom Department of Computer Science University of Oxford Oxford, OX1 3QD, UK {karl.moritz.hermann,phil.blunsom}@cs.ox.ac.uk Abstract",
       "paragraphs": [
         "We present a novel technique for learning semantic representations, which extends the distributional hypothesis to multilingual data and joint-space embeddings. Our models leverage parallel data and learn to strongly align the embeddings of semantically equivalent sentences, while maintaining sufficient distance between those of dissimilar sentences. The models do not rely on word alignments or any syntactic information and are successfully applied to a number of diverse languages. We extend our approach to learn semantic representations at the document level, too. We evaluate these models on two cross-lingual document classification tasks, outperforming the prior state of the art. Through qualitative analysis and the study of pivoting effects we demonstrate that our representations are semantically plausible and can capture semantic relationships across languages without parallel data."
       ]
@@ -39,12 +39,8 @@
         "Assume two functions f : X → Rd",
         "and g : Y → Rd",
         ", which map sentences from languages x and y onto distributed semantic representations in Rd",
-        ". Given a parallel corpus C, we then define the energy of the model given two sentences (a, b) ∈ C as: Ebi(a, b) = ∥f (a) − g(b)∥2 (1) 59 We want to minimize Ebi for all semantically equivalent sentences in the corpus. In order to prevent the model from degenerating, we further introduce a noise-constrastive large-margin update which ensures that the representations of non-aligned sentences observe a certain margin from each other. For every pair of parallel sentences (a, b) we sample a number of additional sentence pairs (·, n) ∈ C, where n—with high probability—is not semantically equivalent to a. We use these noise samples as follows: Ehl(a, b, n) = [m + Ebi(a, b) − Ebi(a, n)]+ where [x]+ = max(x, 0) denotes the standard hinge loss and m is the margin. This results in the following objective function:",
-        "J (θ) = ∑",
-        "(a,b)∈C ( k ∑ i=1 Ehl(a, b, ni) + λ",
-        "2 ∥θ∥2)",
-        "(2)",
-        "where θ is the set of all model variables. 3.1 Two Composition Models The objective function in Equation 2 could be coupled with any two given vector composition functions f, g from the literature. As we aim to apply our approach to a wide range of languages, we focus on composition functions that do not require any syntactic information. We evaluate the following two composition functions.",
+        ". Given a parallel corpus C, we then define the energy of the model given two sentences (a, b) ∈ C as: Ebi(a, b) = ∥f (a) − g(b)∥2 (1) 59 We want to minimize Ebi for all semantically equivalent sentences in the corpus. In order to prevent the model from degenerating, we further introduce a noise-constrastive large-margin update which ensures that the representations of non-aligned sentences observe a certain margin from each other. For every pair of parallel sentences (a, b) we sample a number of additional sentence pairs (·, n) ∈ C, where n—with high probability—is not semantically equivalent to a. We use these noise samples as follows: Ehl(a, b, n) = [m + Ebi(a, b) − Ebi(a, n)]+ where [x]+ = max(x, 0) denotes the standard hinge loss and m is the margin. This results in the following objective function: J (θ) = ∑ (a,b)∈C",
+        "( k ∑ i=1 Ehl(a, b, ni) + λ 2 ∥θ∥2 ) (2) where θ is the set of all model variables. 3.1 Two Composition Models The objective function in Equation 2 could be coupled with any two given vector composition functions f, g from the literature. As we aim to apply our approach to a wide range of languages, we focus on composition functions that do not require any syntactic information. We evaluate the following two composition functions.",
         "The first model, ADD, represents a sentence by the sum of its word vectors. This is a distributed bag-of-words approach as sentence ordering is not taken into account by the model.",
         "Second, the BI model is designed to capture bigram information, using a non-linearity over bigram pairs in its composition function: f (x) = n ∑ i=1 tanh (xi−1 + xi) (3) The use of a non-linearity enables the model to learn interesting interactions between words in a document, which the bag-of-words approach of ADD is not capable of learning. We use the hyperbolic tangent as activation function. 3.2 Document-level Semantics For a number of tasks, such as topic modelling, representations of objects beyond the sentence level are required. While most approaches to compositional distributed semantics end at the word Figure 2: Description of a parallel document-level compositional vector model (DOC). The model recursively computes semantic representations for each sentence of a document and then for the document itself, treating the sentence vectors as inputs for a second CVM. level, our model extends to document-level learning quite naturally, by recursively applying the composition and objective function (Equation 2) to compose sentences into documents. This is achieved by first computing semantic representations for each sentence in a document. Next, these representations are used as inputs in a higher-level CVM, computing a semantic representation of a document (Figure 2).",
         "This recursive approach integrates document-level representations into the learning process. We can thus use corpora of parallel documents— regardless of whether they are sentence aligned or not—to propagate a semantic signal back to the individual words. If sentence alignment is available, of course, the document-signal can simply be combined with the sentence-signal, as we did with the experiments described in §5.3.",
@@ -95,7 +91,7 @@
       ]
     },
     {
-      "title": "6 Related WorkDistributed Representations",
+      "title": "6 Related Work Distributed Representations",
       "paragraphs": [
         "Distributed representations can be learned through a number of approaches. In their simplest form, distributional information from large corpora can be used to learn embeddings, where the words appearing within a certain window of the target word are used to compute that word’s embedding. This is related to topic-modelling techniques such as LSA (Dumais et al., 1988), LSI, and LDA (Blei et al., 2003), but these methods use a document-level context, and tend to capture the topics a word is used in rather than its more immediate syntactic context.",
         "Neural language models are another popular approach for inducing distributed word representations (Bengio et al., 2003). They have received a lot of attention in recent years (Collobert and We-ston, 2008; Mnih and Hinton, 2009; Mikolov et al., 2010, inter alia) and have achieved state of the art performance in language modelling. Collobert et al. (2011) further popularised using neural network architectures for learning word embeddings from large amounts of largely unlabelled data by showing the embeddings can then be used to improve standard supervised tasks. 65",
@@ -120,7 +116,8 @@
     {
       "title": "References",
       "paragraphs": [
-        "R. Al-Rfou’, B. Perozzi, and S. Skiena. 2013. Polyglot: Distributed word representations for multilingual nlp. In Proceedings of CoNLL. M. Baroni and R. Zamparelli. 2010. Nouns are vectors, adjectives are matrices: Representing adjective-noun constructions in semantic space. In Proceedings of EMNLP.",
+        "R. Al-Rfou’, B. Perozzi, and S. Skiena. 2013. Polyglot: Distributed word representations for multilingual nlp. In Proceedings of CoNLL.",
+        "M. Baroni and R. Zamparelli. 2010. Nouns are vectors, adjectives are matrices: Representing adjective-noun constructions in semantic space. In Proceedings of EMNLP.",
         "Y. Bengio, R. Ducharme, P. Vincent, and C. Janvin. 2003. A neural probabilistic language model. Journal of Machine Learning Research, 3:1137–1155, March.",
         "D. M. Blei, A. Y. Ng, and M. I. Jordan. 2003. Latent dirichlet allocation. Journal of Machine Learning Research, 3:993–1022.",
         "P. Bloom. 2001. Precis of how children learn the meanings of words. Behavioral and Brain Sciences, 24:1095–1103.",
@@ -135,13 +132,15 @@
         "S. T. Dumais, G. W. Furnas, T. K. Landauer, S. Deerwester, and R. Harshman. 1988. Using latent semantic analysis to improve access to textual information. In Proceedings of the SIGCHI Conference on Human Factors in Computing Systems.",
         "C. Dyer, A. Lopez, J. Ganitkevitch, J. Weese, F. Ture, P. Blunsom, H. Setiawan, V. Eidelman, and P. Resnik. 2010. cdec: A Decoder, Alignment, and Learning framework for finite-state and context-free translation models. In Proceedings of ACL.",
         "K. Erk and S. Padó. 2008. A structured vector space model for word meaning in context. Proceedings of EMNLP.",
-        "J. R. Firth. 1957. A synopsis of linguistic theory 1930-55. 1952-59:1–32. E. Grefenstette and M. Sadrzadeh. 2011. Experimental support for a categorical compositional distributional model of meaning. In Proceedings of EMNLP.",
+        "J. R. Firth. 1957. A synopsis of linguistic theory 1930-55. 1952-59:1–32.",
+        "E. Grefenstette and M. Sadrzadeh. 2011. Experimental support for a categorical compositional distributional model of meaning. In Proceedings of EMNLP.",
         "A. Haghighi, P. Liang, T. Berg-Kirkpatrick, and D. Klein. 2008. Learning bilingual lexicons from monolingual corpora. In Proceedings of ACL-HLT.",
         "K. M. Hermann and P. Blunsom. 2013. The Role of Syntax in Vector Space Models of Compositional Semantics. In Proceedings of ACL.",
         "K. M. Hermann and P. Blunsom. 2014. Multilingual Distributed Representations without Word Alignment. In Proceedings of ICLR.",
         "N. Kalchbrenner and P. Blunsom. 2013. Recurrent convolutional neural networks for discourse compositionality. Proceedings of the ACL Workshop on Continuous Vector Space Models and their Compositionality.",
         "A. Klementiev, I. Titov, and B. Bhattarai. 2012. In-ducing crosslingual distributed representations of words. In Proceedings of COLING.",
-        "P. Koehn. 2005. Europarl: A Parallel Corpus for Statistical Machine Translation. In Proceedings of the Machine Translation Summit. S. Lauly, A. Boulanger, and H. Larochelle. 2013. Learning multilingual word representations using a bag-of-words autoencoder. In Deep Learning Workshop at NIPS.",
+        "P. Koehn. 2005. Europarl: A Parallel Corpus for Statistical Machine Translation. In Proceedings of the Machine Translation Summit.",
+        "S. Lauly, A. Boulanger, and H. Larochelle. 2013. Learning multilingual word representations using a bag-of-words autoencoder. In Deep Learning Workshop at NIPS.",
         "D. D. Lewis, Y. Yang, T. G. Rose, and F. Li. 2004. Rcv1: A new benchmark collection for text categorization research. Journal of Machine Learning Research, 5:361–397, December.",
         "A. K. McCallum. 2002. Mallet: A machine learning for language toolkit. http://mallet.cs.umass.edu.",
         "T. Mikolov, M. Karafiát, L. Burget, J. Černocký, and S. Khudanpur. 2010. Recurrent neural network based language model. In Proceedings of INTER-SPEECH.",

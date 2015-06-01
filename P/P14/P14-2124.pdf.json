@@ -7,7 +7,7 @@
       ]
     },
     {
-      "title": "XMEANT: Better semantic MT evaluation without reference translationsLo, Chi-kiu Beloucif, Meriem Saers, Markus Wu, DekaiHKUSTHuman Language Technology CenterDepartment of Computer Science and EngineeringHong Kong University of Science and Technology",
+      "title": "XMEANT: Better semantic MT evaluation without reference translations Lo, Chi-kiu Beloucif, Meriem Saers, Markus Wu, Dekai HKUST Human Language Technology Center Department of Computer Science and Engineering Hong Kong University of Science and Technology",
       "paragraphs": [
         "{jackielo|mbeloucif|masaers|dekai}@cs.ust.hk"
       ]
@@ -27,7 +27,7 @@
       ]
     },
     {
-      "title": "2 Related Work2.1 MT evaluation metrics",
+      "title": "2 Related Work 2.1 MT evaluation metrics",
       "paragraphs": [
         "Surface-form oriented metrics such as BLEU ( Papineni et al., 2002), NIST (Doddington, 2002), METEOR (Banerjee and Lavie, 2005), CDER (Leusch et al., 2006), WER (Nießen et al., 2000), and TER (Snover et al., 2006) do not correctly reflect the meaning similarities of the input sentence. In fact, a number of large scale meta-evaluations (Callison-Burch et al. , 2006; Koehn and Monz, 2006) report cases where BLEU strongly disagrees with human judgments of translation adequacy.",
         "This has caused a recent surge of work to develop better ways to automatically measure MT adequacy. Owczarzak et al. (2007a,b) improved correlation with human fluency judgments by using LFG to extend the approach of evaluating syntactic dependency structure similarity proposed by Liu and Gildea (2005), but did not achieve higher correlation with human adequacy judgments than metrics like METEOR. TINE (Rios et al., 2011) is a recall-oriented metric which aims to preserve the basic event structure but it performs comparably to BLEU and worse than METEOR on correlation with human adequacy judgments. ULC (Giménez and Màrquez, 2007, 2008) incorporates several semantic features and shows improved correlation with human judgement on translation quality (Callison-Burch et al. , 2007, 2008) but no work has been done towards tuning an SMT system using a pure form of ULC perhaps due to its expensive run time. Similarly, SPEDE (Wang and Manning, 2012) predicts the edit sequence for match-ing the MT output to the reference via an integrated probabilistic FSM and PDA model. Sagan (Castillo and Estrella, 2012) is a semantic textual similarity metric based on a complex textual entailment pipeline. These aggregated metrics require sophisticated feature extraction steps, contain several dozens of parameters to tune, and employ expensive linguistic resources like WordNet Figure 1: Monolingual MEANT algorithm. or paraphrase tables; the expensive training, tuning, and/or running time makes them hard to in-corporate into the MT development cycle. 2.2 The MEANT family of metrics MEANT (Lo et al., 2012), which is the weighted f-score over the matched semantic role labels of the automatically aligned semantic frames and role fillers, that outperforms BLEU, NIST, METEOR, WER, CDER and TER in correlation with human adequacy judgments. MEANT is easily portable to other languages, requiring only an automatic semantic parser and a large monolingual corpus in the output language for identifying the semantic structures and the lexical similarity between the semantic role fillers of the reference and translation.",
@@ -46,8 +46,8 @@
       "paragraphs": [
         "Like MEANT, XMEANT aims to evaluate how well MT preserves the core semantics, while maintaining full representational transparency. But whereas MEANT measures lexical similarity using a monolingual context vector model, XMEANT instead substitutes simple cross-lingual lexical translation probabilities.",
         "XMEANT differs only minimally from MEANT, as underlined in figure 3. The same weights obtained by optimizing MEANT against human adequacy judgement were used for XMEANT. The weights can also be estimated in unsupervised fashion using the relative frequency of each semantic role label in the foreign input, as in UMEANT.",
-        "To aggregate individual lexical translation probabilities into phrasal similarities between cross-lingual semantic role fillers, we compared two natural approaches to generalizing MEANT’s method of comparing semantic parses, as described below. 3.1 Applying MEANT’s f-score within semantic role fillers The first natural approach is to extend MEANT’s f-score based method of aggregating semantic parse accuracy, so as to also apply to aggregating lexical translation probabilities within semantic role filler phrases. However, since we are miss-ing structure information within the flat role filler phrases, we can no longer assume an injective mapping for aligning the tokens of the role fillers between the foreign input and the MT output. We therefore relax the assumption and thus for cross-lingual phrasal precision/recall, we align each token of the role fillers in the output/input string to the token of the role fillers in the input/output string that has the maximum lexical translation probability. The precise definition of the cross-lingual phrasal similarities is as follows: ei,pred ≡ the output side of the pred of aligned frame i fi,pred ≡ the input side of the pred of aligned frame i ei,j ≡ the output side of the ARG j of aligned frame i fi,j ≡ the input side of the ARG j of aligned frame i",
-        "p(e, f) = √ t (e|f) t (f|e) prece,f =",
+        "To aggregate individual lexical translation probabilities into phrasal similarities between cross-lingual semantic role fillers, we compared two natural approaches to generalizing MEANT’s method of comparing semantic parses, as described below.",
+        "3.1 Applying MEANT’s f-score within semantic role fillers The first natural approach is to extend MEANT’s f-score based method of aggregating semantic parse accuracy, so as to also apply to aggregating lexical translation probabilities within semantic role filler phrases. However, since we are miss-ing structure information within the flat role filler phrases, we can no longer assume an injective mapping for aligning the tokens of the role fillers between the foreign input and the MT output. We therefore relax the assumption and thus for cross-lingual phrasal precision/recall, we align each token of the role fillers in the output/input string to the token of the role fillers in the input/output string that has the maximum lexical translation probability. The precise definition of the cross-lingual phrasal similarities is as follows: ei,pred ≡ the output side of the pred of aligned frame i fi,pred ≡ the input side of the pred of aligned frame i ei,j ≡ the output side of the ARG j of aligned frame i fi,j ≡ the input side of the ARG j of aligned frame i p(e, f) = √ t (e|f) t (f|e) prece,f =",
         "∑ e∈e max",
         "f∈f p(e, f) |e| rece,f =",
         "∑ f∈f max",
@@ -67,28 +67,25 @@
         "prece",
         "i,j,f i,j + rece",
         "i,j,f",
-        "i,j where the joint probability p is defined as the harmonized the two directions of the translation table t trained using IBM model 1 (Brown et al., 1993). prece,f is the precision and rece,f is the recall of the phrasal similarities of the role fillers. si,pred and si,j are the f-scores of the phrasal similarities of the predicates and role fillers of the arguments of type j between the input and the MT output. 3.2 Applying MEANT’s ITG bias within semantic role fillers The second natural approach is to extend MEANT’s ITG bias on compositional reordering, so as to also apply to aggregating lexical translation probabilities within semantic role filler phrases. Addanki et al. (2012) showed empirically that cross-lingual semantic role reordering of the kind that MEANT is based upon is fully covered within ITG constraints. In Wu et al. (2014), we extend ITG constraints into aligning the tokens within the semantic role fillers within monolingual MEANT, thus replacing its previous monolingual phrasal aggregation heuristic. Here we borrow the 768 idea for the cross-lingual case, using the length-normalized inside probability at the root of a BITG biparse (Wu, 1997; Zens and Ney, 2003; Saers and Wu, 2009) as follows:",
-        "G ≡ ⟨{A} , W0",
+        "i,j where the joint probability p is defined as the harmonized the two directions of the translation table t trained using IBM model 1 (Brown et al., 1993). prece,f is the precision and rece,f is the recall of the phrasal similarities of the role fillers. si,pred and si,j are the f-scores of the phrasal similarities of the predicates and role fillers of the arguments of type j between the input and the MT output.",
+        "3.2 Applying MEANT’s ITG bias within semantic role fillers The second natural approach is to extend MEANT’s ITG bias on compositional reordering, so as to also apply to aggregating lexical translation probabilities within semantic role filler phrases. Addanki et al. (2012) showed empirically that cross-lingual semantic role reordering of the kind that MEANT is based upon is fully covered within ITG constraints. In Wu et al. (2014), we extend ITG constraints into aligning the tokens within the semantic role fillers within monolingual MEANT, thus replacing its previous monolingual phrasal aggregation heuristic. Here we borrow the 768 idea for the cross-lingual case, using the length-normalized inside probability at the root of a BITG biparse (Wu, 1997; Zens and Ney, 2003; Saers and Wu, 2009) as follows: G ≡ ⟨{A} , W0",
         ", W1",
-        ", R, A⟩",
-        "R ≡ {A → [AA] , A → ⟨AA⟩, A → e/f} p ([AA] |A) = p (⟨AA⟩|A) = 0.25 p (e/f|A) = 1 2 √",
-        "t (e|f) t (f|e) si,pred = 1",
-        "1 − ln(",
-        "P( A ∗ ⇒e",
-        "i,pred/f",
+        ", R, A⟩ R ≡ {A → [AA] , A → ⟨AA⟩, A → e/f}",
+        "p ([AA] |A) = p (⟨AA⟩|A) = 0.25 p (e/f|A) = 1 2",
+        "√ t (e|f) t (f|e) si,pred = 1 1 − ln ( P",
+        "(",
+        "A ∗ ⇒e i,pred/f",
         "i,pred|G))",
         "max(|e i,pred|,|f",
-        "i,pred|) si,j = 1",
-        "1 − ln(",
-        "P( A ∗ ⇒e",
-        "i,j/f",
+        "i,pred|) si,j = 1 1 − ln ( P",
+        "(",
+        "A ∗ ⇒e i,j/f",
         "i,j|G))",
         "max(|e i,j|,|f",
         "i,j|) where G is a bracketing ITG, whose only nonterminal is A, and where R is a set of transduction rules where e ∈ W0",
         "∪ {ε} is an output token (or the null token), and f ∈ W1",
-        "∪ {ε} is an input token (or the null token). The rule probability function p is defined using fixed probabilities for the structural rules, and a translation table t trained using IBM model 1 in both directions. To calculate the inside probability of a pair of segments, P (",
-        "A ∗",
-        "⇒ e/f|G)",
+        "∪ {ε} is an input token (or the null token). The rule probability function p is defined using fixed probabilities for the structural rules, and a translation table t trained using IBM model 1 in both directions. To calculate the inside probability of a pair of segments, P ( A ∗ ⇒ e/f|G",
+        ")",
         ", we use the algorithm described in Saers et al. (2009). si,pred and si,j are the length normalized BITG parsing probabilities of the predicates and role fillers of the arguments of type j between the input and the MT output."
       ]
     },
@@ -96,7 +93,8 @@
       "title": "4 Results",
       "paragraphs": [
         "Table 1 shows that for human adequacy judgments at the sentence level, the f-score based XMEANT (1) correlates significantly more closely than other commonly used monolingual automatic MT evaluation metrics, and (2) even correlates nearly as well as monolingual MEANT. This suggests that the semantic structure of the MT output is indeed closer to that of the input sentence than that of the reference translation.",
-        "Furthermore, the ITG-based XMEANT (1) significantly outperforms MEANT, and (2) is an automatic metric that is nearly as accurate as the HMEANT human subjective version. This indicates that BITG constraints indeed provide a more robust token alignment compared to the heuristics previously employed in MEANT. It is also consistent with results observed while estimating word alignment probabilities, where BITG constraints outperformed alignments from GIZA++ (Saers and Wu, 2009). Table 1: Sentence-level correlation with HAJ",
+        "Furthermore, the ITG-based XMEANT (1) significantly outperforms MEANT, and (2) is an automatic metric that is nearly as accurate as the HMEANT human subjective version. This indicates that BITG constraints indeed provide a more robust token alignment compared to the heuristics previously employed in MEANT. It is also consistent with results observed while estimating word alignment probabilities, where BITG constraints outperformed alignments from GIZA++ (Saers and Wu, 2009).",
+        "Table 1: Sentence-level correlation with HAJ",
         "(GALE phase 2.5 evaluation data) Metric Kendall HMEANT 0.53 XMEANT (BITG) 0.51 MEANT (f-score) 0.48 XMEANT (f-score) 0.46 MEANT (2013) 0.46 NIST 0.29 BLEU/METEOR/TER/PER 0.20 CDER 0.12 WER 0.10"
       ]
     },
@@ -117,7 +115,8 @@
       "title": "References",
       "paragraphs": [
         "Karteek Addanki, Chi-Kiu Lo, Markus Saers, and Dekai Wu. LTG vs. ITG coverage of cross-lingual verb frame alternations. In 16th Annual Conference of the European Association for Machine Translation (EAMT-2012), Trento, Italy, May 2012.",
-        "Hala Almaghout and Lucia Specia. A CCG-based quality estimation metric for statistical machine translation. In Machine Translation Summit XIV (MT Summit 2013), Nice, France, 2013. Eleftherios Avramidis and Maja Popović. Machine learning methods for comparative and time-oriented quality estimation of machine translation output. In 8th Workshop on Statistical Machine Translation (WMT 2013), 2013.",
+        "Hala Almaghout and Lucia Specia. A CCG-based quality estimation metric for statistical machine translation. In Machine Translation Summit XIV (MT Summit 2013), Nice, France, 2013.",
+        "Eleftherios Avramidis and Maja Popović. Machine learning methods for comparative and time-oriented quality estimation of machine translation output. In 8th Workshop on Statistical Machine Translation (WMT 2013), 2013.",
         "Eleftherios Avramidis. Quality estimation for machine translation output using linguistic analysis and decoding features. In 7th Workshop on Statistical Machine Translation (WMT 2012), 2012.",
         "Satanjeev Banerjee and Alon Lavie. METEOR: An automatic metric for MT evaluation with improved correlation with human judgments. In Workshop on Intrinsic and Extrinsic Evaluation Measures for Machine Translation and/or Summarization, Ann Arbor, Michigan, June 2005.",
         "John Blatz, Erin Fitzgerald, George Foster, Simona Gandrabur, Cyril Goutte, Alex Kulesza, Alberto Sanchis, and Nicola Ueffing. Confidence estimation for machine translation. In 20th international conference on Computational Linguistics, 2004.",

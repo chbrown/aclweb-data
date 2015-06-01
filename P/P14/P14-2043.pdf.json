@@ -7,7 +7,7 @@
       ]
     },
     {
-      "title": "Part-of-Speech Tagging using Conditional Random Fields: ExploitingSub-Label Dependencies for Improved AccuracyMiikka Silfverberg",
+      "title": "Part-of-Speech Tagging using Conditional Random Fields: Exploiting Sub-Label Dependencies for Improved Accuracy Miikka Silfverberg",
       "paragraphs": [
         "a"
       ]
@@ -31,13 +31,13 @@
       ]
     },
     {
-      "title": "Department of Modern Languages, University of Helsinki,firstname.lastname@helsinki.fi",
+      "title": "Department of Modern Languages, University of Helsinki, firstname.lastname@helsinki.fi",
       "paragraphs": [
         "b"
       ]
     },
     {
-      "title": "Department of Signal Processing and Acoustics, Aalto University,firstname.lastname@aalto.fiAbstract",
+      "title": "Department of Signal Processing and Acoustics, Aalto University, firstname.lastname@aalto.fi Abstract",
       "paragraphs": [
         "We discuss part-of-speech (POS) tagging in presence of large, fine-grained label sets using conditional random fields (CRFs). We propose improving tagging accuracy by utilizing dependencies within sub-components of the fine-grained labels. These sub-label dependencies are incorporated into the CRF model via a (relatively) straightforward feature extraction scheme. Experiments on five languages show that the approach can yield significant improvement in tagging accuracy in case the labels have sufficiently rich inner structure."
       ]
@@ -45,21 +45,22 @@
     {
       "title": "1 Introduction",
       "paragraphs": [
-        "We discuss part-of-speech (POS) tagging using the well-known conditional random field (CRF) model introduced originally by Lafferty et al. (2001). Our focus is on scenarios, in which the POS labels have a rich inner structure. For example, consider PRON+1SG V+NON3SG+PRES N+SG I like ham , where the compound labels PRON+1SG, V+NON3SG+PRES, and N+SG stand for pro-noun first person singular, verb non-third singular present tense, and noun singular, respectively. Fine-grained labels occur frequently in morphologically complex languages (Erjavec, 2010; Haverinen et al., 2013).",
+        "We discuss part-of-speech (POS) tagging using the well-known conditional random field (CRF) model introduced originally by Lafferty et al. (2001). Our focus is on scenarios, in which the POS labels have a rich inner structure. For example, consider",
+        "PRON+1SG V+NON3SG+PRES N+SG I like ham , where the compound labels PRON+1SG, V+NON3SG+PRES, and N+SG stand for pro-noun first person singular, verb non-third singular present tense, and noun singular, respectively. Fine-grained labels occur frequently in morphologically complex languages (Erjavec, 2010; Haverinen et al., 2013).",
         "We propose improving tagging accuracy by utilizing dependencies within the sub-labels (PRON, 1SG, V, NON3SG, N, and SG in the above example) of the compound labels. From a technical perspective, we accomplish this by making use of the fundamental ability of the CRFs to incorporate arbitrarily defined feature functions. The newly-defined features are expected to alleviate data sparsity problems caused by the fine-grained labels. Despite the (relative) simplicity of the approach, we are unaware of previous work exploiting the sub-labels to the extent presented here.",
         "We present experiments on five languages (English, Finnish, Czech, Estonian, and Romanian) with varying POS annotation granularity. By utilizing the sub-labels, we gain significant improvement in model accuracy given a sufficiently fine-grained label set. Moreover, our results indicate that exploiting the sub-labels can yield larger improvements in tagging compared to increasing model order.",
         "The rest of the paper is organized as follows. Section 2 describes the methodology. Experimental setup and results are presented in Section 3. Section 4 discusses related work. Lastly, we provide conclusions on the work in Section 5."
       ]
     },
     {
-      "title": "2 Methods2.1 Conditional Random Fields",
+      "title": "2 Methods 2.1 Conditional Random Fields",
       "paragraphs": [
-        "The (unnormalized) CRF model (Lafferty et al., 2001) for a sentence x = (x1, . . . , x|x|) and a POS sequence y = (y1, . . . , y|x|) is defined as p (y | x; w) ∝ |x| ∏",
-        "i=n exp (",
-        "w·φ(yi−n, . . . , yi, x, i))",
-        ",",
-        "(1) where n denotes the model order, w the model parameter vector, and φ the feature extraction function. We denote the tag set as Y, that is, yi ∈ Y for i ∈ 1 . . . |x|. 2.2 Baseline Feature Set We first describe our baseline feature set {φj(yi−1, yi, x, i)}|φ|",
-        "j=1 by defining emission and transition features. The emission feature set as-sociates properties of the sentence position i with 259 the corresponding label as",
+        "The (unnormalized) CRF model (Lafferty et al., 2001) for a sentence x = (x1, . . . , x|x|) and a POS sequence y = (y1, . . . , y|x|) is defined as p (y | x; w) ∝ |x| ∏ i=n exp ( w·φ(yi−n, . . . , yi, x, i) ) ,",
+        "(1) where n denotes the model order, w the model parameter vector, and φ the feature extraction function. We denote the tag set as Y, that is, yi ∈ Y for i ∈ 1 . . . |x|. 2.2 Baseline Feature Set We first describe our baseline feature set {φj(yi−1, yi, x, i)}",
+        "|φ|",
+        "j=1 by defining emission and",
+        "transition features. The emission feature set as-",
+        "sociates properties of the sentence position i with 259 the corresponding label as",
         "{χj(x, i)1(yi = y′",
         "i) | j ∈ 1 . . . |X | , ∀y′",
         "i ∈ Y} ,",
@@ -67,14 +68,15 @@
         "where the function 1(q) returns one if and only if",
         "the proposition q is true and zero otherwise, that is",
         "1(yi = y′ i) = {",
-        "1 if",
-        "yi = y′ i 0 otherwise , (3) and X = {χj(x, i)}|X |",
+        "1 if yi = y′ i 0 otherwise , (3) and X = {χj(x, i)}",
+        "|X |",
         "j=1 is the set of functions characterizing the word position i. Following the classic work of Ratnaparkhi (1996), our X comprises simple binary functions: 1. Bias (always active irrespective of input). 2. Word forms xi−2, . . . , xi+2.",
         "3. Prefixes and suffixes of the word formxi up to length δsuf = 4.",
         "4. If the word form xi contains (one or more) capital letter, hyphen, dash, or digit. Binary functions have a return value of either zero (inactive) or one (active). Meanwhile, the transition features",
         "{1(yi−k = y′ i−k) . . . 1(yi = y′",
         "i) | y′ i−k, . . . , y′",
-        "i ∈ Y , ∀k ∈ 1 . . . n} (4) capture dependencies between adjacent labels irrespective of the input x. 2.2.1 Expanded Feature Set Leveraging Sub-Label Dependencies The baseline feature set described above can yield a high tagging accuracy given a conveniently simple label set, exemplified by the tagging results of Collins (2002) on the Penn Treebank (Marcus et al., 1993). (Note that conditional random fields correspond to discriminatively trained hidden Markov models and Collins (2002) employs the latter terminology.) However, it does to some extent overlook some beneficial dependency information in case the labels have a rich sub-structure. In what follows, we describe expanded feature sets which explicitly model the sub-label dependencies.",
+        "i ∈ Y , ∀k ∈ 1 . . . n} (4) capture dependencies between adjacent labels irrespective of the input x.",
+        "2.2.1 Expanded Feature Set Leveraging Sub-Label Dependencies The baseline feature set described above can yield a high tagging accuracy given a conveniently simple label set, exemplified by the tagging results of Collins (2002) on the Penn Treebank (Marcus et al., 1993). (Note that conditional random fields correspond to discriminatively trained hidden Markov models and Collins (2002) employs the latter terminology.) However, it does to some extent overlook some beneficial dependency information in case the labels have a rich sub-structure. In what follows, we describe expanded feature sets which explicitly model the sub-label dependencies.",
         "We begin by defining a function P(yi) which partitions any label yi into its sub-label components and returns them in an unordered set. For example, we could define P(PRON+1+SG) = {PRON, 1, SG}. (Label partitions employed in the experiments are described in Section 3.2.) We denote the set of all sub-label components as S.",
         "Subsequently, instead of defining only (2), we additionally associate the feature functions X with all sub-labels s ∈ S by defining {χj(x, i)1(s ∈ P(yi)) | ∀j ∈ 1 . . . |X | , ∀s ∈ S} ,",
         "(5) where 1(s ∈ P(yi)) returns one in case s is in P(yi) and zero otherwise. Second, we exploit sub-label transitions using features {1(si−k ∈ P(yi−k)) . . . 1(si ∈ P(yi)) | ∀si−k, . . . , si ∈ S , ∀k ∈ 1 . . . m} . (6) Note that we define the sub-label transitions up to order m, 1 ≤ m ≤ n, that is, an nth-order CRF model is not obliged to utilize sub-label transitions all the way up to order n. This is because employing high-order sub-label transitions may potentially cause overfitting to training data due to substantially increased number of features (equivalent to the number of model parameters, |w| = |φ|). For example, in a second-order (n = 2) model, it might be beneficial to employ the sub-label emission feature set (5) and first-order sub-label transitions while discarding second-order sub-label transitions. (See the experimental results presented in Section 3.)",
@@ -88,7 +90,7 @@
       ]
     },
     {
-      "title": "3 Experiments3.1 Data",
+      "title": "3 Experiments 3.1 Data",
       "paragraphs": [
         "For a quick overview of the data sets, see Table 1. Penn Treebank. The English Penn Treebank (Marcus et al., 1993) is divided into 25 sections of newswire text extracted from the Wall Street Journal. We split the data into training, development, and test sets using the sections 0-18, 19-21, and 22-24, according to the standardly applied division introduced by Collins (2002). Turku Depedency Treebank. The Finnish Turku Depedendency Treebank (Haverinen et al., 2013) contains text from 10 different domains. The treebank does not have default partition to training and test sets. Therefore, from each 10 consecutive sentences, we assign the 9th and 10th to the development set and the test set, respectively. The remaining sentences are assigned to the training set. Multext-East. The third data we consider is the multilingual Multext-East (Erjavec, 2010) corpus, from which we utilize the Czech, Estonian and Romanian sections. The corpus corresponds to translations of the novel 1984 by George Orwell. We apply the same data splits as for Turku Dependency Treebank. lang. train. dev. test tags train. tags Eng 38,219 5,527 5,462 45 45 Rom 5,216 652 652 405 391 Est 5,183 648 647 413 408 Cze 5,402 675 675 955 908 Fin 5,043 630 630 2,355 2,141 Table 1: Overview on data. The training (train.), development (dev.) and test set sizes are given in sentences. The columns titled tags and train. tags correspond to total number of tags in the data set and number of tags in the training set, respectively. 3.2 Label Partitions This section describes the employed compound label splits. The label splits for all data sets are submitted as data file attachments. All the splits are performed a priori to model learning, that is, we do not try to optimize them on the development sets.",
         "The POS labels in the Penn Treebank are split in a way which captures relevant inflectional categories, such as tense and number. Consider, for example, the split for the present tense third singular verb label P(VBZ) = {VB, Z}.",
@@ -106,7 +108,8 @@
       "title": "4 Related Work",
       "paragraphs": [
         "In this section, we compare the approach presented in Section 2 to two prior systems which attempt to utilize sub-label dependencies in a similar manner.",
-        "Smith et al. (2005) use a CRF-based system for tagging Czech, in which they utilize expanded emission features similar to our (5). However, they do not utilize the full expanded transition features (6). More specifically, instead of utilizing a single chain as in our approach, Smith et al. employ five parallel structured chains. One of the chains models the sequence of word-class labels such as noun and adjective. The other four chains model gender, number, case, and lemma sequences, respectively. Therefore, in contrast to our approach, their system does not capture cross-dependencies between inflectional categories, such as the dependence between the word-class and case of adjacent words. Unsurprisingly, Smith et al. fail to achieve improvement over a generative HMM-based POS tagger of Hajič (2001). Meanwhile, our system outperforms the generative trigram tagger HunPos (Halácsy et al., 2007) which is an im-262 model it. time (min) acc. OOV. English CRF(1, -) 8 9 97.04 88.65 CRF(1, 0) 6 17 97.02 88.44 CRF(1, 1) 8 22 97.02 88.82 CRF(2, -) 9 15 97.18 88.82 CRF(2, 0) 11 36 97.17 89.23 CRF(2, 1) 8 27 97.15 89.04 Romanian CRF(1, -) 14 29 97.03 85.01 CRF(1, 0) 13 68 96.96 84.59 CRF(1, 1) 16 146 97.24 85.94 CRF(2, -) 7 19 97.08 85.21 CRF(2, 0) 18 99 97.02 85.42 CRF(2, 1) 12 118 97.29 86.25 Estonian CRF(1, -) 15 28 93.39 78.66 CRF(1, 0) 17 66 93.81 80.44 CRF(1, 1) 13 129 93.77 79.37 CRF(2, -) 15 30 93.48 77.13 CRF(2, 0) 13 53 93.78 79.60 CRF(2, 1) 16 105 94.01 79.53 Czech CRF(1, -) 6 28 89.28 70.90 CRF(1, 0) 10 112 89.94 74.44 CRF(1, 1) 10 365 90.78 76.83 CRF(2, -) 19 91 89.81 72.44 CRF(2, 0) 13 203 90.35 76.37 CRF(2, 1) 24 936 91.00 77.75 Finnish CRF(1, -) 10 80 87.37 59.29 CRF(1, 0) 13 249 88.58 63.46 CRF(1, 1) 12 474 88.41 62.63 CRF(2, -) 11 106 86.74 56.96 CRF(2, 0) 13 272 88.52 63.46 CRF(2, 1) 12 331 88.68 63.62 Table 2: Results. proved open-source implementation of the well-known TnT tagger of Brants (2000). The obtained HunPos results are presented in Table 3. Eng Rom Est Cze Fin HunPos 96.58 96.96 92.76 89.57 85.77 Table 3: Results using a generative HMM-based HunPos tagger of Halacsy et al. (2007).",
+        "Smith et al. (2005) use a CRF-based system for tagging Czech, in which they utilize expanded emission features similar to our (5). However, they do not utilize the full expanded transition features (6). More specifically, instead of utilizing a single chain as in our approach, Smith et al. employ five parallel structured chains. One of the chains models the sequence of word-class labels such as noun and adjective. The other four chains model gender, number, case, and lemma sequences, respectively. Therefore, in contrast to our approach, their system does not capture cross-dependencies between inflectional categories, such as the dependence between the word-class and case of adjacent words. Unsurprisingly, Smith et al. fail to achieve improvement over a generative HMM-based POS tagger of Hajič (2001). Meanwhile, our system outperforms the generative trigram tagger HunPos (Halácsy et al., 2007) which is an im-262 model it. time (min) acc. OOV. English CRF(1, -) 8 9 97.04 88.65 CRF(1, 0) 6 17 97.02 88.44 CRF(1, 1) 8 22 97.02 88.82 CRF(2, -) 9 15 97.18 88.82 CRF(2, 0) 11 36 97.17 89.23 CRF(2, 1) 8 27 97.15 89.04 Romanian CRF(1, -) 14 29 97.03 85.01 CRF(1, 0) 13 68 96.96 84.59 CRF(1, 1) 16 146 97.24 85.94 CRF(2, -) 7 19 97.08 85.21 CRF(2, 0) 18 99 97.02 85.42 CRF(2, 1) 12 118 97.29 86.25 Estonian CRF(1, -) 15 28 93.39 78.66 CRF(1, 0) 17 66 93.81 80.44 CRF(1, 1) 13 129 93.77 79.37 CRF(2, -) 15 30 93.48 77.13 CRF(2, 0) 13 53 93.78 79.60 CRF(2, 1) 16 105 94.01 79.53 Czech CRF(1, -) 6 28 89.28 70.90 CRF(1, 0) 10 112 89.94 74.44 CRF(1, 1) 10 365 90.78 76.83 CRF(2, -) 19 91 89.81 72.44 CRF(2, 0) 13 203 90.35 76.37 CRF(2, 1) 24 936 91.00 77.75 Finnish CRF(1, -) 10 80 87.37 59.29 CRF(1, 0) 13 249 88.58 63.46 CRF(1, 1) 12 474 88.41 62.63 CRF(2, -) 11 106 86.74 56.96 CRF(2, 0) 13 272 88.52 63.46 CRF(2, 1) 12 331 88.68 63.62 Table 2: Results. proved open-source implementation of the well-known TnT tagger of Brants (2000). The obtained HunPos results are presented in Table 3.",
+        "Eng Rom Est Cze Fin HunPos 96.58 96.96 92.76 89.57 85.77 Table 3: Results using a generative HMM-based HunPos tagger of Halacsy et al. (2007).",
         "Ceauşu (2006) uses a maximum entropy Markov model (MEMM) based system for tagging Romanian which utilizes transitional behavior between sub-labels similarly to our feature set (6). However, in addition to ignoring the most in-formative emission-type features (5), Ceauşu embeds the MEMMs into the tiered tagging frame-work of Tufis (1999). In tiered tagging, the full morphological analyses are mapped into a coarser tag set and a tagger is trained for this reduced tag set. Subsequent to decoding, the coarser tags are mapped into the original fine-grained morphological analyses. There are several problems associated with this tiered tagging approach. First, the success of the approach is highly dependent on a well designed coarse label set. Consequently, it requires intimate knowledge of the tag set and language. Meanwhile, our model can be set up with relatively little prior knowledge of the language or the tagging scheme (see Section 3.2). More-over, a conversion to a coarser label set is necessarily lossy (at least for OOV words) and potentially results in reduced accuracy since recovering the original fine-grained tags from the coarse tags may induce errors. Indeed, the accuracy 96.56, reported by Ceauşu on the Romanian section of the Multext-East data set, is substantially lower than the accuracy 97.29 we obtain. These accuracies were obtained using identical sized training and test sets (although direct comparison is impossible because Ceauşu uses a non-documented random split)."
       ]
     },
@@ -135,7 +138,8 @@
         "Péter Halácsy, András Kornai, and Csaba Oravecz. 2007. Hunpos: An open source trigram tagger. In Proceedings of the 45th Annual Meeting of the ACL on Interactive Poster and Demonstration Sessions, ACL ’07, pages 209–212.",
         "Katri Haverinen, Jenna Nyblom, Timo Viljanen, Veronika Laippala, Samuel Kohonen, Anna Missilä, Stina Ojala, Tapio Salakoski, and Filip Ginter. 2013. Building the essential resources for Finnish: the Turku Dependency Treebank. Language Resources and Evaluation.",
         "John Lafferty, Andrew McCallum, and Fernando Pereira. 2001. Conditional random fields: Probabilistic models for segmenting and labeling sequence data. In Proceedings of the Eighteenth International Conference on Machine Learning, pages 282–289.",
-        "M.P. Marcus, M.A. Marcinkiewicz, and B. Santorini. 1993. Building a large annotated corpus of english: The penn treebank. Computational linguistics, 19(2):313–330. Adwait Ratnaparkhi. 1996. A maximum entropy model for part-of-speech tagging. In Proceedings of the conference on empirical methods in natural language processing, volume 1, pages 133–142. Philadelphia, PA.",
+        "M.P. Marcus, M.A. Marcinkiewicz, and B. Santorini. 1993. Building a large annotated corpus of english: The penn treebank. Computational linguistics, 19(2):313–330.",
+        "Adwait Ratnaparkhi. 1996. A maximum entropy model for part-of-speech tagging. In Proceedings of the conference on empirical methods in natural language processing, volume 1, pages 133–142. Philadelphia, PA.",
         "Noah A. Smith, David A. Smith, and Roy W. Tromble. 2005. Context-based morphological disambiguation with random fields. In Proceedings of the Conference on Human Language Technology and Empirical Methods in Natural Language Processing, pages 475–482.",
         "Dan Tufis. 1999. Tiered tagging and combined language models classifiers. InProceedings of the Second International Workshop on Text, Speech and Dialogue, pages 28–33.",
         "Yue Zhang and Stephen Clark. 2011. Syntactic processing using the generalized perceptron and beam search. Computational Linguistics, 37(1):105–151. 264"

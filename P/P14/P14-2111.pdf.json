@@ -7,7 +7,7 @@
       ]
     },
     {
-      "title": "Normalizing tweets with edit scripts and recurrent neural embeddingsGrzegorz ChrupałaTilburg Center for Cognition and CommunicationTilburg Universityg.chrupala@uvt.nlAbstract",
+      "title": "Normalizing tweets with edit scripts and recurrent neural embeddings Grzegorz Chrupała Tilburg Center for Cognition and Communication Tilburg University g.chrupala@uvt.nl Abstract",
       "paragraphs": [
         "Tweets often contain a large proportion of abbreviations, alternative spellings, novel words and other non-canonical language. These features are problematic for standard language analysis tools and it can be desirable to convert them to canonical form. We propose a novel text normalization model based on learning edit operations from labeled data while incorporating features induced from unlabeled data via character-level neural text embeddings. The text embeddings are generated using an Simple Recurrent Network. We find that enriching the feature set with text embeddings substantially lowers word error rates on an English tweet normalization dataset. Our model improves on state-of-the-art with little training data and without any lexical resources."
       ]
@@ -83,7 +83,8 @@
       "title": "References",
       "paragraphs": [
         "Iñaki Alegria, Nora Aranberri, Vı́ctor Fresno, Pablo Gamallo, Lluis Padró, Iñaki San Vicente, Jordi Turmo, and Arkaitz Zubiaga. 2013. Introducción a la tarea compartida Tweet-Norm 2013: Normalización léxica de tuits en español. In Workshop on Tweet Normalization at SEPLN (Tweet-Norm), pages 36– 45.",
-        "Monojit Choudhury, Rahul Saraf, Vijit Jain, Animesh Mukherjee, Sudeshna Sarkar, and Anupam Basu. 2007. Investigation and modeling of the structure of texting language. International Journal of Document Analysis and Recognition (IJDAR), 10(3-4):157–174. Grzegorz Chrupała. 2013. Text segmentation with character-level text embeddings. In ICML Workshop on Deep Learning for Audio, Speech and Language Processing.",
+        "Monojit Choudhury, Rahul Saraf, Vijit Jain, Animesh Mukherjee, Sudeshna Sarkar, and Anupam Basu. 2007. Investigation and modeling of the structure of texting language. International Journal of Document Analysis and Recognition (IJDAR), 10(3-4):157–174.",
+        "Grzegorz Chrupała. 2013. Text segmentation with character-level text embeddings. In ICML Workshop on Deep Learning for Audio, Speech and Language Processing.",
         "Grzegorz Chrupała, Georgiana Dinu, and Josef Van Genabith. 2008. Learning morphology with Morfette. In Proceedings of the 6th edition of the Language Resources and Evaluation Conference.",
         "Orphée de Clercq, Bart Desmet, Sarah Schulz, Els Lefever, and Véronique Hoste. 2013. Normalization of Dutch user-generated content. In 9th International Conference on Recent Advances in Natural Language Processing (RANLP-2013), pages 179– 188. INCOMA Ltd.",
         "Markus Dreyer, Jason R Smith, and Jason Eisner. 2008. Latent-variable modeling of string transductions with finite-state methods. In Proceedings of the conference on empirical methods in natural language processing, pages 1080–1089. Association for Computational Linguistics.",
@@ -93,7 +94,8 @@
         "Stephan Gouws, Dirk Hovy, and Donald Metzler. 2011. Unsupervised mining of lexical variants from noisy text. In Proceedings of the First workshop on Unsupervised Learning in NLP, pages 82–90. Association for Computational Linguistics.",
         "Alex Graves. 2012. Sequence transduction with recurrent neural networks. arXiv:1211.3711.",
         "Bo Han and Timothy Baldwin. 2011. Lexical normalisation of short text messages: Makn sens a# twitter. In Proceedings of the 49th Annual Meeting of the Association for Computational Linguistics: Human Language Technologies-Volume 1, pages 368–378. Association for Computational Linguistics.",
-        "Bo Han, Paul Cook, and Timothy Baldwin. 2012. Automatically constructing a normalisation dictionary for microblogs. In Proceedings of the 2012 Joint Conference on Empirical Methods in Natural Language Processing and Computational Natural Language Learning, pages 421–432. Association for Computational Linguistics. Max Kaufmann and Jugal Kalita. 2010. Syntactic normalization of Twitter messages. In International conference on natural language processing, Kharagpur, India.",
+        "Bo Han, Paul Cook, and Timothy Baldwin. 2012. Automatically constructing a normalisation dictionary for microblogs. In Proceedings of the 2012 Joint Conference on Empirical Methods in Natural Language Processing and Computational Natural Language Learning, pages 421–432. Association for Computational Linguistics.",
+        "Max Kaufmann and Jugal Kalita. 2010. Syntactic normalization of Twitter messages. In International conference on natural language processing, Kharagpur, India.",
         "John D. Lafferty, Andrew McCallum, and Fernando C. N. Pereira. 2001. Conditional Random Fields: Probabilistic models for segmenting and labeling sequence data. In Proceedings of the Eighteenth International Conference on Machine Learning, ICML ’01, pages 282–289. Morgan Kaufmann Publishers Inc., San Francisco, CA, USA.",
         "Thomas Lavergne, Olivier Cappé, and Franco̧is Yvon. 2010. Practical very large scale CRFs. In Proceedings of the 48th Annual Meeting of the Association for Computational Linguistics, pages 504–513. Association for Computational Linguistics.",
         "Fei Liu, Fuliang Weng, and Xiao Jiang. 2012. A broadcoverage normalization system for social media language. In Proceedings of the 50th Annual Meeting of the Association for Computational Linguistics: Long Papers-Volume 1, pages 1035–1044. Association for Computational Linguistics.",

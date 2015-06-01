@@ -7,7 +7,7 @@
       ]
     },
     {
-      "title": "A Rule-Augmented Statistical Phrase-based Translation SystemCong Duy Vu Hoang",
+      "title": "A Rule-Augmented Statistical Phrase-based Translation System Cong Duy Vu Hoang",
       "paragraphs": [
         "†"
       ]
@@ -25,19 +25,19 @@
       ]
     },
     {
-      "title": "Human Language Technology Dept.Institute for Infocomm Research (I",
+      "title": "Human Language Technology Dept. Institute for Infocomm Research (I",
       "paragraphs": [
         "2"
       ]
     },
     {
-      "title": "R), A*STAR, Singapore{cdvhoang, aaiti}@i2r.a-star.edu.sg",
+      "title": "R), A*STAR, Singapore {cdvhoang, aaiti}@i2r.a-star.edu.sg",
       "paragraphs": [
         "‡"
       ]
     },
     {
-      "title": "School of Information ScienceJapan Advanced Institute of Science and Technology (JAIST), Japannthnhung@jaist.ac.jpAbstract",
+      "title": "School of Information Science Japan Advanced Institute of Science and Technology (JAIST), Japan nthnhung@jaist.ac.jp Abstract",
       "paragraphs": [
         "Interactive or Incremental Statistical Machine Translation (IMT) aims to provide a mechanism that allows the statistical models involved in the translation process to be incrementally updated and improved. The source of knowledge normally comes from users who either post-edit the entire translation or just provide the translations for wrongly translated domain-specific terminologies. Most of the existing work on IMT uses batch learning paradigm which does not allow translation systems to make use of the new input instantaneously. We introduce an adaptive MT framework with a Rule Definition Language (RDL) for users to amend MT results through translation rules or patterns. Experimental results show that our system acknowledges user feedback via RDL which improves the translations of the baseline system on three test sets for Vietnamese to English translation."
       ]
@@ -60,7 +60,12 @@
     {
       "title": "3 Rule Definition Language (RDL)",
       "paragraphs": [
-        "The Rule Definition Language (RDL) comprises a RDL grammar, a RDL parser and a RDL matching algorithm. 3.1 RDL Grammar Our RDL grammar is represented with a Backus-Naur Form (BNF)s syntax. The major feature of Node Type Description Token Any string of characters in the defined basic processing unit of the language. String A constant string of characters. Identifier A term represents a pre-defined role (e.g. integer, date, sequence, . . . ). Meta-node A term executes a specific function (e.g. casing, selection/option, connection). Context cue A term describes source context’s existence. Function A term executes a pre-defined task. Table 1: A brief description of RDL nodes. Figure 2: An Example of RDL Rule. RDL grammar is the support of pre-defined identifiers and meta-operators which go beyond the normal framework of regular expression. We also included a set of pre-defined functions to further constraint the application and realization of the rules. This framework allows us to incorporate semantic information into the rule definition and derive translation hypotheses using both semantic and lexical information. A RDL rule is identified by a unique rule ID and five constituents, including Source pattern, rule Condition, Target translation, Reordering rule and user ConFidence. The source pattern and target translation can be constructed using different combination of node types as described in Table 1. The rules can be further conditioned by using some pre-defined functions and the system allows users to reorder the translation of the target node. Figure 2 gives an example of a RDL rule where identifier@Num is used. 3.2 RDL Parsing and Indexing The RDL Parser checks the syntax of the rules before indexing and storing them into the rule database. We utilize the compiler generator (WoB et al., 2003) to generate a RDL template parser and then embed all semantic parsing components into the template to form our RDL Parser.",
+        "The Rule Definition Language (RDL) comprises a RDL grammar, a RDL parser and a RDL matching algorithm. 3.1 RDL Grammar Our RDL grammar is represented with a Backus-Naur Form (BNF)s syntax. The major feature of Node Type Description Token Any string of characters in the defined",
+        "basic processing unit of the language. String A constant string of characters. Identifier A term represents a pre-defined role",
+        "(e.g. integer, date, sequence, . . . ). Meta-node A term executes a specific function",
+        "(e.g. casing, selection/option, con-",
+        "nection). Context cue A term describes source context’s ex-",
+        "istence. Function A term executes a pre-defined task. Table 1: A brief description of RDL nodes. Figure 2: An Example of RDL Rule. RDL grammar is the support of pre-defined identifiers and meta-operators which go beyond the normal framework of regular expression. We also included a set of pre-defined functions to further constraint the application and realization of the rules. This framework allows us to incorporate semantic information into the rule definition and derive translation hypotheses using both semantic and lexical information. A RDL rule is identified by a unique rule ID and five constituents, including Source pattern, rule Condition, Target translation, Reordering rule and user ConFidence. The source pattern and target translation can be constructed using different combination of node types as described in Table 1. The rules can be further conditioned by using some pre-defined functions and the system allows users to reorder the translation of the target node. Figure 2 gives an example of a RDL rule where identifier@Num is used. 3.2 RDL Parsing and Indexing The RDL Parser checks the syntax of the rules before indexing and storing them into the rule database. We utilize the compiler generator (WoB et al., 2003) to generate a RDL template parser and then embed all semantic parsing components into the template to form our RDL Parser.",
         "As rule matching is performed during translation, searching of the relevant rules have to be very fast and efficient. We employed the modified version of an inverted index scheme (Zobel and Moffat, 2006) for our rule indexing. The algorithm is 74 Figure 3: A linked item chain for a rule source (@a @b [c] [“d e”] [“f g h”] (“i” | “j k”)). represented in Algorithm 1. Data: ruleID & srcPatn Result: idxTbl // To build data structure − Forward Step doForward(srcPatn, linkedItmChain); // To create index table − Backward Step doBackward(linkedItmChain, ruleID, idxTbl);",
         "Algorithm 1: Algorithm for RDL rule indexing.",
         "The main idea of the rule indexing algorithm is to index all string-based nodes in the source pattern of the RDL rule. Each node is represented using 3-tuple. They are ruleID, number of nodes in source pattern and all plausible positions of the node during rule matching. The indexing is carried out via a Forward Step and Backward Step. The Forward Step builds a linked item chain which traverses all possible position transitions from one node to another as illustrated in Figure 3. Note that S and E are the Start and End Node. The link indicates the order of transition from a node to another. The numbers refer to the possible positions of an item in source. The Backward Step starts at the end of the source pattern; traverses back the link to index each node using the 3-tuple constructed in the Forward Step. This data structure allows us to retrieve, add or update RDL rules efficiently and incrementally without re-indexing. 3.3 RDL Matching Algorithm Each word in the source string will be matched against the index table to retrieve relevant RDL rules during decoding. The aim is to retrieve all RDL rules in which the word is used as part of the context in the source pattern. We sort all the rules based on the word positions recorded during indexing, match their source patterns against the input string within the given span, check the conditions and generate the hypotheses if the rules fulfill all the constraints."
@@ -84,7 +89,7 @@
       ]
     },
     {
-      "title": "6 A Case Study for Vietnamese−EnglishTranslation",
+      "title": "6 A Case Study for Vietnamese−English Translation",
       "paragraphs": [
         "We performed an experiment using the proposed RDL framework for a Vietnamese to English translation system. As named entity (NE) contributes to most of the OOV occurrences and impacts the system performance for out-of-domain test data in our system, we studied the NE usage in a large Vietnamese monolingual corpus comprising 50M words to extract RDL rules. We created RDL rules for 8 popular NE types including title, designation, date-time, measurement, location, organization, number and terminology. We made use of a list of anchor words for each NE category and compiled our RDL rules based on these anchor words. As a result, we compiled a total of 495 rules for 8 categories and it took about 3 months for the rule creation. Table 2 shows the coverage of our compiled rules. 6.1 Experiment & Results Our experiments were performed on a training set of about 875K parallel sentences extracted from web news and revised by native linguists over 2 years. The corpus has 401K and 225K unique English and Vietnamese tokens. We developed 1008 and 2548 parallel sentences, each with 4 references, for development and testing, respectively. All the reference sentences are created and revised by different native linguists at different times. We also trained a very large English language model using data from Gigaword, Europarl and English Figure 5: Translation Demo with RDL rules. Data Set nS nT nMR TrainFull (VN) 875,579 28,251,775 627,125 TrainFull (EN) 875,579 20,191,526 - Test1 (VN) 1009 34,717 737 Test1 (4 refs) (EN) 1009 ≈25,713 - Test2 (VN) 1033 29,546 603 Test2 (4 refs) (EN) 1033 ≈22,717 - Test3 (VN) 506 16,817 344 Test3 (4 refs) (EN) 506 ≈12,601 - Dev (VN) 1008 34,803 - Dev (4 refs) (EN) 1008 ≈25,631 - Table 3: Statistics of Vietnamese-to-English parallel data. nS, nT, and nMR are number of sentence pairs and tokens, and count of matched rules, respectively. web texts of Vietnamese authors to validate the impact of RDL rules on large-scale and domain-rich corpus. The experimental results show that created RDL rules improve the translation performance on all 3 test sets. Table 3 and Table 4 show respective data statistics and results of our evalua-tion. More specifically, the BLEU scores increase 3%, 3.6% and 1.4% on the three sets, respectively."
       ]
@@ -92,7 +97,10 @@
     {
       "title": "7 Conclusion",
       "paragraphs": [
-        "We have presented a system that provides a control language (Kuhn, 2013) specialized for MT for users to create translation rules. Our RDL differs from Moses’s XML mark-up in that it offers fea-77 Data Set System BLEU NIST METEOR Set 1 Baseline 39.21 9.2323 37.81 +RDL (all) 39.51 9.2658 37.98 Set 2 Baseline 40.25 9.5174 38.24 +RDL (all) 40.61 9.6092 38.84 Set 3 Baseline 36.77 8.6953 37.65 +RDL (all) 36.91 8.7062 37.69 Table 4: Experimental results with RDL rules. tures that go beyond the popular regular expression framework. Without restricting the mark-up on the source text, we allow multiple translations to be specified for the same span or overlapping span.",
+        "We have presented a system that provides a control language (Kuhn, 2013) specialized for MT for users to create translation rules. Our RDL differs from Moses’s XML mark-up in that it offers fea-77 Data Set System BLEU NIST METEOR Set 1 Baseline 39.21 9.2323 37.81",
+        "+RDL (all) 39.51 9.2658 37.98 Set 2 Baseline 40.25 9.5174 38.24",
+        "+RDL (all) 40.61 9.6092 38.84 Set 3 Baseline 36.77 8.6953 37.65",
+        "+RDL (all) 36.91 8.7062 37.69 Table 4: Experimental results with RDL rules. tures that go beyond the popular regular expression framework. Without restricting the mark-up on the source text, we allow multiple translations to be specified for the same span or overlapping span.",
         "Our experimental results show that RDL rules improve the overall performance of the Vietnamese-to-English translation system. The framework will be tested for other language pairs (e.g. Chinese-to-English, Malay-to-English) in the near future. We also plan to explore advanced methods to identify and score “good” dynamic hypotheses on-the-fly and integrate them into current SMT translation system (Simard and Foster, 2013)."
       ]
     },

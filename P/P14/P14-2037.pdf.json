@@ -7,13 +7,13 @@
       ]
     },
     {
-      "title": "Learning Bilingual Word Representations by Marginalizing AlignmentsTomáš Kočiský Karl Moritz HermannDepartment of Computer ScienceUniversity of OxfordOxford, OX1 3QD, UK",
+      "title": "Learning Bilingual Word Representations by Marginalizing Alignments Tomáš Kočiský Karl Moritz Hermann Department of Computer Science University of Oxford Oxford, OX1 3QD, UK",
       "paragraphs": [
         "{tomas.kocisky,karl.moritz.hermann,phil.blunsom}@cs.ox.ac.uk"
       ]
     },
     {
-      "title": "Phil BlunsomAbstract",
+      "title": "Phil Blunsom Abstract",
       "paragraphs": [
         "We present a probabilistic model that simultaneously learns alignments and distributed representations for bilingual data. By marginalizing over word alignments the model captures a larger semantic context than prior work relying on hard alignments. The advantage of this approach is demonstrated in a cross-lingual classification task, where we outperform the prior published state of the art."
       ]
@@ -32,16 +32,12 @@
       "title": "2 Background",
       "paragraphs": [
         "The IBM alignment models, introduced by Brown et al. (1993), form the basis of most statistical machine translation systems. In this paper we base our alignment model on FASTALIGN (FA), a vari-224 ation of IBM model 2 introduced by Dyer et al. (2013). This model is both fast and produces alignments on par with the state of the art. Further, to induce the distributed representations we incorporate ideas from the log-bilinear language model presented by Mnih and Hinton (2007). 2.1 IBM Model 2 Given a parallel corpus with aligned sentences, an alignment model can be used to discover matching words and phrases across languages. Such models are an integral part of most machine translation pipelines. An alignment model learns p(f , a|e) (or p(e, a′",
-        "|f )) for the source and target sentences e and f (sequences of words). a represents the word alignment across these two sentences from source to target. IBM model 2 (Brown et al., 1993) learns alignment and translation probabilities in a generative style as follows: p(f , a|e) = p(J |I) J ∏",
-        "j=1 p(aj|j, I, J ) p( fj|eaj )",
-        ", where p(J |I) captures the two sentence lengths; p(aj|j, I, J ) the alignment and p(",
-        "fj|eaj )",
+        "|f )) for the source and target sentences e and f (sequences of words). a represents the word alignment across these two sentences from source to target. IBM model 2 (Brown et al., 1993) learns alignment and translation probabilities in a generative style as follows: p(f , a|e) = p(J |I) J ∏ j=1 p(aj|j, I, J ) p ( fj|eaj ) , where p(J |I) captures the two sentence lengths; p(aj|j, I, J ) the alignment and p ( fj|eaj )",
         "the translation probability. Sentence likelihood is given by marginalizing out the alignments, which results in the following equation: p(f |e) = p(J |I) J ∏ j=1 I ∑ i=0 p(i|j, I, J ) p(fj|ei) . We use FASTALIGN (FA) (Dyer et al., 2013), a log-linear reparametrization of IBM model 2. This model uses an alignment distribution defined by a single parameter that measures how close the alignment is to the diagonal. This replaces the original multinomial alignment distribution which often suffered from sparse counts. This improved model was shown to run an order of magnitude faster than IBM model 4 and yet still outperformed it in terms of the BLEU score and, on Chinese-English data, in alignment error rate (AER). 2.2 Log-Bilinear Language Model Language models assign a probability measure to sequences of words. We use the log-bilinear language model proposed by Mnih and Hinton (2007). It is an n-gram based model defined in terms of an energy function E(wn; w1:n−1). The probability for predicting the next word wn given its preceding context of n − 1 words is expressed using the energy function E(wn; w1:n−1) = −",
-        "(n−1 ∑",
-        "i=1 rT",
-        "wiCi)",
-        "rwn−bT",
-        "r rwn−bwn as p(wn|w1:n−1) = 1 Zc exp (−E(wn; w1:n−1)) where Zc = ∑",
+        "(n−1 ∑ i=1 rT wiCi )",
+        "rwn−bT r rwn−bwn",
+        "as p(wn|w1:n−1) = 1 Zc exp (−E(wn; w1:n−1)) where Zc =",
+        "∑",
         "wn exp (−E(wn; w1:n−1)) is the normalizer, rwi ∈ Rd",
         "are word representations, Ci ∈ Rd×d",
         "are context transformation matrices, and br ∈ Rd",
@@ -55,31 +51,29 @@
       "title": "3 Model",
       "paragraphs": [
         "Here we describe our distributed word alignment (DWA) model. The DWA model can be viewed as a distributed extension of the FA model in that it uses a similarity measure over distributed word representations instead of the standard multinomial translation probability employed by FA. We do this using a modified version of the log-bilinear language model in place of the translation probabilities p(fj|ei) at the heart of the FA model. This allows us to learn word representations for both languages, a translation matrix relating these vector spaces, as well as alignments at the same time.",
-        "Our modifications to the log-bilinear model are as follows. Where the original log-bilinear language model uses context words to predict the next word—this is simply the distributed extension of an n-gram language model—we use a word from the source language in a parallel sentence to predict a target word. An additional aspect of our model, which demonstrates its flexibility, is that it is simple to include further context from the source sentence, such as words around the aligned word or syntactic and semantic annotations. In this paper we experiment with a transformed sum over k context words to each side of the aligned source word. We evaluate different context sizes and report the results in Section 5. We define the energy function for the translation probabilities to be E(f, ei) = −",
-        "( k ∑",
-        "s=−k rT",
-        "ei+sTs)",
-        "rf −bT",
-        "r rf −bf (1) where rei, rf ∈ Rd",
+        "Our modifications to the log-bilinear model are as follows. Where the original log-bilinear language model uses context words to predict the next word—this is simply the distributed extension of an n-gram language model—we use a word from the source language in a parallel sentence to predict a target word. An additional aspect of our model, which demonstrates its flexibility, is that it is simple to include further context from the source sentence, such as words around the aligned word or syntactic and semantic annotations. In this paper we experiment with a transformed sum over k context words to each side of the aligned source word. We evaluate different context sizes and report the results in Section 5. We define the energy function for the translation probabilities to be E(f, ei) = − ( k ∑ s=−k rT ei+sTs )",
+        "rf −bT r rf −bf (1) where rei, rf ∈ Rd",
         "are vector representations for source and target words ei+s ∈ VE, f ∈ VF in their respective vocabularies, Ts ∈ Rd×d",
         "is the transformation matrix for each surrounding context position, br ∈ Rd",
-        "are the representation biases, and bf ∈ R is a bias for each word f ∈ VF . The translation probability is given by p(f |ei) = 1",
+        "are the representation biases, and bf ∈ R is a bias for each word f ∈ VF .",
+        "The translation probability is given by p(f |ei) = 1",
         "Ze",
         "i exp (−E(f, ei)) , where Zei = ∑",
-        "f exp (−E(f, ei)) is the normalizer. In addition to these translation probabilities, we have parameterized the translation probabilities for the null word using a softmax over an additional weight vector. 3.1 Class Factorization We improve training performance using a class factorization strategy (Morin and Bengio, 2005) as follows. We augment the translation probability to be p(f |e) = p(cf |e) p(f |cf , e) where cf is a unique predetermined class of f ; the class probability is modeled using a similar log-bilinear model as above, but instead of predicting a word representation rf we predict the class representation rcf (which is learned with the model) and we add respective new context matrices and biases. Note that the probability of the word f depends on both the class and the given context words: it is normalized only over words in the class cf .",
+        "f exp (−E(f, ei)) is the normalizer.",
+        "In addition to these translation probabilities, we have parameterized the translation probabilities for the null word using a softmax over an additional weight vector. 3.1 Class Factorization We improve training performance using a class factorization strategy (Morin and Bengio, 2005) as follows. We augment the translation probability to be p(f |e) = p(cf |e) p(f |cf , e) where cf is a unique predetermined class of f ; the class probability is modeled using a similar log-bilinear model as above, but instead of predicting a word representation rf we predict the class representation rcf (which is learned with the model) and we add respective new context matrices and biases. Note that the probability of the word f depends on both the class and the given context words: it is normalized only over words in the class cf .",
         "In our training we create classes based on word frequencies in the corpus as follows. Considering words in the order of their decreasing frequency, we add word types into a class until the total frequency of the word types in the currently considered class is less than total tokens",
         "√",
         "|VF | and the class size is less than √",
-        "|VF |. We have found that the maximal class size affects the speed the most."
+        "|VF |. We have found that the maximal",
+        "class size affects the speed the most."
       ]
     },
     {
       "title": "4 Learning",
       "paragraphs": [
         "The original FA model optimizes the likelihood using the expectation maximization (EM) algorithm where, in the M-step, the parameter update is analytically solvable, except for the λ parameter (the diagonal tension), which is optimized using gradient descent (Dyer et al., 2013). We modified the implementations provided with CDEC (Dyer et al., 2010), retaining its default parameters.",
-        "In our model, DWA, we optimize the likelihood using the EM as well. However, while training we fix the counts of the E-step to those computed by FA, trained for the default 5 iterations, to aid the convergence rate, and optimize the M-step only. Let θ be the parameters for our model. Then the gradient for each sentence is given by ∂ ∂θ log p(f |e) =",
-        "J ∑ k=1 I ∑ l=0 [ p(l|k, I, J ) p(fk|el)",
-        "∑I i=0 p(i|k, I, J ) p(fk|ei) · ∂ ∂θ log(p(l|k, I, J ) p(fk|el))] 226 where the first part are the counts from the FA model and second part comes from our model.",
+        "In our model, DWA, we optimize the likelihood using the EM as well. However, while training we fix the counts of the E-step to those computed by FA, trained for the default 5 iterations, to aid the convergence rate, and optimize the M-step only. Let θ be the parameters for our model. Then the gradient for each sentence is given by ∂ ∂θ log p(f |e) = J ∑ k=1 I ∑ l=0 [ p(l|k, I, J ) p(fk|el)",
+        "∑I i=0 p(i|k, I, J ) p(fk|ei) · ∂ ∂θ log(p(l|k, I, J ) p(fk|el)) ] 226 where the first part are the counts from the FA model and second part comes from our model.",
         "We compute the gradient for the alignment probabilities in the same way as in the FA model, and the gradient for the translation probabilities using back-propagation (Rumelhart et al., 1986). For parameter update, we use ADAGRAD as the gradient descent algorithm (Duchi et al., 2011)."
       ]
     },
@@ -87,7 +81,8 @@
       "title": "5 Experiments",
       "paragraphs": [
         "We first evaluate the alignment error rate of our approach, which establishes the model’s ability to both learn alignments as well as word representations that explain these alignments. Next, we use a cross-lingual document classification task to verify that the representations are semantically useful. We also inspect the embedding space qualitatively to get some insight into the learned structure. 5.1 Alignment Evaluation We compare the alignments learned here with those of the FASTALIGN model which produces very good alignments and translation BLEU scores. We use the same language pairs and datasets as in Dyer et al. (2013), that is the FBIS Chinese-English corpus, and the French-English section of the Europarl corpus (Koehn, 2005). We used the preprocessing tools from CDEC and further replaced all unique tokens with UNK. We trained our models with 100 dimensional representations for up to 40 iterations, and the FA model for 5 iterations as is the default.",
-        "Table 1 shows that our model learns alignments on part with those of the FA model. This is in line with expectation as our model was trained using the FA expectations. However, it confirms that the learned word representations are able to explain translation probabilities. Surprisingly, context seems to have little impact on the alignment error, suggesting that the model receives sufficient information from the aligned words themselves. 5.2 Document Classification A standard task for evaluating cross-lingual word representations is document classification where training is performed in one and evaluation in an-other language. This tasks require semantically plausible embeddings (for classification) which are valid across two languages (for the semantic transfer). Hence this task requires more of the word embeddings than the previous task. Languages Model FA DWA DWA k = 0 k = 3 ZH|EN 49.4 48.4 48.7 EN|ZH 44.9 45.3 45.9 FR|EN 17.1 17.2 17.0 EN|FR 16.6 16.3 16.1 Table 1: Alignment error rate (AER) comparison, in both directions, between the FASTALIGN (FA) alignment model and our model (DWA) with k context words (see Equation 1). Lower numbers indicate better performance.",
+        "Table 1 shows that our model learns alignments on part with those of the FA model. This is in line with expectation as our model was trained using the FA expectations. However, it confirms that the learned word representations are able to explain translation probabilities. Surprisingly, context seems to have little impact on the alignment error, suggesting that the model receives sufficient information from the aligned words themselves. 5.2 Document Classification A standard task for evaluating cross-lingual word representations is document classification where training is performed in one and evaluation in an-other language. This tasks require semantically plausible embeddings (for classification) which are valid across two languages (for the semantic transfer). Hence this task requires more of the word embeddings than the previous task. Languages Model",
+        "FA DWA DWA k = 0 k = 3 ZH|EN 49.4 48.4 48.7 EN|ZH 44.9 45.3 45.9 FR|EN 17.1 17.2 17.0 EN|FR 16.6 16.3 16.1 Table 1: Alignment error rate (AER) comparison, in both directions, between the FASTALIGN (FA) alignment model and our model (DWA) with k context words (see Equation 1). Lower numbers indicate better performance.",
         "We mainly follow the setup of Klementiev et al. (2012) and use the German-English parallel corpus of the European Parliament proceedings to train the word representations. We perform the classification task on the Reuters RCV1/2 corpus. Unlike Klementiev et al. (2012), we do not use that corpus during the representation learning phase. We remove all words occurring less than five times in the data and learn 40 dimensional word embeddings in line with prior work.",
         "To train a classifier on English data and test it on German documents we first project word representations from English into German: we select the most probable German word according to the learned translation probabilities, and then compute document representations by averaging the word representations in each document. We use these projected representations for training and subsequently test using the original German data and representations. We use an averaged perceptron classifier as in prior work, with the number of epochs (3) tuned on a subset of the training set.",
         "Table 2 shows baselines from previous work and classification accuracies. Our model outperforms the model by Klementiev et al. (2012), and it also outperforms the most comparable models by Hermann and Blunsom (2014b) when training on German data and performs on par with it when training on English data.1",

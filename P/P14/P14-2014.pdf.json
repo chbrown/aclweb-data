@@ -7,7 +7,7 @@
       ]
     },
     {
-      "title": "Descending-Path Convolution Kernel for Syntactic StructuresChen Lin",
+      "title": "Descending-Path Convolution Kernel for Syntactic Structures Chen Lin",
       "paragraphs": [
         "1"
       ]
@@ -31,7 +31,7 @@
       ]
     },
     {
-      "title": ",Dmitriy Dligach",
+      "title": ", Dmitriy Dligach",
       "paragraphs": [
         "1"
       ]
@@ -55,13 +55,13 @@
       ]
     },
     {
-      "title": "Children’s Hospital Boston Informatics Program and Harvard Medical School{firstname.lastname}@childrens.harvard.edu",
+      "title": "Children’s Hospital Boston Informatics Program and Harvard Medical School {firstname.lastname}@childrens.harvard.edu",
       "paragraphs": [
         "2"
       ]
     },
     {
-      "title": "Department of Computer and Information Sciences, University of Alabama at Birminghambethard@cis.uab.eduAbstract",
+      "title": "Department of Computer and Information Sciences, University of Alabama at Birmingham bethard@cis.uab.edu Abstract",
       "paragraphs": [
         "Convolution tree kernels are an efficient and effective method for comparing syntactic structures in NLP methods. However, current kernel methods such as subset tree kernel and partial tree kernel understate the similarity of very similar tree structures. Although soft-matching approaches can improve the similarity scores, they are corpus-dependent and match relaxations may be task-specific. We propose an alternative approach called descending path kernel which gives intuitive similarity scores on comparable structures. This method is evaluated on two temporal relation extraction tasks and demonstrates its advantage over rich syntactic representations."
       ]
@@ -76,7 +76,7 @@
       ]
     },
     {
-      "title": "2 Background2.1 Syntax-based Tree Kernels",
+      "title": "2 Background 2.1 Syntax-based Tree Kernels",
       "paragraphs": [
         "Syntax-based tree kernels quantify the similarity between two constituent parses by counting their common sub-structures. They differ in their defini-tion of the sub-structures.",
         "Collins and Duffy (2001) use a subset tree (SST) representation for their sub-structures. In the SST representation, a subtree is defined as a subgraph with more than one node, in which only full production rules are expanded. While this approach is widely used and has been successful in many tasks, the production rule-matching constraint may be unnecessarily restrictive, giving zero credit to rules that have only minor structural differences. For example, the similarity score between the NPs in Figure 1(b) would be zero since the production rule is different (the overall similarity score is above-zero because of matching pre-terminals).",
@@ -94,26 +94,18 @@
         "Suppose that all descending paths of a tree T are indexed 1, · · · , n, and pathi(T ) is the frequency of the i-th descending path in T . We represent T as a vector of frequencies of all its descending paths: Φ(T ) = (path1(T ), · · · , pathn(T )).",
         "The similarity between any two trees T1 and T2 can be assessed via the dot product of their respective descending path frequency vector representations: K(T1, T2) = ⟨Φ(T1), Φ(T2)⟩.",
         "Compared with the previous tree kernels, our descending path kernel has the following advantages: 1) the sub-structures are simplified so that they are more likely to be shared among trees, and therefore the sparse feature issues of previous kernels could be alleviated by this representation; 2) soft matching between two similar structures (e.g., NP→DT JJ NN versus NP→DT NN) have high similarity without reference to any corpus or grammar rules;",
-        "Following Collins and Duffy (2001), we derive a recursive algorithm to compute the dot product of the descending path frequency vector representations of two trees T1 and T2: K(T1, T2) = ⟨Φ(T1), Φ(T2)⟩",
-        "= ∑ i pathi(T1) · pathi(T2)",
-        "= ∑",
-        "n1∈N1 ∑",
-        "n2∈N2 ∑",
-        "i Ipathi(n1) · Ipathi(n2)",
-        "= ∑ n1∈N1 n2∈N2 C(n1, n2) (1) where N1 and N2 are the sets of nodes in T1 and T2 respectively, i indexes the set of possible paths, Ipathi(n) is an indicator function that is 1 iff the descending pathi is rooted at node n or 0 other-wise. C(n1, n2) counts the number of common descending paths rooted at nodes n1 and n2:",
-        "C(n1, n2) = ∑ i Ipathi(n1) · Ipathi(n2) C(n1, n2) can be computed in polynomial time by the following recursive rules: Rule 1: If n1 and n2 have different labels (e.g., ”DT” versus “NN”), then C(n1, n2) = 0; Rule 2: Else if n1 and n2 have the same labels and are both pre-terminals (POS tags), then C(n1, n2) = 1 +",
+        "Following Collins and Duffy (2001), we derive a recursive algorithm to compute the dot product of the descending path frequency vector representations of two trees T1 and T2: K(T1, T2) = ⟨Φ(T1), Φ(T2)⟩ = ∑ i pathi(T1) · pathi(T2) = ∑ n1∈N1 ∑ n2∈N2 ∑ i Ipathi(n1) · Ipathi(n2) = ∑ n1∈N1 n2∈N2 C(n1, n2)",
+        "(1) where N1 and N2 are the sets of nodes in T1 and T2 respectively, i indexes the set of possible paths, Ipathi(n) is an indicator function that is 1 iff the descending pathi is rooted at node n or 0 other-wise. C(n1, n2) counts the number of common descending paths rooted at nodes n1 and n2: C(n1, n2) = ∑ i Ipathi(n1) · Ipathi(n2) C(n1, n2) can be computed in polynomial time by the following recursive rules: Rule 1: If n1 and n2 have different labels (e.g., ”DT” versus “NN”), then C(n1, n2) = 0; Rule 2: Else if n1 and n2 have the same labels and are both pre-terminals (POS tags), then C(n1, n2) = 1 +",
         "{ 1 if term(n1) = term(n2) 0 otherwise. where term(n) is the terminal symbol under n; Rule 3: Else if n1 and n2 have the same labels and they are not both pre-terminals, then: C(n1, n2) = 1 + ∑ ni∈children(n1) nj∈children(n2) C(ni, nj) where children(m) are the child nodes of m.",
         "As in other tree kernel approaches (Collins and Duffy, 2001; Moschitti, 2006), we use a discount parameter λ to control for the disproportionately large similarity values of large tree structures. Therefore, Rule 2 becomes: C(n1, n2) = 1 +",
         "{ λ if term(n1) = term(n2) 0 otherwise. and Rule 3 becomes: C(n1, n2) = 1 + λ ∑ ni∈children(n1) nj∈children(n2) C(ni, nj)",
         "Note that Eq. (1) is a convolution kernel under the kernel closure properties described in Haussler (1999). Rules 1-3 show the equivalence between the number of common descending paths rooted at nodes n1 and n2, and the number of matching nodes below n1 and n2.",
-        "In practice, there are many non-matching nodes, and most matching nodes will have only a few matching children, so the running time, as in SST, will be approximated by the number of matching nodes between trees. 3.1 Relationship with other kernels For a given tree, DPK will generate significantly fewer sub-structures than PTK, since it does not consider all ordered permutations of a production rule. Moreover, the fragments generated by DPK are more likely to be shared among different trees. For the number of corpus-wide fragments, it is 83 Kernel ID #Frag Sim N(Sim) SST a 9 3 0.50",
-        "O( ρ|N1||N2|) b 15 2 0.25 c 63 7 0.20 DPK a 11 7 0.78",
-        "O( ρ2",
-        "|N1||N2|) b 13 9 0.83 c 31 22 0.83 PTK a 20 10 0.67",
-        "O( ρ3",
-        "|N1||N2|) b 36 15 0.65 c 127 34 0.42 Table 1: Comparison of the worst case computational complexicity (ρ - the maximum branching factor) and kernel performance on the 3 examples from Figure 1. #F rag is the number of fragments, N (Sim) is the normalized similarity. Please see the online supplementary note for detailed fragments of example (a). possible that DPK ≤ SST ≤ PTK. In Table 1, given λ = 1, we compare the performance of 3 kernels on the three examples in Figure 1. Note that for more complicated structures, i.e., examples b and c, DPK generates fewer fragments than SST and PTK, with more shared fragments among trees.",
-        "The complexity for all three kernels are at least O(",
-        "|N1||N2|)",
+        "In practice, there are many non-matching nodes, and most matching nodes will have only a few matching children, so the running time, as in SST, will be approximated by the number of matching nodes between trees. 3.1 Relationship with other kernels For a given tree, DPK will generate significantly fewer sub-structures than PTK, since it does not consider all ordered permutations of a production rule. Moreover, the fragments generated by DPK are more likely to be shared among different trees. For the number of corpus-wide fragments, it is 83 Kernel ID #Frag Sim N(Sim) SST a 9 3 0.50 O( ρ|N1||N2|) b 15 2 0.25 c 63 7 0.20",
+        "DPK a 11 7 0.78 O(",
+        "ρ2 |N1||N2| ) b 13 9 0.83 c 31 22 0.83",
+        "PTK a 20 10 0.67 O(",
+        "ρ3 |N1||N2| ) b 36 15 0.65 c 127 34 0.42 Table 1: Comparison of the worst case computational complexicity (ρ - the maximum branching factor) and kernel performance on the 3 examples from Figure 1. #F rag is the number of fragments, N (Sim) is the normalized similarity. Please see the online supplementary note for detailed fragments of example (a). possible that DPK ≤ SST ≤ PTK. In Table 1, given λ = 1, we compare the performance of 3 kernels on the three examples in Figure 1. Note that for more complicated structures, i.e., examples b and c, DPK generates fewer fragments than SST and PTK, with more shared fragments among trees.",
+        "The complexity for all three kernels are at least O( |N1||N2|)",
         "since they share the pairwise summation at the end of Equation 1. SST, due to its requirement of exact production rule matching, only takes one pass in the inner loop which adds a factor of ρ (the maximum branching factor of any production rule). DPK does a pairwise summation of children, which adds a factor of ρ2",
         "to the complexity. Finally, the efficient algorithm for PTK is proved by Moschitti (2006) to contain a constant factor of ρ3",
         ". Table 1 orders the tree kernels according by their listed complexity.",
@@ -124,10 +116,14 @@
     {
       "title": "4 Evaluation",
       "paragraphs": [
-        "We applied DPK to two published temporal relation extraction systems: (Miller et al., 2013) in the clinical domain and Cleartk-TimeML (Bethard, 2013) in the general domain respectively. 4.1 Narrative Container Discovery The task here as described by Miller et al. (2013) is to identify the CONTAINS relation between a time expression and a same-sentence event from clinical notes in the THYME corpus, which has 78 notes of 26 patients. We obtained this corpus from the authors and followed their linear composite kernel setting: KC (s1, s2) = τ P ∑",
-        "p=1 KT (tp 1, tp",
+        "We applied DPK to two published temporal relation extraction systems: (Miller et al., 2013) in the clinical domain and Cleartk-TimeML (Bethard, 2013) in the general domain respectively. 4.1 Narrative Container Discovery The task here as described by Miller et al. (2013) is to identify the CONTAINS relation between a time expression and a same-sentence event from clinical notes in the THYME corpus, which has 78 notes of 26 patients. We obtained this corpus from the authors and followed their linear composite kernel setting: KC (s1, s2) = τ P ∑ p=1",
+        "KT (tp 1, tp",
         "2)+KF (f1, f2) (2) where si is an instance object composed of flat features fi and a syntactic tree ti. A syntactic tree ti 84 can have multiple representations, as in Bag Tree (BT), Path-enclosed Tree (PET), and Path Tree (PT). For the tree kernel KT , subset tree (SST) kernel was applied on each tree representation p. The final similarity score between two instances is the τ -weighted sum of the similarities of all representations, combined with the flat feature (FF) similarity as measured by a feature kernel KF (linear or polynomial). Here we replaced the SST kernel with DPK and tested two feature combinations FF+PET and FF+BT+PET+PT. To fine tune parameters, we used grid search by testing on the default development data. Once the parameters were tuned, we tested the system performance on the testing data, which was set up by the original system split. 4.2 Cleartk-TimeML We tested one sub-task from TempEval-2013 – the extraction of temporal relations between an event and time expression within the same sentence. We obtained the training corpus (TimeBank + AQUAINT) and testing data from the authors (Bethard, 2013). Since the original features didn’t contain syntactic features, we created a PET tree extractor for this system. The kernel setting was similar to equation (2), while there was only one tree representation, PET tree, P =1. A linear kernel was used as KF to evaluate the exact same flat features as used by the original system. We used the built-in cross validation to do grid search for tuning the parameters. The final system was tested on the testing data for reporting results. 4.3 Results and Discussion Results are shown in Table 2. The top section shows THYME results. For these experiments, the DPK is superior when a syntactically-rich PET representation is used. Using the full feature set of Miller et al. (2013), SST is superior to DPK and obtains the best overall performance. The bottom section shows results on TempEval-2013 data, for which there is little benefit from either tree kernel.",
-        "Our experiments with THYME data show that DPK can capture something in the linguistically richer PET representation that the SST kernel cannot, but adding BT and PT representations decrease the DPK performance. As a shallow representation, BT does not have much in the way of descending paths for DPK to use. PT already ignores the production grammar by removing the inner tree nodes. DPK therefore cannot get useful information and may even get misleading cues from these two rep-Features KT P R F THYME FF+PET DPK 0.756 0.667 0.708 SST 0.698 0.630 0.662 FF+BT+ DPK 0.759 0.626 0.686 PET+PT SST 0.754 0.711 0.732 TempEval FF+PET DPK 0.328 0.263 0.292 SST 0.325 0.263 0.290 FF - 0.309 0.266 0.286 Table 2: Comparison of tree kernel performance for temporal relation extraction on THYME and TempEval-2013 data. resentations. These results show that, while DPK should not always replace SST, there are representations in which it is superior to existing methods. This suggests an approach in which tree representations are matched to different convolution kernels, for example by tuning on held-out data.",
+        "Our experiments with THYME data show that DPK can capture something in the linguistically richer PET representation that the SST kernel cannot, but adding BT and PT representations decrease the DPK performance. As a shallow representation, BT does not have much in the way of descending paths for DPK to use. PT already ignores the production grammar by removing the inner tree nodes. DPK therefore cannot get useful information and may even get misleading cues from these two rep-Features KT P R F",
+        "THYME FF+PET DPK 0.756 0.667 0.708",
+        "SST 0.698 0.630 0.662 FF+BT+ DPK 0.759 0.626 0.686 PET+PT SST 0.754 0.711 0.732",
+        "TempEval FF+PET DPK 0.328 0.263 0.292",
+        "SST 0.325 0.263 0.290 FF - 0.309 0.266 0.286 Table 2: Comparison of tree kernel performance for temporal relation extraction on THYME and TempEval-2013 data. resentations. These results show that, while DPK should not always replace SST, there are representations in which it is superior to existing methods. This suggests an approach in which tree representations are matched to different convolution kernels, for example by tuning on held-out data.",
         "For TempEval-2013 data, adding syntactic features did not improve the performance significantly (comparing F-score of 0.290 with 0.286 in Table 3). Probably, syntactic information is not a strong feature for all types of temporal relations on TempEval-2013 data."
       ]
     },

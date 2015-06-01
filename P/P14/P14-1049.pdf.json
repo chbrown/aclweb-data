@@ -7,19 +7,7 @@
       ]
     },
     {
-      "title": "Negation Focus Identification with Contextual Discourse Information",
-      "paragraphs": [
-        " "
-      ]
-    },
-    {
-      "title": "Bowei Zou Qiaoming Zhu Guodong Zhou* Natural Language Processing Lab, School of Computer Science and Technology Soochow University, Suzhou, 215006, China zoubowei@gmail.com, {qmzhu, gdzhou}@suda.edu.cn",
-      "paragraphs": [
-        "  "
-      ]
-    },
-    {
-      "title": "Abstract",
+      "title": "Negation Focus Identification with Contextual Discourse Information   Bowei Zou Qiaoming Zhu Guodong Zhou*  Natural Language Processing Lab, School of Computer Science and Technology Soochow University, Suzhou, 215006, China zoubowei@gmail.com, {qmzhu, gdzhou}@suda.edu.cn    Abstract",
       "paragraphs": [
         "Negative expressions are common in natural language text and play a critical role in information extraction. However, the performances of current systems are far from satisfaction, largely due to its focus on intra-sentence information and its failure to consider inter-sentence information. In this paper, we propose a graph model to enrich intra-sentence features with inter-sentence features from both lexical and topic perspectives. Evaluation on the *SEM 2012 shared task corpus indicates the usefulness of contextual discourse information in negation focus identification and justifies the effectiveness of our graph model in capturing such global information. *",
         ""
@@ -29,13 +17,7 @@
       "title": "1 Introduction",
       "paragraphs": [
         "Negation is a grammatical category which comprises various kinds of devices to reverse the truth value of a proposition (Morante and Sporleder, 2012). For example, sentence (1) could be interpreted as it is not the case that he stopped. (1) He didn't stop.",
-        "Negation expressions are common in natural language text. According to the statistics on biomedical literature genre (Vincze et al., 2008), 19.44% of sentences contain negative expressions. The percentage rises to 22.5% on Conan Doyle stories (Morante and Daelemans, 2012). It is interesting that a negative sentence may have both negative and positive meanings. For example, sentence (2) could be interpreted as He stopped, but not until he got to Jackson Hole with positive part he stopped and negative part until he got to Jackson Hole. Moreover, a nega-"
-      ]
-    },
-    {
-      "title": "",
-      "paragraphs": [
-        "* Corresponding author tive expression normally interacts with some special part in the sentence, referred as negation focus in linguistics. Formally, negation focus is defined as the special part in the sentence, which is most prominently or explicitly negated by a negative expression. Hereafter, we denote negative expression in boldface and negation focus underlined. (2) He didn't stop until he got to Jackson Hole.",
+        "Negation expressions are common in natural language text. According to the statistics on biomedical literature genre (Vincze et al., 2008), 19.44% of sentences contain negative expressions. The percentage rises to 22.5% on Conan Doyle stories (Morante and Daelemans, 2012). It is interesting that a negative sentence may have both negative and positive meanings. For example, sentence (2) could be interpreted as He stopped, but not until he got to Jackson Hole with positive part he stopped and negative part until he got to Jackson Hole. Moreover, a nega- * Corresponding author tive expression normally interacts with some special part in the sentence, referred as negation focus in linguistics. Formally, negation focus is defined as the special part in the sentence, which is most prominently or explicitly negated by a negative expression. Hereafter, we denote negative expression in boldface and negation focus underlined. (2) He didn't stop until he got to Jackson Hole.",
         "While people tend to employ stress or intonation in speech to emphasize negation focus and thus it is easy to identify negation focus in speech corpora, such stress or intonation information often misses in the dominating text corpora. This poses serious challenges on negation focus identification. Current studies (e.g., Blanco and Moldovan, 2011; Rosenberg and Bergler, 2012) sort to various kinds of intra-sentence information, such as lexical features, syntactic features, semantic role features and so on, ignoring less-obvious inter-sentence information. This largely defers the performance of negation focus identification and its wide applications, since such contextual discourse information plays a critical role on negation focus identification. Take following sentence as an example.",
         "(3) Helen didn’t allow her youngest son to play the violin.",
         "In sentence (3), there are several scenarios on identification of negation focus, with regard to negation expression n’t, given different contexts: Scenario A: Given sentence But her husband did as next sentence, the negation focus should be Helen, yielding interpretation the person who didn’t allow the youngest son to play the violin is Helen but not her husband. Scenario B: Given sentence She thought that he didn’t have the artistic talent like her eldest son as next sentence, the negation focus should be the youngest son, yielding interpretation Helen 522 thought that her eldest son had the talent to play the violin, but the youngest son didn’t. Scenario C: Given sentence Because of her neighbors’ protests as previous sentence, the negation focus should be play the violin, yielding interpretation Helen didn’t allow her youngest son to play the violin, but it didn’t show whether he was allowed to do other things.",
@@ -57,13 +39,7 @@
     {
       "title": "3 Baselines",
       "paragraphs": [
-        "Negation focus identification in *SEM’2012 shared tasks is restricted to verbal negations annotated with MNEG in PropBank, with only the constituent belonging to a semantic role selected as negation focus. Normally, a verbal negation expression (not or n’t) is grammatically associated with its corresponding verb (e.g., He didn’t stop). For details on annotation guidelines and"
-      ]
-    },
-    {
-      "title": "",
-      "paragraphs": [
-        "1 In *SEM’2013, the shared task is changed with focus on \"Semantic Textual Similarity\". 523",
+        "Negation focus identification in *SEM’2012 shared tasks is restricted to verbal negations annotated with MNEG in PropBank, with only the constituent belonging to a semantic role selected as negation focus. Normally, a verbal negation expression (not or n’t) is grammatically associated with its corresponding verb (e.g., He didn’t stop). For details on annotation guidelines and 1 In *SEM’2013, the shared task is changed with focus on \"Semantic Textual Similarity\". 523",
         "examples for verbal negations, please refer to",
         "Blanco and Moldovan (2011). For comparison, we choose the state-of-the-art",
         "system described in Blanco and Moldovan",
@@ -93,7 +69,7 @@
       ]
     },
     {
-      "title": "4 Exploring Contextual Discourse In-formation for Negation Focus Identi-fication",
+      "title": "4 Exploring Contextual Discourse In-formation for Negation Focus Identification",
       "paragraphs": [
         "While some of negation focuses could be identified by only intra-sentence information, others must be identified by contextual discourse information. Section 1 illustrates the necessity of such contextual discourse information in negation focus identification by giving three scenarios of different discourse contexts for negation expression n’t in sentence (3).",
         "For better illustration of the importance of contextual discourse information, Table 1 shows the statistics of intra- and inter-sentence information necessary for manual negation focus identification with 100 instances randomly extracted from the held-out dataset of *SEM'2012 shared task corpus. It shows that only 17 instances can be identified by intra-sentence information. It is surprising that inter-sentence information is indispensable in 77 instances, among which 42 instances need only inter-sentence information and 35 instances need both intra- and inter-sentence information. This indicates the great importance of contextual discourse information on negation focus identification. It is also interesting to note 6 instances are hard to determine even given both intra- and inter-sentence information.",
@@ -113,18 +89,29 @@
         "Graph models have been proven successful in many NLP applications, especially in representing the link relationships between words or sentences (Wan and Yang, 2008; Li et al., 2009). Generally, such models could construct a graph to compute the relevance between document theme and words.",
         "In this paper, we propose a graph model to represent the contextual discourse information from both lexical and topic perspectives. In particular, a word-based graph model is proposed to represent the explicit relatedness among words in a discourse from the lexical perspective, while a topic-driven word-based model is proposed to enrich the implicit relatedness between words, by adding one more layer to the word-based graph model in representing the global topic distribu-tion of the whole dataset. Besides, the PageRank algorithm (Page et al., 1998) is adopted to optimize the graph model. Word-based Graph Model: A word-based graph model can be defined as Gword (W, E), where W={wi} is the set of words in one document and E={eij|wi, wj ∈W} is the set of directed edges between these words, as shown in Figure 1.  Figure 1. Word-based graph model.",
         "In the word-based graph model, word node wi is weighted to represent the correlation of the word with authors’ intention. Since such correlation is more from the semantic perspective than the grammatical perspective, only content words are considered in our graph model, ignoring functional words (e.g., the, to,...). Especially, the content words limited to those with part-of-speech tags of JJ, NN, PRP, and VB. For simplicity, the weight of word node wi is initialized to 1.",
-        "In addition, directed edge eij is weighted to represent the relatedness between word wi and word wj in a document with transition probability P(j|i) from i to j, which is normalized as follows:   |      , ∑    ,    (1) where k represents the nodes in discourse, and Sim(wi,wj) denotes the similarity between wi and wj. In this paper, two kinds of information are used to calculate the similarity between words. One is word co-occurrence (if word wi and word wj occur in the same sentence or in the adjacent sentences, Sim(wi,wj) increases 1), and the other is WordNet (Miller, 1995) based similarity. Please note that Sim(wi,wi) = 0 to avoid self-transition, and Sim(wi,wj) and Sim(wj,wi) may not be equal.",
-        "Finally, the weights of word nodes are calculated using the PageRank algorithm as follows:         1           ∑             |          1                (2) where d is the damping factor as in the PageRank algorithm. Topic-driven Word-based Graph Model While the above word-based graph model can well capture the relatedness between content words, it can only partially model the focus of a negation expression since negation focus is more directly related with topic than content. In order to reduce the gap, we propose a topic-driven word-based model by adding one more layer to refine the word-based graph model over the global topic distribution, as shown in Figure 2.  Figure 2. Topic-driven word-based graph model. 525",
+        "In addition, directed edge eij is weighted to represent the relatedness between word wi and word wj in a document with transition probability P(j|i) from i to j, which is normalized as follows: | , ∑ , (1) where k represents the nodes in discourse, and Sim(wi,wj) denotes the similarity between wi and wj. In this paper, two kinds of information are used to calculate the similarity between words. One is word co-occurrence (if word wi and word wj occur in the same sentence or in the adjacent sentences, Sim(wi,wj) increases 1), and the other is WordNet (Miller, 1995) based similarity. Please note that Sim(wi,wi) = 0 to avoid self-transition, and Sim(wi,wj) and Sim(wj,wi) may not be equal.",
+        "Finally, the weights of word nodes are calculated using the PageRank algorithm as follows: ",
+        "1 ",
+        "∑",
+        "| 1 (2) where d is the damping factor as in the PageRank algorithm. Topic-driven Word-based Graph Model While the above word-based graph model can well capture the relatedness between content words, it can only partially model the focus of a negation expression since negation focus is more directly related with topic than content. In order to reduce the gap, we propose a topic-driven word-based model by adding one more layer to refine the word-based graph model over the global topic distribution, as shown in Figure 2.",
+        " Figure 2. Topic-driven word-based graph model. 525",
         "Here, the topics are extracted from all the documents in the *SEM 2012 shared task using the LDA Gibbs Sampling algorithm (Griffiths, 2002). In the topic-driven word-based graph model, the first layer denotes the relatedness among content words as captured in the above word-based graph model, and the second layer denotes the topic distribution, with the dashed lines between these two layers indicating the word-topic model return by LDA.",
-        "Formally, the topic-driven word-based two-layer graph is defined as Gtopic (W, T, Ew, Et), where W={wi} is the set of words in one document and T={ti} is the set of topics in all documents; Ew={ewij|wi, wj ∈W} is the set of directed edges between words and Et ={etij|wi∈W, tj ∈T} is the set of undirected edges between words and topics; transition probability Pw(j|i) of ewij is defined as the same as P(j|i) of the word-based graph model. Besides, transition probability Pt (i,m) of etij in the word-topic model is defined as:    ,        , ∑    ,    (3) where Rel(wi, tm) is the weight of word wi in topic tm calculated by the LDA Gibbs Sampling algorithm. On the basis, the transition probability Pw (j|i) of ewij is updated by calculating as following: ′  | θ∙   |  1θ∙    ,    , ∑  ,   ,   (4) where k represents all topics linked to both word wi and word wj, and θ∈[0,1] is the coefficient controlling the relative contributions from the lexical information in current document and the topic information in all documents.",
-        "Finally, the weights of word nodes are calculated using the PageRank algorithm as follows:         1           ∑          ′  |          1                (5) where d is the damping factor as in the PageRank algorithm."
+        "Formally, the topic-driven word-based two-layer graph is defined as Gtopic (W, T, Ew, Et), where W={wi} is the set of words in one document and T={ti} is the set of topics in all documents; Ew={ewij|wi, wj ∈W} is the set of directed edges between words and Et ={etij|wi∈W, tj ∈T} is the set of undirected edges between words and topics; transition probability Pw(j|i) of ewij is defined as the same as P(j|i) of the word-based graph model. Besides, transition probability Pt (i,m) of etij in the word-topic model is defined as: , , ∑ , (3) where Rel(wi, tm) is the weight of word wi in topic tm calculated by the LDA Gibbs Sampling algorithm. On the basis, the transition probability Pw (j|i) of ewij is updated by calculating as following: ′| θ∙| 1θ∙ ,, ∑ ,,  (4) where k represents all topics linked to both word wi and word wj, and θ∈[0,1] is the coefficient controlling the relative contributions from the lexical information in current document and the topic information in all documents.",
+        "Finally, the weights of word nodes are calculated using the PageRank algorithm as follows: ",
+        "1 ",
+        "∑",
+        "′| 1 (5) where d is the damping factor as in the PageRank algorithm."
       ]
     },
     {
       "title": "4.2 Negation Focus Identification via Graph Model",
       "paragraphs": [
         "Given the graph models and the PageRank optimization algorithm discussed above, four kinds of contextual discourse information are extracted as inter-sentence features (Table 2).",
-        "In particular, the total weight and the max weight of words in the focus candidate are calculated as follows:     ∑        (6)   max       (7) where i represents the content words in the focus candidate. These two kinds of weights focus on different aspects about the focus candidate with the former on the contribution of content words, which is more beneficial for a long focus candidate, and the latter biased towards the focus candidate which contains some critical word in a discourse. No Feature 1 Total weight of words in the focus candidate using the co-occurrence similarity. 2 Max weight of words in the focus candidate using the co-occurrence similarity. 3 Total weight of words in the focus candidate using the WordNet similarity. 4 Max weight of words in the focus candidate using the WordNet similarity.",
+        "In particular, the total weight and the max",
+        "weight of words in the focus candidate are calcu-",
+        "lated as follows: ∑",
+        "(6) max",
+        "(7) where i represents the content words in the focus candidate. These two kinds of weights focus on different aspects about the focus candidate with the former on the contribution of content words, which is more beneficial for a long focus candidate, and the latter biased towards the focus candidate which contains some critical word in a discourse. No Feature 1 Total weight of words in the focus candidate using the co-occurrence similarity. 2 Max weight of words in the focus candidate using the co-occurrence similarity. 3 Total weight of words in the focus candidate using the WordNet similarity. 4 Max weight of words in the focus candidate using the WordNet similarity.",
         "Table 2. Inter-sentence features extracted from graph model.",
         "For evaluating the contribution of contextual discourse information on negation focus identification directly, we incorporate the four inter-sentence features from the topic-driven word-based graph model into a negation focus identifier."
       ]
@@ -139,13 +126,7 @@
       "title": "5.1 Experimental Settings Dataset",
       "paragraphs": [
         "In all our experiments, we employ the *SEM'2012 shared task corpus (Morante and Blanco, 2012) 2",
-        ". As a freely downloadable resource, the *SEM shared task corpus is annotated on top of PropBank, which uses the WSJ section of the Penn TreeBank. In particular, negation focus annotation on this corpus is restricted to verbal negations (with corresponding mark"
-      ]
-    },
-    {
-      "title": "",
-      "paragraphs": [
-        "2 http://www.clips.ua.ac.be/sem2012-st-neg/ 526 MNEG in PropBank). On 50% of the corpus annotated by two annotators, the inter-annotator agreement was 0.72 (Blanco and Moldovan, 2011). Along with negation focus annotation, this corpus also contains other annotations, such as POS tag, named entity, chunk, constituent tree, dependency tree, and semantic role.",
+        ". As a freely downloadable resource, the *SEM shared task corpus is annotated on top of PropBank, which uses the WSJ section of the Penn TreeBank. In particular, negation focus annotation on this corpus is restricted to verbal negations (with corresponding mark 2 http://www.clips.ua.ac.be/sem2012-st-neg/ 526 MNEG in PropBank). On 50% of the corpus annotated by two annotators, the inter-annotator agreement was 0.72 (Blanco and Moldovan, 2011). Along with negation focus annotation, this corpus also contains other annotations, such as POS tag, named entity, chunk, constituent tree, dependency tree, and semantic role.",
         "In total, this corpus provides 3,544 instances of negation focus annotations. For fair comparison, we adopt the same partition as *SEM’2012 shared task in all our experiments, i.e., with 2,302 for training, 530 for development, and 712 for testing. Although for each instance, the corpus only provides the current sentence, the previous and next sentences as its context, we sort to the Penn TreeBank3",
         "to obtain the corresponding document as its discourse context. Evaluation Metrics Same as the *SEM'2012 shared task, the evalua-tion is made using precision, recall, and F1-score. Especially, a true positive (TP) requires an exact match for the negation focus, a false positive (FP) occurs when a system predicts a non-existing negation focus, and a false negative (FN) occurs when the gold annotations specify a negation focus but the system makes no prediction. For each instance, the predicted focus is considered correct if it is a complete match with a gold annotation.",
         "Beside, to show whether an improvement is significant, we conducted significance testing using z-test, as described in Blanco and Moldovan (2011). Toolkits In our experiments, we report not only the default performance with gold additional annotated features provided by the *SEM'2012 shared task corpus and the Penn TreeBank, but also the performance with various kinds of features extracted automatically, using following toolkits:  Syntactic Parser: We employ the Stanford",
@@ -155,13 +136,7 @@
         "and dependency parsing.  Named Entity Recognizer: We employ the",
         "Stanford NER5",
         "(Finkel et al., 2005) to obtain",
-        "named entities."
-      ]
-    },
-    {
-      "title": "",
-      "paragraphs": [
-        "3 http://www.cis.upenn.edu/~treebank/ 4 http://nlp.stanford.edu/software/lex-parser.shtml 5 http://nlp.stanford.edu/ner/",
+        "named entities. 3 http://www.cis.upenn.edu/~treebank/ 4 http://nlp.stanford.edu/software/lex-parser.shtml 5 http://nlp.stanford.edu/ner/",
         " Semantic Role Labeler: We employ the semantic role labeler, as described in Punyakanok et al (2008).",
         " Topic Modeler: For estimating transition probability Pt(i,m), we employ GibbsLDA++6",
         ", an LDA model using Gibbs Sampling technique for parameter estimation and inference.",
@@ -185,14 +160,9 @@
       "title": "With Only Inter-sentence Information",
       "paragraphs": [
         "For exploring the usefulness of pure contextual discourse information in negation focus identification, we only employ inter-sentence features into ranking SVM-based classifier. First of all, we estimate two parameters for our topic-driven word-based graph model: topic number T for topic model and coefficient θ between Pw(j|i) and Pt (i,m) in Formula 4.",
-        "Given the LDA Gibbs Sampling model with parameters α = 50/T and β = 0.1, we vary T from 20 to 100 with an interval of 10 to find the opti-"
-      ]
-    },
-    {
-      "title": "",
-      "paragraphs": [
-        "6 http://gibbslda.sourceforge.net/ 7 http://svmlight.joachims.org 527 mal T. Figure 3 shows the experiment results of varying T (with θ = 0.5) on development data. It shows that the best performance is achieved when T = 50 with 51.11 in F1). Therefore, we set T as 50 in our following experiments.  Figure 3. Performance with varying T.",
-        "For parameter θ, a trade-off between the transition probability Pw(j|i) (word to word) and the transition probability Pt (i,m) (word and topic) to update P’w(j|i), we vary it from 0 to 1 with an interval of 0.1. Figure 4 shows the experiment results of varying θ (with T=50) on development data. It shows that the best performance is achieved when θ = 0.6, which are adopted hereafter in all our experiments. This indicates that direct lexical information in current document contributes more than indirect topic information in all documents on negation focus identification. It also shows that direct lexical information in current document and indirect topic information in all documents are much complementary on negation focus identification.  Figure 4. Performance with varying θ. System P(%) R(%) F1 using word-based graph model 45.62 42.02 43.75 using topic-driven word-based graph model 54.59 50.76 52.61",
+        "Given the LDA Gibbs Sampling model with parameters α = 50/T and β = 0.1, we vary T from 20 to 100 with an interval of 10 to find the opti-6 http://gibbslda.sourceforge.net/ 7 http://svmlight.joachims.org 527 mal T. Figure 3 shows the experiment results of varying T (with θ = 0.5) on development data. It shows that the best performance is achieved when T = 50 with 51.11 in F1). Therefore, we set T as 50 in our following experiments.  Figure 3. Performance with varying T.",
+        "For parameter θ, a trade-off between the transition probability Pw(j|i) (word to word) and the transition probability Pt (i,m) (word and topic) to update P’w(j|i), we vary it from 0 to 1 with an interval of 0.1. Figure 4 shows the experiment results of varying θ (with T=50) on development data. It shows that the best performance is achieved when θ = 0.6, which are adopted hereafter in all our experiments. This indicates that direct lexical information in current document contributes more than indirect topic information in all documents on negation focus identification. It also shows that direct lexical information in current document and indirect topic information in all documents are much complementary on negation focus identification.  Figure 4. Performance with varying θ.",
+        "System P(%) R(%) F1 using word-based graph model 45.62 42.02 43.75 using topic-driven word-based graph model 54.59 50.76 52.61",
         "Table 4. Performance with only inter-sentence information.",
         "Table 4 shows the performance of negation focus identification with only inter-sentence features. It also shows that the system with inter-sentence features from the topic-driven word-based graph model significantly improves the F1-measure by 8.86 over the system with inter-sentence features from the word-based graph model, largely due to the usefulness of topic information.",
         "In comparison with Table 3, it shows that the system with only intra-sentence features achieves better performance than the one with only inter-sentence features (59.64 vs. 52.61 in F1-measure)."
@@ -202,12 +172,16 @@
       "title": "With both Intra- and Inter-sentence In-formation",
       "paragraphs": [
         "Table 5 shows that enriching intra-sentence features with inter-sentence features significantly (p<0.01) improve the performance by 9.85 in F1-measure than the better baseline. This indicates the usefulness of such contextual discourse information and the effectiveness of our topic-driven word-based graph model in negation focus identification.",
-        "System P(%) R(%) F1 BaselineC4.5",
-        "with intra feat. only 66.73 49.93 57.12 BaselineSVM",
+        "System P(%) R(%) F1",
+        "BaselineC4.5",
+        "with intra",
+        "feat. only 66.73 49.93 57.12 BaselineSVM",
         "with intra feat. only 60.22 59.07 59.64 Ours with Both feat. using word-based GM 64.93 62.47 63.68 Ours with Both feat. using topic-driven word-based GM 71.67 67.43 69.49 (Note: “feat.” denotes features; “GM” denotes graph model.)",
         "Table 5. Performance comparison of systems on negation focus identification.",
-        "System P(%) R(%) F1 BaselineC4.5",
-        "with intra feat. only (auto) 60.94 44.62 51.52 BaselineSVM",
+        "System P(%) R(%) F1",
+        "BaselineC4.5",
+        "with intra",
+        "feat. only (auto) 60.94 44.62 51.52 BaselineSVM",
         "with intra feat. Only (auto) 53.81 51.67 52.72 Ours with Both feat. using word-based GM (auto) 58.77 57.19 57.97 Ours with Both feat. using topic-driven word-based GM (auto) 66.74 64.53 65.62 Table 6. Performance comparison of systems on negation focus identification with automatically",
         "extracted features. 528",
         "Besides, Table 6 shows the performance of our best system with all features automatically extracted using the toolkits as described in Section 5.1. Compared with our best system employ-ing gold additional annotated features (the last line in Table 5), the homologous system with automatically extracted features (the last line in Table 6) only decrease of less than 4 in F1-measure. This demonstrates the achievability of our approach.",

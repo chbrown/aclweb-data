@@ -7,19 +7,19 @@
       ]
     },
     {
-      "title": "Smart SelectionPatrick PantelMicrosoft ResearchOne Microsoft WayRedmond, WA 98052, USA",
+      "title": "Smart Selection Patrick Pantel Microsoft Research One Microsoft Way Redmond, WA 98052, USA",
       "paragraphs": [
         "ppantel@microsoft.com"
       ]
     },
     {
-      "title": "Michael GamonMicrosoft ResearchOne Microsoft WayRedmond, WA 98052, USA",
+      "title": "Michael Gamon Microsoft Research One Microsoft Way Redmond, WA 98052, USA",
       "paragraphs": [
         "mgamon@microsoft.com"
       ]
     },
     {
-      "title": "Ariel FuxmanMicrosoft Research1065 La Avenida St.Mountain View, CA 94043, USA",
+      "title": "Ariel Fuxman Microsoft Research 1065 La Avenida St. Mountain View, CA 94043, USA",
       "paragraphs": [
         "arielf@microsoft.com"
       ]
@@ -54,7 +54,7 @@
       ]
     },
     {
-      "title": "3 Problem Setting and Data3.1 Smart Selection Definition",
+      "title": "3 Problem Setting and Data 3.1 Smart Selection Definition",
       "paragraphs": [
         "Let D be the set of all documents. We define a selection to be a character ⟨offset, length⟩-tuple in a document d ∈ D. Let S be the set of all possible selections in D and let Sd be the set of all possible selections in d.",
         "We define a scored smart selection, σ, in a document d, as a pair σ = ⟨x, y⟩ where x ∈ Sd is a selection and y ∈ R+",
@@ -96,7 +96,7 @@
         "RightSelected",
         "Word 2",
         "Candidate Left Selected",
-        "Word 1 Context1 Context2 Context4 Context3 Figure 2: Hyperlink Intent Model (HIM) decoding flow for smart selection. ple random words that are not part of an anchor text. Our final data consists of 2.6M data points, with a 1:20 ratio of positive to negative examples6",
+        "Word 1 Context1Context2 Context4 Context3 Figure 2: Hyperlink Intent Model (HIM) decoding flow for smart selection. ple random words that are not part of an anchor text. Our final data consists of 2.6M data points, with a 1:20 ratio of positive to negative examples6",
         ".",
         "We use logistic regression as the classification algorithm for our binary classifiers. The features used by each model are computed over three strings: the current selection s (initially the single-word simulated user selection), the candidate expansion word w, and one word over from the right or left of s. The features fall into five feature families: (1) character-level features, includ-ing capitalization, all-cap formatting, character length, presence of opening/closing parentheses, presence and position of digits and non-alphabetic characters, and minimum and average character uni/bi/trigram frequencies (based on frequency tables computed offline from Wikipedia article content); (2) stopword features, which indicate the presence of a stop word (from a stop word list); (3) tf.idf scores precomputed from Wikipedia content statistics; (4) knowledge base features, which indicate whether a string matches an item or a substring of an item in the knowledge base described in Section 4.1.2 below; and (5) lexical features, which capture the actual string of the current selection and the candidate expansion word. 4.1.2 Unit Spotting Our second qualitative class of ensemble members use notions of unit that are either based on linguistic constituency or knowledge base presence. The general process is that any unit that subsumes the user selection is treated as a smart selection candidate. Scoring of candidates is by normalized length, under the assumption that in general the most specific (longest) unit is more likely to be the intended selection. 6",
         "Note that this training set is generated automatically and is, by design, of a different nature than the manually labeled data we use to train and test the ensemble model. 1528",
@@ -110,12 +110,19 @@
       ]
     },
     {
-      "title": "5 Experimental Results5.1 Experimental Setup",
+      "title": "5 Experimental Results 5.1 Experimental Setup",
       "paragraphs": [
         "Recall our testsets TALL, THEAD, TTORSO, and TTAIL from Section 3.2.2, where a test case is defined as a triple ⟨d, s, τ ⟩, and where d is a document, s is a user selection, and τ is the intended user selection. In this section, we describe our evaluation metric and summarize the system configurations that we evaluate. 5.1.1 Metric In our evaluation, we apply the smart selection function φ(d, s) (see Eq. 1) to each test case and measure how well it recovers τ .",
         "Let A be the set of ⟨d, τ ⟩-pairs from our dataset described in Section 3.2.1 that corresponds to a testset T. Let T⟨d,τ⟩ be the set of all test cases in T with a fixed d and τ . We define the macro precision of a smart selection function, Pφ, as follows: Pφ =",
-        "1 | A | ∑ ⟨d,τ⟩∈A Pφ(d, τ ) (2) Pφ(d, τ ) = 1 | T⟨d,τ⟩ | ∑ ⟨d,s,τ⟩∈T⟨d,τ⟩ Pφ(d, s, τ ) Pφ(d, s, τ ) = 1 | φ(d, s) | ∑ σ∈φ(d,s) I(σ, τ )",
-        "I(σ, τ ) = { 1 if σ = ⟨x, y⟩ ∧ x = τ 0 otherwise 1529 CP@1 CP@2 CP@3 CP@4 CP@5 CUR 39.3 - - - - CAP 48.9 51.0 51.2 51.8 51.8 NER 43.5 - - - - NP 34.1 50.2 55.5 57.1 57.6 KB 50.2 50.8 50.9 50.9 50.9 HIM 48.1 48.8 48.8 48.8 48.8 ENS 56.8† 76.0‡ 82.6‡ 85.2‡ 86.6‡ Table 1: Smart selection performance, as a function of CP, on TALL. ‡",
+        "1 | A | ∑ ⟨d,τ⟩∈A Pφ(d, τ ) (2) Pφ(d, τ ) =",
+        "1 | T⟨d,τ⟩ | ∑ ⟨d,s,τ⟩∈T⟨d,τ⟩ Pφ(d, s, τ ) Pφ(d, s, τ ) =",
+        "1 | φ(d, s) | ∑ σ∈φ(d,s) I(σ, τ ) I(σ, τ ) = { 1 if σ = ⟨x, y⟩ ∧ x = τ 0 otherwise 1529 CP@1 CP@2 CP@3 CP@4 CP@5 CUR 39.3 - - - - CAP 48.9 51.0 51.2 51.8 51.8 NER 43.5 - - - - NP 34.1 50.2 55.5 57.1 57.6 KB 50.2 50.8 50.9 50.9 50.9",
+        "HIM 48.1 48.8 48.8 48.8 48.8",
+        "ENS 56.8†",
+        "76.0‡",
+        "82.6‡",
+        "85.2‡",
+        "86.6‡ Table 1: Smart selection performance, as a function of CP, on TALL. ‡",
         "and †",
         "indicate statistical significance with p = 0.01 and 0.05, respectively. An oracle ensemble would achieve an upper bound CP of 87.3%.",
         "We report cumulative macro precision at rank (CP@k) in our experiments since our testsets contain a single true user-intended selection for each test case7",
@@ -125,7 +132,16 @@
         "For CUR and NER, we report results only at K = 1 since these systems only ever return a single smart selection. Note also that when no named entity is found by NER, or no noun phrase is found by NP or no knowledge base entry is found by KB, the corresponding systems return the original user selection as their smart selection.",
         "CAP does not vary much across K: when the intended selection is a capitalized multi-word, the longest string tends to be the intended selection. The same holds for KB.",
         "Whereas Table 1 reports the aggregate expected traffic performance, we further explore the performance against the stratified THEAD, TTORSO, and TTAIL testsets. The results are summarized in Table 2. As outlined in Section 3.2, the HEAD selections tend to be disproportionately entities and capitalized terms when compared to the TORSO and TAIL. Hence CAP, NER and KB perform much better on the HEAD. In fact, on the HEAD, CAP performs statistically as well as the ENS model. This means that at position 1, for systems that need to focus only on the HEAD, a very simple solution is adequate. For TORSO and TAIL, however, ENS performs better. At positions 2 and 3, across all strata, the ENS model significantly outperforms all other systems (with 99% confidence).",
-        "Next, we studied the relative contribution of each ensemble member to the ENS model. Figure 3 illustrates the results of the ablation study. The ensemble member that results in the biggest performance drop when removed is HIM. Perhaps 1530 HEAD TORSO TAIL CP@1 CP@2 CP@3 CP@1 CP@2 CP@3 CP@1 CP@2 CP@3 CUR 48.5 - - 36.7 - - 26.6 - - CAP 74.2 74.7 74.8 43.0 45.0 45.1 26.1 27.4 28.2 NER 60.6 - - 39.2 - - 26.7 - - NP 52.3 64.9 69.4 31.0 48.2 53.8 20.0 32.2 35.7 KB 66.7 66.7 66.7 47.0 47.9 48.1 29.9 30.1 30.1 HIM 64.4 65.7 65.7 44.7 45.2 45.4 27.9 28.2 28.2 ENS 75.8 91.8‡ 96.5‡ 52.7† 73.7‡ 81.5‡ 32.4† 50.7‡ 58.5‡ Table 2: Smart selection performance, as a function of CP, on the THEAD, TTORSO, and TTAIL testsets. ‡ and †",
+        "Next, we studied the relative contribution of each ensemble member to the ENS model. Figure 3 illustrates the results of the ablation study. The ensemble member that results in the biggest performance drop when removed is HIM. Perhaps 1530",
+        "HEAD TORSO TAIL CP@1 CP@2 CP@3 CP@1 CP@2 CP@3 CP@1 CP@2 CP@3 CUR 48.5 - - 36.7 - - 26.6 - - CAP 74.2 74.7 74.8 43.0 45.0 45.1 26.1 27.4 28.2 NER 60.6 - - 39.2 - - 26.7 - - NP 52.3 64.9 69.4 31.0 48.2 53.8 20.0 32.2 35.7 KB 66.7 66.7 66.7 47.0 47.9 48.1 29.9 30.1 30.1",
+        "HIM 64.4 65.7 65.7 44.7 45.2 45.4 27.9 28.2 28.2",
+        "ENS 75.8 91.8‡",
+        "96.5‡",
+        "52.7† 73.7‡",
+        "81.5‡",
+        "32.4†",
+        "50.7‡",
+        "58.5‡ Table 2: Smart selection performance, as a function of CP, on the THEAD, TTORSO, and TTAIL testsets. ‡ and †",
         "indicate statistical significance with p = 0.01 and 0.05, respectively. An oracle ensemble would achieve an upper bound CP of 98.5%, 86.8% and 64.8% for THEAD, TTORSO, and TTAIL, respectively. 0.70.750.80.850.90.9 51",
         "Smart Selection Cumulative Precision @ Rank (ALL) Ensemble Member Ablation E N S -H IM -KB -N E R 0.5 0.6 0.7 0.8 0.9 1 1 2 3 4 5 C u m u la tiv e  P r e c is io n Rank",
         "Smart Selection Cumulative Precision @ Rank (ALL) Ensemble Member Ablation ENS -HIM -KB -NER -NP Figure 3: Ablation of ensemble model members over TALL. Each consecutive model removes one member specified in the series name. surprisingly, a first ablation of either the CAP or KB model, two of the better individual performing models from Table 1, leads to an ablated-ENS performance that is nearly identical to the full ENS model. One possible reason is that both tend to generate similar candidates (i.e., many entities in our KB are capitalized). Although the HIM model as a standalone system does not outperform simple linguistic unit selection models, it appears to be the most important contributor to the overall ensemble. 5.3 Error Analysis: Oracle Ensemble We begin by assessing an upper bound for our ensemble, i.e., an oracle ensemble, by assuming that if a correct candidate is generated by any ensemble member, the oracle ensemble model places it in first position. For TALL the oracle performance is 87.3%. In other words, our choice of ensemble members was able to recover a correct smart selection as a candidate in 87.3% of the user study cases. For THEAD, TTORSO, and TTAIL, the oracle performance is 98.5%, 86.8%, and 64.8%, respectively.",
@@ -133,7 +149,14 @@
         "For 146 of these cases (73%), not a single ensemble member produced the correct target selection τ as a candidate. We analyze these cases in detail in Section 5.4. Of the remaining cases, 25, 10, 9, 4, 4, and 2 were correct in positions 2, 3, 4, 5, 6, 7, respectively. Table 3 lists some examples.",
         "In 18 cases (33%), the result in position 1 is very reasonable given the context and user selection (see lines 1-4 in Table 3 for examples). Often the target selection was also found in second position. These cases highlight the need for a more relaxed, relevance-based user study, as pointed out at the end of Section 5.1.1.",
         "We attributed 7 (13%) of the cases to data problems: some cases had a punctuation as a sole character user selection, some had a mishandled escaped quotation character, and some had a UTF-8 encoding error.",
-        "The remaining 29 (54%) were truly model errors. Some examples are shown in lines 5-8 in Table 3. We found three categories of errors here. First, our model has learned a strong prior on preferring the original user selection (see example line 5). From a user experience point of view, when the model is unsure of itself, it is in fact better not to alter her selection. Second, we also learned a strong capitalization prior, i.e., to trust the CAP member (see example line 6). Finally, we noticed that we have difficulty handling user selections consisting of a stopword (we noted determiners, prepositions, and the word “and”). Adding a few simple features to ENS based on a stopwords list or a list of closed-class words should address this problem. 1531 Text Snippet User Selection ENS 1st Result 1 “The Russian conquest of the South Caucasus in the 19th century split the speech community across two states...” Caucasus South Caucasus 2 “...are generally something that transportation agencies would like to minimize...” transportation transportation agencies 3 “The vocal organ of birds, the syrinx, is located at the base of the blackbird’s trachea.” vocal vocal organ 4 “An example of this may be an idealised waveform like a square wave...” waveform idealised waveform 5 “Tickets may be purchased from either the ticket counter or from automatic machines...” counter counter 6 “PBXT features include the following: MVCC Support: MVCC stands for Multi-version Concurrency Control.” MVCC MVCC Support 7 “Centers for song production pathways include the High vocal center; robust nucleus of archistriatum (RA); and the tracheosyringeal part of the hypoglossal nucleus...” robust robust nucleus 8 “...and get an 11gR2 RAC cluster database running inside virtual machines...” cluster RAC cluster Table 3: Position 1 errors when applying ENS to our test cases. The text snippet is a substring of a paragraph presented to our judges with the target selection (τ ) indicated in bold. 5.4 Error Analysis: Ensemble Members Over all test cases, the distribution of cases with-out a correct candidate generated by an ensemble member in the HEAD, TORSO, TAIL is 0.3%, 34.6%, and 65.1%, respectively. We manually in-spected a random sample of 100 such test cases.",
+        "The remaining 29 (54%) were truly model errors. Some examples are shown in lines 5-8 in Table 3. We found three categories of errors here. First, our model has learned a strong prior on preferring the original user selection (see example line 5). From a user experience point of view, when the model is unsure of itself, it is in fact better not to alter her selection. Second, we also learned a strong capitalization prior, i.e., to trust the CAP member (see example line 6). Finally, we noticed that we have difficulty handling user selections consisting of a stopword (we noted determiners, prepositions, and the word “and”). Adding a few simple features to ENS based on a stopwords list or a list of closed-class words should address this problem. 1531 Text Snippet User Selection ENS 1st Result",
+        "1 “The Russian conquest of the South Caucasus in the 19th century split the speech community across two states...” Caucasus South Caucasus",
+        "2 “...are generally something that transportation agencies would like to minimize...” transportation transportation agencies",
+        "3 “The vocal organ of birds, the syrinx, is located at the base of the blackbird’s trachea.” vocal vocal organ 4 “An example of this may be an idealised waveform like a square wave...” waveform idealised waveform",
+        "5 “Tickets may be purchased from either the ticket counter or from automatic machines...” counter counter",
+        "6 “PBXT features include the following: MVCC Support: MVCC stands for Multi-version Concurrency Control.” MVCC MVCC Support",
+        "7 “Centers for song production pathways include the High vocal center; robust nucleus of archistriatum (RA); and the tracheosyringeal part of the hypoglossal nucleus...” robust robust nucleus",
+        "8 “...and get an 11gR2 RAC cluster database running inside virtual machines...” cluster RAC cluster Table 3: Position 1 errors when applying ENS to our test cases. The text snippet is a substring of a paragraph presented to our judges with the target selection (τ ) indicated in bold. 5.4 Error Analysis: Ensemble Members Over all test cases, the distribution of cases with-out a correct candidate generated by an ensemble member in the HEAD, TORSO, TAIL is 0.3%, 34.6%, and 65.1%, respectively. We manually in-spected a random sample of 100 such test cases.",
         "The majority of them, 83%, were large sentence fragments, which we consider out of scope according to our prediction task definition outlined in Section 1. The average token length of the target selection τ for these was 15.3. In comparison, we estimate the average token length of the task-admissable cases to be 2.7 tokens. Although most of these long fragment selections seem to be noise, a few cases are statements that a user would reasonably want to know more about, such as: (i) “Talks of a merger between the NHL and the WHA were growing” or (ii) “NaN + NaN * 1.0i”.",
         "In 10% of the cases, we face a punctuation-handling issue, and in each case our ensemble was able to generate a correct candidate when fixing the punctuation. For example, for the book title τ = What is life?, our ensemble found the candidate What is life, dropping the question mark. For τ = Near Earth Asteroid. our ensemble found Near Earth Asteroid, dropping the period. Similar problems occurred with parentheses and quotation marks.",
         "In two cases, our ensemble members dropped a leading “the” token, e.g., for τ = the Hume Highway, we found Hume Highway.",
@@ -166,7 +189,8 @@
         "Thomas G. Dietterich. 1997. Machine Learning Re-search - Four Current Directions. AI Magazine, 18:4:97–136.",
         "Jenny Rose Finkel, Trond Grenager, and Christopher Manning. 2005. Incorporating non-local information into information extraction systems by gibbs sampling. In In ACL, pages 363–370.",
         "Asela Gunawardana, Tim Paek, and Christopher Meek. 2010. Usability guided key-target resizing for soft keyboards. In Proceedings of IUI ’10, pages 111– 118.",
-        "Taku Kudo and Yuji Matsumoto. 2001. Chunking with support vector machines. In Proceedings of NAACL ’01, pages 1–8. Anuj Kumar, Tim Paek, and Bongshin Lee. 2012. Voice typing: A new speech interaction model for dictation on touchscreen devices. In Proceedings of CHI’12, pages 2277–2286.",
+        "Taku Kudo and Yuji Matsumoto. 2001. Chunking with support vector machines. In Proceedings of NAACL ’01, pages 1–8.",
+        "Anuj Kumar, Tim Paek, and Bongshin Lee. 2012. Voice typing: A new speech interaction model for dictation on touchscreen devices. In Proceedings of CHI’12, pages 2277–2286.",
         "Marcia Muñoz, Vasin Punyakanok, Dan Roth, and Dav Zimak. 1999. A learning approach to shallow pars-ing. In Proceedings of EMNLP/VLC, pages 168– 178.",
         "Lance A. Ramshaw and Mitchell P. Marcus. 1995. Text chunking using transformation-based learning. In Proceedings of the 3rd ACL Workshop on Very Large Corpora, pages 82–94. Cambridge MA, USA.",
         "Lev Ratinov and Dan Roth. 2009. Design challenges and misconceptions in named entity recognition. In Proceedings of CoNLL-2009, pages 147–155.",

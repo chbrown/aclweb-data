@@ -7,7 +7,7 @@
       ]
     },
     {
-      "title": "Nonparametric Method for Data-driven Image CaptioningRebecca Mason and Eugene CharniakBrown Laboratory for Linguistic Information Processing (BLLIP)Brown University, Providence, RI 02912{rebecca,ec}@cs.brown.eduAbstract",
+      "title": "Nonparametric Method for Data-driven Image Captioning Rebecca Mason and Eugene Charniak Brown Laboratory for Linguistic Information Processing (BLLIP) Brown University, Providence, RI 02912 {rebecca,ec}@cs.brown.edu Abstract",
       "paragraphs": [
         "We present a nonparametric density estimation technique for image caption generation. Data-driven matching methods have shown to be effective for a variety of complex problems in Computer Vision. These methods reduce an inference problem for an unknown image to finding an exist-ing labeled image which is semantically similar. However, related approaches for image caption generation (Ordonez et al., 2011; Kuznetsova et al., 2012) are hampered by noisy estimations of visual content and poor alignment between images and human-written captions. Our work addresses this challenge by estimating a word frequency representation of the visual content of a query image. This allows us to cast caption generation as an extractive summarization problem. Our model strongly outperforms two state-of-the-art caption extraction systems according to human judgments of caption relevance."
       ]
@@ -25,8 +25,8 @@
       "title": "2 Image Captioning by Transfer",
       "paragraphs": [
         "The IM2TEXT model by Ordonez et al. (2011) presents the first web-scale approach to image caption generation. IM2TEXT retrieves the image which is the closest visual match to the query image, and transfers its description to the query image. The COLLECTIVE model by Kuznetsova et al. (2012) is a related approach which uses trained CV recognition systems to detect a variety of visual entities in the query image. A separate description is retrieved for each visual entity, which are then fused into a single output caption. Like IM2TEXT, their approach uses visual similarity as a proxy for textual relevance.",
-        "Other related work models the text more directly, but is more restrictive about the source and quality of the human-written training data. Farhadi et al. (2010) and Hodosh et al. (2013) learn joint representations for images and captions, but can only be trained on data with very strong alignment between images and descriptions (i.e. captions written by Mechanical Turkers). An-other line of related work (Fan et al., 2010; Aker and Gaizauskas, 2010; Feng and Lapata, 2010) generates captions by extracting sentences from documents which are related to the query image. These approaches are tailored toward specific do-mains, such as travel and news, where images tend to appear with corresponding text. 1 See",
-        "http://bllip.cs.brown.edu/ download/captioning_resources.zip or ACL Anthology."
+        "Other related work models the text more directly, but is more restrictive about the source and quality of the human-written training data. Farhadi et al. (2010) and Hodosh et al. (2013) learn joint representations for images and captions, but can only be trained on data with very strong alignment between images and descriptions (i.e. captions written by Mechanical Turkers). An-other line of related work (Fan et al., 2010; Aker and Gaizauskas, 2010; Feng and Lapata, 2010) generates captions by extracting sentences from documents which are related to the query image. These approaches are tailored toward specific do-mains, such as travel and news, where images tend to appear with corresponding text. 1",
+        "See http://bllip.cs.brown.edu/ download/captioning_resources.zip or ACL Anthology."
       ]
     },
     {
@@ -37,7 +37,7 @@
       ]
     },
     {
-      "title": "4 Our Approach4.1 Overview",
+      "title": "4 Our Approach 4.1 Overview",
       "paragraphs": [
         "For a query image Iq, our task is to generate a relevant description by selecting a single caption from C, a large dataset of images with human-written captions. In this section, we first define the feature space for visual similarity, then formulate a density estimation problem with the aim of modeling the words which are used to describe visually similar images to Iq. We also explore methods for extractive caption generation. 4.2 Measuring Visual Similarity Data-driven matching methods have shown to be very effective for a variety of challenging problems (Hays and Efros, 2008; Makadia et al., 2008; Tighe and Lazebnik, 2010). Typically these methods compute global (scene-based) descriptors rather than object and entity detections. Scene-based techniques in CV are generally more robust, and can be computed more efficiently on large datasets.",
         "The basic IM2TEXT model uses an equally weighted average of GIST (Oliva and Torralba, 2001) and TinyImage (Torralba et al., 2008) features, which coarsely localize low-level features in scenes. The output is a multi-dimensional image space where semantically similar scenes (e.g. streets, beaches, highways) are projected near each other.",
@@ -46,56 +46,49 @@
         "3",
         "In particular, papers stemming from the 2011 JHU-CLSP Summer Workshop (Berg et al., 2012; Dodge et al., 2012; Mitchell et al., 2012) and more recently, the best paper award winner at ICCV (Ordonez et al., 2013). 593",
         "Patterson and Hays (2012) present “scene attribute” representations which are characterized using low-level perceptual attributes as used by GIST (e.g. openness, ruggedness, naturalness), as well as high-level attributes informed by openended crowd-sourced image descriptions (e.g., in-door lighting, running water, places for learning). Follow-up work (Patterson et al., 2014) shows that their attributes provide improved matching for image captioning over IM2TEXT baseline. We use their publicly available4",
-        "scene attributes for our experiments. Training set and query images are represented using 102-dimensional real-valued vectors, and similarity between images is measured using the Euclidean distance. 4.3 Density Estimation As shown in Bishop (2006), probability density estimates at a particular point can be obtained by considering points in the training data within some local neighborhood. In our case, we define some region R in the image space which contains Iq. The probability mass of that space is",
-        "P = ∫ R p(Iq)dIq (1) and if we assume that R is small enough such that p(Iq) is roughly constant in R, we can approximate p(Iq) ≈ kimg",
+        "scene attributes for our experiments. Training set and query images are represented using 102-dimensional real-valued vectors, and similarity between images is measured using the Euclidean distance. 4.3 Density Estimation As shown in Bishop (2006), probability density estimates at a particular point can be obtained by considering points in the training data within some local neighborhood. In our case, we define some region R in the image space which contains Iq. The probability mass of that space is P = ∫ R p(Iq)dIq (1) and if we assume that R is small enough such that p(Iq) is roughly constant in R, we can approximate p(Iq) ≈",
+        "kimg",
         "nimg",
         "V img (2) where kimg",
         "is the number of images within R in the training data, nimg",
         "is the total number of images in the training data, and V img",
         "is the volume of R. In this paper, we fixkimg",
         "to a constant value, so that V img",
-        "is determined by the training data around the query image.5",
-        "At this point, we extend the density estimation technique in order to estimate a smoothed model of descriptive text. Let us begin by considering p(w|Iq), the conditional probability of the word6",
-        "w given Iq. This can be described using a",
-        "4",
-        "https://github.com/genp/sun_ attributes",
-        "5",
+        "is determined by the training data around the query image.5 At this point, we extend the density estimation technique in order to estimate a smoothed model of descriptive text. Let us begin by considering p(w|Iq), the conditional probability of the word6",
+        "w given I",
+        "q. This can be described using a 4",
+        "https://github.com/genp/sun_ attributes 5",
         "As an alternate approach, one could fix the value of V img",
         "and determine kimg",
-        "from the number of points in R, giving rise to the kernel density approach (a.k.a. Parzen windows). However we believe the KNN approach is more appropriate here, because the number of samples is nearly 10000 times greater than the number of dimensions in the image representation.",
-        "6",
-        "Here, we use word to refer to non-function words, and assume all function words have been removed from the captions. Bayesian model:",
-        "p(w|Iq) = p(Iq|w)p(w) p(Iq) (3)",
+        "from the number of points in R, giving rise to the kernel density approach (a.k.a. Parzen windows). However we believe the KNN approach is more appropriate here, because the number of samples is nearly 10000 times greater than the number of dimensions in the image representation. 6",
+        "Here, we use word to refer to non-function words, and assume all function words have been removed from the captions. Bayesian model: p(w|Iq) =",
+        "p(Iq|w)p(w) p(Iq) (3)",
         "The prior for w is simply its unigram frequency in",
         "C, where ntxt",
         "w and ntxt",
-        "are word token counts:",
-        "p(w) = ntxt w ntxt (4) Note that ntxt",
+        "are word token counts: p(w) = ntxt w ntxt (4) Note that ntxt",
         "is not the same as nimg",
-        "because a single captioned image can have multiple words in its caption. Likewise, the conditional density p(Iq|w) ≈ ktxt",
-        "w",
-        "ntxt w V img (5) considers instances of observed words within R, although the volume of R is still defined by the image space. ktxt",
+        "because a single captioned image can have multiple words in its caption. Likewise, the conditional density p(Iq|w) ≈ ktxt w ntxt w V img (5) considers instances of observed words within R, although the volume of R is still defined by the image space. ktxt",
         "w is the number of times w is used within R while ntxt",
         "w is the total number of times w is observed in C.",
-        "Combining Equations 2, 4, and 5 and canceling out terms gives us the posterior probability:",
-        "p(w|Iq) = ktxt w kimg · nimg",
-        "ntxt (6) If the number of words in each caption is independent of its image’s location in the image space, then p(w|Iq) is approximately the observed unigram frequency for the captions inside R. 4.4 Extractive Caption Generation We compare two selection methods for extractive caption generation:",
+        "Combining Equations 2, 4, and 5 and canceling out terms gives us the posterior probability: p(w|Iq) = ktxt w kimg · nimg ntxt (6) If the number of words in each caption is independent of its image’s location in the image space, then p(w|Iq) is approximately the observed unigram frequency for the captions inside R. 4.4 Extractive Caption Generation We compare two selection methods for extractive caption generation:",
         "1. SumBasic SumBasic (Nenkova and Vanderwende, 2005) is a sentence selection algorithm for extractive multi-document summarization which exclusively maximizes the appearance of words which have high frequency in the original documents. Here, we adapt SumBasic to maximize the average value of p(w|Iq) in a single extracted caption:",
-        "output = arg max ctxt ∈R ∑",
-        "w∈ctxt 1",
+        "output = arg max ctxt",
+        "∈R ∑ w∈ctxt 1",
         "|ctxt",
         "| p(w|Iq) (7) The candidate captions ctxt",
-        "do not necessarily have to be observed in R, but in practice we did not find increasing the number of candidate captions to be more effective than increasing the size of R directly. 594 Figure 1: BLEU scores vs k for SumBasic extraction. 2. KL Divergence We also consider a KL Divergence selection method. This method outperforms the SumBasic selection method for extractive multi-document summarization (Haghighi and Vanderwende, 2009). It also generates the best extractive captions for Feng and Lapata (2010), who caption images by extracting text from a related news article. The KL Divergence method is",
-        "output = arg min",
-        "ctxt",
-        "∈R ∑ w p(w|Iq) log p(w|Iq)",
+        "do not necessarily have to be observed in R, but in practice we did not find increasing the number of candidate captions to be more effective than increasing the size of R directly. 594 Figure 1: BLEU scores vs k for SumBasic extraction.",
+        "2. KL Divergence We also consider a KL Divergence selection method. This method outperforms the SumBasic selection method for extractive multi-document summarization (Haghighi and Vanderwende, 2009). It also generates the best extractive captions for Feng and Lapata (2010), who caption images by extracting text from a related news article. The KL Divergence method is",
+        "output = arg min ctxt",
+        "∈R ∑ w p(w|Iq) log",
+        "p(w|Iq)",
         "p(w|ctxt",
         ")",
         "(8)"
       ]
     },
     {
-      "title": "5 Evaluation5.1 Automatic Evaluation",
+      "title": "5 Evaluation 5.1 Automatic Evaluation",
       "paragraphs": [
         "Although BLEU (Papineni et al., 2002) scores are widely used for image caption evaluation, we find them to be poor indicators of the quality of our model. As shown in Figure 1, our system’s BLEU scores increase rapidly until about k = 25. Past this point we observe the density estimation seems to get washed out by oversmoothing, but the BLEU scores continue to improve until k = 500 but only because the generated captions become increasingly shorter. Furthermore, although we observe that our SumBasic extracted captions obtain consistently higher BLEU scores, our personal observations find KL Divergence captions to be better at balancing recall and precision. Nevertheless, BLEU scores are the accepted metric for recent work, and our KL Divergence captions with k = 25 still outperform all other previously published systems and baselines. We omit full results here due to space, but make our BLEU setup with captions for all systems and baselines available for documentary purposes. System Relevance COLLECTIVE 2.38 (σ = 1.45) SCENE ATTRIBUTES 2.15 (σ = 1.45) SYSTEM 3.19 (σ = 1.50) HUMAN 4.09 (σ = 1.14) Table 2: Human evaluations of relevance: mean ratings and standard deviations. See Section 5.2. 5.2 Human Evaluation We perform our human evaluation of caption relevance using a similar setup to that of Kuznetsova et al. (2012), who have humans rate the image captions on a 1-5 scale (5: perfect, 4: almost perfect, 3: 70-80% good, 2: 50-70% good, 1: to-tally bad). Evaluation is performed using Amazon Mechanical Turk. Evaluators are shown both the caption and the query image, and are specifically instructed to ignore errors in grammaticality and coherence.",
         "We generate captions using our system with KL Divergence sentence selection and k = 25. We also evaluate the original HUMAN captions for the query image, as well as generated captions from two recently published caption transfer systems. First, we consider the SCENE ATTRIBUTES system (Patterson et al., 2014), which represents both the best scene-based transfer model and a k = 1 nearest-neighbor baseline for our system. We also compare against the COLLECTIVE system (Kuznetsova et al., 2012), which is the best object-based transfer model.",
@@ -103,7 +96,11 @@
         ". However, we remove some query images which have contamination between the train and test set (this occurs when a photographer takes multiple shots of the same scene and gives all the images the exact same caption). We also note that their test set is selected based on images where their object detection systems had good performance, and may not be indicative of their performance on other query images.",
         "Table 2 shows the results of our human study. Captions generated by our system have 48% improvement in relevance over the SCENE ATTRIBUTES system captions, and 34% improve-",
         "7",
-        "http://www.cs.sunysb.edu/ p̃kuznetsova/generation/cogn/captions. html 595 COLLECTIVE: One of the birds seen in company of female and juvenile. View of this woman sitting on the sidewalk in Mumbai by the stained glass. The boy walk-ing by next to matching color walls in gov t building. Found this mother bird feeding her babies in our maple tree on the phone. Found in floating grass spotted alongside the scenic North Cascades Hwy near Ruby arm a black bear. SCENE ATTRIBUTES: This small bird is pretty much only found in the ancient Caledonian pine forests of the Scottish Highlands. me and allison in front of the white house The sand in this beach was black...I repeat BLACK SAND Not the green one, but the almost ghost-like white one in front of it. SYSTEM: White bird found in park standing on brick wall by the white house pine tree covered in ice :) Pink flower in garden w/ moth HUMAN: Some black head bird taken in bray head. Us girls in front of the white house Male cardinal in snowy tree knots Black bear by the road between Ucluelet and Port Alberni, B.C., Canada Table 3: Example query images and generated captions. ment over the COLLECTIVE system captions. Although our system captions score lower than the human captions on average, there are some instances of our system captions being judged as more relevant than the human-written captions."
+        "http://www.cs.sunysb.edu/ p̃kuznetsova/generation/cogn/captions. html 595",
+        "COLLECTIVE: One of the birds seen in company of female and juvenile. View of this woman sitting on the sidewalk in Mumbai by the stained glass. The boy walk-ing by next to matching color walls in gov t building. Found this mother bird feeding her babies in our maple tree on the phone. Found in floating grass spotted alongside the scenic North Cascades Hwy near Ruby arm a black bear. SCENE ATTRIBUTES: This small bird is pretty much only found in the ancient Caledonian pine forests of the Scottish Highlands. me and allison in front of the white house The sand in this beach was black...I repeat BLACK SAND Not the green one, but the almost ghost-like white one in front of it.",
+        "SYSTEM: White bird found in park standing on brick wall",
+        "by the white house pine tree covered in ice :) Pink flower in garden w/ moth",
+        "HUMAN: Some black head bird taken in bray head. Us girls in front of the white house Male cardinal in snowy tree knots Black bear by the road between Ucluelet and Port Alberni, B.C., Canada Table 3: Example query images and generated captions. ment over the COLLECTIVE system captions. Although our system captions score lower than the human captions on average, there are some instances of our system captions being judged as more relevant than the human-written captions."
       ]
     },
     {
@@ -129,15 +126,18 @@
         "Micah Hodosh, Peter Young, and Julia Hockenmaier. 2013. Framing image description as a ranking task: Data, models and evaluation metrics. Journal of Artificial Intelligence Research, 47:853–899.",
         "Girish Kulkarni, Visruth Premraj, Sagnik Dhar, Siming Li, Yejin Choi, Alexander C. Berg, and Tamara L. Berg. 2011. Baby talk: Understanding and generating simple image descriptions. In CVPR, pages 1601–1608.",
         "Polina Kuznetsova, Vicente Ordonez, Alexander C. Berg, Tamara L. Berg, and Yejin Choi. 2012. Collective generation of natural image descriptions. In ACL.",
-        "Polina Kuznetsova, Vicente Ordonez, Alexander Berg, Tamara Berg, and Yejin Choi. 2013. Generalizing image captions for image-text parallel corpus. In ACL. Ce Liu, Jenny Yuen, and Antonio Torralba. 2011. Nonparametric scene parsing via label transfer. Pattern Analysis and Machine Intelligence, IEEE Transactions on, 33(12):2368–2382.",
+        "Polina Kuznetsova, Vicente Ordonez, Alexander Berg, Tamara Berg, and Yejin Choi. 2013. Generalizing image captions for image-text parallel corpus. In ACL.",
+        "Ce Liu, Jenny Yuen, and Antonio Torralba. 2011. Nonparametric scene parsing via label transfer. Pattern Analysis and Machine Intelligence, IEEE Transactions on, 33(12):2368–2382.",
         "Ameesh Makadia, Vladimir Pavlovic, and Sanjiv Kumar. 2008. A new baseline for image annotation. In Computer Vision–ECCV 2008, pages 316–329. Springer.",
         "Margaret Mitchell, Jesse Dodge, Amit Goyal, Kota Yamaguchi, Karl Stratos, Xufeng Han, Alyssa Mensch, Alexander C. Berg, Tamara L. Berg, and Hal Daumé III. 2012. Midge: Generating image descriptions from computer vision detections. In European Chapter of the Association for Computational Linguistics (EACL).",
         "Ani Nenkova and Lucy Vanderwende. 2005. The impact of frequency on summarization.",
-        "Aude Oliva and Antonio Torralba. 2001. Modeling the shape of the scene: A holistic representation of the spatial envelope. International Journal of Computer Vision, 42:145–175. V. Ordonez, G. Kulkarni, and T.L. Berg. 2011. Im2text: Describing images using 1 million captioned photographs. In NIPS.",
+        "Aude Oliva and Antonio Torralba. 2001. Modeling the shape of the scene: A holistic representation of the spatial envelope. International Journal of Computer Vision, 42:145–175.",
+        "V. Ordonez, G. Kulkarni, and T.L. Berg. 2011. Im2text: Describing images using 1 million captioned photographs. In NIPS.",
         "Vicente Ordonez, Jia Deng, Yejin Choi, Alexander C Berg, and Tamara L Berg. 2013. From large scale image categorization to entry-level categories. In International Conference on Computer Vision.",
         "Kishore Papineni, Salim Roukos, Todd Ward, and Wei-Jing Zhu. 2002. Bleu: a method for automatic evaluation of machine translation. In Proceedings of the 40th Annual Meeting on Association for Computational Linguistics, ACL ’02, pages 311–318, Stroudsburg, PA, USA. Association for Computational Linguistics.",
         "Genevieve Patterson and James Hays. 2012. Sun attribute database: Discovering, annotating, and recognizing scene attributes. In Computer Vision and Pattern Recognition (CVPR), 2012 IEEE Conference on, pages 2751–2758. IEEE.",
-        "Genevieve Patterson, Chen Xu, Hang Su, and James Hays. 2014. The sun attribute database: Beyond categories for deeper scene understanding. International Journal of Computer Vision. Joseph Tighe and Svetlana Lazebnik. 2010. Superparsing: scalable nonparametric image parsing with superpixels. In Computer Vision–ECCV 2010, pages 352–365. Springer.",
+        "Genevieve Patterson, Chen Xu, Hang Su, and James Hays. 2014. The sun attribute database: Beyond categories for deeper scene understanding. International Journal of Computer Vision.",
+        "Joseph Tighe and Svetlana Lazebnik. 2010. Superparsing: scalable nonparametric image parsing with superpixels. In Computer Vision–ECCV 2010, pages 352–365. Springer.",
         "Antonio Torralba, Robert Fergus, and William T Freeman. 2008. 80 million tiny images: A large data set for nonparametric object and scene recognition. Pattern Analysis and Machine Intelligence, IEEE Transactions on, 30(11):1958–1970. 597",
         "Yezhou Yang, Ching Lik Teo, Hal Daumé III, and Yiannis Aloimonos. 2011. Corpus-guided sentence generation of natural images. In Empirical Methods in Natural Language Processing (EMNLP), Edinburgh, Scotland.",
         "Haonan Yu and Jeffrey Mark Siskind. 2013. Grounded language learning from video described with sentences. In Proceedings of the 51st Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), volume 1, pages 53–63, Sofia, Bulgaria. Association for Computational Linguistics. 598"

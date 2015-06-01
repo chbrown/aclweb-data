@@ -7,7 +7,7 @@
       ]
     },
     {
-      "title": "The Penn Parsed Corpus of Modern British English:First Parsing Results and AnalysisSeth KulickLinguistic Data ConsortiumUniversity of Pennsylvaniaskulick@ldc.upenn.edu Anthony Kroch and Beatrice SantoriniDept. of LinguisticsUniversity of Pennsylvania{kroch,beatrice}@ling.upenn.eduAbstract",
+      "title": "The Penn Parsed Corpus of Modern British English: First Parsing Results and Analysis Seth Kulick Linguistic Data Consortium University of Pennsylvania skulick@ldc.upenn.edu Anthony Kroch and Beatrice Santorini Dept. of Linguistics University of Pennsylvania {kroch,beatrice}@ling.upenn.edu Abstract",
       "paragraphs": [
         "This paper presents the first results on parsing the Penn Parsed Corpus of Modern British English (PPCMBE), a million-word historical treebank with an annotation style similar to that of the Penn Treebank (PTB). We describe key features of the PPCMBE annotation style that differ from the PTB, and present some experiments with tree transformations to better compare the results to the PTB. First steps in parser analysis focus on problematic structures created by the parser."
       ]
@@ -58,7 +58,13 @@
         "For this first work, we used a split that was roughly the same as far as time-spans across the four sections. In future work, we will do a more proper cross-validation evaluation.",
         "Table 3 shows the average sentence length and percentage of sentences of length <= 40 in the PPCMBE and PTB. The PPCMBE sentences are a bit longer on average, and fewer are of length <= 40. However, the match is close enough that",
         "7",
-        "Sections 2-21 for Training Section 1 for Val, 22 for Dev and 23 for Test. 664 Gold Tags Parser Tags all <=40 all <=40 Corpus Prec Rec F Prec Rec F Prec Rec F Prec Rec F Tags 1 Rl/Dev 83.7 83.7 83.7 86.3 86.4 86.3 83.8 83.1 83.4 86.2 85.8 86.0 96.9 2 Rd/Dev 84.9 84.5 84.7 86.6 86.7 86.7 84.5 83.7 84.1 86.5 86.2 86.3 96.9 3 Rd/Tst 85.8 85.2 85.5 87.9 87.3 87.6 84.8 83.9 84.3 86.7 85.8 86.2 97.1 4 RdNPs/Dev 87.1 86.3 86.7 88.9 88.5 88.7 86.3 85.1 85.7 88.4 87.6 88.0 96.9 5 RdNPsVPs/Dev 87.2 87.0 87.1 89.5 89.4 89.5 86.3 85.7 86.0 88.6 88.2 88.4 97.0 6 PTB/23 90.3 89.8 90.1 90.9 90.4 90.6 90.0 89.5 89.8 90.6 90.1 90.3 96.9 Table 4: Parsing results with Berkeley Parser. The corpus versions used are Release (Rl), Reduced (Rd), Reduced+NPs (RdNPs), and Reduced+NPs+VPs (RdNPsVPs). Results are shown for the parser forced to use the gold POS tags from the corpus, and with the parser supplying its own tags. For the latter case, the tagging accuracy is shown in the last column. Corpus Section Avg. len % <= 40 PPCMBE Dev 24.1 85.5 Test 21.2 89.9 PTB Dev 23.6 92.9 Test 23.5 91.3 Table 3: Average sentence length and percentage of sentences of length <=40 in the PPCMBE and PTB. we will report the parsing results for sentences of length <= 40 and all sentences, as with the PTB."
+        "Sections 2-21 for Training Section 1 for Val, 22 for Dev and 23 for Test. 664",
+        "Gold Tags Parser Tags",
+        "all <=40 all <=40",
+        "Corpus Prec Rec F Prec Rec F Prec Rec F Prec Rec F Tags 1 Rl/Dev 83.7 83.7 83.7 86.3 86.4 86.3 83.8 83.1 83.4 86.2 85.8 86.0 96.9 2 Rd/Dev 84.9 84.5 84.7 86.6 86.7 86.7 84.5 83.7 84.1 86.5 86.2 86.3 96.9 3 Rd/Tst 85.8 85.2 85.5 87.9 87.3 87.6 84.8 83.9 84.3 86.7 85.8 86.2 97.1 4 RdNPs/Dev 87.1 86.3 86.7 88.9 88.5 88.7 86.3 85.1 85.7 88.4 87.6 88.0 96.9 5 RdNPsVPs/Dev 87.2 87.0 87.1 89.5 89.4 89.5 86.3 85.7 86.0 88.6 88.2 88.4 97.0 6 PTB/23 90.3 89.8 90.1 90.9 90.4 90.6 90.0 89.5 89.8 90.6 90.1 90.3 96.9 Table 4: Parsing results with Berkeley Parser. The corpus versions used are Release (Rl), Reduced (Rd), Reduced+NPs (RdNPs), and Reduced+NPs+VPs (RdNPsVPs). Results are shown for the parser forced to use the gold POS tags from the corpus, and with the parser supplying its own tags. For the latter case, the tagging accuracy is shown in the last column. Corpus Section Avg. len % <= 40",
+        "PPCMBE Dev 24.1 85.5",
+        "Test 21.2 89.9 PTB Dev 23.6 92.9",
+        "Test 23.5 91.3 Table 3: Average sentence length and percentage of sentences of length <=40 in the PPCMBE and PTB. we will report the parsing results for sentences of length <= 40 and all sentences, as with the PTB."
       ]
     },
     {
@@ -99,14 +105,18 @@
     {
       "title": "References",
       "paragraphs": [
-        "Ann Bies, Justin Mott, Colin Warner, and Seth Kulick. 2012. English Web Treebank. LDC2012T13. Linguistic Data Consortium. Charlotte Galves and Pabol Faria. 2010. Tycho Brahe Parsed Corpus of Historical Portuguese. http://www.tycho.iel.unicamp.br/ t̃ycho/corpus/en/index.html. Anthony Kroch and Ann Taylor. 2000. Penn-Helsinki Parsed Corpus of Middle English, second edition. http://www.ling.upenn.edu/ hist-corpora/PPCME2-RELEASE-3/ index.html. Anthony Kroch, Beatrice Santorini, and Ariel Diertani. 2004. Penn-Helsinki Parsed Corpus of Early Modern English. http: //www.ling.upenn.edu/hist-corpora/ PPCEME-RELEASE-2/index.html.",
+        "Ann Bies, Justin Mott, Colin Warner, and Seth Kulick. 2012. English Web Treebank. LDC2012T13. Linguistic Data Consortium.",
+        "Charlotte Galves and Pabol Faria. 2010. Tycho Brahe Parsed Corpus of Historical Portuguese. http://www.tycho.iel.unicamp.br/ t̃ycho/corpus/en/index.html.",
+        "Anthony Kroch and Ann Taylor. 2000. Penn-Helsinki Parsed Corpus of Middle English, second edition. http://www.ling.upenn.edu/ hist-corpora/PPCME2-RELEASE-3/ index.html.",
+        "Anthony Kroch, Beatrice Santorini, and Ariel Diertani. 2004. Penn-Helsinki Parsed Corpus of Early Modern English. http: //www.ling.upenn.edu/hist-corpora/ PPCEME-RELEASE-2/index.html.",
         "Anthony Kroch, Beatrice Santorini, and Ariel Diertani. 2010. Penn Parsed Corpus of Modern British English. http://www.ling.upenn. edu/hist-corpora/PPCMBE-RELEASE-1/ index.html.",
         "Yuri Lin, Jean-Baptiste Michel, Erez Aiden Lieberman, Jon Orwant, Will Brockman, and Slav Petrov. 2012. Syntactic annotations for the google books ngram corpus. In Proceedings of the ACL 2012 System Demonstrations, pages 169–174, Jeju Island, Korea, July. Association for Computational Linguistics.",
         "Mitchell P. Marcus, Beatrice Santorini, Mary Ann Marcinkiewicz, and Ann Taylor. 1999. Treebank-3. LDC99T42, Linguistic Data Consortium, Philadelphia.",
         "France Martineau et al. 2009. Modéliser le changement: les voies du franca̧is, a Parsed Corpus of Historical French.",
         "Slav Petrov, Leon Barrett, Romain Thibaux, and Dan Klein. 2006. Learning accurate, compact, and interpretable tree annotation. In Proceedings of COLING-ACL, pages 433–440, Sydney, Australia, July. Association for Computational Linguistics.",
         "Slav Petrov, Leon Barrett, Romain Thibaux, and Dan Klein. 2008. The Berkeley Parser. https://code.google.com/p/berkeleyparser/.",
-        "Satoshi Sekine and Michael Collins. 2008. Evalb. http://nlp.cs.nyu.edu/evalb/. Ann Taylor, Anthony Warner, Susan Pintzuk, and Frank Beths. 2003. The York-Toronto-Helsinki Parsed Corpus of Old English Prose. Distributed through the Oxford Text Archive. http://www-users.york.ac.uk/ l̃ang22/YCOE/YcoeHome.htm.",
+        "Satoshi Sekine and Michael Collins. 2008. Evalb. http://nlp.cs.nyu.edu/evalb/.",
+        "Ann Taylor, Anthony Warner, Susan Pintzuk, and Frank Beths. 2003. The York-Toronto-Helsinki Parsed Corpus of Old English Prose. Distributed through the Oxford Text Archive. http://www-users.york.ac.uk/ l̃ang22/YCOE/YcoeHome.htm.",
         "Ann Taylor, Arja Nurmi, Anthony Warner, Susan Pintzuk, and Terttu Nevalainen. 2006. Parsed Corpus of Early English Correspondence. Compiled by the CEEC Project Team. York: University of York and Helsinki: University of Helsinki. Distributed through the Oxford Text Archive. http://www-users.york.ac.uk/ l̃ang22/PCEEC-manual/index.htm.",
         "Joel Wallenberg, Anton Karl Ingason, Einar Freyr Sigursson, and Eirkur Rgnvaldsson. 2011. Icelandic Parsed Historical Corpus (IcePaHC) version 0.4. http://www.linguist.is/ icelandic_treebank. 667"
       ]

@@ -7,7 +7,7 @@
       ]
     },
     {
-      "title": "Humans Require Context to Infer Ironic Intent(so Computers Probably do, too)Byron C. Wallace, Do Kook Choe, Laura Kertz and Eugene CharniakBrown University{byron wallace, do kook choe, laura kertz, eugene charniak}@brown.eduAbstract",
+      "title": "Humans Require Context to Infer Ironic Intent (so Computers Probably do, too) Byron C. Wallace, Do Kook Choe, Laura Kertz and Eugene Charniak Brown University {byron wallace, do kook choe, laura kertz, eugene charniak}@brown.edu Abstract",
       "paragraphs": [
         "Automatically detecting verbal irony (roughly, sarcasm) is a challenging task because ironists say something other than – and often opposite to – what they actually mean. Discerning ironic intent exclusively from the words and syntax comprising texts (e.g., tweets, forum posts) is therefore not always possible: additional contextual information about the speaker and/or the topic at hand is often necessary. We introduce a new corpus that provides empirical evidence for this claim. We show that annotators frequently require context to make judgements concerning ironic intent, and that machine learning approaches tend to misclassify those same comments for which annotators required additional context."
       ]
@@ -92,7 +92,8 @@
         "S Lukin and M Walker. 2013. Really? well. apparently bootstrapping improves the performance of sarcasm and nastiness classifiers for online dialogue. NAACL, pages 30–40.",
         "A Reyes, P Rosso, and T Veale. 2012. A multidimensional approach for detecting irony in twitter. LREC, pages 1–30.",
         "E Riloff, A Qadir, P Surve, LD Silva, N Gilbert, and R Huang. 2013. Sarcasm as contrast between a positive sentiment and negative situation. In EMNLP, pages 704–714.",
-        "D Sperber and D Wilson. 1981. Irony and the usemention distinction. 1981. J Tepperman, D Traum, and S Narayanan. 2006. “Yeah Right”: Sarcasm Recognition for Spoken Dialogue Systems.",
+        "D Sperber and D Wilson. 1981. Irony and the usemention distinction. 1981.",
+        "J Tepperman, D Traum, and S Narayanan. 2006. “Yeah Right”: Sarcasm Recognition for Spoken Dialogue Systems.",
         "O Tsur, D Davidov, and A Rappoport. 2010. ICWSM-a great catchy name: Semi-supervised recognition of sarcastic sentences in online product reviews. In AAAI Conference on Weblogs and Social Media.",
         "AJ Viera and JM Garrett. 2005. Understanding in-terobserver agreement: the kappa statistic. Family Medicine, 37(5):360–363.",
         "MA Walker, JEF Tree, P Anand, R Abbott, and J King. 2012. A corpus for research on deliberation and debate. In LREC, pages 812–817. 516"

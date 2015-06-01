@@ -7,13 +7,13 @@
       ]
     },
     {
-      "title": "Detecting Retries of Voice Search QueriesRivka LevitanColumbia University",
+      "title": "Detecting Retries of Voice Search Queries Rivka Levitan Columbia University",
       "paragraphs": [
         "∗"
       ]
     },
     {
-      "title": "rlevitan@cs.columbia.edu David ElsonGoogle Inc.elson@google.comAbstract",
+      "title": "rlevitan@cs.columbia.edu David Elson Google Inc. elson@google.com Abstract",
       "paragraphs": [
         "When a system fails to correctly recognize a voice search query, the user will frequently retry the query, either by repeat-ing it exactly or rephrasing it in an attempt to adapt to the system’s failure. It is desirable to be able to identify queries as retries both offline, as a valuable quality signal, and online, as contextual information that can aid recognition. We present a method than can identify retries offline with 81% accuracy using similarity measures between two subsequent queries as well as system and user signals of recognition accuracy. The retry rate predicted by this method correlates significantly with a gold standard measure of accuracy, suggesting that it may be useful as an offline predictor of accuracy."
       ]
@@ -66,7 +66,7 @@
       ]
     },
     {
-      "title": "5 Prediction task5.1 Experimental Results",
+      "title": "5 Prediction task 5.1 Experimental Results",
       "paragraphs": [
         "A logistic regression model was trained on these features to predict the collapsed binary categories of NO RETRY (search retry, other, no retry) vs. RETRY (rephrase, repetition). The results of running this model with each combination of the feature groups are shown in Table 1. Features Precision Recall F1 Accuracy Similarity 0.54 0.65 0.59 0.72 Correctness 0.53 0.67 0.59 0.73 Recognizability 0.49 0.63 0.55 0.70 Sim. & Corr. 0.67 0.71 0.69 0.77 Sim. & Rec. 0.62 0.70 0.66 0.76 Corr. & Rec. 0.65 0.71 0.68 0.77 All Features 0.70 0.76 0.73 0.81 Table 1: Results of the binary prediction task.",
         "Individually, each feature group peformed significantly better than the baseline strategy of always predicting NO RETRY (62.4%). Each pair of feature groups performed better than any individual group, and the final combination of all three feature groups had the highest precision, recall, and accuracy, suggesting that each aspect of the retry conceptualization provides valuable information to the model.",
@@ -99,8 +99,10 @@
         "Marco Orlandi, Christopher Culy, and Horacio Franco. 2003. Using dialog corrections to improve speech recognition. In Error Handling in Spoken Language Dialogue Systems. International Speech Communication Association.",
         "Sharon Oviatt, G-A Levow, Margaret MacEachern, and Karen Kuhn. 1996. Modeling hyperarticulate speech during human-computer error resolu-tion. In Spoken Language, 1996. ICSLP 96. Proceedings., Fourth International Conference on, volume 2, pages 801–804. IEEE.",
         "Hagen Soltau and Alex Waibel. 1998. On the influence of hyperarticulated speech on recognition performance. In ICSLP. Citeseer.",
-        "Elizabeth Wade, Elizabeth Shriberg, and Patti Price. 1992. User behaviors affecting speech recognition. In ICSLP. Jason D. Williams. 2008. Exploiting the asr n-best by tracking multiple dialog state hypotheses. In Proceedings of the 9th Annual Conference of the International Speech Communication Association (INTERSPEECH 2008), pages 191–194, Brisbane, Australia.",
-        "Geoffrey Zweig, Dan Bohus, Xiao Li, and Patrick Nguyen. 2008. Structured models for joint decoding of repeated utterances. In Proceedings of the 9th Annual Conference of the International Speech Communication Association (INTER-SPEECH 2008), pages 1157–1160, Brisbane, Australia. Geoffrey Zweig. 2009. New methods for the analysis of repeated utterances. In Proceedings of the 10th Annual Conference of the International Speech Communication Association (IN-TERSPEECH 2009), pages 2791–2794, Brighton, United Kingdom. 235"
+        "Elizabeth Wade, Elizabeth Shriberg, and Patti Price. 1992. User behaviors affecting speech recognition. In ICSLP.",
+        "Jason D. Williams. 2008. Exploiting the asr n-best by tracking multiple dialog state hypotheses. In Proceedings of the 9th Annual Conference of the International Speech Communication Association (INTERSPEECH 2008), pages 191–194, Brisbane, Australia.",
+        "Geoffrey Zweig, Dan Bohus, Xiao Li, and Patrick Nguyen. 2008. Structured models for joint decoding of repeated utterances. In Proceedings of the 9th Annual Conference of the International Speech Communication Association (INTER-SPEECH 2008), pages 1157–1160, Brisbane, Australia.",
+        "Geoffrey Zweig. 2009. New methods for the analysis of repeated utterances. In Proceedings of the 10th Annual Conference of the International Speech Communication Association (IN-TERSPEECH 2009), pages 2791–2794, Brighton, United Kingdom. 235"
       ]
     }
   ]

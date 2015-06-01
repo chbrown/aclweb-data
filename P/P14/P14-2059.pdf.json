@@ -7,7 +7,7 @@
       ]
     },
     {
-      "title": "Citation Resolution: A method for evaluating context-based citationrecommendation systemsDaniel DumaUniversity of EdinburghD.C.Duma@sms.ed.ac.uk Ewan KleinUniversity of Edinburghewan@staffmail.ed.ac.ukAbstract",
+      "title": "Citation Resolution: A method for evaluating context-based citation recommendation systems Daniel Duma University of Edinburgh D.C.Duma@sms.ed.ac.uk Ewan Klein University of Edinburgh ewan@staffmail.ed.ac.uk Abstract",
       "paragraphs": [
         "Wouldn’t it be helpful if your text editor automatically suggested papers that are relevant to your research? Wouldn’t it be even better if those suggestions were contextually relevant? In this paper we name a system that would accomplish this a context-based citation recommendation (CBCR) system. We specifically present Citation Resolution, a method for the evaluation of CBCR systems which exclusively uses readily-available scientific articles. Exploiting the human judgements that are already implicit in available resources, we avoid purpose-specific annotation. We apply this evaluation to three sets of methods for representing a document, based on a) the contents of the document, b) the surrounding contexts of citations to the document found in other documents, and c) a mixture of the two."
       ]

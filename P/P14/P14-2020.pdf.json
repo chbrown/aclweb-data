@@ -7,7 +7,7 @@
       ]
     },
     {
-      "title": "Improved Typesetting Models for Historical OCRTaylor Berg-Kirkpatrick Dan KleinComputer Science DivisionUniversity of California, Berkeley{tberg,klein}@cs.berkeley.eduAbstract",
+      "title": "Improved Typesetting Models for Historical OCR Taylor Berg-Kirkpatrick Dan Klein Computer Science Division University of California, Berkeley {tberg,klein}@cs.berkeley.edu Abstract",
       "paragraphs": [
         "We present richer typesetting models that extend the unsupervised historical document recognition system of Berg-Kirkpatrick et al. (2013). The first model breaks the independence assump-tion between vertical offsets of neighboring glyphs and, in experiments, substantially decreases transcription error rates. The second model simultaneously learns multiple font styles and, as a result, is able to accurately track italic and non-italic portions of documents. Richer models complicate inference so we present a new, streamlined procedure that is over 25x faster than the method used by Berg-Kirkpatrick et al. (2013). Our final system achieves a relative word error reduction of 22% compared to state-of-the-art results on a dataset of historical newspapers."
       ]
@@ -25,11 +25,15 @@
     {
       "title": "v",
       "paragraphs": [
-        "i gi−1 vi−1 pi−1 XPAD i XGLYPH i XPAD i−1 XGLYPH i−1 fi−1 fi Original model Slo w-v ary Italic"
+        "i gi−1 vi−1 pi−1",
+        "XPAD",
+        "iXGLYPH iXPAD",
+        "i−1XGLYPH",
+        "i−1 fi−1 fi Original model Slo w-v ary Italic"
       ]
     },
     {
-      "title": "{{{",
+      "title": "{ { {",
       "paragraphs": [
         "Vertical offset Glyph width Pad width Character Font Pixels Figure 1: See Section 2 for a description of the generative process. We consider an extension of Berg-Kirkpatrick et al. (2013) that generates vi conditioned on the previous vertical offset vi−1 (labeled Slow-vary) and an extension that generates a sequence of font styles fi (labeled Italic). with a forward-cost-augmented beaming scheme. Our method is over 25x faster on a typical document, yet actually yields improved transcriptions."
       ]
@@ -43,18 +47,17 @@
         "The model we describe and extend has two minor differences from the one described by Berg-Kirkpatrick et al. (2013). While Berg-Kirkpatrick et al. (2013) generate two pad boxes for each character token, one to the left and one to the right, we only generate one pad box, always to the right. Additionally, Berg-Kirkpatrick et al. (2013) do not carry over the language model context between lines, while we do. system they are independent. Finally, the pixels in the ith glyph bounding box X GLYPH",
         "i are generated conditioned on the character ei, width gi, and vertical offset vi, and the pixels in the ith pad bounding box X PAD",
         "i are generated conditioned on the width pi. We refer the reader to Berg-Kirkpatrick et al. (2013) for the details of the pixel generation process. We have omitted the token-level inking random variables for the purpose of brevity. These can be treated as part of the pixel generation process.",
-        "Let X denote the matrix of pixels for the entire line, V = (v1, . . . , vn), P = (p1, . . . , pn), and G = (g1, . . . , gn). The joint distribution is written: P (X,V, P, G, E) = P (E) [Language model] · n ∏ i=1 P (gi|ei; Φ) [Glyph widths] · n ∏ i=1 P (pi|ei; Φ) [Pad widths] · n ∏ i=1 P (vi) [Vertical offsets] · n ∏",
-        "i=1 P (X PAD i |pi) [Pad pixels] · n ∏",
-        "i=1 P (X GLYPH i |vi, gi, ei; Φ) [Glyph pixels] 119"
+        "Let X denote the matrix of pixels for the entire line, V = (v1, . . . , vn), P = (p1, . . . , pn), and G = (g1, . . . , gn). The joint distribution is written: P (X,V, P, G, E) = P (E) [Language model] · n ∏ i=1 P (gi|ei; Φ) [Glyph widths] · n ∏ i=1 P (pi|ei; Φ) [Pad widths] · n ∏ i=1 P (vi) [Vertical offsets] · n ∏ i=1",
+        "P (X PAD i |pi) [Pad pixels] · n ∏ i=1",
+        "P (X GLYPH i |vi, gi, ei; Φ) [Glyph pixels] 119"
       ]
     },
     {
       "title": "Document image:",
       "paragraphs": [
         "Learned typsetting independent offsets: slow-varying offsets:Learned typsetting Figure 2: The first line depicts the Viterbi typesetting layout predicted by the OCULAR-BEAM-SV model. The second line depicts the same, but for the OCULAR-BEAM model. Pad boxes are shown in blue. Glyphs boxes are shown in white and display the Bernoulli template probabilities used to generate the observed pixels. The third line shows the corresponding portion of the input image. The font is parameterized by the vector Φ which governs the shapes of glyphs and the distributions over box widths. Φ is learned in an unsupervised fashion. Document recognition is accomplished via Viterbi decoding over the character random variables ei. 2.1 Slow-varying Offsets The original model generates the vertical offsets vi independently, and therefore cannot model how neighboring offsets are correlated. This correla-tion is actually strong in printing-press era documents. The baseline of the text wanders in the input image for two reasons: (1) the physical groove along which character templates were set was uneven and (2) the original document was imaged in a way that produced distortion. Both these underlying causes are likely to yield baselines that wander slowly up and down across a document. We refer to this behavior of vertical offsets as slow-varying, and extend the model to capture it.",
-        "In our first extension, we augment the model by incorporating a Markov chain over the vertical offset random variables vi, as depicted in Figure 1. Specifically, vi is generated from a discretized Gaussian centered at vi−1:",
-        "P (vi|vi−1) ∝ exp ( (vi − vi−1)2",
-        "2σ2 ) This means that the if vi differs substantially from vi−1, a large penalty is incurred. As a result, the model should prefer sequences of vi that vary slowly. In experiments, we set σ2",
+        "In our first extension, we augment the model by incorporating a Markov chain over the vertical offset random variables vi, as depicted in Figure 1. Specifically, vi is generated from a discretized Gaussian centered at vi−1: P (vi|vi−1) ∝ exp (",
+        "(vi − vi−1)2 2σ2 ) This means that the if vi differs substantially from vi−1, a large penalty is incurred. As a result, the model should prefer sequences of vi that vary slowly. In experiments, we set σ2",
         "= 0.05. 2.2 Italic Font Styles Many of the documents in the Old Bailey corpus contain both italic and non-italic font styles (Shoemaker, 2005). The way that italic fonts are used depends on the year the document was printed, but generally italics are reserved for proper nouns, quotations, and sentences that have a special role (e.g. the final judgment made in a court case). The switch between font styles almost always occurs at space characters.",
         "Our second extension of the typesetting model deals with both italic and non-italic font styles. We augment the model with a Markov chain over font styles fi, as depicted in Figure 1. Each font style token fi takes on a value in {ITALIC, NON-ITALIC} and is generated conditioned on the previous font style fi−1 and the current character token ei. Specifically, after generat-ing a character token that is not a space, the language model deterministically generates the last font used. If the language model generates a space character token, the decision of whether to switch font styles is drawn from a Bernoulli distribution. This ensures that the font style only changes at space characters.",
         "The font parameters Φ are extended to contain entries for the italic versions of all characters. This means the shapes and widths of italic glyphs can be learned separately from non-italic ones. Like Berg-Kirkpatrick et al. (2013), we initialize the font parameters from mixtures of modern fonts, using mixtures of modern italic font styles for italic characters."
@@ -68,7 +71,7 @@
       ]
     },
     {
-      "title": "Document image:Learned typesetting:",
+      "title": "Document image: Learned typesetting:",
       "paragraphs": [
         "Figure 3: This first line depicts the Viterbi typesetting layout predicted by the OCULAR-BEAM-IT model. Pad boxes are shown in blue. Glyphs boxes are shown in white and display the Bernoulli template probabilities used to generate the observed pixels. The second line shows the corresponding portion of the input image. tive, but slow. For example, while transcribing a typical document consisting of 30 lines of text, their system spends 63 minutes computing expected sufficient statistics and decoding when run on a 4.5GHz 4-core CPU.",
         "We instead use hard counts of the sufficient statistics for learning (i.e. perform hard-EM). As a result, we are free to use inference procedures that are specialized for Viterbi computation. Specifically, we use beam-search with estimated forward costs. Because the model is semi-Markov, our beam-search procedure is very similar the one used by Pharaoh (Koehn, 2004) for phrase-based machine translation, only without a distor-tion model. We use a beam of size 20, and estimate forward costs using a character bigram language model. On the machine mentioned above, transcribing the same document, our simplified system that uses hard-EM and beam-search spends only 2.4 minutes computing sufficient statistics and decoding. This represents a 26x speedup."
@@ -88,7 +91,9 @@
         "This means the language model is out-of-domain on both test sets. Berg-Kirkpatrick et al. (2013) also consider a perfectly in-domain language model, though this setting is somewhat unrealistic. 121 system, OCULAR-BEAM-SV achieved a relative reduction in WER of 22% on Trove and 11% on Old Bailey.",
         "By looking at the predicted typesetting layouts we can make a qualitative comparison between the vertical offsets predicted by OCULAR-BEAM and OCULAR-BEAM-SV. Figure 2 shows representations of the Viterbi estimates of the typesetting random variables predicted by the models on a portion of an example document. The first line is the typesetting layout predicted by OCULAR-BEAM-SV and the second line is same, but for OCULAR-BEAM. The locations of padding boxes are depicted in blue. The white glyph bounding boxes reveal the values of the Bernoulli template probabilities used to generate the observed pixels. The Bernoulli templates are produced from typelevel font parameters, but are modulated by token-level widths gi and vertical offsets vi (and inking random variables, whose description we have omitted for brevity). The predicted vertical offsets are visible in the shifted baselines of the template probabilities. The third line shows the corresponding portion of the input image. In this example, the text baseline predicted by OCULAR-BEAM-SV is contiguous, while the one predicted by OCULAR-BEAM is not. Given how OCULAR-BEAM-SV was designed, this meets our expectations. The text baseline predicted by OCULAR-BEAM has a discontinuity in the middle of its prediction for the gold word Surplus. In contrast, the vertical offsets predicted by OCULAR-BEAM-SV at this location vary smoothly and more accurately match the true text baseline in the input image. 4.2 Font Detection Performance We ran experiments with the italic font style model, OCULAR-BEAM-IT, on the Old Bailey test set (italics are infrequent in Trove). We evaluated the learned styles by measuring how accurately OCULAR-BEAM-IT was able to distinguish between italic and non-italic styles. Specifically, we computed the precision and recall for the system’s predictions about which words were italicized. We found that, across the entire Old Bailey test set, OCULAR-BEAM-IT was able to detect which words were italicized with 93% precision at 74% recall, suggesting that the system did successfully learn both italic and non-italic styles.4",
         "4",
-        "While it seems plausible that learning italics could also improve transcription accuracy, we found that OCULAR-System CER WER Trove Google Tesseract 37.5 59.3 ABBYY FineReader 22.9 49.2 OCULAR (baseline) 14.9 33.0 OCULAR-BEAM 12.9 30.7 OCULAR-BEAM-SV 11.2 25.6 Old Bailey OCULAR (baseline) 14.9 30.8 OCULAR-BEAM 10.9 28.8 OCULAR-BEAM-SV 10.3 27.5 Table 1: We evaluate the output of each system on two test sets: Trove, a collection of historical newspapers, and Old Bailey, a collection of historical court proceedings. We report character error rate (CER) and word error rate (WER), macroaveraged across documents.",
+        "While it seems plausible that learning italics could also improve transcription accuracy, we found that OCULAR-System CER WER",
+        "Trove Google Tesseract 37.5 59.3 ABBYY FineReader 22.9 49.2 OCULAR (baseline) 14.9 33.0 OCULAR-BEAM 12.9 30.7 OCULAR-BEAM-SV 11.2 25.6",
+        "Old Bailey OCULAR (baseline) 14.9 30.8 OCULAR-BEAM 10.9 28.8 OCULAR-BEAM-SV 10.3 27.5 Table 1: We evaluate the output of each system on two test sets: Trove, a collection of historical newspapers, and Old Bailey, a collection of historical court proceedings. We report character error rate (CER) and word error rate (WER), macroaveraged across documents.",
         "We can look at the typesetting layout predicted by OCULAR-BEAM-IT to gain insight into what has been learned by the model. The first line of Figure 3 shows the typesetting layout predicted by the OCULAR-BEAM-IT model for a line of a document image that contains italics. The second line of Figure 3 displays the corresponding portion of the input document image. From this example, it appears that the model has effectively learned separate glyph shapes for italic and non-italic versions of certain characters. For example, compare the template probabilities used to generate the d’s in defraud to the template probabilities used to generate the d in hard."
       ]
     },

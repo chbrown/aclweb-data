@@ -7,7 +7,7 @@
       ]
     },
     {
-      "title": "Gaussian Processes for Natural Language ProcessingTrevor CohnComputing and Information SystemsThe University of Melbournetrevor.cohn@gmail.com Daniel Preoti̧uc-Pietro and Neil LawrenceDepartment of Computer ScienceThe University of Sheffield{daniel,n.lawrence}@dcs.shef.ac.uk1 Introduction",
+      "title": "Gaussian Processes for Natural Language Processing Trevor Cohn Computing and Information Systems The University of Melbourne trevor.cohn@gmail.com Daniel Preoti̧uc-Pietro and Neil Lawrence Department of Computer Science The University of Sheffield {daniel,n.lawrence}@dcs.shef.ac.uk 1 Introduction",
       "paragraphs": [
         "Gaussian Processes (GPs) are a powerful modelling framework incorporating kernels and Bayesian inference, and are recognised as state-of-the-art for many machine learning tasks. Despite this, GPs have seen few applications in natural language processing (notwithstanding several recent papers by the authors). We argue that the GP framework offers many benefits over commonly used machine learning frameworks, such as linear models (logistic regression, least squares regression) and support vector machines. Moreover, GPs are extremely flexible and can be incorporated into larger graphical models, forming an important additional tool for probabilistic inference. Notably, GPs are one of the few models which support analytic Bayesian inference, avoiding the many approximation errors that plague approximate inference techniques in common use for Bayesian models (e.g. MCMC, variational Bayes).1",
         "GPs accurately model not just the underlying task, but also the uncertainty in the predictions, such that uncertainty can be propagated through pipelines of probabilistic components. Overall, GPs provide an elegant, flexible and simple means of probabilistic inference and are well overdue for consideration of the NLP community.",
@@ -19,7 +19,7 @@
     {
       "title": "2 Overview",
       "paragraphs": [
-        "Our goal is to present the main ideas and theory behind Gaussian Processes in order to increase awareness within the NLP community. The first part of the tutorial will focus on the basics of Gaussian Processes in the context of regression. The Gaussian Process defines a prior over functions which applied at each input point gives a response 1 value. Given data, we can analytically infer the posterior distribution of these functions assuming Gaussian noise.",
+        "Our goal is to present the main ideas and theory behind Gaussian Processes in order to increase awareness within the NLP community. The first part of the tutorial will focus on the basics of Gaussian Processes in the context of regression. The Gaussian Process defines a prior over functions which applied at each input point gives a response1 value. Given data, we can analytically infer the posterior distribution of these functions assuming Gaussian noise.",
         "This tutorial will contrast two main applications settings for regression: interpolation and extrapolation. Interpolation suits the use of simple radial basis function kernels which bias towards smooth latent functions. For extrapolation, however, the choice of the kernel is paramount, encoding our prior belief about the type of function wish to learn. We present several different kernels, including non-stationary and kernels for structured data (string and tree kernels). One of the main issues for kernel methods is setting the hyperparameters, which is often done in the support vector literature using grid search on held-out validation data. In the GP framework, we can compute the probability of the data given the model which involves the integral over the parameter space. This marginal likelihood or Bayesian evidence can be used for model selection using only training data, where by model selection we refer either to choosing from a set of given covariance kernels or choosing from different model hyperparameters (kernel parameters). We will present the key algorithms for type-II maximum likelihood estimation with respect to the hyper-parameters, using gradient ascent on the marginal likelihood.",
         "Many problems in NLP involve learning from a range of different tasks. We present multi-task learning models by representing intra-task transfer simply and explicitly as a part of a parameterised kernel function. GPs are an extremely flexible probabilistic framework and have been successfully adapted for multi-task learning, by modelling multiple correlated output variables (Alvarez et al., 2011). This literature develops early work from geostatistics (kriging and co-kriging), on learning latent continuous spatio-temporal models from sparse point measurements, a problem setting that has clear parallels to transfer learning (including domain adaptation).",
         "In the application section, we start by present-ing an open-source software package for GP modelling in Python: GPy.2",
@@ -36,12 +36,12 @@
         "(a) Non-congjugate likelihoods: classifica-",
         "tion, counts and ranking",
         "(b) Scaling GPs to big data: Sparse GPs and",
-        "stochastic variational inference 2",
+        "stochastic variational inference2",
         "(c) Unsupervised inference with the GP-LVM"
       ]
     },
     {
-      "title": "4 InstructorsTrevor Cohn",
+      "title": "4 Instructors Trevor Cohn",
       "paragraphs": [
         "3",
         "is a Senior Lecturer and ARC Future Fellow at the University of Melbourne. His research deals with probabilistic machine learning models, particularly structured prediction and non-parametric Bayesian models. He has recently published several seminal papers on Gaussian Process models for NLP with applications ranging from translation evaluation to temporal dynamics in social media.",

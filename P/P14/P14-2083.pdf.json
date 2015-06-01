@@ -7,7 +7,7 @@
       ]
     },
     {
-      "title": "Linguistically debatable or just plain wrong?Barbara Plank, Dirk Hovy and Anders SøgaardCenter for Language TechnologyUniversity of Copenhagen, DenmarkNjalsgade 140, DK-2300 Copenhagen Sbplank@cst.dk,dirk@cst.dk,soegaard@hum.ku.dkAbstract",
+      "title": "Linguistically debatable or just plain wrong? Barbara Plank, Dirk Hovy and Anders Søgaard Center for Language Technology University of Copenhagen, Denmark Njalsgade 140, DK-2300 Copenhagen S bplank@cst.dk,dirk@cst.dk,soegaard@hum.ku.dk Abstract",
       "paragraphs": [
         "In linguistic annotation projects, we typically develop annotation guidelines to minimize disagreement. However, in this position paper we question whether we should actually limit the disagreements between annotators, rather than embracing them. We present an empirical analysis of part-of-speech annotated data sets that suggests that disagreements are systematic across domains and to a certain extend also across languages. This points to an underlying ambiguity rather than random errors. Moreover, a quantitative analysis of tag confusions reveals that the majority of disagreements are due to linguistically debatable cases rather than annotation errors. Specifically, we show that even in the absence of annotation guidelines only 2% of annotator choices are linguistically unmotivated."
       ]
@@ -18,14 +18,20 @@
         "In NLP, we often model annotation as if it reflected a single ground truth that was guided by an underlying linguistic theory. If this was true, the specific theory should be learnable from the annotated data. However, it is well known that there are linguistically hard cases (Zeman, 2010), where no theory provides a clear answer, so annotation schemes commit to more or less arbitrary decisions. For example, in parsing auxiliary verbs may head main verbs, or vice versa, and in part-of-speech (POS) tagging, possessive pronouns may belong to the category of determiners or the category of pronouns. This position paper argues that annotation projects should embrace these hard cases rather than pretend they can be unambiguously resolved. Instead of using overly specific annotation guidelines, designed to minimize inter-annotator disagreement (Duffield et al., 2007), and adjudicating between annotators of different opinions, we should embrace systematic inter-annotator disagreements. To motivate this, we present an empirical analysis showing",
         "1. that certain inter-annotator disagreements are systematic, and",
         "2. that actual errors are in fact so infrequent as to be negligible, even when linguists annotate without guidelines.",
-        "The empirical analysis presented below relies on text corpora annotated with syntactic categories or parts-of-speech (POS). POS is part of most linguistic theories, but nevertheless, there are still many linguistic constructions – even very frequent ones – whose POS analysis is widely debated. The following sentences exemplify some of these hard cases that annotators frequently disagree on. Note that we do not claim that both analyses in each of these cases (1–3) are equally good, but that there is some linguistic motivation for either analysis in each case. (1) Noam goes out tonight NOUN VERB ADP/PRT ADV/NOUN (2) Noam likes social media NOUN VERB ADJ/NOUN NOUN (3) Noam likes his car NOUN VERB DET/PRON NOUN",
+        "The empirical analysis presented below relies on text corpora annotated with syntactic categories or parts-of-speech (POS). POS is part of most linguistic theories, but nevertheless, there are still many linguistic constructions – even very frequent ones – whose POS analysis is widely debated. The following sentences exemplify some of these hard cases that annotators frequently disagree on. Note that we do not claim that both analyses in each of these cases (1–3) are equally good, but that there is some linguistic motivation for either analysis in each case.",
+        "(1) Noam goes out tonight",
+        "NOUN VERB ADP/PRT ADV/NOUN",
+        "(2) Noam likes social media",
+        "NOUN VERB ADJ/NOUN NOUN",
+        "(3) Noam likes his car",
+        "NOUN VERB DET/PRON NOUN",
         "To substantiate our claims, we first compare the distribution of inter-annotator disagreements across domains and languages, showing that most disagreements are systematic (Section 2). This suggests that most annotation differences derive from hard cases, rather than random errors.",
         "We then collect a corpus of such disagreements and have experts mark which ones are due to actual annotation errors, and which ones reflect linguistically hard cases (Section 3). The results show that the majority of disagreements are due 507 to hard cases, and only about 20% of conflict-ing annotations are actual errors. This suggests that inter-annotator agreement scores often hide the fact that the vast majority of annotations are actually linguistically motivated. In our case, less than 2% of the overall annotations are linguistically unmotivated.",
         "Finally, in Section 4, we present an experiment trying to learn a model to distinguish between hard cases and annotation errors."
       ]
     },
     {
-      "title": "2 Annotator disagreements acrossdomains and languages",
+      "title": "2 Annotator disagreements across domains and languages",
       "paragraphs": [
         "In this study, we had between 2-10 individual annotators with degrees in linguistics annotate different kinds of English text with POS tags, e.g., newswire text (PTB WSJ Section 00), transcripts of spoken language (from a database containing transcripts of conversations, Talkbank1",
         "), as well as Twitter posts. Annotators were specificallynot presented with guidelines that would help them resolve hard cases. Moreover, we compare professional annotation to that of lay people. We in-structed annotators to use the 12 universal POS tags of Petrov et al. (2012). We did so in order to make comparison between existing data sets possible. Moreover, this allows us to focus on really hard cases, as any debatable case in the coarse-grained tag set is necessarily also part of the finer-grained tag set.2",

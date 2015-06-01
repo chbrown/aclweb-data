@@ -7,25 +7,25 @@
       ]
     },
     {
-      "title": "Mutual Disambiguation for Entity LinkingEric ChartonPolytechnique MontréalMontréal, QC, Canada",
+      "title": "Mutual Disambiguation for Entity Linking Eric Charton Polytechnique Montréal Montréal, QC, Canada",
       "paragraphs": [
         "eric.charton@polymtl.ca"
       ]
     },
     {
-      "title": "Marie-Jean MeursConcordia UniversityMontréal, QC, Canada",
+      "title": "Marie-Jean Meurs Concordia University Montréal, QC, Canada",
       "paragraphs": [
         "marie-jean.meurs@concordia.ca"
       ]
     },
     {
-      "title": "Ludovic Jean-LouisPolytechnique Montréal",
+      "title": "Ludovic Jean-Louis Polytechnique Montréal",
       "paragraphs": [
         "ludovic.jean-louis@polymtl.ca"
       ]
     },
     {
-      "title": "Michel GagnonPolytechnique Montréal",
+      "title": "Michel Gagnon Polytechnique Montréal",
       "paragraphs": [
         "michel.gagnon@polymtl.ca"
       ]
@@ -64,34 +64,34 @@
         "i , composed of the Wikipedia URIs and categories contained in the source Wikipedia document related to the URI stored in AD[i][k] that we will refer to as URIk",
         "i to ease the reading. Scoring: For all i, j ∈ [[1, n]], k ∈ [[1, l]], we want to calculate the weight of mutual relations between the candidate URIk",
         "i and all the first rank candidates URI1",
-        "j for j ̸= i. The calculation combines two scores that we called direct semantic relation score (dsr score) and common semantic relation score (csr score):",
-        "- the dsr score for URIk",
+        "j for j ̸= i. The calculation combines two scores that we called direct semantic relation score (dsr score) and common semantic relation score (csr score): - the dsr score for URIk",
         "i sums up the number of",
         "occurrences of URIk i in S1",
-        "j for all j ∈ [[1, n]] − {i}. - the csr score for URIk",
-        "i sums up the number of common URIs and categories between Sk",
+        "j for all j ∈ [[1, n]] − {i}.",
+        "- the csr score for URIk i sums up the number of",
+        "common URIs and categories between Sk",
         "i and S1",
         "j for all j ∈ [[1, n]] − {i}.",
         "We assumed the dsr score was much more semantically significant than the csr score, and translated this assumption in the weight calculation by introducing two correction parameters α and β used in the final scoring calculation. Re-ranking: For all i ∈ [[1, n]], for each set of URIs {URIk",
         "i , k ∈ [[1, l]]}, the re-ranking process is conducted according to the following steps: For all i ∈ I,",
         "1. ∀k ∈ [[1, l]], calculate dsr score(URIk i )",
         "2. ∀k ∈ [[1, l]], calculate csr score(URIk i )",
-        "3. ∀k ∈ [[1, l]], calculate",
-        "mutual relation score(URIk",
+        "3. ∀k ∈ [[1, l]], calculate mutual relation score(URIk",
         "i ) =",
-        "α.dsr score(URIk",
-        "i )+β.csr score(URIk",
+        "α.dsr score(URIk i )+β.csr score(URIk",
         "i )",
         "4. re-order {URIk",
-        "i , k ∈ [[1, l]]}, by decreasing order of mutual relation score. In the following, we detail the MDP in the context of a toy example to illustrate how it works. The document contains two sentences, NE mentions are in bold: IBM has 12 research laboratories worldwide. Thomas J. Watson, Jr. became president of the company. For the first NE mention [IBM], AD contains two candidate URIs identifying two different resources:",
-        "[IBM] URI1 1 ≡ International Brotherhood of Magicians",
-        "URI2 1 ≡ International Business Machines Corporation For the second NE mention [Thomas J. Watson, Jr.], AD contains the following candidate URI, which is ranked first:",
-        "[Thomas J. Watson, Jr.] URI1 2 ≡ Thomas Watson, Jr. S1 1 gathers URIs and categories contained in the International Brotherhood of Magicians Wikipedia page. S2",
+        "i , k ∈ [[1, l]]}, by decreasing order of mutual relation score. In the following, we detail the MDP in the context of a toy example to illustrate how it works. The document contains two sentences, NE mentions are in bold: IBM has 12 research laboratories worldwide. Thomas J. Watson, Jr. became president of the company. For the first NE mention [IBM], AD contains two candidate URIs identifying two different resources: [IBM] URI1",
+        "1 ≡ International Brotherhood of Magicians URI2",
+        "1 ≡ International Business Machines Corporation For the second NE mention [Thomas J. Watson, Jr.], AD contains the following candidate URI, which is ranked first:",
+        "[Thomas J. Watson, Jr.] URI1",
+        "2 ≡ Thomas Watson, Jr. S1 1 gathers URIs and categories contained in the International Brotherhood of Magicians Wikipedia page. S2",
         "1 is associated to the International Business Machines Corporation, and S1",
-        "2 to the Thomas Watson, Jr. page. dsr score(URI1",
-        "1) sums up the number of occurrences of URI1",
-        "1 in S1",
-        "j for all j ∈ [[1, n]]−{1}. Hence, in the current example, dsr score(URI1",
+        "2 to the Thomas Watson,",
+        "Jr. page. dsr score(URI1 1) sums up the number of",
+        "occurrences of URI1 1 in S1",
+        "j for all j ∈ [[1, n]]−{1}.",
+        "Hence, in the current example, dsr score(URI1",
         "1) is the number of occurrences of URI1",
         "1 in S1",
         "2 , namely the number of times the International Brotherhood of Magicians are cited in the Thomas Watson, Jr. page. Similarly, dsr score(URI2",
@@ -107,12 +107,16 @@
     {
       "title": "4 Experiments and Results",
       "paragraphs": [
-        "SemLinker has been evaluated on the TAC-KBP 2012 EL task (Charton et al., 2013). In this task, mentions of entities found in a document collection must be linked to entities in a reference KB, or to new named entities discovered in the collection. The document collection built for KBP 2012 contains a combination of newswire articles (News), 479 SemLinker TAC-KBP2012 systems modules no disambiguation MDP only all modules 1st 2nd 3rd median",
+        "SemLinker has been evaluated on the TAC-KBP 2012 EL task (Charton et al., 2013). In this task, mentions of entities found in a document collection must be linked to entities in a reference KB, or to new named entities discovered in the collection. The document collection built for KBP 2012 contains a combination of newswire articles (News), 479",
+        "SemLinker TAC-KBP2012 systems",
+        "modules no disambiguation MDP only all modules 1st",
+        "2nd",
+        "3rd",
+        "median",
         "Category B3+",
         "P B3+",
         "R B3+",
-        "F 1 B3+",
-        "P B3+",
+        "F 1 B3+ P B3+",
         "R B3+",
         "F 1 B3+",
         "P B3+",
@@ -160,14 +164,18 @@
         "Silviu Cucerzan. 2007. Large-scale named entity disambiguation based on wikipedia data. In Proceedings of the Conference on Empirical Methods in Natural Language Processing EMNLP-CoNLL. ACL.",
         "Joe Ellis, Xuansong Li, Kira Griffitt, Stephanie M Strassel, and Jonathan Wright. 2011. Linguistic resources for 2012 knowledge base population evaluations. In Proceedings of TAC-KBP 2012.",
         "Angela Fahrni, Thierry Göckel, and Michael Strube. 2012. Hitsmonolingual and cross-lingual entity linking system at tac 2012: A joint approach. In TAC (Text Analysis Conference) 2012 Workshop.",
-        "Aldo Gangemi. 2013. A Comparison of Knowledge Extraction Tools for the Semantic Web. In The 10th Extended Semantic Web Conference (ESWC) 2013. Xianpei Han and Jun Zhao. 2009. Named entity disambiguation by leveraging wikipedia semantic knowledge. In Proceedings of the Conference on Information and Knowledge Management (CIKM). ACM. Johannes Hoffart, Fabian M Suchanek, Klaus Berberich, Edwin Lewis-Kelham, Gerard De Melo, and Gerhard Weikum. 2011a. Yago2: exploring and querying world knowledge in time, space, context, and many languages. In Proceedings of the 20th international conference companion on World wide web, pages 229–232. ACM.",
+        "Aldo Gangemi. 2013. A Comparison of Knowledge Extraction Tools for the Semantic Web. In The 10th Extended Semantic Web Conference (ESWC) 2013.",
+        "Xianpei Han and Jun Zhao. 2009. Named entity disambiguation by leveraging wikipedia semantic knowledge. In Proceedings of the Conference on Information and Knowledge Management (CIKM). ACM.",
+        "Johannes Hoffart, Fabian M Suchanek, Klaus Berberich, Edwin Lewis-Kelham, Gerard De Melo, and Gerhard Weikum. 2011a. Yago2: exploring and querying world knowledge in time, space, context, and many languages. In Proceedings of the 20th international conference companion on World wide web, pages 229–232. ACM.",
         "Johannes Hoffart, Mohamed Amir Yosef, Ilaria Bordino, Hagen Fürstenau, Manfred Pinkal, Marc Spaniol, Bilyana Taneva, Stefan Thater, and Gerhard Weikum. 2011b. Robust disambiguation of named entities in text. In Proceedings of the Conference on Empirical Methods in Natural Language Processing, pages 782–792. Association for Computational Linguistics.",
         "Heng Ji, Ralph Grishman, HT Dang, and K Griffitt. 2010. Overview of the TAC 2010 knowledge base population track. Proceedings of TAC 2010.",
         "Pablo N Mendes, Max Jakob, Andrés Garcı́a-Silva, and Christian Bizer. 2011. DBpedia Spotlight: Shedding Light on the Web of Documents. In The 7th International Conference on Semantic Systems (I-Semantics) 2011, pages 1–8.",
         "David N. Milne and Ian H. Witten. 2008. Named entity disambiguation by leveraging wikipedia semantic knowledge. In Proceedings of the Conference on Information and Knowledge Management (CIKM). ACM.",
-        "Roberto Navigli. 2009. Word sense disambiguation: A survey. ACM Computing Surveys (CSUR), 41(2):10. Hien T. Nguyen and Tru H. Cao. 2008. Named entity disambiguation on an ontology enriched by wikipedia. In Research, Innovation and Vision for the Future, 2008. RIVF 2008. IEEE International Conference on, pages 247–254. IEEE.",
+        "Roberto Navigli. 2009. Word sense disambiguation: A survey. ACM Computing Surveys (CSUR), 41(2):10.",
+        "Hien T. Nguyen and Tru H. Cao. 2008. Named entity disambiguation on an ontology enriched by wikipedia. In Research, Innovation and Vision for the Future, 2008. RIVF 2008. IEEE International Conference on, pages 247–254. IEEE.",
         "Borislav Popov, Atanas Kiryakov, Angel Kirilov, Dimitar Manov, Damyan Ognyanoff, and Miroslav Goranov. 2003. KIM – Semantic annotation platform. Lecture Notes in Computer Science, pages 834–849.",
-        "Michael Strube and Simone Paolo Ponzetto. 2006. WikiRelate! Computing Semantic Relatedness Us-ing Wikipedia. In AAAI, volume 6, pages 1419– 1424. TAC-KBP. 2012. Proposed Task Description for Knowledge-Base Population at TAC 2012. In Proceedings of TAC-KBP 2012. National Institute of Standards and Technology. 481"
+        "Michael Strube and Simone Paolo Ponzetto. 2006. WikiRelate! Computing Semantic Relatedness Us-ing Wikipedia. In AAAI, volume 6, pages 1419– 1424.",
+        "TAC-KBP. 2012. Proposed Task Description for Knowledge-Base Population at TAC 2012. In Proceedings of TAC-KBP 2012. National Institute of Standards and Technology. 481"
       ]
     }
   ]

@@ -7,7 +7,7 @@
       ]
     },
     {
-      "title": "Incremental Structured Prediction Using a Global Learning andBeam-Search FrameworkYue Zhang",
+      "title": "Incremental Structured Prediction Using a Global Learning and Beam-Search Framework Yue Zhang",
       "paragraphs": [
         "†"
       ]
@@ -25,13 +25,13 @@
       ]
     },
     {
-      "title": "Singapore University of Technology and Designyue zhang@sutd.edu.sg",
+      "title": "Singapore University of Technology and Design yue zhang@sutd.edu.sg",
       "paragraphs": [
         "‡"
       ]
     },
     {
-      "title": "Research Center for Social Computing and Information RetrievalHarbin Institute of Technology, China{mszhang, tliu}@ir.hit.edu.cnAbstract",
+      "title": "Research Center for Social Computing and Information Retrieval Harbin Institute of Technology, China {mszhang, tliu}@ir.hit.edu.cn Abstract",
       "paragraphs": [
         "This tutorial discusses a framework for incremental left-to-right structured predication, which makes use of global discriminative learning and beam-search decoding. The method has been applied to a wide range of NLP tasks in recent years, and achieved competitive accuracies and efficiencies. We give an introduction to the algorithms and efficient implementations, and discuss their applications to a range of NLP tasks."
       ]
@@ -47,7 +47,7 @@
       "title": "2 Tutorial Overview",
       "paragraphs": [
         "In this tutorial, we make an introduction to the framework, illustrating how it can be applied to a range of NLP problems, giving theoretical discussions and demonstrating a software implementation. We start with a detailed introduction of the framework, describing the averaged perceptron algorithm (Collins, 2002) and its efficient implementation issues (Zhang and Clark, 2007), as well as beam-search and the early-update strategy (Collins and Roark, 2004). We then illustrate how the framework can be applied to NLP tasks, including word segmentation, joint segmentation & POS-tagging, labeled and unlabeled dependency parsing, joint POS-tagging and dependency parsing, CFG parsing, CCG parsing, and joint segmentation, POS-tagging and parsing. In each case, we illustrate how the task is turned into an incremental left-to-right output-building process, and how rich features are defined to give competitive accuracies. These examples can serve as guidance in applying the framework to other structural prediction tasks.",
-        "In the second part of the tutorial, we give some analysis on why the framework is effective. We discuss several alternative learning algorithms, 13 and compare beam-search with greedy search on dependency parsing. We show that accuracy benefits from interaction between learning and search. Finally, the tutorial concludes with an introduction to ZPar, an open source toolkit that provides optimized C++ implementations of of all the above tasks."
+        "In the second part of the tutorial, we give some analysis on why the framework is effective. We discuss several alternative learning algorithms,13 and compare beam-search with greedy search on dependency parsing. We show that accuracy benefits from interaction between learning and search. Finally, the tutorial concludes with an introduction to ZPar, an open source toolkit that provides optimized C++ implementations of of all the above tasks."
       ]
     },
     {
@@ -86,16 +86,19 @@
         "Michael Collins. 2002. Discriminative training methods for hidden markov models: Theory and experiments with perceptron algorithms. In Proceedings of EMNLP, pages 1–8. Association for Computational Linguistics, July.",
         "Hal Daumé III and Daniel Marcu. 2005. Learning as search optimization: Approximate large margin methods for structured prediction. In International Conference on Machine Learning (ICML), Bonn, Germany.",
         "Jun Hatori, Takuya Matsuzaki, Yusuke Miyao, and Jun’ichi Tsujii. 2011. Incremental joint pos tagging and dependency parsing in chinese. In Proceedings of IJCNLP, pages 1216–1224, Chiang Mai, Thailand, November. Asian Federation of Natural Language Processing.",
-        "Liang Huang and Kenji Sagae. 2010. Dynamic programming for linear-time incremental parsing. In Proceedings of ACL 2010, pages 1077–1086, Uppsala, Sweden, July. Association for Computational Linguistics. 14",
+        "Liang Huang and Kenji Sagae. 2010. Dynamic programming for linear-time incremental parsing. In Proceedings of ACL 2010, pages 1077–1086, Uppsala, Sweden, July. Association for Computational Linguistics.14",
         "Liang Huang, Suphan Fayong, and Yang Guo. 2012. Structured perceptron with inexact search. In Proceedings of NAACL 2012, pages 142–151, Montréal, Canada, June. Association for Computational Linguistics.",
         "Yang Liu. 2013. A shift-reduce parsing algorithm for phrase-based string-to-dependency translation. In Proceedings of the ACL, pages 1–10, Sofia, Bulgaria, August. Association for Computational Linguistics.",
         "Wenduan Xu, Yue Zhang, and Stephen Clark. 2014. Shift-reduce ccg parsing with a dependency model. In Proceedings of the ACL.",
         "Yue Zhang and Stephen Clark. 2007. Chinese segmentation with a word-based perceptron algorithm. In Proceedings of ACL 2007, pages 840–847, Prague, Czech Republic, June. Association for Computational Linguistics.",
-        "Yue Zhang and Stephen Clark. 2008a. Joint word segmentation and POS tagging using a single perceptron. In Proceedings of ACL-08: HLT, pages 888– 896, Columbus, Ohio, June. Association for Computational Linguistics. Yue Zhang and Stephen Clark. 2008b. A tale of two parsers: Investigating and combining graph-based and transition-based dependency parsing. In Proceedings of EMNLP, pages 562–571, Honolulu, Hawaii, October. Association for Computational Linguistics. Yue Zhang and Stephen Clark. 2009. Transition-based parsing of the chinese treebank using a global discriminative model. In Proceedings of IWPT’09, pages 162–171, Paris, France, October. Association for Computational Linguistics.",
+        "Yue Zhang and Stephen Clark. 2008a. Joint word segmentation and POS tagging using a single perceptron. In Proceedings of ACL-08: HLT, pages 888– 896, Columbus, Ohio, June. Association for Computational Linguistics.",
+        "Yue Zhang and Stephen Clark. 2008b. A tale of two parsers: Investigating and combining graph-based and transition-based dependency parsing. In Proceedings of EMNLP, pages 562–571, Honolulu, Hawaii, October. Association for Computational Linguistics.",
+        "Yue Zhang and Stephen Clark. 2009. Transition-based parsing of the chinese treebank using a global discriminative model. In Proceedings of IWPT’09, pages 162–171, Paris, France, October. Association for Computational Linguistics.",
         "Yue Zhang and Stephen Clark. 2010. A fast decoder for joint word segmentation and POS-tagging using a single discriminative model. In Proceedings of EMNLP 2010, pages 843–852, Cambridge, MA, October. Association for Computational Linguistics.",
         "Yue Zhang and Stephen Clark. 2011a. Shift-reduce ccg parsing. In Proceedings of ACL 2011, pages 683–692, Portland, Oregon, USA, June. Association for Computational Linguistics.",
         "Yue Zhang and Stephen Clark. 2011b. Syntactic processing using the generalized perceptron and beam search. Computational Linguistics, 37(1):105–151.",
-        "Yue Zhang and Joakim Nivre. 2011. Transition-based dependency parsing with rich non-local features. In Proceedings of ACL 2011, pages 188–193, Portland, Oregon, USA, June. Association for Computational Linguistics. Yue Zhang and Joakim Nivre. 2012. Analyzing the effect of global learning and beam-search on transition-based dependency parsing. In Proceedings of COLING 2012: Posters, pages 1391–1400, Mumbai, India, December. The COLING 2012 Organizing Committee.",
+        "Yue Zhang and Joakim Nivre. 2011. Transition-based dependency parsing with rich non-local features. In Proceedings of ACL 2011, pages 188–193, Portland, Oregon, USA, June. Association for Computational Linguistics.",
+        "Yue Zhang and Joakim Nivre. 2012. Analyzing the effect of global learning and beam-search on transition-based dependency parsing. In Proceedings of COLING 2012: Posters, pages 1391–1400, Mumbai, India, December. The COLING 2012 Organizing Committee.",
         "Meishan Zhang, Yue Zhang, Wanxiang Che, and Ting Liu. 2013. Chinese parsing exploiting characters. In Proceedings of ACL 2013.",
         "Meishan Zhang, Yue Zhang, Wanxiang Che, and Ting Liu. 2014. Character-level chinese dependency parsing. In Proceedings of the ACL.",
         "Muhua Zhu, Yue Zhang, Wenliang Chen, Min Zhang, and Jingbo Zhu. 2013. Fast and accurate shift-reduce constituent parsing. In Proceedings of ACL 2013. 15"

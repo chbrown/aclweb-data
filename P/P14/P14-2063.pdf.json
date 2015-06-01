@@ -7,7 +7,7 @@
       ]
     },
     {
-      "title": "Building Sentiment Lexicons for All Major LanguagesYanqing ChenComputer Science Dept.Stony Brook UniversityStony Brook, NY 11794cyanqing@cs.stonybrook.edu Steven SkienaComputer Science Dept.Stony Brook UniversityStony Brook, NY 11794skiena@cs.stonybrook.eduAbstract",
+      "title": "Building Sentiment Lexicons for All Major Languages Yanqing Chen Computer Science Dept. Stony Brook University Stony Brook, NY 11794 cyanqing@cs.stonybrook.edu Steven Skiena Computer Science Dept. Stony Brook University Stony Brook, NY 11794 skiena@cs.stonybrook.edu Abstract",
       "paragraphs": [
         "Sentiment analysis in a multilingual world remains a challenging problem, because developing language-specific sentiment lexicons is an extremely resource-intensive process. Such lexicons remain a scarce resource for most languages. In this paper, we address this lexicon gap by building high-quality sentiment lexicons for 136 major languages. We in-tegrate a variety of linguistic resources to produce an immense knowledge graph. By appropriately propagating from seed words, we construct sentiment lexicons for each component language of our graph. Our lexicons have a polarity agreement of 95.7% with published lexicons, while achieving an overall coverage of 45.2%. We demonstrate the performance of our lexicons in an extrinsic analysis of 2,000 distinct historical figures’ Wikipedia articles on 30 languages. Despite cultural difference and the intended neutrality of Wikipedia articles, our lexicons show an average sentiment correlation of 0.28 across all language pairs."
       ]
@@ -66,7 +66,7 @@
       ]
     },
     {
-      "title": "6 Extrinsic Evaluation: Consistency ofWikipedia Sentiment",
+      "title": "6 Extrinsic Evaluation: Consistency of Wikipedia Sentiment",
       "paragraphs": [
         "We consider evaluating our lexicons on the consistency of Wikipedia pages about a particular in-dividual person among various languages. As our candidate entities for analysis, we use the Wikipedia pages of 2,000 most significant people as measured in the recent book Who’s Bigger? (Skiena and Ward, 2013). The sentiment polarity of a page is simply computed by subtracting 386 Type Person Z-score distribution Good Leonardo da Vinci Steven Spielberg Bad Adolf Hitler Osama bin Laden Table 3: Z-score distribution examples. We label 10 languages with their language code and other using tick marks on the x-axis. the number of negative words from that of positive words, divided by the sum of both.",
         "The differing ratio of positive and negative polarity terms in Table 2 means that sentiment cannot be directly compared across languages. For more consistent evaluation we compute the z-score of each entity against the distribution of all its language’s entities.",
@@ -94,7 +94,8 @@
         "Rami Al-Rfou, Bryan Perozzi, and Steven Skiena. 2013. Polyglot: Distributed word representations for multilingual nlp. arXiv preprint arXiv:1307.1662.",
         "Carmen Banea, Rada Mihalcea, Janyce Wiebe, and Samer Hassan. 2008. Multilingual subjectivity analysis using machine translation. In Proceedings of the Conference on Empirical Methods in Natural Language Processing, pages 127–135. Association for Computational Linguistics.",
         "Valerio Basile and Malvina Nissim. 2013. Sentiment analysis on italian tweets. WASSA 2013, page 100.",
-        "M. Bautin, L. Vijayarenu, and S. Skiena. 2008. In-ternational sentiment analysis for news and blogs. Second Int. Conf. on Weblogs and Social Media (ICWSM 2008). Erik Boiy and Marie-Francine Moens. 2009. A machine learning approach to sentiment analysis in multilingual web texts. Information retrieval, 12(5):526–558.",
+        "M. Bautin, L. Vijayarenu, and S. Skiena. 2008. In-ternational sentiment analysis for news and blogs. Second Int. Conf. on Weblogs and Social Media (ICWSM 2008).",
+        "Erik Boiy and Marie-Francine Moens. 2009. A machine learning approach to sentiment analysis in multilingual web texts. Information retrieval, 12(5):526–558.",
         "Kerstin Denecke. 2008. Using sentiwordnet for multilingual sentiment analysis. In Data Engineering Workshop, 2008. ICDEW 2008. IEEE 24th International Conference on, pages 507–512. IEEE.",
         "Andrea Esuli and Fabrizio Sebastiani. 2006. Sentiwordnet: A publicly available lexical resource for opinion mining. In Proceedings of LREC, volume 6, pages 417–422.",
         "Stefan Gindl, Albert Weichselbraun, and Arno Scharl. 2010. Cross-domain contextualisation of sentiment lexicons. 19th European Conference on Artificial Intelligence (ECAI).",

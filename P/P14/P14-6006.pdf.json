@@ -7,7 +7,7 @@
       ]
     },
     {
-      "title": "Structured Belief Propagation for NLPMatthew R. Gormley Jason EisnerDepartment of Computer ScienceJohns Hopkins University, Baltimore, MD{mrg,jason}@cs.jhu.edu1 Tutorial Overview",
+      "title": "Structured Belief Propagation for NLP Matthew R. Gormley Jason Eisner Department of Computer Science Johns Hopkins University, Baltimore, MD {mrg,jason}@cs.jhu.edu 1 Tutorial Overview",
       "paragraphs": [
         "Statistical natural language processing relies on probabilistic models of linguistic structure. More complex models can help capture our intuitions about language, by adding linguistically meaningful interactions and latent variables. However, inference and learning in the models we want often poses a serious computational challenge.",
         "Belief propagation (BP) and its variants provide an attractive approximate solution, especially using recent training methods. These approaches can handle joint models of interacting components, are computationally efficient, and have extended the state-of-the-art on a number of common NLP tasks, including dependency parsing, modeling of morphological paradigms, CCG parsing, phrase extraction, semantic role labeling, and information extraction (Smith and Eisner, 2008; Dreyer and Eisner, 2009; Auli and Lopez, 2011; Burkett and Klein, 2012; Naradowsky et al., 2012; Stoyanov and Eisner, 2012).",
@@ -29,7 +29,7 @@
         "5. Message approximation and scheduling [20 min., Eisner] • Pruning messages • Variational approximations • Residual BP and new variants",
         "6. Approximation-aware Training [30 min., Gormley] • Empirical risk minimization under approx-",
         "imations (ERMA) • BP as a computational expression graph • Automatic differentiation (AD)",
-        "7. Software [10 min., Gormley] 9"
+        "7. Software [10 min., Gormley]9"
       ]
     },
     {

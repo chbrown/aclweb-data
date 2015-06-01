@@ -7,7 +7,7 @@
       ]
     },
     {
-      "title": "POS induction with distributional and morphological informationusing a distance-dependent Chinese restaurant processKairit SirtsInstitute of Cybernetics atTallinn University of Technologysirts@ioc.ee Jacob EisensteinSchool of Interactive ComputingGeorgia Institute of Technologyjacobe@gatech.eduMicha ElsnerDepartment of LinguisticsThe Ohio State Universitymelsner0@gmail.com Sharon GoldwaterILCC, School of InformaticsUniversity of Edinburghsgwater@inf.ed.ac.ukAbstract",
+      "title": "POS induction with distributional and morphological information using a distance-dependent Chinese restaurant process Kairit Sirts Institute of Cybernetics at Tallinn University of Technology sirts@ioc.ee Jacob Eisenstein School of Interactive Computing Georgia Institute of Technology jacobe@gatech.edu Micha Elsner Department of Linguistics The Ohio State University melsner0@gmail.com Sharon Goldwater ILCC, School of Informatics University of Edinburgh sgwater@inf.ed.ac.uk Abstract",
       "paragraphs": [
         "We present a new approach to inducing the syntactic categories of words, combining their distributional and morphological properties in a joint nonparametric Bayesian model based on the distance-dependent Chinese Restaurant Process. The prior distribution over word clusterings uses a log-linear model of morphological similarity; the likelihood function is the probability of generating vector word embeddings. The weights of the morphology model are learned jointly while inducing part-of-speech clusters, encouraging them to cohere with the distributional features. The resulting algorithm outperforms competitive alternatives on English POS induction."
       ]
@@ -36,33 +36,32 @@
         "Separating the distance and decay function makes sense for “natural” distances (e.g., the number of words between word i and j in a document, or the time between two events), but they can also be collapsed into a single similarity function. We wish to assign higher similarities to pairs of words that share meaningful suffixes. Because we do not know which suffixes are meaningfula priori, we use a maximum entropy model whose features include all suffixes up to length three that are shared by at least one pair of words. Our prior is then: P (ci = j|w, α) ∝",
         "{ ewT",
         "g(i,j) if i ̸= j α if i = j, (2) where gs(i, j) is 1 if suffixs is shared by ith and jth words, and 0 otherwise.",
-        "We can create an infinite mixture model by combining the ddCRP prior with a likelihood function defining the probability of the data given the cluster assignments. Since we are using continuous-valued vectors (word embeddings) to represent the distributional characteristics of words, we use a multivariate Gaussian likelihood. We will marginalize over the mean μ and covariance Σ of each cluster, which in turn are drawn from Gaussian and inverse-Wishart (IW) priors respectively: Σ ∼ IW (ν0, Λ0)",
-        "μ ∼ N (μ0, Σ /κ0) (3) 266 The full model is then: P (X,c, μ, Σ|Θ, w, α) (4) = K ∏ k=1 P (Σk|Θ)p(μk|Σk, Θ) × n ∏ i=1 (P (ci|w, α)P (xi|μzi, Σzi)), where Θ are the hyperparameters for (μ, Σ) and zi is the (implicit) cluster assignment of the ith word xi. With a CRP prior, this model would be an infinite Gaussian mixture model (IGMM; Rasmussen, 2000), and we will use the IGMM as a baseline."
+        "We can create an infinite mixture model by combining the ddCRP prior with a likelihood function defining the probability of the data given the cluster assignments. Since we are using continuous-valued vectors (word embeddings) to represent the distributional characteristics of words, we use a multivariate Gaussian likelihood. We will marginalize over the mean μ and covariance Σ of each cluster, which in turn are drawn from Gaussian and inverse-Wishart (IW) priors respectively:",
+        "Σ ∼ IW (ν0, Λ0) μ ∼ N (μ0, Σ /κ0) (3) 266 The full model is then: P (X,c, μ, Σ|Θ, w, α) (4) = K ∏ k=1 P (Σk|Θ)p(μk|Σk, Θ) × n ∏ i=1 (P (ci|w, α)P (xi|μzi, Σzi)), where Θ are the hyperparameters for (μ, Σ) and zi is the (implicit) cluster assignment of the ith word xi. With a CRP prior, this model would be an infinite Gaussian mixture model (IGMM; Rasmussen, 2000), and we will use the IGMM as a baseline."
       ]
     },
     {
       "title": "4 Inference",
       "paragraphs": [
         "The Gibbs sampler for the ddCRP integrates over the Gaussian parameters, sampling only follower variables. At each step, the follower link ci for a single customer i is sampled, which can implicitly shift the entire block of n customers fol(i) who follow i into a new cluster. Since we marginalize over the cluster parameters, computing P (ci = j) requires computing the likelihood P (fol(i), Xj|Θ), where Xj are the k customers already clustered with j. However, if we do not merge fol(i) with Xj, then we have P (Xj|Θ) in the overall joint probability. Therefore, we can decompose P (fol(i), Xj|Θ) = P (fol(i)|Xj, Θ)P (Xj|Θ) and need only compute the change in likelihood due to merging in fol(i):1",
-        ": P (fol(i)|Xj, Θ) = π−nd/2 κd/2 k |Λk|νk/2 κd/2 n+k|Λn+k|νn+k/2 × d ∏ i=1",
-        "Γ ( νn+k+1−i",
-        "2 )",
-        "Γ ( νk+1−i",
-        "2 ) , (5) where the hyperparameters are updated as κn = κ0 + n, νn = ν0 + n, and",
-        "μn = κ0μ0 + x̄ κ0 + n (6)",
+        ":",
+        "P (fol(i)|Xj, Θ) = π−nd/2 κd/2 k |Λk|νk/2 κ d/2 n+k|Λn+k|νn+k/2 × d ∏ i=1 Γ (",
+        "νn+k+1−i 2 ) Γ (",
+        "νk+1−i 2 ) , (5) where the hyperparameters are updated as κn = κ0 + n, νn = ν0 + n, and μn = κ0μ0 + x̄ κ0 + n (6)",
         "Λn = Λ0 + Q + κ0μ0μ0T − κnμnμT",
-        "n , (7)",
-        "where Q = ∑n",
+        "n , (7) where Q = ∑n",
         "i=1 xixT",
-        "i . Combining this likelihood term with the prior,",
-        "the probability of customer i following j is P (ci = j|X,Θ, w, α) ∝ P (fol(i)|Xj, Θ)P (ci = j|w, α). (8) 1 http://www.stats.ox.ac.uk/t̃eh/re-",
-        "search/notes/GaussianInverseWishart.pdf",
+        "i .",
+        "Combining this likelihood term with the prior,",
+        "the probability of customer i following j is P (ci = j|X,Θ, w, α)",
+        "∝ P (fol(i)|Xj, Θ)P (ci = j|w, α). (8) 1 http://www.stats.ox.ac.uk/",
+        "t̃eh/research/notes/GaussianInverseWishart.pdf",
         "Our non-sequential ddCRP introduces cycles into the follower structure, which are handled in the sampler as described by Socher et al. (2011). Also, the block of customers being moved around can potentially be very large, which makes it easy for the likelihood term to swamp the prior. In practice we found that introducing an additional parameter a (used to exponentiate the prior) improved results— although we report results without this exponent as well. This technique was also used by Titov and Klementiev (2012) and Elsner et al. (2012).",
         "Inference also includes optimizing the feature weights for the log-linear model in the ddCRP prior (Titov and Klementiev, 2012). We interleave L-BFGS optimization within sampling, as in Monte Carlo Expectation-Maximization (Wei and Tanner, 1990). We do not apply the exponentiation parameter a when training the weights because this procedure affects the follower structure only, and we do not have to worry about the magnitude of the likelihood. Before the first iteration we initialize the follower structure: for each word, we choose randomly a word to follow from amongst those with the longest shared suffix of up to 3 characters. The number of clusters starts around 750, but decreases substantially after the first sampling iteration."
       ]
     },
     {
-      "title": "5 ExperimentsData",
+      "title": "5 Experiments Data",
       "paragraphs": [
         "For our experiments we used the English word embeddings from the Polyglot project (Al-Rfou’ et al., 2013)2",
         ", which provides embeddings trained on Wikipedia texts for 100,000 of the most frequent words in many languages.",
@@ -100,7 +99,8 @@
         "Christos Christodoulopoulos, Sharon Goldwater, and Mark Steedman. 2010. Two decades of unsupervised POS induction: How far have we come? In Proceedings of the Conference on Empirical Methods in Natural Language Processing.",
         "Christos Christodoulopoulos, Sharon Goldwater, and Mark Steedman. 2011. A Bayesian mixture model for part-of-speech induction using multiple features. In Proceedings of the Conference on Empirical Methods in Natural Language Processing.",
         "Alexander Clark. 2003. Combining distributional and morphological information for part of speech induction. In Proceedings of the European chapter of the ACL.",
-        "Micha Elsner, Sharon Goldwater, and Jacob Eisenstein. 2012. Bootstrapping a unified model of lexical and phonetic acquisition. In Proceedings of the 50th Annual Meeting of the Association of Computational Linguistics. Tomaž Erjavec. 2004. MULTEXT-East version 3: Multilingual morphosyntactic specifications, lexicons and corpora. In LREC.",
+        "Micha Elsner, Sharon Goldwater, and Jacob Eisenstein. 2012. Bootstrapping a unified model of lexical and phonetic acquisition. In Proceedings of the 50th Annual Meeting of the Association of Computational Linguistics.",
+        "Tomaž Erjavec. 2004. MULTEXT-East version 3: Multilingual morphosyntactic specifications, lexicons and corpora. In LREC.",
         "A. Haghighi and D. Klein. 2006. Prototype-driven learning for sequence models. In Proceedings of the Human Language Technology Conference of the North American Chapter of the Association for Computational Linguistics.",
         "Joo-Kyung Kim and Marie-Catherine de Marneffe. 2013. Deriving adjectival scales from continuous space word representations. In Proceedings of the Conference on Empirical Methods in Natural Language Processing.",
         "Yoong Keok Lee, Aria Haghighi, and Regina Barzilay. 2010. Simple type-level unsupervised pos tagging. In Proceedings of the Conference on Empirical Methods in Natural Language Processing, pages 853–861.",
@@ -111,9 +111,11 @@
         "Roi Reichart and Ari Rappoport. 2009. The nvi clustering evaluation measure. In Proceedings of the Ninth Annual Conference on Natural Language Learning, pages 165–173.",
         "A. Rosenberg and J. Hirschberg. 2007. V-measure: A conditional entropy-based external cluster evaluation measure. In Proceedings of the Joint Conference on Empirical Methods in Natural Language Processing and Computational Natural Language Learning, pages 410–42.",
         "Kairit Sirts and Tanel Alumäe. 2012. A hierarchi-cal Dirichlet process model for joint part-of-speech and morphology induction. In Proceedings of Human Language Technologies: The Conference of the North American Chapter of the Association for Computational Linguistics, pages 407–416.",
-        "Richard Socher, Andrew L Maas, and Christopher D Manning. 2011. Spectral chinese restaurant processes: Nonparametric clustering based on similarities. In Proceedings of the Fifteenth International Conference on Artificial Intelligence and Statistics, pages 698–706. 270 Ivan Titov and Alexandre Klementiev. 2012. A bayesian approach to unsupervised semantic role induction. In Proceedings of the 13th Conference of the European Chapter of the Association for Computational Linguistics.",
+        "Richard Socher, Andrew L Maas, and Christopher D Manning. 2011. Spectral chinese restaurant processes: Nonparametric clustering based on similarities. In Proceedings of the Fifteenth International Conference on Artificial Intelligence and Statistics, pages 698–706. 270",
+        "Ivan Titov and Alexandre Klementiev. 2012. A bayesian approach to unsupervised semantic role induction. In Proceedings of the 13th Conference of the European Chapter of the Association for Computational Linguistics.",
         "Joseph Turian, Lev-Arie Ratinov, and Yoshua Bengio. 2010. Word representations: A simple and general method for semi-supervised learning. In Proceedings of the 48th Annual Meeting of the Association for Computational Linguistics, pages 384–394, Uppsala, Sweden, July. Association for Computational Linguistics.",
-        "Jurgen Van Gael, Andreas Vlachos, and Zoubin Ghahramani. 2009. The infinite HMM for unsupervised PoS tagging. In Proceedings of the Conference on Empirical Methods in Natural Language Processing, pages 678–687, Singapore. Greg CG Wei and Martin A Tanner. 1990. A monte carlo implementation of the em algorithm and the poor man’s data augmentation algorithms. Journal of the American Statistical Association, 85(411):699–704.",
+        "Jurgen Van Gael, Andreas Vlachos, and Zoubin Ghahramani. 2009. The infinite HMM for unsupervised PoS tagging. In Proceedings of the Conference on Empirical Methods in Natural Language Processing, pages 678–687, Singapore.",
+        "Greg CG Wei and Martin A Tanner. 1990. A monte carlo implementation of the em algorithm and the poor man’s data augmentation algorithms. Journal of the American Statistical Association, 85(411):699–704.",
         "Mehmet Ali Yatbaz, Enis Sert, and Deniz Yuret. 2012. Learning syntactic categories using paradigmatic representations of word context. In Proceedings of the Conference on Empirical Methods in Natural Language Processing, pages 940–951. 271"
       ]
     }

@@ -7,13 +7,7 @@
       ]
     },
     {
-      "title": "Text-level Discourse Dependency Parsing",
-      "paragraphs": [
-        ""
-      ]
-    },
-    {
-      "title": "Sujian Li1 Liang Wang1 Ziqiang Cao1 Wenjie Li2",
+      "title": "Text-level Discourse Dependency Parsing  Sujian Li 1 Liang Wang1 Ziqiang Cao 1 Wenjie Li 2 ",
       "paragraphs": [
         "1"
       ]
@@ -25,13 +19,7 @@
       ]
     },
     {
-      "title": "Department of Computing, The Hong Kong Polytechnic University, HongKong {lisujian,intfloat,ziqiangyeah}@pku.edu.cn cswjli@comp.polyu.edu.hk",
-      "paragraphs": [
-        "  "
-      ]
-    },
-    {
-      "title": "Abstract",
+      "title": "Department of Computing, The Hong Kong Polytechnic University, HongKong {lisujian,intfloat,ziqiangyeah}@pku.edu.cn cswjli@comp.polyu.edu.hk   Abstract",
       "paragraphs": [
         "Previous researches on Text-level discourse parsing mainly made use of constituency structure to parse the whole document into one discourse tree. In this paper, we present the limitations of constituency based discourse parsing and first propose to use dependency structure to directly represent the relations between elementary discourse units (EDUs). The state-of-the-art dependency parsing techniques, the Eisner algorithm and maximum spanning tree (MST) algorithm, are adopted to parse an optimal discourse dependency tree based on the arc-factored model and the large-margin learning techniques. Experiments show that our discourse dependency parsers achieve a competitive performance on text-level discourse parsing."
       ]
@@ -53,16 +41,18 @@
         "e1-e2* -e3 e1 e2 e3 e1 e2 e3",
         "e1* -e2-e3",
         "e2* -e3 e2-e3*",
-        "e1* -e2-e3 1 2 3 4 5 6 7 8 e1 e2 e3 e1-e2-e3* e2-e3* ",
-        "Figure 1: Headed Constituency based Discourse Tree Structure (e1,e2 and e3 denote three EDUs, and * denotes the NUCLEUS constituent) e1 e2 e3 e1 e2 e3 e1 e2 e3 e1 e2 e3 e1 e2 e3 e1 e2 e3 e1 e2 e3 e1 e2 e3 1' 2' 3' 4' 5' 6' 7' 8' 9' e1 e2 e3 e0 e0 e0 e0 e0 e0 e0 e0 e0 ",
+        "e1* -e2-e3 1 2 3 4 5 6 7 8e1 e2 e3 e1-e2-e3* e2-e3*",
+        "",
+        "Figure 1: Headed Constituency based Discourse Tree Structure (e1,e2 and e3 denote three EDUs, and * denotes the NUCLEUS constituent) e1 e2 e3 e1 e2 e3 e1 e2 e3 e1 e2 e3",
+        "e1 e2 e3e1 e2 e3 e1 e2 e3e1 e2 e3 1' 2' 3' 4' 5' 6' 7' 8' 9'e1 e2 e3 e0e0 e0 e0 e0 e0 e0 e0 e0",
+        "",
         "Figure 2: Discourse Dependency Tree Structures (e1,e2 and e3 denote three EDUS, and the directed arcs denote one dependency relations. The artificial e0 is also displayed here. )"
       ]
     },
     {
       "title": "2 Discourse Dependency Structure and Tree Bank 2.1 Discourse Dependency Structure",
       "paragraphs": [
-        "Similar to the syntactic dependency structure defined by McDonald (2005a, 2005b), we insert an artificial EDU e0 in the beginning for each document and label the dependency relation link-ing from e0 as ROOT. This treatment will simplify both formal definitions and computational implementations. Normally, we assume that each EDU should have one and only one head except for e0. A labeled directed arc is used to represent the dependency relation from one head to its dependent. Then, discourse dependency structure can be formalized as the labeled directed graph, where nodes correspond to EDUs and labeled arcs correspond to labeled dependency relations. 26",
-        "We assume that the text2",
+        "Similar to the syntactic dependency structure defined by McDonald (2005a, 2005b), we insert an artificial EDU e0 in the beginning for each document and label the dependency relation link-ing from e0 as ROOT. This treatment will simplify both formal definitions and computational implementations. Normally, we assume that each EDU should have one and only one head except for e0. A labeled directed arc is used to represent the dependency relation from one head to its dependent. Then, discourse dependency structure can be formalized as the labeled directed graph, where nodes correspond to EDUs and labeled arcs correspond to labeled dependency relations. 26 We assume that the text 2",
         "T is composed of n+1 EDUs including the artificial e0. That is T=e0 e1 e2 ... en. Let R={r1,r2, ... ,rm} denote a finite set of functional relations that hold between two EDUs. Then a discourse dependency graph can be denoted by G=<V, A> where V denotes a set of nodes and A denotes a set of labeled directed arcs, such that for the text T=e0 e1 e2 ... en and the label set R the following holds: (1) V = { e0, e1, e2, ... en } (2) A  V R  V, where <ei, r, ej>A represents",
         "an arc from the head ei to the dependent ej",
         "labeled with the relation r. (3) If <ei, r, ej>A then <ek, r’, ej>A for all ki (4) If <ei, r, ej>A then <ei, r’, ej>A for all r’r",
@@ -73,9 +63,9 @@
       "title": "2.2 Our Discourse Dependency Treebank",
       "paragraphs": [
         "To automatically conduct discourse dependency parsing, constructing a discourse dependency treebank is fundamental. It is costly to manually construct such a treebank from scratch. Fortunately, RST Discourse Treebank (RST-DT) (Carlson et al., 2001) is an available resource to help with.",
-        "A RST tree constitutes a hierarchical structure for one document through rhetorical relations. A total of 110 fine-grained relations (e.g. Elaboration-part-whole and List) were used for tagging RST-DT. They can be categorized into 18 classes (e.g. Elaboration and Joint). All these relations can be hypotactic (“mononuclear”) or paratactic (“multi-nuclear”). A hypotactic relation holds between a nucleus span and an adjacent satellite span, while a paratactic relation connects two or more equally important adjacent nucleus spans. For convenience of computation, we convert the n-ary (n>2) RST trees3",
+        "A RST tree constitutes a hierarchical structure for one document through rhetorical relations. A total of 110 fine-grained relations (e.g. Elaboration-part-whole and List) were used for tagging RST-DT. They can be categorized into 18 classes (e.g. Elaboration and Joint). All these relations can be hypotactic (“mononuclear”) or paratactic (“multi-nuclear”). A hypotactic relation holds between a nucleus span and an adjacent satellite span, while a paratactic relation connects two or more equally important adjacent nucleus spans. For convenience of computation, we convert the n-ary (n>2) RST trees 3",
         "to binary trees through adding a new node for the latter n-1 nodes and assume each relation is connected to only one nucleus4",
-        ". This departure from the original theory    2 The two terms “text” and “document” are used interchangeably and represent the same meaning. 3 According to our statistics, there are totally 381 n-ary relations in RST-DT. 4 We set the first nucleus as the only nucleus. is not such a major step as it may appear, since any nucleus is known to contribute to the essential meaning. Now, each RST tree can be seen as a headed constituency based binary tree where the nuclei are heads and the children of each node are linearly ordered. Given three EDUs5",
+        ". This departure from the original theory  2 The two terms “text” and “document” are used interchangeably and represent the same meaning. 3 According to our statistics, there are totally 381 n-ary relations in RST-DT. 4 We set the first nucleus as the only nucleus. is not such a major step as it may appear, since any nucleus is known to contribute to the essential meaning. Now, each RST tree can be seen as a headed constituency based binary tree where the nuclei are heads and the children of each node are linearly ordered. Given three EDUs 5",
         ", Figure 1 shows the possible 8 headed constituency based trees where the superscript * denotes the heads (nuclei). We use dependency trees to simulate the headed constituency based trees.",
         "Contrasting Figure 1 with Figure 2, we use dependency tree 1’ to simulate binary trees 1 and 8, and dependency tress 2’- 7’ to simulate binary trees 2-7 correspondingly. The rhetorical relations in RST trees are kept as the functional relations which link the two EDUs in dependency trees. With this kind of conversion, we can get our discourse dependency treebank. It is worth noting that the non-projective trees like 8’ and 9’ do not exist in our dependency treebank, though they are eligible according to the definition of discourse dependency graph."
       ]
@@ -83,16 +73,19 @@
     {
       "title": "3 Discourse Dependency Parsing 3.1 System Overview",
       "paragraphs": [
-        "As stated above, T=e0 e1 ...en represents an input text (document) where ei denotes the ith",
-        "EDU of T. We use V to denote all the EDU nodes and VRV-0 (V-0 =V-{e0}) denote all the possible discourse dependency arcs. The goal of discourse dependency parsing is to parse an optimal spanning tree from VRV-0. Here we follow the arc factored method and define the score of a dependency tree as the sum of the scores of all the arcs in the tree. Thus, the optimal dependency tree for T is a spanning tree with the highest score and obtained through the function DT(T,w): 0 0 0 ,, ,, ( , ) ( , ) ( , , ) ( , , )f T T i j T T i j T G V R V G V R V i j e r e G G V R V i j e r e G T DT T argmax argmax e r e argmax e r s ore T G e c                    "
+        "As stated above, T=e0 e1 ...en represents an input text (document) where ei denotes the i",
+        "th",
+        "EDU of T. We use V to denote all the EDU nodes and VRV-0 (V-0 =V-{e0}) denote all the possible discourse dependency arcs. The goal of discourse dependency parsing is to parse an optimal spanning tree from VRV-0. Here we follow the arc factored method and define the score of a dependency tree as the sum of the scores of all the arcs in the tree. Thus, the optimal dependency tree for T is a spanning tree with the highest score and obtained through the function DT(T,w): 0 0 0 ,, ,, ( , )( , ) ( , , ) ( , , )f T T i j T T i j T G V R V",
+        "G V R V i j e r e G",
+        "G V R V i j e r e G TDT T argmax argmax e r e argmax e r s ore T G e c                    "
       ]
     },
     {
-      "title": "w w",
+      "title": "  w w",
       "paragraphs": [
         "where GT means a possible spanning tree with",
         "( , )Tscore T G and ( ) denotes the score of the arc <ei, r, ej> which is calculated according to its feature representation f(ei,r,ej) and a weight vector w.",
-        "Next, two basic problems need to be solved: how to find the dependency tree with the highest    5 We can easily get all possible headed binary trees for one more complex text containing more than three EDUs, by extending the 8 possible situations for three EDUs. 27 score for T given all the arc scores (i.e. a parsing problem), and how to learn and compute the scores of arcs according to a set of arc features (i.e. a learning problem).",
+        "Next, two basic problems need to be solved: how to find the dependency tree with the highest  5 We can easily get all possible headed binary trees for one more complex text containing more than three EDUs, by extending the 8 possible situations for three EDUs. 27 score for T given all the arc scores (i.e. a parsing problem), and how to learn and compute the scores of arcs according to a set of arc features (i.e. a learning problem).",
         "The following of this section addresses the first problem. Given the text T, we first reduce the multi-digraph composed of all possible arcs to the digraph. The digraph keeps only one arc <ei, r, ej> between two nodes which satisfies ( ) . Thus, we can proceed with a reduction from labeled parsing to unlabeled parsing. Next, two algorithms, i.e. the Eisner algorithm and MST algorithm, are presented to parse the projective and non-projective unlabeled dependency trees respectively."
       ]
     },
@@ -108,7 +101,9 @@
     {
       "title": "3.3 Maximum Spanning Tree Algorithm",
       "paragraphs": [
-        "As the bottom-up Eisner Algorithm must maintain the nested structural constraint, it cannot parse the non-projective dependency trees like 8’ and 9’ in Figure 2. However, the non-projective dependency does exist in real discourse. For example, the earlier text mainly talks about the topic A with mentioning the topic B, while the latter text gives a supplementary explanation for the topic B. This example can constitute a non-projective tree and its pictorial diagram is exhibited in Figure 4. Following the work of McDonald (2005b), we formalize discourse dependency parsing as searching for a maximum spanning tree (MST) in a directed graph. ... ... A A A B B ...  Figure 4: Pictorial Diagram of Non-projective Trees",
+        "As the bottom-up Eisner Algorithm must maintain the nested structural constraint, it cannot parse the non-projective dependency trees like 8’ and 9’ in Figure 2. However, the non-projective dependency does exist in real discourse. For example, the earlier text mainly talks about the topic A with mentioning the topic B, while the latter text gives a supplementary explanation for the topic B. This example can constitute a non-projective tree and its pictorial diagram is exhibited in Figure 4. Following the work of McDonald (2005b), we formalize discourse dependency parsing as searching for a maximum spanning tree (MST) in a directed graph.",
+        "... ... A A AB B...",
+        " Figure 4: Pictorial Diagram of Non-projective Trees",
         "Chu and Liu (1965) and Edmonds (1967) independently proposed the virtually identical algorithm named the Chu-Liu/Edmonds algorithm, for finding MSTs on directed graphs (McDonald et al. 2005b). Figure 5 shows the details of the Chu-Liu/Edmonds algorithm for discourse parsing. Each node in the graph greedily selects the incoming arc with the highest score. If one tree results, the algorithm ends. Otherwise, there must exist a cycle. The algorithm contracts the identified cycle into a single node and recalculates the scores of the arcs which go in and out of the cycle. Next, the algorithm recursively call itself on the contracted graph. Finally, those arcs which go in or out of one cycle will recover themselves to connect with the original nodes in V. Like McDonald et al. (2005b), we adopt an efficient implementation of the Chu-Liu/Edmonds algorithm that is proposed by Tarjan (1997) with O(n2",
         ") time complexity.  28 Chu-Liu-Edmonds(G, ) Input: Text T=e0 e1... en; Arc scores (ei,ej) 1 A’ = {<ei, ej>| ei = argmax (ei,ej); 1j|V|} 2 G’ = (V, A’) 3 If G’ has no cycles, then return G’ 4 Find an arc set AC that is a cycle in G’ 5 <GC, ep> = contract(G, AC, ) 6 G = (V, A)=Chu-Liu-Edmonds(GC, ) 7 For the arc <ei,eC> where ep(ei,eC)=ej: 8 A=AAC{<ei,ej)}-{<ei,eC>, <a(ej),ej>} 9 For the arc <eC, ei> where ep(eC ,ei)=ej: 10 A=A{<ej,ei>}-{<eC,ei>} 11 V = V 12 Return G Contract(G=(V,A), AC, ) 1 Let GC be the subgraph of G excluding nodes in C 2 Add a node eC to GC denoting the cycle C 3 For ej V-C : eiC <ei,ej>A 4 Add arc <eC,ej> to GC with",
         "ep(eC,ej)= (ei,ej) 5 (eC,ej) = (ep(eC,ej),ej) 6 For ei V-C: ejC (ei,ej)A 7 Add arc <ei,eC> to GC with ep(ei,eC)= = [(ei,ej)-(a(ei),ej)] 8 (ei,eC) =(ei,ej)-(a(ei),ej)+score(C) 9 Return <GC, ep>",
@@ -124,7 +119,8 @@
     {
       "title": "  ",
       "paragraphs": [
-        "1 , N i i T  iy  where yi denotes the correct dependency tree for the text Ti."
+        "1, N",
+        "i iT iy where yi denotes the correct dependency tree for the text Ti."
       ]
     },
     {
@@ -145,25 +141,26 @@
     {
       "title": "  ",
       "paragraphs": [
-        "1 , N i i T  iy  1",
-        "w0 = 0; v = 0; j = 0 2 For iter := 1 to K 3   For i := 1 to N 4               update w according to"
+        "1, N",
+        "i iT iy 1 w0",
+        "= 0; v = 0; j = 0 2 For iter := 1 to K 3 For i := 1 to N 4 update w according to"
       ]
     },
     {
       "title": " ",
       "paragraphs": [
-        ",iT iy : 1 min",
-        "jj ww                   s.t. ( , ) ( , ') ( , ') where ' ( , ) i i i i i i",
-        "j ii s T s T L DT T   y y y y yw  5                ",
-        "v = v + wj ; 6                  j = j+1 7  ",
-        "w = v/(K*N) Figure 6: MIRA based Learning",
+        ",iT iy : 1",
+        "min jj ww  s.t. ( , ) ( , ') ( , ') where ' ( , ) i i i i i i",
+        "j ii s T s T L DT T   y y y y yw  5 v = v + wj",
+        "; 6 j = j+1 7 w = v/(K*N)",
+        "Figure 6: MIRA based Learning",
         "Figure 6 gives the pseudo-code of the MIRA algorithm (McDonld et al., 2005b). This algorithm is designed to update the parameters w using a single training instance"
       ]
     },
     {
       "title": " ",
       "paragraphs": [
-        ",iT iy in each iteration. On each update, MIRA attempts to keep the norm of the change to the weight vector    6 19 relations include the original 18 relation in RST-DT plus one artificial ROOT relation. The 111 relations also include the ROOT relation. 29 as small as possible, which is subject to constructing the correct dependency tree under consideration with a margin at least as large as the loss of the incorrect dependency trees. We define the loss of a discourse dependency tree 'iy (denoted by ( , ')iiL yy ) as the number of the EDUs that have incorrect heads. Since there are exponentially many possible incorrect dependency trees and thus exponentially many margin constraints, here we relax the optimization and stay with a single best dependency tree",
+        ",iT iy in each iteration. On each update, MIRA attempts to keep the norm of the change to the weight vector  6 19 relations include the original 18 relation in RST-DT plus one artificial ROOT relation. The 111 relations also include the ROOT relation. 29 as small as possible, which is subject to constructing the correct dependency tree under consideration with a margin at least as large as the loss of the incorrect dependency trees. We define the loss of a discourse dependency tree 'iy (denoted by ( , ')iiL yy ) as the number of the EDUs that have incorrect heads. Since there are exponentially many possible incorrect dependency trees and thus exponentially many margin constraints, here we relax the optimization and stay with a single best dependency tree",
         "' ( , )j iiDT Tyw which is parsed under the weight vector wj",
         ". In this algorithm, the successive updated values of w are accumulated and averaged to avoid overfitting."
       ]
@@ -173,44 +170,57 @@
       "paragraphs": [
         "We test our methods experimentally using the discourse dependency treebank which is built as in Section 2. The training part of the corpus is composed of 342 documents and contains 18,765 EDUs, while the test part consists of 38 documents and 2,346 EDUs. The number of EDUs in each document ranges between 2 and 304. Two sets of relations are adopted. One is composed of 19 relations and Table 1 shows the number of each relation in the training and test corpus. The other is composed of 111 relations. Due to space limitation, Table 2 only lists the 10 highest-distributed relations with regard to their frequency in the training corpus.",
         "The following experiments are conducted: (1) to measure the parsing performance with different relation sets and different feature types; (2) to compare our parsing methods with the state-of-the-art discourse parsing methods.",
-        " Relations Train Test Relations Train Test Elaboration 6879 796 Temporal 426 73 Attribution 2641 343 ROOT 342 38 Joint 1711 212 Compari. 273 29 Same-unit 1230 127 Condition 258 48 Contrast 944 146 Manner. 191 27 Explanation 849 110 Summary 188 32 Background 786 111 Topic-Cha. 187 13 Cause 785 82 Textual 147 9 Evaluation 502 80 TopicCom. 126 24 Enablement 500 46 Total 18765 2346 Table 1: Coarse-grained Relation Distribution   Relations Train Test Elaboration-additional 2912 312 Attribution 2474 329 Elaboration-object-attribute-e 2274 250 List 1690 206 Same-unit 1230 127 Elaboration-additional-e 747 69 Circumstance 545 80 Explanation-argumentative 524 70 Purpose 430 43 Contrast 358 64 Table 2: 10 Highest Distributed Fine-grained Relations"
+        "",
+        "Relations Train Test Relations Train Test",
+        "Elaboration 6879 796 Temporal 426 73",
+        "Attribution 2641 343 ROOT 342 38",
+        "Joint 1711 212 Compari. 273 29",
+        "Same-unit 1230 127 Condition 258 48",
+        "Contrast 944 146 Manner. 191 27",
+        "Explanation 849 110 Summary 188 32",
+        "Background 786 111 Topic-Cha. 187 13",
+        "Cause 785 82 Textual 147 9",
+        "Evaluation 502 80 TopicCom. 126 24",
+        "Enablement 500 46 Total 18765 2346",
+        "Table 1: Coarse-grained Relation Distribution   Relations Train Test Elaboration-additional 2912 312 Attribution 2474 329 Elaboration-object-attribute-e 2274 250 List 1690 206 Same-unit 1230 127 Elaboration-additional-e 747 69 Circumstance 545 80 Explanation-argumentative 524 70 Purpose 430 43 Contrast 358 64",
+        "Table 2: 10 Highest Distributed Fine-grained",
+        "Relations"
       ]
     },
     {
       "title": "5.2 Feature Influence on Two Relation Sets",
       "paragraphs": [
         "So far, researches on discourse parsing avoid adopting too fine-grained relations and the relation sets containing around 20 labels are widely used. In our experiments, we observe that adopting a fine-grained relation set can even be helpful to building the discourse trees. Here, we conduct experiments on two relation sets that contain 19 and 111 labels respectively. At the same time, different feature types are tested their effects on discourse parsing. Method Features Unlabeled",
-        "Acc. Labeled",
-        "Acc. Eisner 1+2 0.3602 0.2651",
-        "1+2+3 0.7310 0.4855",
-        "1+2+3+4 0.7370 0.4868",
-        "1+2+3+4+5 0.7447 0.4957",
-        "1+2+3+4+5+6 0.7455 0.4983 MST 1+2 0.1957 0.1479",
-        "1+2+3 0.7246 0.4783",
-        "1+2+3+4 0.7280 0.4795",
-        "1+2+3+4+5 0.7340 0.4915",
-        "1+2+3+4+5+6 0.7331 0.4851 Table 3: Performance Using Coarse-grained Relations. Method Feature types Unlabeled Acc. Labeled Acc. Eisner 1+2 0.3743 0.2421 1+2+3 0.7451 0.4079 1+2+3+4 0.7472 0.4041 1+2+3+4+5 0.7506 0.4254 1+2+3+4+5+6 0.7485 0.4288 MST 1+2 0.2080 0.1300 1+2+3 0.7366 0.4054 1+2+3+4 0.7468 0.4071 1+2+3+4+5 0.7494 0.4288 1+2+3+4+5+6 0.7460 0.4309 Table 4: Performance Using Fine-grained Relations.",
+        "Acc.",
+        "Labeled",
+        "Acc.",
+        "Eisner 1+2 0.3602 0.2651 1+2+3 0.7310 0.4855 1+2+3+4 0.7370 0.4868 1+2+3+4+5 0.7447 0.4957 1+2+3+4+5+6 0.7455 0.4983",
+        "MST 1+2 0.1957 0.1479 1+2+3 0.7246 0.4783 1+2+3+4 0.7280 0.4795 1+2+3+4+5 0.7340 0.4915 1+2+3+4+5+6 0.7331 0.4851",
+        "Table 3: Performance Using Coarse-grained Re-",
+        "lations.",
+        "Method Feature types Unlabeled Acc.",
+        "Labeled",
+        "Acc.",
+        "Eisner 1+2 0.3743 0.2421 1+2+3 0.7451 0.4079 1+2+3+4 0.7472 0.4041 1+2+3+4+5 0.7506 0.4254 1+2+3+4+5+6 0.7485 0.4288",
+        "MST 1+2 0.2080 0.1300 1+2+3 0.7366 0.4054 1+2+3+4 0.7468 0.4071 1+2+3+4+5 0.7494 0.4288 1+2+3+4+5+6 0.7460 0.4309",
+        "Table 4: Performance Using Fine-grained Rela-",
+        "tions.",
         "Based on the MIRA leaning algorithm, the Eisner algorithm and MST algorithm are used to parse the test documents respectively. Referring to the evaluation of syntactic dependency parsing, 30 we use unlabeled accuracy to calculate the ratio of EDUs that correctly identify their heads, labeled accuracy the ratio of EDUs that have both correct heads and correct relations. Table 3 and Table 4 show the performance on two relation sets. The numbers (1-6) represent the corresponding feature types described in Section 4.1.",
-        "From Table 3 and Table 4, we can see that the addition of more feature types, except the 6th",
+        "From Table 3 and Table 4, we can see that the addition of more feature types, except the 6",
+        "th",
         "feature type (semantic similarity), can promote the performance of relation labeling, whether using the coarse-grained 19 relations and the fine-grained 111 relations. As expected, the first and second types of features (WORD and POS) are the ones which play an important role in building and labeling the discourse dependency trees. These two types of features attain similar performance on two relation sets. The Eisner algorithm can achieve unlabeled accuracy around 0.36 and labeled accuracy around 0.26, while MST algorithm achieves unlabeled accuracy around 0.20 and labeled accuracy around 0.14.",
         "The third feature type (Position) is also very helpful to discourse parsing. With the addition of this feature type, both unlabeled accuracy and labeled accuracy exhibit a marked increase. Especially, when applying MST algorithm on discourse parsing, unlabeled accuracy rises from around 0.20 to around 0.73. This result is consistent with Hernault’s work (2010b) whose experiments have exhibited the usefulness of those position-related features. The other two types of features which are related to length and syntactic parsing, only promote the performance slightly.",
         "As we employed the MIRA learning algorithm, it is possible to identify which specific features are useful, by looking at the weights learned to each feature using the training data. Table 5 selects 10 features with the highest weights in absolute value for the parser which uses the coarse-grained relations, while Table 6 selects the top 10 features for the parser using the fine-grained relations. Each row denotes one feature: the left part before the symbol “&” is from one of the 6 feature types and the right part denotes a specific relation. From Table 5 and Table 6, we can see that some features are reasonable. For example, The sixth feature in Table 5 represents that the dependency relation is preferred to be labeled Explanation with the fact that “because” is the first word of the dependent EDU. From these two tables, we also observe that most of the heavily weighted features are usually related to those highly distributed relations. When using the coarse-grained relations, the popular relations (eg. Elaboration, Attribution and Joint) are always preferred to be labeled. When using the fine-grained relations, the large relations including List and Elaboration-object-attribute-e are given the precedence of labeling. This phenomenon is mainly caused by the sparseness of the training corpus and the imbalance of relations. To solve this problem, the augment of training corpus is necessary.",
-        "  Feature description Weight",
-        "1 Last two words in dependent EDU are “appeals court” & Joint 0.475",
-        "2 First word in dependent EDU is “racked” & Elaboration 0.445",
-        "3 First two words in head EDU are “I ‘d” & Attribution 0.324",
-        "4 Last word in dependent EDU is “in” & Elaboration -0.323",
-        "5 The res_similarity between two EDUs is 0 & Elaboration 0.322",
-        "6 First word in dependent EDU is “because” & Explanation 0.306 7 First POS in head EDU is “DT” & Joint -0.299",
-        "8 First two words in dependent EDU are “that required” & Elaboration 0.287",
-        "9 First two words in dependent EDU are “that the” & Elaboration 0.277",
-        "10 First word in dependent EDU is “because” & Cause 0.265 Table 5: Top 10 Feature Weights for Coarse-grained Relation Labeling (Eisner Algorithm)  Features Weight 1 Last two words in dependent EDU are “ap-",
+        " Feature description Weight 1 Last two words in dependent EDU are",
+        "“appeals court” & Joint 0.475 2 First word in dependent EDU is “racked” & Elaboration 0.445 3 First two words in head EDU are “I ‘d” & Attribution 0.324 4 Last word in dependent EDU is “in” & Elaboration -0.323 5 The res_similarity between two EDUs is 0 & Elaboration 0.322",
+        "6 First word in dependent EDU is “because” & Explanation 0.306 7 First POS in head EDU is “DT” & Joint -0.299 8 First two words in dependent EDU are “that required” & Elaboration 0.287 9 First two words in dependent EDU are “that the” & Elaboration 0.277",
+        "10 First word in dependent EDU is “because” & Cause 0.265 Table 5: Top 10 Feature Weights for Coarse-grained Relation Labeling (Eisner Algorithm) Features Weight 1 Last two words in dependent EDU are “ap-",
         "peals court” & List 0.576 2 First two words in head EDU are “I ‘d”",
         "& Attribution 0.385 3 First two words in dependent EDU is “that",
         "the” & Elaboration-object-attribute-e 0.348 4 First POS in head EDU is “DT” & List -0.323 5 Last word in dependent EDU is “in” & List -0.286 6 First word in dependent EDU is “racked” &",
-        "Elaboration-object-attribute-e 0.445 7 First two word pairs are <”In an”,”But",
-        "even”> & List -0.252 8 Dependent EDU has a dominating node",
-        "tagged “CD”& Elaboration-object-attribute-e -0.244 9 First two words in dependent EDU are “pa-",
+        "Elaboration-object-attribute-e 0.445",
+        "7 First two word pairs are <”In an”,”But even”> & List -0.252",
+        "8 Dependent EDU has a dominating node tagged “CD”& Elaboration-object-attribute-e -0.244 9 First two words in dependent EDU are “pa-",
         "tents disputes” & Purpose 0.231 10 First word in dependent EDU is “to”",
         "& Purpose 0.230 Table 6: Top 10 Feature Weights for Coarse-grained Relation Labeling (Eisner Algorithm)",
         "Unlike previous discourse parsing approaches, our methods combine tree building and relation labeling into a uniform framework naturally. This means that relations play a role in building the dependency tree structure. From Table 3 and Table 4, we can see that fine-grained relations are more helpful to building unlabeled discourse 31 trees more than the coarse-grained relations. The best result of unlabeled accuracy using 111 relations is 0.7506, better than the best performance (0.7447) using 19 relations. We can also see that the labeled accuracy using the fine-grained relations can achieve 0.4309, only 0.06 lower than the best labeled accuracy (0.4915) using the coarse-grained relations.",
@@ -223,7 +233,19 @@
         "The state-of-the-art discourse parsing methods normally produce the constituency based discourse trees. To comprehensively evaluate the performance of a labeled constituency tree, the blank tree structure (‘S’), the tree structure with nuclearity indication (‘N’), and the tree structure with rhetorical relation indication but no nuclearity indication (‘R’) are evaluated respectively using the F measure (Marcu 2000).",
         "To compare our discourse parsers with others, we adopt MIRA and Eisner algorithm to conduct discourse parsing with all the 6 types of features and then convert the produced projective dependency trees to constituency based trees through their correspondence as stated in Section 2. Our parsers using two relation sets are named Our-coarse and Our-fine respectively. The inputted EDUs of our parsers are from the standard segmentation of RST-DT. Other text-level discourse parsing methods include: (1) Percep-coarse: we replace MIRA with the averaged perceptron learning algorithm and the other settings are the same with Our-coarse; (2) HILDA-manual and HILDA-seg are from Hernault (2010b)’s work, and their inputted EDUs are from RST-DT and their own EDU segmenter respectively; (3) LeThanh indicates the results given by LeThanh el al. (2004), which built a multi-level rule based parser and used 14 relations evaluated on 21 documents from RST-DT; (4) Marcu denotes the results given by Marcu(2000)’s decision-tree based parser which used 15 relations evaluated on unspecified documents.",
         "Table 7 shows the performance comparison for all the parsers mentioned above. Human denotes the manual agreement between two human annotators. From this table, we can see that both our parsers perform better than all the other parsers as a whole, though our parsers are not developed directly for constituency based trees. Our parsers do not exhibit obvious advantage than HILDA-manual on labeling the blank tree structure, because our parsers and HILDA-manual all perform over 94% of Human and this performance level somewhat reaches a bottleneck to promote more. However, our parsers outperform the other parsers on both nuclearity and relation labeling. Our-coarse achieves 94.2% and 91.8% of the human F-scores, on labeling nuclearity and relation respectively, while Our-fine achieves 95.2% and 87.6%. We can also see that the averaged perceptron learning algorithm, though simple, can achieve a comparable performance, better than HILDA-manual. The parsers HILDA-seg, LeThanh and Marcu use their own automatic EDU segmenters and exhibit a relatively low performance. This means that EDU segmentation is important to a practical discourse parser and worth further investigation.",
-        "  S N R Our-coarse 82.9 73.0 60.6 Our-fine 83.4 73.8 57.8 Percep-coarse 82.3 72.6 59.4 HILDA-manual 83.0 68.4 55.3 HILDA-seg 72.3 59.1 47.8 LeThanh 53.7 47.1 39.9 Marcu 44.8 30.9 18.8 Human 88.1 77.5 66.0 Table 7: Full Parser Evaluation  MAFS WAFS Acc Our-coarse 0.454 0.643 66.84 Percep-coarse 0.438 0.633 65.37 Feng 0.440 0.607 65.30 HILDA-manual 0.428 0.604 64.18 Baseline - - 35.82 Table 8: Relation Labeling Performance To further compare the performance of relation labeling, we follow Hernault el al. (2010a) and use Macro-averaged F-score (MAFS) to evaluate each relation. Due to space limitation, we do not list the F scores for each relation. Macro-averaged F-score is not influenced by the number of instances that are contained in each 32 relation. Weight-averaged F-score (WAFS) weights the performance of each relation by the number of its existing instances. Table 8 compares our parser Our-coarse with other parsers HILDA-manual, Feng (Feng and Hirst, 2012) and Baseline. Feng (Feng and Hirst, 2012) can be seen as a strengthened version of HILDA which adopts more features and conducts feature selection. Baseline always picks the most frequent relation (i.e. Elaboration). From the results, we find that Our-coarse consistently provides superior performance for most relations over other parsers, and therefore results in higher MAFS and WAFS."
+        "",
+        "S N R",
+        "Our-coarse 82.9 73.0 60.6",
+        "Our-fine 83.4 73.8 57.8",
+        "Percep-coarse 82.3 72.6 59.4",
+        "HILDA-manual 83.0 68.4 55.3",
+        "HILDA-seg 72.3 59.1 47.8",
+        "LeThanh 53.7 47.1 39.9",
+        "Marcu 44.8 30.9 18.8",
+        "Human 88.1 77.5 66.0",
+        "Table 7: Full Parser Evaluation MAFS WAFS Acc Our-coarse 0.454 0.643 66.84 Percep-coarse 0.438 0.633 65.37 Feng 0.440 0.607 65.30 HILDA-manual 0.428 0.604 64.18 Baseline - - 35.82",
+        "Table 8: Relation Labeling Performance",
+        "To further compare the performance of relation labeling, we follow Hernault el al. (2010a) and use Macro-averaged F-score (MAFS) to evaluate each relation. Due to space limitation, we do not list the F scores for each relation. Macro-averaged F-score is not influenced by the number of instances that are contained in each 32 relation. Weight-averaged F-score (WAFS) weights the performance of each relation by the number of its existing instances. Table 8 compares our parser Our-coarse with other parsers HILDA-manual, Feng (Feng and Hirst, 2012) and Baseline. Feng (Feng and Hirst, 2012) can be seen as a strengthened version of HILDA which adopts more features and conducts feature selection. Baseline always picks the most frequent relation (i.e. Elaboration). From the results, we find that Our-coarse consistently provides superior performance for most relations over other parsers, and therefore results in higher MAFS and WAFS."
       ]
     },
     {

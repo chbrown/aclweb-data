@@ -7,7 +7,7 @@
       ]
     },
     {
-      "title": "Sprinkling Topics for Weakly Supervised Text ClassificationSwapnil Hingmire1,2swapnil.hingmire@tcs.com Sutanu Chakraborti2sutanuc@cse.iitm.ac.in",
+      "title": "Sprinkling Topics for Weakly Supervised Text Classification Swapnil Hingmire1,2 swapnil.hingmire@tcs.com Sutanu Chakraborti2 sutanuc@cse.iitm.ac.in",
       "paragraphs": [
         "1"
       ]
@@ -19,7 +19,7 @@
       ]
     },
     {
-      "title": "Department of Computer Science and Engineering,Indian Institute of Technology Madras, Chennai, IndiaAbstract",
+      "title": "Department of Computer Science and Engineering, Indian Institute of Technology Madras, Chennai, India Abstract",
       "paragraphs": [
         "Supervised text classification algorithms require a large number of documents labeled by humans, that involve a labor-intensive and time consuming process. In this paper, we propose a weakly supervised algorithm in which supervision comes in the form of labeling of Latent Dirichlet Allocation (LDA) topics. We then use this weak supervision to “sprinkle” artificial words to the training documents to identify topics in accordance with the underlying class structure of the corpus based on the higher order word associations. We evaluate this approach to improve performance of text classification on three real world datasets."
       ]
@@ -44,7 +44,7 @@
       ]
     },
     {
-      "title": "3 Background3.1 LDA",
+      "title": "3 Background 3.1 LDA",
       "paragraphs": [
         "LDA is an unsupervised probabilistic generative model for collections of discrete data such as text documents. The generative process of LDA can be described as follows:",
         "1. for each topic t, draw a distribution over words: φt ∼ Dirichlet(βw)",
@@ -58,10 +58,7 @@
         "wd,n ∼ Multinomial(zd,n) Where, T is the number of topics, φt is the word probabilities for topic t, θd is the topic probability distribution, zd,n is topic assignment and wd,n is word assignment for nth word position in document d respectively. αt and βw are topic and word Dirichlet priors.",
         "The key problem in LDA is posterior inference. The posterior inference involves the inference of the hidden topic structure given the observed documents. However, computing the exact posterior inference is intractable. In this paper we estimate approximate posterior inference using collapsed Gibbs sampling (Griffiths and Steyvers, 2004).",
         "The Gibbs sampling equation used to update the assignment of a topic t to the word w ∈ W at the position n in document d, conditioned on αt, βw is: P (zd,n = t|zd,¬n, wd,n = w, αt, βw) ∝ ψw,t + βw − 1",
-        "∑ v∈W ψv,t + βv − 1 × (Ωt,d + αt − 1) (1) where ψw,c is the count of the word w assigned to the topic c, Ωc,d is the count of the topic c assigned to words in the document d and W is the vocabulary of the corpus. We use a subscript d, ¬n to denote the current token, zd,n is ignored in the Gibbs sampling update. After performing collapsed Gibbs sampling using equation 1, we use word topic assignments to compute a point 56 estimate of the distribution over words φw,c and a point estimate of the posterior distribution over topics for each document d (θd) is: φw,t = ψw,t + βw",
-        "[ ∑",
-        "v∈W ψv,t + βv] (2) θt,d = Ωt,d + αt [ T ∑",
-        "i=1 Ωi,d + αi] (3)",
+        "∑ v∈W ψv,t + βv − 1 × (Ωt,d + αt − 1) (1) where ψw,c is the count of the word w assigned to the topic c, Ωc,d is the count of the topic c assigned to words in the document d and W is the vocabulary of the corpus. We use a subscript d, ¬n to denote the current token, zd,n is ignored in the Gibbs sampling update. After performing collapsed Gibbs sampling using equation 1, we use word topic assignments to compute a point 56 estimate of the distribution over words φw,c and a point estimate of the posterior distribution over topics for each document d (θd) is: φw,t = ψw,t + βw [ ∑ v∈W ψv,t + βv ] (2) θt,d = Ωt,d + αt [ T ∑ i=1 Ωi,d + αi ] (3)",
         "Let MD =< Z, Φ, Θ > be the hidden topic structure, where Z is per word per document topic assignment, Φ = {φt} and Θ = {θd}. 3.2 Sprinkling (Chakraborti et al., 2007) propose a simple approach called “sprinkling” to incorporate class labels of documents into LSI. In sprinkling, a set of artificial words are appended to a training document which are specific to the class label of the document. Consider a case of binary classification with classes c1 and c2. If a document d belongs to the class c1 then a set of artificial words which represent the class c1 are appended into the document d, otherwise a set of artificial words which represent the class c2 are appended.",
         "Singular Value Decomposition (SVD) is then performed on the sprinkled training documents and a lower rank approximation is constructed by ignoring dimensions corresponding to lower singular values. Then, the sprinkled terms are removed from the lower rank approximation. (Chakraborti et al., 2007) empirically show that sprinkled words boost higher order word associations and projects documents with same class labels close to each other in latent semantic space."
       ]
@@ -80,8 +77,7 @@
       "paragraphs": [
         "We determine the effectiveness of our algorithm in relation to ClassifyLDA algorithm proposed in (Hingmire et al., 2013). We evaluate and compare our text classification algorithm by computing Macro averaged F1. As the inference of LDA is approximate, we repeat all the experiments for each dataset ten times and report average Macro-F1. Similar to (Blei et al., 2003) we also learn supervised SVM classifier (LDA-SVM) for each dataset using topics as features and report average Macro-F1. 5.1 Datasets We use the following datasets in our experiments. 1. 20 Newsgroups: This dataset contains messages across twenty newsgroups. In our experiments, we use bydate version of the 20Newsgroup dataset1",
         ". This version of the dataset is divided into training (60%) and test (40%) datasets. We construct classifiers on training datasets and evaluate them on test datasets. 2. SRAA: Simulated/Real/Aviation/Auto UseNet data2",
-        ": This dataset contains 73,218 1 http://qwone.com/j̃ason/20Newsgroups/ 2 http://people.cs.umass.edu/m̃ccallum/",
-        "data.html 57",
+        ": This dataset contains 73,218 1 http://qwone.com/j̃ason/20Newsgroups/ 2 http://people.cs.umass.edu/m̃ccallum/ data.html 57",
         "• Input: unlabeled document corpus-D, number of topics-T and number of sprinkled terms-K",
         "1. Infer T number of topics on D for LDA using collapsed Gibbs sampling. Let MD be the hidden topic structure of this model.",
         "2. Ask an annotator to assign one or more class labels ci ∈ C to a topic based on its 30 most probable words.",
@@ -89,20 +85,28 @@
         "4. Update MD using collapsed Gibbs sampling update in Equation 1. 5. Sprinkling: For each document d ∈ D: (a) Infer a probability distribution θd over class labels using MD using Equation 3. (b) Let, θc,d be probability of generating document d by class c. (c) Insert K ∗θc,d distinct words associated with the class c to the document d.",
         "6. Infer |C| number of topics on the sprinkled document corpus D using collapsed Gibbs sampling update.",
         "7. Let M′",
-        "D be the new hidden topic structure. Let us call this hidden structure as TS-LDA. 8. Classification of an unlabled document d",
+        "D be the new hidden topic structure. Let us call this hidden structure as TS-LDA.",
+        "8. Classification of an unlabled document d",
         "(a) Infer θ′",
         "d for document d using M′",
         "D.",
-        "(b) k = argmaxi θ′",
-        "i,d",
-        "(c) yd = ck Table 1: Algorithm for sprinkling LDA topics for text classification UseNet articles from four discussion groups, for simulated auto racing (sim auto), simulated aviation (sim aviation), real autos (real auto), real aviation (real aviation). Following are the three classification tasks associated with this dataset. 1. sim auto vs sim aviation vs real auto vs real aviation 2. auto (sim auto + real auto) vs aviation (sim aviation + real aviation) 3. simulated (sim auto + sim aviation) vs real (real auto + real aviation) We randomly split SRAA dataset such that 80% is used as training data and remaining is used as test data. 3. WebKB: The WebKB dataset3",
+        "(b) k = argmaxi θ′ i,d (c) yd = ck Table 1: Algorithm for sprinkling LDA topics for text classification UseNet articles from four discussion groups, for simulated auto racing (sim auto), simulated aviation (sim aviation), real autos (real auto), real aviation (real aviation). Following are the three classification tasks associated with this dataset. 1. sim auto vs sim aviation vs real auto vs real aviation 2. auto (sim auto + real auto) vs aviation (sim aviation + real aviation) 3. simulated (sim auto + sim aviation) vs real (real auto + real aviation) We randomly split SRAA dataset such that 80% is used as training data and remaining is used as test data. 3. WebKB: The WebKB dataset3",
         "contains 8145 web pages gathered from university computer",
         "3",
-        "http://www.cs.cmu.edu/w̃ebkb/ science departments. The task is to classify the webpages as student, course, faculty or project. We randomly split this dataset such that 80% is used as training and 20% is used as test data.",
+        "http://www.cs.cmu.edu/ w̃ebkb/ science departments. The task is to classify the webpages as student, course, faculty or project. We randomly split this dataset such that 80% is used as training and 20% is used as test data.",
         "We preprocess these datasets by removing HTML tags and stop-words.",
         "For various subsets of the 20Newsgroups and WebKB datasets discussed above, we choose number of topics as twice the number of classes. For SRAA dataset we infer 8 topics on the training dataset and label these 8 topics for all the three classification tasks. While labeling a topic, we show its 30 most probable words to the human annotator.",
         "Similar to (Griffiths and Steyvers, 2004), we set symmetric Dirichlet word prior (βw) for each topic to 0.01 and symmetric Dirichlet topic prior (αt) for each document to 50/T, where T is number of topics. We set K i.e. maximum number of words sprinkled per class to 10. 5.2 Results Table 2 shows experimental results. We can observe that, TS-LDA performs better than ClassifyLDA in 5 of the total 9 subsets. For the compreligion-sci dataset TS-LDA and ClassifyLDA have the same performance. However, ClassifyLDA performs better than TS-LDA for the three classification tasks of SRAA dataset. We can also observe that, performance of TS-LDA is close to supervised LDA-SVM. We should note here that in TS-LDA, the annotator only labels a few topics and not a single document. Hence, our approach exerts a low cognitive load on the annotator, at the same time achieves text classification performance close to LDA-SVM which needs labeled documents. 5.3 Example Table 3 shows most prominent words of four topics inferred on the med-space subset of the 20Newsgroup dataset. We can observe here that most prominent words of the first topic do not represent a single class, while other topics represent either med (medical) or space class. We can say here that, these topics are not “coherent”.",
-        "We use these labeled topics and create a TS-LDA model using the algorithm described in Table 1. Table 4 shows words corresponding to the top two topics of the TS-LDA model. We can observe here that these two topics are more coherent than the topics in Table 3. 58 Text Classification (Macro-F1) Dataset # Topics ClassifyLDA TS-LDA LDA-SVM 20Newsgroups med-space 4 0.892 0.938 0.933 politics-religion 4 0.836 0.897 0.901 politics-sci 4 0.887 0.901 0.910 comp-religion-sci 6 0.853 0.853 0.872 politics-rec-religion-sci 8 0.842 0.858 0.862 SRAA real auto-real aviation-sim auto-sim aviation 8 0.766 0.741 0.820 auto-aviation 8 0.926 0.910 0.934 real-sim 8 0.918 0.902 0.923 WebKB WebKB 8 0.627 0.672 0.730 Table 2: Experimental results of text classification on various datasets. ID Most prominent words in the topic Class (med / space) 0 science scientific idea large theory bit pat thought problem isn med + space 1 information health research medical water cancer hiv aids children institute newsletter med 2 msg food doctor disease pain day treatment blood steve dyer medicine symptoms med 3 space nasa launch earth orbit moon shuttle data lunar satellite space Table 3: Topic labeling on the med-space subset of the 20Newsgroup dataset ID Most prominent words in the topic Class (med / space) 0 msg medical health food disease years problem information doctor pain cancer med 1 space launch earth data orbit moon program shuttle lunar satellite space Table 4: Topics inferred on the med-space subset of the 20Newsgroup dataset after sprinkling labeled topics from Table 3.",
+        "We use these labeled topics and create a TS-LDA model using the algorithm described in Table 1. Table 4 shows words corresponding to the top two topics of the TS-LDA model. We can observe here that these two topics are more coherent than the topics in Table 3. 58",
+        "Text Classification (Macro-F1) Dataset # Topics ClassifyLDA TS-LDA LDA-SVM 20Newsgroups med-space 4 0.892 0.938 0.933 politics-religion 4 0.836 0.897 0.901 politics-sci 4 0.887 0.901 0.910 comp-religion-sci 6 0.853 0.853 0.872 politics-rec-religion-sci 8 0.842 0.858 0.862 SRAA real auto-real aviation-sim auto-sim aviation 8 0.766 0.741 0.820 auto-aviation 8 0.926 0.910 0.934 real-sim 8 0.918 0.902 0.923 WebKB WebKB 8 0.627 0.672 0.730 Table 2: Experimental results of text classification on various datasets.",
+        "ID Most prominent words in the topic Class (med / space)",
+        "0 science scientific idea large theory bit pat thought problem isn med + space",
+        "1 information health research medical water cancer hiv aids children institute newsletter med",
+        "2 msg food doctor disease pain day treatment blood steve dyer medicine symptoms med",
+        "3 space nasa launch earth orbit moon shuttle data lunar satellite space Table 3: Topic labeling on the med-space subset of the 20Newsgroup dataset",
+        "ID Most prominent words in the topic Class (med / space)",
+        "0 msg medical health food disease years problem information doctor pain cancer med",
+        "1 space launch earth data orbit moon program shuttle lunar satellite space Table 4: Topics inferred on the med-space subset of the 20Newsgroup dataset after sprinkling labeled topics from Table 3.",
         "Hence, we can say here that, in addition to text classification, sprinkling improves coherence of topics.",
         "We should note here that, in ClassifyLDA, the annotator is able to assign a single class label to a topic. If the annotator assigns a wrong class label to a topic representing multiple classes (e.g. first topic in Table 3), then it may affect the performance of the resulting classifier. However, in our approach the annotator can assign multiple class labels to a topic, hence our approach is more flexible for the annotator to encode her domain knowledge efficiently."
       ]
@@ -133,7 +137,9 @@
         "Bing Liu, Xiaoli Li, Wee Sun Lee, and Philip S. Yu. 2004. Text Classification by Labeling Words. In Proceedings of the 19th national conference on Artifical intelligence, pages 425–430.",
         "Kamal Nigam, Andrew Kachites McCallum, Sebastian Thrun, and Tom Mitchell. 2000. Text Classification from Labeled and Unlabeled Documents using EM. Machine Learning - Special issue on information retrieval, 39(2-3), May-June.",
         "Hema Raghavan, Omid Madani, and Rosie Jones. 2006. Active Learning with Feedback on Features and Instances. JMLR, 7:1655–1686, December.",
-        "Xiaojin Zhu and Zoubin Ghahramani. 2002. Learning from Labeled and Unlabeled Data with Label Propagation. Technical report, Carnegie Mellon University. Jun Zhu, Amr Ahmed, and Eric P. Xing. 2009. MedLDA: Maximum Margin Supervised Topic Models for Regression and Classification. In ICML, pages 1257–1264. Evgeniy Gabrilovich and Shaul Markovitch. 2007. Computing Semantic Relatedness Using Wikipedia-based Explicit Semantic Analysis. In IJCAI, pages 1606–1611. 60"
+        "Xiaojin Zhu and Zoubin Ghahramani. 2002. Learning from Labeled and Unlabeled Data with Label Propagation. Technical report, Carnegie Mellon University.",
+        "Jun Zhu, Amr Ahmed, and Eric P. Xing. 2009. MedLDA: Maximum Margin Supervised Topic Models for Regression and Classification. In ICML, pages 1257–1264.",
+        "Evgeniy Gabrilovich and Shaul Markovitch. 2007. Computing Semantic Relatedness Using Wikipedia-based Explicit Semantic Analysis. In IJCAI, pages 1606–1611. 60"
       ]
     }
   ]

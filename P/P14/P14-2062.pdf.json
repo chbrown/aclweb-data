@@ -7,7 +7,7 @@
       ]
     },
     {
-      "title": "Experiments with crowdsourced re-annotation of a POS tagging data setDirk Hovy, Barbara Plank, and Anders SøgaardCenter for Language TechnologyUniversity of CopenhagenNjalsgade 140, 2300 Copenhagen{dirk|bplank}@cst.dk, soegaard@hum.ku.dkAbstract",
+      "title": "Experiments with crowdsourced re-annotation of a POS tagging data set Dirk Hovy, Barbara Plank, and Anders Søgaard Center for Language Technology University of Copenhagen Njalsgade 140, 2300 Copenhagen {dirk|bplank}@cst.dk, soegaard@hum.ku.dk Abstract",
       "paragraphs": [
         "Crowdsourcing lets us collect multiple annotations for an item from several annotators. Typically, these are annotations for non-sequential classification tasks. While there has been some work on crowdsourcing named entity annotations, researchers have largely assumed that syntactic tasks such as part-of-speech (POS) tagging cannot be crowdsourced. This paper shows that workers can actually annotate sequential data almost as well as experts. Further, we show that the models learned from crowdsourced annotations fare as well as the models learned from expert annotations in downstream tasks."
       ]
@@ -63,7 +63,7 @@
       ]
     },
     {
-      "title": "6 ResultsAgreement with expert annotators",
+      "title": "6 Results Agreement with expert annotators",
       "paragraphs": [
         "Table 1 shows the accuracy of each aggregation compared to the gold labels. The crowdsourced annotations 5 https://code.google.com/p/",
         "wikily-supervised-pos-tagger/ 6 http://www.ark.cs.cmu.edu/TweetNLP/ 379 majority 79.54 MACE-EM 79.89 majority+Wiktionary 80.58 MACE-EM+Wiktionary 80.75 oracle 89.63 Table 1: Accuracy (%) of different annotations wrt gold data aggregated using MV agree with the expert annotations in 79.54% of the cases. If we pre-filter the data using Wiktionary, the agreement becomes 80.58%. MACE leads to higher agreement with expert annotations under both conditions (79.89 and 80.75). The small difference indicates that annotators are consistent and largely reliable, thus confirming the Bronze-level qualification we required. Both schemes cannot recover the correct answer for the 1497 cases where none of the crowdsourced labels matched the gold label, i.e. y /∈ Zi. The best possible result either of them could achieve (the oracle) would be matching all but the missing labels, an agreement of 89.63%.",
@@ -107,7 +107,8 @@
         "Mukund Jha, Jacob Andreas, Kapil Thadani, Sara Rosenthal, and Kathleen McKeown. 2010. Corpus creation for new genres: A crowdsourced approach to pp attachment. In Proceedings of the NAACL HLT 2010 Workshop on Creating Speech and Language Data with Amazon’s Mechanical Turk. Association for Computational Linguistics.",
         "Mark Johnson. 2007. Why doesn’t EM find good HMM POS-taggers. In Proceedings of the 2007 Joint Conference on Empirical Methods in Natural Language Processing and Computational Natural Language Learning (EMNLP-CoNLL).",
         "John Lafferty, Andrew McCallum, and Fernando Pereira. 2001. Conditional random fields: probabilistic models for segmenting and labeling sequence data. In ICML.",
-        "Shen Li, João Graca̧, and Ben Taskar. 2012. Wiki-ly supervised part-of-speech tagging. In EMNLP. Jacob Emil Mainzer. 2011. Labeling parts of speech using untrained annotators on mechanical turk. Master’s thesis, The Ohio State University.",
+        "Shen Li, João Graca̧, and Ben Taskar. 2012. Wiki-ly supervised part-of-speech tagging. In EMNLP.",
+        "Jacob Emil Mainzer. 2011. Labeling parts of speech using untrained annotators on mechanical turk. Master’s thesis, The Ohio State University.",
         "Bernard Merialdo. 1994. Tagging English text with a probabilistic model. Computational linguistics, 20(2):155–171.",
         "Olutobi Owoputi, Brendan O’Connor, Chris Dyer, Kevin Gimpel, Nathan Schneider, and Noah A Smith. 2013. Improved part-of-speech tagging for online conversational text with word clusters. In NAACL.",
         "Slav Petrov, Dipanjan Das, and Ryan McDonald. 2012. A universal part-of-speech tagset. In LREC.",

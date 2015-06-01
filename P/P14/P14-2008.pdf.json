@@ -7,13 +7,13 @@
       ]
     },
     {
-      "title": "Improving Citation Polarity Classification with Product ReviewsCharles Jochim",
+      "title": "Improving Citation Polarity Classification with Product Reviews Charles Jochim",
       "paragraphs": [
         "∗"
       ]
     },
     {
-      "title": "IBM Research – Irelandcharlesj@ie.ibm.com Hinrich Sch ützeCenter for Information & Language ProcessingUniversity of MunichAbstract",
+      "title": "IBM Research – Ireland charlesj@ie.ibm.com Hinrich Sch ütze Center for Information & Language Processing University of Munich Abstract",
       "paragraphs": [
         "Recent work classifying citations in scientific literature has shown that it is possible to improve classification results with extensive feature engineering. While this result confirms that citation classification is feasible, there are two drawbacks to this approach: (i) it requires a large annotated corpus for supervised classification, which in the case of scientific literature is quite expensive; and (ii) feature engineering that is too specific to one area of scientific literature may not be portable to other domains, even within scientific literature. In this paper we address these two drawbacks. First, we frame citation classification as a domain adaptation task and leverage the abundant labeled data available in other domains. Then, to avoid over-engineering specific citation features for a particular scientific domain, we explore a deep learning neural network approach that has shown to generalize well across domains using unigram and bigram features. We achieve better citation classification results with this cross-domain approach than using in-domain classification."
       ]
@@ -37,7 +37,7 @@
       ]
     },
     {
-      "title": "3 Experimental Setup3.1 Corpora",
+      "title": "3 Experimental Setup 3.1 Corpora",
       "paragraphs": [
         "We are interested in domain adaptation for citation classification and therefore need a target dataset of citations and a non-citation source dataset. There are two corpora available that contain citation function annotation, the DFKI Citation Corpus (Dong and Schäfer, 2011) and the IMS Citation Corpus (Jochim and Schütze, 2012). Both corpora have only about 2000 instances; unfortunately, there are no larger corpora available with citation annotation and this task would benefit from more annotated data. Due to the infrequent use of negative citations, a substantial annotation effort (an-notating over 5 times more data) would be necessary to reach 1000 negative citation instances, which is the number of negative instances in a single domain in the multi-domain corpus described below.",
         "The DFKI Citation Corpus2",
@@ -51,9 +51,8 @@
         "3",
         "http://www.ims.uni-stuttgart.de/ j̃ochimcs/citation-classification/",
         "4",
-        "http://www.cs.jhu.edu/m̃dredze/ datasets/sentiment/",
-        "5",
-        "It is usually treated as unlabeled data even though it ac-43 Corpus Instances Pos. Neg. Neut. DFKI 1768 190 57 1521 IMS 2008 1836 172 – MDSD 27,677 13,882 13,795 – Table 1: Polarity corpora. were preprocessed so that for each review you find a list of unigrams and bigrams with their frequency within the review. Unigrams from a stop list of 55 stop words are removed, but stop words in bigrams remain.",
+        "http://www.cs.jhu.edu/m̃dredze/",
+        "datasets/sentiment/ 5 It is usually treated as unlabeled data even though it ac-43 Corpus Instances Pos. Neg. Neut. DFKI 1768 190 57 1521 IMS 2008 1836 172 – MDSD 27,677 13,882 13,795 – Table 1: Polarity corpora. were preprocessed so that for each review you find a list of unigrams and bigrams with their frequency within the review. Unigrams from a stop list of 55 stop words are removed, but stop words in bigrams remain.",
         "Table 1 shows the distribution of polarity labels in the corpora we use for our experiments. We combine the DFKI and IMS corpora into the CITD corpus. We omit the citations labeled neutral from the DFKI corpus because the IMS corpus does not contain neutral annotation nor does the MDSD. It is the case in many sentiment analysis corpora that only positive and negative instances are included, e.g., (Pang et al., 2002).",
         "The citation corpora presented above are both unbalanced and both have a highly skewed distribution. The MDSD on the other hand is evenly balanced and an effort was even made to keep the data treated as “unlabeled” rather balanced. For this reason, in line with previous work using MDSD, we balance the labeled portion of the CITD corpus. This is done by taking 179 unique negative sentences in the DFKI and IMS corpora and randomly selecting an equal number of positive sentences. The IMS corpus can have multiple labeled citations per sentence: there are 122 sentences containing the 172 negative citations from Table 1. The final CITD corpus comprises this balanced corpus of 358 labeled citation sentences plus another 22,093 unlabeled citation sentences. 3.2 Features In our experiments, we restrict our features to unigrams and bigrams from the product review or citation context (i.e., the sentence containing the citation). This follows previous studies in domain adaptation (Blitzer et al., 2007; Glorot et al., 2011). Chen et al. (2012) achieve state-of-the-art results on MDSD by testing the 5000 and 30,000 most frequent unigram and bigram features.",
         "Previous work in citation classification has largely focused on identifying new features for tually contains positive and negative labels, which have been used, e.g., in (Chen et al., 2012). improving classification accuracy. A significant amount of effort goes into engineering new features, in particular for identifying cue phrases, e.g., (Teufel et al., 2006b; Dong and Schäfer, 2011). However, there seems to be little consensus on which features help most for this task. For example, Abu-Jbara et al. (2013) and Jochim and Schütze (2012) find the list of polar words from Wilson et al. (2005) to be useful, and neither study lists dependency relations as significant features. Athar (2011) on the other hand reported significant improvement using dependency relation features and found that the same list of polar words slightly hurt classification accuracy. The classifiers and implementation of features varies between these studies, but the problem remains that there seems to be no clear set of features for citation polarity classification.",
@@ -65,7 +64,7 @@
       ]
     },
     {
-      "title": "4 Results and Discussion4.1 Citation mSDA",
+      "title": "4 Results and Discussion 4.1 Citation mSDA",
       "paragraphs": [
         "Our initial results show that using mSDA for domain adaptation to citations actually outperforms in-domain classification. In Figure 1 we compare citation classification with mSDA to the SVM baseline. Each pair of vertical bars represents training on a domain from MDSD (e.g., books) and testing on CITD. The dark gray bar indicates the F1 scores for the SVM baseline using the 30,000 features and the lighter gray bar shows the mSDA results. The black horizontal line indicates the F1 score for in-domain citation classification, which sometimes represents the goal for domain adaptation. We can see that using a larger dataset, even if out of domain, does improve citation classification. For books, dvd, and electronics, even the SVM baseline improves on in-domain classification. mSDA does better than the baseline for all domains except dvd. Using a larger training set, along with mSDA, which makes use of the unlabeled data, leads to the best results for citation classification.",
         "In domain adaptation we would expect the domains most similar to the target to lead to the highest results. Like Dai et al. (2007), we measure the Kullback-Leibler divergence between the source and target domains’ distributions. Accord-ing to this measure, citations are most similar to the books domain. Therefore, it is not surprising that training on books performs well on citations, and intuitively, among the domains in the Amazon dataset, a book review is most similar to a scientific citation. This makes the good mSDA results for electronics a bit more surprising. 4.2 Easy Domain Adaptation The results in Section 4.1 are for semi-supervised domain adaptation: the case where we have some large annotated corpus (Amazon product reviews) and a large unannotated corpus (citations). There have been a number of other successful attempts at fully supervised domain adaptation, where it is as-sumed that some small amount of data is annotated in the target domain (Chelba and Acero, 2004; Daumé III, 2007; Jiang and Zhai, 2007). To see how mSDA compares to supervised domain adaptation we take the various approaches presented by Daumé III (2007). The results of this comparison can be seen in Table 2. Briefly, “All” trains on source and target data; “Weight” is the same as “All” except that instances may be weighted differently based on their domain (weights are chosen on a development set); “Pred” trains on the source data, makes predictions on the target data, and then trains on the target data with the predictions; “LinInt” linearly interpolates predictions using the source-only and target-only models (the interpola-tion parameter is chosen on a development set); “Augment” uses a larger feature set with source-specific and target-specific copies of features; see 45 Domain Baseline All Weight Pred LinInt Augment mSDA books 54.5 54.8 52.0 51.9 53.4 53.4 57.1 dvd 53.2 50.9 56.0 53.4 51.9 47.5 51.6 electronics 53.4 49.0 50.5 53.4 54.8 51.9 59.2 kitchen 47.9 48.8 50.7 53.4 52.6 49.2 50.1 citations 51.9 – – – – – 54.9 Table 2: Macro-F1 results on CITD using different domain adaptation approaches. (Daumé III, 2007) for further details.",
@@ -94,7 +93,8 @@
     {
       "title": "References",
       "paragraphs": [
-        "Amjad Abu-Jbara, Jefferson Ezra, and Dragomir Radev. 2013. Purpose and polarity of citation: Towards NLP-based bibliometrics. In Proceedings of NAACL-HLT, pages 596–606. Awais Athar and Simone Teufel. 2012. Contextenhanced citation sentiment detection. In Proceedings of NAACL-HLT, pages 597–601.",
+        "Amjad Abu-Jbara, Jefferson Ezra, and Dragomir Radev. 2013. Purpose and polarity of citation: Towards NLP-based bibliometrics. In Proceedings of NAACL-HLT, pages 596–606.",
+        "Awais Athar and Simone Teufel. 2012. Contextenhanced citation sentiment detection. In Proceedings of NAACL-HLT, pages 597–601.",
         "Awais Athar. 2011. Sentiment analysis of citations using sentence structure-based features. In Proceedings of ACL Student Session, pages 81–87.",
         "Yoshua Bengio. 2009. Learning deep architectures for AI. Foundations and Trends in Machine Learning, 2(1):1–127.",
         "Steven Bird, Robert Dale, Bonnie Dorr, Bryan Gibson, Mark Joseph, Min-Yen Kan, Dongwon Lee, Brett Powley, Dragomir Radev, and Yee Fan Tan. 2008. The ACL anthology reference corpus: A reference dataset for bibliographic research in computational linguistics. In Proceedings of LREC, pages 1755– 1759.",
@@ -109,7 +109,8 @@
         "Rong-En Fan, Kai-Wei Chang, Cho-Jui Hsieh, Xiang-Rui Wang, and Chih-Jen Lin. 2008. Liblinear: A library for large linear classification. Journal of Machine Learning Research, 9:1871–1874.",
         "Eugene Garfield. 1955. Citation indexes to science: A new dimension in documentation through association of ideas. Science, 122:108–111.",
         "Eugene Garfield. 1964. Can citation indexing be automated? In Statistical Association Methods for Mechanized Documentation, Symposium Proceedings, pages 189–192.",
-        "Xavier Glorot, Antoine Bordes, and Yoshua Bengio. 2011. Domain adaptation for large-scale sentiment classification: A deep learning approach. In Proceedings of ICML, pages 513–520. Jing Jiang and ChengXiang Zhai. 2007. Instance weighting for domain adaptation in NLP. In ACL, pages 264–271.",
+        "Xavier Glorot, Antoine Bordes, and Yoshua Bengio. 2011. Domain adaptation for large-scale sentiment classification: A deep learning approach. In Proceedings of ICML, pages 513–520.",
+        "Jing Jiang and ChengXiang Zhai. 2007. Instance weighting for domain adaptation in NLP. In ACL, pages 264–271.",
         "Charles Jochim and Hinrich Schütze. 2012. Towards a generic and flexible citation classifier based on a faceted classification scheme. In Proceedings of COLING, pages 1343–1358.",
         "Bing Liu. 2010. Sentiment analysis and subjectivity. In Nitin Indurkhya and Fred J. Damerau, editors, Handbook of Natural Language Processing, Second Edition. CRC Press, Taylor and Francis Group.",
         "Michael J. Moravcsik and Poovanalingam Murugesan. 1975. Some results on the function and quality of citations. Social Studies of Science, 5:86–92.",

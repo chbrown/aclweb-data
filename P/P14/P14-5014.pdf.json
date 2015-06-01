@@ -7,7 +7,7 @@
       ]
     },
     {
-      "title": "KyotoEBMT: An Example-Based Dependency-to-DependencyTranslation FrameworkJohn Richardson",
+      "title": "KyotoEBMT: An Example-Based Dependency-to-Dependency Translation Framework John Richardson",
       "paragraphs": [
         "†"
       ]
@@ -37,7 +37,7 @@
       ]
     },
     {
-      "title": "Japan Science and Technology Agency, Kawaguchi-shi, Saitama 332-0012john@nlp.ist.i.kyoto-u.ac.jp, {fabien, nakazawa}@pa.jst.jp,kuro@i.kyoto-u.ac.jpAbstract",
+      "title": "Japan Science and Technology Agency, Kawaguchi-shi, Saitama 332-0012 john@nlp.ist.i.kyoto-u.ac.jp, {fabien, nakazawa}@pa.jst.jp, kuro@i.kyoto-u.ac.jp Abstract",
       "paragraphs": [
         "This paper introduces the KyotoEBMT Example-Based Machine Translation framework. Our system uses a tree-to-tree approach, employing syntactic dependency analysis for both source and target languages in an attempt to preserve non-local structure. The effectiveness of our system is maximized with online example matching and a flexible decoder. Evaluation demonstrates BLEU scores competitive with state-of-the-art SMT systems such as Moses. The current implementation is intended to be released as open-source in the near future."
       ]
@@ -63,7 +63,7 @@
       ]
     },
     {
-      "title": "3 Example retrieval and translationhypothesis construction",
+      "title": "3 Example retrieval and translation hypothesis construction",
       "paragraphs": [
         "An important characteristic of our system is that we do not extract and store translation rules in advance: the alignment of translation examples is performed offline. However, for a given input sentence i, the steps for finding examples partially matching i and extracting their translation hypotheses is an online process. This approach could be considered to be more faithful to the original EBMT approach advocated by Nagao (1984). It has already been proposed for phrase-based (Callison-Burch et al., 2005), hierarchical (Lopez, 2007), and syntax-based (Cromières and Kurohashi, 2011) systems. It does not however, seem to be very commonly integrated in syntax-based MT.",
         "This approach has several benefits. The first is that we are not required to impose a limit on the size of translation hypotheses. Systems extracting rules in advance typically restrict the size and number of extracted rules for fear of becoming unmanageable. In particular, if an input sentence is the same or very similar to one of our translation examples, we will be able to retrieve a perfect translation. A second advantage is that we can make use of the full context of the example to assign features and scores to each translation hypothesis.",
@@ -108,7 +108,15 @@
         "4",
         "http://www.umiacs.umd.edu/~hal/megam/",
         "5",
-        "http://orchid.kuee.kyoto-u.ac.jp/ASPEC/ 82 System JA–EN EN–JA JA–ZH ZH–JA Moses 28.86 33.61 32.90 42.79 Moses-Hiero 28.56 32.98 — — Proposed 29.00 32.15 32.99 37.64 Table 1: Scores System BLEU Translation Moses 31.09 Further, the expansion stroke, the sectional area of the inner tube 12, and the oil is supplied to the lower oil chamber S2 from the oil reservoir chamber R × stroke. Moses-Hiero 21.49 Also, the expansion stroke, the cross-sectional area of the inner tube 12 × stroke of oil supplied from the oil reservoir chamber R lower oil chamber S2. Proposed 44.99 Further in this expansion stroke, the oil at an amount obtained by multiplying cross sectional area of the inner tube 12 from the oil reservoir chamber R is resupplied to the lower oil chamber S2. Reference 100.00 In this expansion stroke, oil in an amount obtained by multiplying the cross sectional area of the inner tube 12 by the stroke is resupplied from the upper oil reservoir chamber R to the lower oil chamber S2. Table 2: Example of JA–EN translation with better translation quality than baselines. correspond to the highest performing official baselines for the NTCIR-10 PatentMT task.",
+        "http://orchid.kuee.kyoto-u.ac.jp/ASPEC/ 82 System JA–EN EN–JA JA–ZH ZH–JA Moses 28.86 33.61 32.90 42.79",
+        "Moses-Hiero 28.56 32.98 — — Proposed 29.00 32.15 32.99 37.64 Table 1: Scores",
+        "System BLEU Translation",
+        "Moses 31.09 Further, the expansion stroke, the sectional area of the inner tube 12,",
+        "and the oil is supplied to the lower oil chamber S2 from the oil reservoir",
+        "chamber R × stroke. Moses-Hiero",
+        "21.49 Also, the expansion stroke, the cross-sectional area of the inner tube 12 × stroke of oil supplied from the oil reservoir chamber R lower oil chamber S2.",
+        "Proposed 44.99 Further in this expansion stroke, the oil at an amount obtained by multiplying cross sectional area of the inner tube 12 from the oil reservoir chamber R is resupplied to the lower oil chamber S2.",
+        "Reference 100.00 In this expansion stroke, oil in an amount obtained by multiplying the cross sectional area of the inner tube 12 by the stroke is resupplied from the upper oil reservoir chamber R to the lower oil chamber S2. Table 2: Example of JA–EN translation with better translation quality than baselines. correspond to the highest performing official baselines for the NTCIR-10 PatentMT task.",
         "As it appeared Moses was giving similar and slightly higher BLEU scores than Moses-Hiero for Japanese-English, we restricted evaluation to the standard settings for Moses for our Japanese-Chinese experiments.",
         "The following dependency parsers were used. The scores in parentheses are the approximate parsing accuracies (micro-average), which were evaluated by hand on a random subset of sentences from the test data. The parsers were trained on domains different to those used in the experiments.",
         "• English: NLParser6",
@@ -147,10 +155,12 @@
         "Toshiaki Nakazawa and Sadao Kurohashi. 2012. Alignment by bilingual generation and monolingual derivation. In Proceedings of COLING 2012.",
         "Mo Shen, Daisuke Kawahara and Sadao Kurohashi. 2012. A Reranking Approach for Dependency Parsing with Variable-sized Subtree Features. In Proceedings of 26th Pacific Asia Conference on Language Information and Computing.",
         "Chris Callison-Burch, Colin Bannard, and Josh Schroeder. Scaling phrase-based statistical machine translation to larger corpora and longer phrases. In Proceedings of the 43rd Annual Meeting on Association for Computational Linguistics, pages 255–262. Association for Computational Linguistics, 2005.",
-        "David Chiang. 2007. Hierarchical phrase-based translation. In Computational Linguistics. Kenneth Heafield. 2011. KenLM: faster and smaller language model queries. In Proceedings of the EMNLP 2011 Sixth Workshop on Statistical Machine Translation, 2011.",
+        "David Chiang. 2007. Hierarchical phrase-based translation. In Computational Linguistics.",
+        "Kenneth Heafield. 2011. KenLM: faster and smaller language model queries. In Proceedings of the EMNLP 2011 Sixth Workshop on Statistical Machine Translation, 2011.",
         "Kenneth Heafield, Hieu Hoang, Philipp Koehn, Tetsuo Kiso, and Marcello Federico. 2011. Left language model state for syntactic machine translation. In Proceedings of the International Workshop on Spoken Language Translation, 2011.",
         "Kenneth Heafield, Philipp Koehn, and Alon Lavie. 2012. Language model rest costs and spaceefficient storage. In Proceedings of the Joint Conference on Empirical Methods in Natural Language Processing and Computational Natural Language Learning, 2012.",
-        "Zhifei Li and Sanjeev Khudanpur. 2008. A scal-able decoder for parsing-based machine translation with equivalent language model state maintenance. In Proceedings of the Second Workshop on Syntax and Structure in Statistical Translation. Association for Computational Linguistics, 2008. Adam Lopez. 2007. Hierarchical phrase-based translation with suffix arrays. In EMNLP-CoNLL 2007.",
+        "Zhifei Li and Sanjeev Khudanpur. 2008. A scal-able decoder for parsing-based machine translation with equivalent language model state maintenance. In Proceedings of the Second Workshop on Syntax and Structure in Statistical Translation. Association for Computational Linguistics, 2008.",
+        "Adam Lopez. 2007. Hierarchical phrase-based translation with suffix arrays. In EMNLP-CoNLL 2007.",
         "Chris Quirk, Arul Menezes, and Colin Cherry. 2005. Dependency Treelet Translation: Syntactically Informed Phrasal SMT. In Proceedings of the 43rd Annual Meeting on Association for Computational Linguistics. Association for Computational Linguistics, 2005. 84"
       ]
     }

@@ -7,7 +7,7 @@
       ]
     },
     {
-      "title": "Exploring the Relative Role of Bottom-up and Top-down Information inPhoneme LearningAbdellah Fourtassi1 , Thomas Schatz1,2 , Balakrishnan Varadarajan3 , Emmanuel Dupoux1",
+      "title": "Exploring the Relative Role of Bottom-up and Top-down Information in Phoneme Learning Abdellah Fourtassi1 , Thomas Schatz1,2 , Balakrishnan Varadarajan3 , Emmanuel Dupoux1",
       "paragraphs": [
         "1"
       ]
@@ -25,7 +25,7 @@
       ]
     },
     {
-      "title": "Center for Language and Speech Processing, JHU, Baltimore, USA{abdellah.fourtassi; emmanuel.dupoux; balaji.iitm1}@gmailthomas.schatz@laposte.netAbstract",
+      "title": "Center for Language and Speech Processing, JHU, Baltimore, USA {abdellah.fourtassi; emmanuel.dupoux; balaji.iitm1}@gmail thomas.schatz@laposte.net Abstract",
       "paragraphs": [
         "We test both bottom-up and top-down approaches in learning the phonemic status of the sounds of English and Japanese. We used large corpora of spontaneous speech to provide the learner with an input that models both the linguistic properties and statistical regularities of each language. We found both approaches to help discriminate between allophonic and phonemic contrasts with a high degree of accuracy, although top-down cues proved to be effective only on an interesting subset of the data."
       ]
@@ -40,8 +40,7 @@
     {
       "title": "2 Modeling phonetic variation",
       "paragraphs": [
-        "In this section, we describe how we modeled the representation of speech sounds putatively processed by infants, before they learn the relevant phonemic categories of their language. Following Peperkamp et al. (2006), we make the assumption that this input is quantized into context-dependent phone-sized unit we call allophones. Consider the example of the allophonic rule that applies to the French /r/:",
-        "/r/ → { [X]"
+        "In this section, we describe how we modeled the representation of speech sounds putatively processed by infants, before they learn the relevant phonemic categories of their language. Following Peperkamp et al. (2006), we make the assumption that this input is quantized into context-dependent phone-sized unit we call allophones. Consider the example of the allophonic rule that applies to the French /r/: /r/ → { [X]"
       ]
     },
     {
@@ -54,7 +53,7 @@
       ]
     },
     {
-      "title": "3 Bottom-up and top-down hypotheses3.1 Acoustic cue",
+      "title": "3 Bottom-up and top-down hypotheses 3.1 Acoustic cue",
       "paragraphs": [
         "The bottom-up cue is based on the hypothesis that instances of the same phoneme are likely to be acoustically more similar than instances of two different phonemes (see Cristia and Seidl, in press) for a similar proposition). In order to provide a proxy for the perceptual distance between allophones, we measure the information theoretic distance between the acoustic HMMs of these allophones. The 3-state HMMs of the two allophones were aligned with Dynamic Time Warping (DTW), using as a distance between pairs of emitting states, a symmetrized version of the Kullback-Leibler (KL) divergence measure (each state was approximated by a single non-diagonal Gaussian):",
         "A(x, y) = ∑ (i,j)∈DTW (x,y) KL(Nxi||Nyj ) + KL(Nyj ||Nxi)",
@@ -66,12 +65,14 @@
         "where {Ax ∈ L} is the set of words in the lexicon L that end in the phone x, and {(Ax, Ay) ∈ L2",
         "} is the set of phonological minimal pairs in L × L that vary on the final segment.",
         "In addition, we introduce another cue that could be seen as a normalization of Boruta’s cue: N (x, y) =",
-        "|(Ax,Ay)∈L2 |+|(xA,yA)∈L2",
-        "| |{Ax∈L}|+|{Ay∈L}|+|{xA∈L}|+|{yA∈L}|"
+        "|(Ax,Ay)∈L2",
+        "|+|(xA,yA)∈L2",
+        "|",
+        "|{Ax∈L}|+|{Ay∈L}|+|{xA∈L}|+|{yA∈L}|"
       ]
     },
     {
-      "title": "4 Experiment4.1 Task",
+      "title": "4 Experiment 4.1 Task",
       "paragraphs": [
         "For each corpus we list all the possible pairs of attested allophones. Some of these pairs are allophones of the same phoneme (allophonic pair) and others are allophones of different phonemes (non-allophonic pairs). The task is a same-different classification, whereby each of these pairs is given a score from the cue that is being tested. A good cue gives higher scores to allophonic pairs. 4.2 Evaluation We use the same evaluation procedure as in Martin et al. (2013). It is carried out by computing the area under the curve of the Receiver Operat-ing Characteristic (ROC). A value of 0.5 represents chance and a value of 1 represents perfect performance.",
         "In order to lessen the potential influence of the structure of the corpus (mainly the order of the utterances) on the results, we use a statistical resampling scheme. The corpus is divided into small blocks (of 20 utterances each). In each run, we draw randomly with replacement from this set of blocks a sample of the same size as the original corpus. This sample is then used to retrain the acoustic models and generate a phonetic inventory that we use to re-transcribe the corpus and re-compute the cues. We report scores averaged over 5 such runs. 4.3 Results Table 1 shows the classification scores for the lexical cues when we vary the inventory size from 2 allophones per phoneme in average, to 20 allophones per phoneme, using the Random allophones. The top-down scores are very high, replicating Martin et al.’s results, and even improving the performance using Boruta’s cue and our new Normalized cue. — English Japanese Allo./phon. M B N M B N 2 0.784 0.935 0.951 0.580 0.989 1.00 5 0.845 0.974 0.982 0.653 0.978 0.991 10 0.886 0.974 0.981 0.733 0.944 0.971 20 0.918 0.961 0.966 0.785 0.869 0.886 Table 1 : Same-different scores for top-down cues on Random allophones, as a function of the average number of allophones per phoneme. M=Martin et al., B=Boruta, N=",
@@ -82,11 +83,10 @@
       ]
     },
     {
-      "title": "5 Analysis5.1 Why does the performance drop forrealistic allophones?",
+      "title": "5 Analysis 5.1 Why does the performance drop for realistic allophones?",
       "paragraphs": [
         "When we list all possible pairs of allophones in the inventory, some of them correspond to lexi-3 cal alternants ([X], [K]) → ([kanaX] and [kanaK]), others to true minimal pairs ([K], [l]) → ([kanaK] and [kanal]), and yet others will simply not generate lexical variation at all, we will call those: invisible pairs. For instance, in English, /h/ and /N/ occur in different syllable positions and thus cannot appear in any minimal pair. As defined above, top-down cues are set to 0 in such pairs (which means that they are systematically classified as non-allophonic). This is a correct decision for /h/ vs. /N/, but not for invisible pairs that also happen to be allophonic, resulting in false negatives. In tables 3, we show that, indeed, invisible pairs is a major issue, and could explain to a large extent the pattern of results found above. In fact, the proportion of visible allophonic pairs (“allo” column) is way lower for HMM-based allophones. This means that the majority of allophonic pairs in the HMM case are invisible, and therefore, will be mistakenly classified as non-allophonic. — Random HMM — English Japanese English Japanese Allo./phon. allo ¬ allo allo ¬ allo allo ¬ allo allo ¬ allo 2 92.9 36.3 100 83.9 48.9 25.3 37.1 53.2 5 97.2 28.4 99.6 69.0 31.1 14.3 25.0 25.9 10 96.8 19.9 96.7 50.1 19.8 4.23 21.0 14.4 20 94.3 10.8 83.4 26.4 14.0 1.89 12.4 4.04 Table 3 : Proportion (in %) of allophonic pairs (allo), and non-allophonic pairs (¬ allo) associated with at least one lexical minimal pair, in Random and HMM allophones.",
-        "There are basically two reasons why an allophonic pair would be invisible ( will not generate lexical alternants). The first one is the absence of evidence, e.g., if the edges of the word with the underlying phoneme do not appear in enough contexts to generate the corresponding variants. This happens when the corpus is so small that no word ending with, say, /r/ appears in both voiced and voiceless contexts. The second, is when the allophones are triggered on maximally different contexts (on the right and the left) as illustrated below:",
-        "/p/ → { [p1]"
+        "There are basically two reasons why an allophonic pair would be invisible ( will not generate lexical alternants). The first one is the absence of evidence, e.g., if the edges of the word with the underlying phoneme do not appear in enough contexts to generate the corresponding variants. This happens when the corpus is so small that no word ending with, say, /r/ appears in both voiced and voiceless contexts. The second, is when the allophones are triggered on maximally different contexts (on the right and the left) as illustrated below: /p/ → { [p1]"
       ]
     },
     {
@@ -122,7 +122,8 @@
     {
       "title": "References",
       "paragraphs": [
-        "Luc Boruta. 2011. Combining Indicators of Allophony. In Proceedings ACL-SRW, pages 88–93. Luc Boruta. 2012. Indicateurs d’allophonie et de phonémicité. Doctoral dissertation, Université Paris-Diderot - Paris VII.",
+        "Luc Boruta. 2011. Combining Indicators of Allophony. In Proceedings ACL-SRW, pages 88–93.",
+        "Luc Boruta. 2012. Indicateurs d’allophonie et de phonémicité. Doctoral dissertation, Université Paris-Diderot - Paris VII.",
         "A. Cristia and A. Seidl. In press. The hyperarticula-tion hypothesis of infant-directed speech. Journal of Child Language.",
         "Naomi H. Feldman, Thomas L. Griffiths, Sharon Goldwater, and James L. Morgan. 2013. A role for the developing lexicon in phonetic category acquisition. Psychological Review, 120(4):751–778.",
         "Abdellah Fourtassi and Emmanuel Dupoux. 2014. A rudimentary lexicon and semantics help bootstrap phoneme acquisition. In Proceedings of the 18th Conference on Computational Natural Language Learning (CoNLL).",

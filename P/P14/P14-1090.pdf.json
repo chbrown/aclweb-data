@@ -7,7 +7,7 @@
       ]
     },
     {
-      "title": "Information Extraction over Structured Data:Question Answering with FreebaseXuchen Yao",
+      "title": "Information Extraction over Structured Data: Question Answering with Freebase Xuchen Yao",
       "paragraphs": [
         "1"
       ]
@@ -25,7 +25,7 @@
       ]
     },
     {
-      "title": "Human Language Technology Center of ExcellenceJohns Hopkins UniversityBaltimore, MD, USAAbstract",
+      "title": "Human Language Technology Center of Excellence Johns Hopkins University Baltimore, MD, USA Abstract",
       "paragraphs": [
         "Answering natural language questions using the Freebase knowledge base has recently been explored as a platform for advancing the state of the art in open domain semantic parsing. Those efforts map questions to sophisticated meaning representations that are then attempted to be matched against viable answer candidates in the knowledge base. Here we show that relatively modest information extraction techniques, when paired with a web-scale corpus, can outperform these sophisticated approaches by roughly 34% relative gain."
       ]
@@ -65,7 +65,8 @@
         "and gave them access to Freebase, that person might first determine that the question 3",
         "All examples used in this paper come from the training data crawled from Google Suggest. They are lowercased and some contain typos. 957 is about Justin Bieber (or his brother), go to Justin Bieber’s Freebase page, and search for his brother’s name. Unfortunately Freebase does not contain an exact relation called brother, but instead sibling. Thus further inference (i.e., brother ↔ male sibling) has to be made. In the following we describe how we represent this process. 4.1 Question Graph In answering our example query a person might take into consideration multiple constraints. With regards to the question, we know we are looking for the name of a person based on the following: • the dependency relation nsubj(what, name)",
         "and prep of(name, brother) indicates that the",
-        "question seeks the information of a name;4 • the dependency relation prep of(name, brother) indicates that the name is about a brother (but we do not know whether it is a person name yet); • the dependency relation nn(brother, bieber)",
+        "question seeks the information of a name;4",
+        "• the dependency relation prep of(name, brother) indicates that the name is about a brother (but we do not know whether it is a person name yet); • the dependency relation nn(brother, bieber)",
         "and the facts that, (i) Bieber is a person and (ii)",
         "a person’s brother should also be a person, indi-",
         "cate that the name is about a person. This motivates the design of dependency-based features. We show one example in Figure 1(a), left side. The following linguistic information is of interest: • question word (qword), such as what/who/how",
@@ -84,7 +85,7 @@
       ]
     },
     {
-      "title": "whatis namethe",
+      "title": "what is name the",
       "paragraphs": [
         "brother"
       ]
@@ -92,77 +93,15 @@
     {
       "title": "justin bieber",
       "paragraphs": [
-        "nsubj"
+        "nsubj cop nn",
+        "prep_of  det nn qword qtopic qfocus qtopic qword= what qfocus= name brother qtopic= person qtopic= person",
+        "nsubj  nn",
+        "prep_of  nn",
+        "qverb= be cop qverb (a) Dependence parse with annotated question features in dashed boxes (left) and converted feature graph (right) with only relevant and general information about the original question kept. Note that the left is a real but incorrect parse."
       ]
     },
     {
-      "title": "",
-      "paragraphs": [
-        " cop"
-      ]
-    },
-    {
-      "title": "",
-      "paragraphs": [
-        "nn"
-      ]
-    },
-    {
-      "title": "",
-      "paragraphs": [
-        "prep_of"
-      ]
-    },
-    {
-      "title": "",
-      "paragraphs": [
-        "det"
-      ]
-    },
-    {
-      "title": "",
-      "paragraphs": [
-        "nn"
-      ]
-    },
-    {
-      "title": "",
-      "paragraphs": [
-        "qword qtopic qfocus qtopic qword= what qfocus= name brother qtopic= person qtopic= person nsubj"
-      ]
-    },
-    {
-      "title": "",
-      "paragraphs": [
-        "nn"
-      ]
-    },
-    {
-      "title": "",
-      "paragraphs": [
-        "prep_of"
-      ]
-    },
-    {
-      "title": "",
-      "paragraphs": [
-        "nn"
-      ]
-    },
-    {
-      "title": "",
-      "paragraphs": [
-        "qverb= be  cop"
-      ]
-    },
-    {
-      "title": "",
-      "paragraphs": [
-        "qverb (a) Dependence parse with annotated question features in dashed boxes (left) and converted feature graph (right) with only relevant and general information about the original question kept. Note that the left is a real but incorrect parse."
-      ]
-    },
-    {
-      "title": "Justin Bieberdummy nodeJazmyn Bieber person.sibling_s Jaxon Biebersibling sibling persontypepersontypefemalegender malegenderLondon awards_won place_of_birth...... type personmalegender",
+      "title": "Justin Bieber dummy node Jazmyn Bieber person.sibling_s Jaxon Bieber sibling sibling person type person type female gender male gender London awards_won place_of_birth ...... type person male gender",
       "paragraphs": [
         "(b) A view of Freebase graph on the Justin Bieber topic with nodes in solid boxes and properties in dashed boxes. The hatching node, Jaxon Bieber, is the answer. Freebase uses a dummy parent node for a list of nodes with the same relation. Figure 1: Dependency parse and excerpted Freebase topic graph on the question what is the name of justin bieber brother. 959 we would not have known the node Jaxon Bieber represents a male person. These properties, along with the sibling relationship to the topic node, are important cues for answering the question. Thus for the Freebase graph, we use relations (with directions) and properties as features for each node.",
         "Additionally, we have analyzed how Freebase relations map back to the question. Some of the mapping can be simply detected as paraphras-ing or lexical overlap. For example, the person.parents relationship helps answering questions about parenthood. However, most Freebase relations are framed in a way that is not commonly addressed in natural language questions. For instance, for common celebrity gossip questions like who cheated on celebrity A, it is hard for a system to find the Freebase relation celebrity.infidelity.participant as the target relation if it had not observed this pattern in training.",
@@ -177,18 +116,15 @@
       "paragraphs": [
         "In this section we describe a “translation” table between Freebase relations and NL words was built. 5.1 Formula The objective is to find the most likely relation a question prompts. For instance, for the question who is the father of King George VI, the most likely relation we look for is people.person.parents. To put it more formally, given a question Q of a word vector w, we want to find out the relationR that maximizes the probability P (R | Q).",
         "More interestingly, for the question who is the father of the Periodic Table, the actual relation that encodes its original meaning is law.invention.inventor, rather than people.person.parents. This simple example points out that every part of the question could change what the question inquires eventually. Thus we need to count for each word w in Q. Due to the bias and incompleteness of any data source, we approximate the true probability of P with P̃ under our specific model. For the simplicity of computation, we assume conditional independence between words and apply Naive Bayes:",
-        "P̃ (R | Q) ∝ P̃ (Q | R) P̃ (R) ≈ P̃ (w | R) P̃ (R)",
-        "≈ ∏ w P̃ (w | R) P̃ (R)",
+        "P̃ (R | Q) ∝ P̃ (Q | R) P̃ (R)",
+        "≈ P̃ (w | R) P̃ (R) ≈ ∏ w P̃ (w | R) P̃ (R)",
         "where P̃ (R) is the prior probability of a relation R and P̃ (w | R) is the conditional probability of word w given R.",
         "It is possible that we do not observe a certain relation R when computing the above equation. In this case we back off to the “sub-relations”: a relation R is a concatenation of a series of sub-relations R = r = r1.r2.r3. . . .. For instance, the sub-relations of people.person.parents are people, person, and parents. Again, we assume conditional independence between sub-relations and apply Naive Bayes:",
-        "P̃backoff(R | Q) ≈ P̃ (r | Q)",
-        "≈ ∏ r P̃ (r | Q)",
-        "∝ ∏ r P̃ (Q | r) P̃ (r)",
-        "≈ ∏ r ∏",
-        "w P̃ (w | r) P̃ (r) One other reason that we estimated P̃ (w | r) and P̃ (r) for sub-relations is that Freebase relations share some common structures in between them. For in-stance, both people.person.parents and fictional universe.fictional character.parents 960 indicate the parent relationship but the latter is much less commonly annotated. We hope that the shared sub-relation, parents, can help better estimate for the less annotated. Note that the backoff model would have a much smaller value than the original, due to double multiplication ∏",
-        "r ∏",
-        "w. In practice we normalize it by the sub-relations size to keep it at the same scale with P̃ (R | Q).",
-        "Finally, to estimate the prior and conditional probability, we need a massive data collection. 5.2 Steps The ClueWeb096",
+        "P̃backoff(R | Q) ≈ P̃ (r | Q) ≈ ∏ r P̃ (r | Q) ∝ ∏ r P̃ (Q | r) P̃ (r) ≈ ∏ r ∏ w P̃ (w | r) P̃ (r)",
+        "One other reason that we estimated P̃ (w | r) and P̃ (r) for sub-relations is that Freebase relations share some common structures in between them. For in-stance, both people.person.parents and fictional universe.fictional character.parents 960 indicate the parent relationship but the latter is much less commonly annotated. We hope that the shared sub-relation, parents, can help better estimate for the less annotated. Note that the backoff model would have a much smaller value than the original, due to double multiplication",
+        "∏ r",
+        "∏",
+        "w. In practice we normalize it by the sub-relations size to keep it at the same scale with P̃ (R | Q). Finally, to estimate the prior and conditional probability, we need a massive data collection. 5.2 Steps The ClueWeb096",
         "dataset is a collection of 1 billion webpages (5TB compressed in raw HTML) in 10 languages by Carnegie Mellon University in 2009. FACC1, the Freebase Annotation of the ClueWeb Corpus version 1 (Gabrilovich et al., 2013), contains index and offset of Freebase entities within the English portion of ClueWeb. Out of all 500 million English documents, 340 million were automatically annotated with at least one entity, with an average of 15 entity mentions per document. The precision and recall of annotation were estimated at 80−85% and 70−85% (Orr et al., 2013).",
         "Given these two resources, for each binary Freebase relation, we can find a collection of sentences each of which contains both of its arguments, then simply learn how words in these sentences are as-sociated with this relation, i.e., P̃ (w | R) and P̃ (w | r). By counting how many times each relation R was annotated, we can estimate P̃ (R) and P̃ (r). The learning task can be framed in the following short steps: 1. We split each HTML document by sentences",
         "(Kiss and Strunk, 2006) using NLTK (Bird and",
@@ -196,7 +132,11 @@
         "two Freebase entities which has at least one di-",
         "rect established relation according to Freebase.",
         "2. The extraction formed two parallel corpora, one with “relation - sentence” pairs (for estimating P̃ (w | R) and P̃ (R)) and the other with “subrelations - sentence” pairs (for P̃ (w | r) and P̃ (r)). Each corpus has 1.2 billion pairs.",
-        "3. The tricky part was to align these 1.2 billion pairs. Since the relations on one side of these pairs are not natural sentences, we ran the most simple IBM alignment Model 1 (Brown et al., 1993) to estimate the translation probability with GIZA++ (Och and Ney, 2003). To speed up, the 1.2 billion pairs were split into 6 http://lemurproject.org/clueweb09/ 0 ≤ 10 ≤ 102 ≤ 103 ≤ 104 > 104 7.0% 0.7% 1.2% 0.4% 1.3% 89.5% Table 1: Percentage of answer relations (the incoming relation connected to the answer node) with respect to how many sentences we learned this relation from in CluewebMapping. For in-stance, the first column says there are 7% of answer relations for which we cannot find a mapping (so we had to use the backoff probability estima-tion); the last column says there are 89.5% of answer relations that we were able to learn the mapping between this relation and text based on more than 10 thousand relation-sentence pairs. The total number of answer relations is 7886. 100 even chunks. We ran 5 iterations of EM on each one and finally aligned the 1.2 billion pairs from both directions. To symmetrize the alignment, common MT heuristics INTERSECTION, UNION, GROW-DIAG-FINAL, and GROW-DIAG-FINAL-AND (Koehn, 2010) were separately applied and evaluated later.",
+        "3. The tricky part was to align these 1.2 billion pairs. Since the relations on one side of these pairs are not natural sentences, we ran the most simple IBM alignment Model 1 (Brown et al., 1993) to estimate the translation probability with GIZA++ (Och and Ney, 2003). To speed up, the 1.2 billion pairs were split into 6 http://lemurproject.org/clueweb09/",
+        "0 ≤ 10 ≤ 102",
+        "≤ 103",
+        "≤ 104",
+        "> 104 7.0% 0.7% 1.2% 0.4% 1.3% 89.5% Table 1: Percentage of answer relations (the incoming relation connected to the answer node) with respect to how many sentences we learned this relation from in CluewebMapping. For in-stance, the first column says there are 7% of answer relations for which we cannot find a mapping (so we had to use the backoff probability estima-tion); the last column says there are 89.5% of answer relations that we were able to learn the mapping between this relation and text based on more than 10 thousand relation-sentence pairs. The total number of answer relations is 7886. 100 even chunks. We ran 5 iterations of EM on each one and finally aligned the 1.2 billion pairs from both directions. To symmetrize the alignment, common MT heuristics INTERSECTION, UNION, GROW-DIAG-FINAL, and GROW-DIAG-FINAL-AND (Koehn, 2010) were separately applied and evaluated later.",
         "4. Treating the aligned pairs as observation, the co-occurrence matrix between aligning relations and words was computed. There were 10,484 relations and sub-relations in all, and we kept the top 20,000 words.",
         "5. From the co-occurrence matrix we computed P̃ (w | R), P̃ (R), P̃ (w | r) and P̃ (r).",
         "Hand-checking the learned probabilities shows both success, failure and some bias. For in-stance, for the film.actor.film relation (mapping from film names to actor names), the top words given by P̃ (w | R) are won, star, among, show. For the film.film.directed by relation, some important stop words that could indicate this relation, such as by and with, rank directly after director and direct. However, due to significant popular interest in certain news categories, and the resultant catering by websites to those information desires, then for example we also learned a heavily correlated connection between Jennifer Aniston and celebrity.infidelity.victim, and between some other you-know-who names and celebrity.infidelity.participant.",
@@ -218,9 +158,21 @@
         "The way we used ReverbMapping was not how Berant et al. (2013) originally used it: they employed a discriminative log-linear model to judge relations and that might yield better performance. As a fair comparison, ranking of CluewebMapping under uniform distribution is also included in Table 2(a). 962 Median Rank MAP MRR word overlap 471 0.0380 0.0590 ReverbMapping 60 0.0691 0.0829 CluewebMapping 12 0.2074 0.2900 with uniform dist. 61 0.0544 0.0561 (a) Ranking on answer relations. Best result on CluewebMapping was under the GROW-DIAG-FINAL-AND heuristics (row 3) when symmetrizing alignment from both directions. The last row shows ranking of CluewebMapping under uniform distribution (assuming counting on words and relations is not known). 1 ≤ 5 ≤ 10 ≤ 50 ≤ 100 > 100 w. o. 3.5 4.7 2.5 3.9 4.1 81.3 R.M. 2.6 9.1 8.6 26.0 13.0 40.7 C.M. 19.0 19.9 8.9 22.3 7.5 22.4 (b) Percentage of answer relations w.r.t. ranking number (header). w.o.: word overlap; R.M.: ReverbMapping; C.M.: CluewebMapping. Table 2: Evaluation on answer relation ranking prediction on 3778 training questions. lot of questions in WEBQUESTIONS contain more than one answer. Search With an Information Retrieval (IR) front-end, we need to locate the exact Freebase topic node a question is about. For this purpose we used the Freebase Search API (Freebase, 2013a).All named entities 8",
         "in a question were sent to this API, which returned a ranked list of relevant topics. We also evaluated how well the search API served the IR purpose. WEBQUESTIONS not only has answers annotated, but also which Freebase topic nodes the answers come from. Thus we evaluated the ranking of retrieval with the gold standard annotation on TRAIN-ALL, shown in Table 3. The top 2 results of the Search API contain gold standard topics for more than 90% of the questions and the top 10 results contain more than 95%. We took this as a “good enough” IR front-end and used it on TEST.",
         "Once a topic is obtained we query the Freebase Topic API (Freebase, 2013b) to retrieve all relevant information, resulting in a topic graph. The API returns almost identical information as displayed via a web browser to a user viewing this topic. Given that turkers annotated answers based on the topic page via a browser, this supports the assumption that the same answer would be located in the topic graph, which is then passed to the QA engine for feature extraction and classification. 8 When no named entities are detected, we fall back to",
-        "noun phrases. top 1 2 3 5 10 # 3263 3456 3532 3574 3604 % 86.4 91.5 93.5 94.6 95.4 Table 3: Evaluation on the Freebase Search API: how many questions’ top n retrieved results contain the gold standard topic. Total number of questions is 3778 (size of TRAIN-ALL). There were only 5 questions with no retrieved results. P R F1 basic 57.3 30.1 39.5 + word overlap 56.0 31.4 40.2 + CluewebMapping 59.9 35.4 44.5 +both 59.0 35.4 44.3 Table 4: F1 on DEV with different feature settings. Model Tuning We treat QA on Freebase as a binary classification task: for each node in the topic graph, we extract features and judge whether it is the answer node. Every question was processed by the Stanford CoreNLP suite with the caseless model. Then the question features (§4.1) and node features (§4.2) were combined (§4.3) for each node. The learning problem is challenging: for about 3000 questions in TRAIN, there are 3 million nodes (1000 nodes per topic graph), and 7 million feature types. We employed a high-performance machine learning tool, Classias (Okazaki, 2009). Training usually took around 4 hours. We experimented with various discriminative learners on DEV, including logistic regression, perceptron and SVM, and found L1 regularized logistic regression to give the best result. The L1 regularization encourages sparse features by driving feature weights towards zero, which was ideal for the over-generated feature space. After training, we had around 30 thousand features with non-zero weights, a 200 fold reduc-tion from the original features.",
-        "Also, we did an ablation test on DEV about how additional features on the mapping between Freebase relations and the original questions help, with three feature settings: 1) “basic” features include feature productions read off from the feature graph (Figure 1); 2) “+ word overlap” adds additional features on whether sub-relations have overlap with the question; and 3) “+ CluewebMapping” adds the ranking of relation prediction given the question according to CluewebMapping. Table 4 shows that the additional CluewebMapping 963 P R F1 Gold Retrieval 45.4 52.2 48.6 Freebase Search API 38.8 45.8 42.0 Berant et al. (2013) - - 31.4 Table 5:",
-        "F1 on TEST with Gold Retrieval and Freebase Search API as the IR front end. Berant et al. (2013) actually reported accuracy on this dataset. However, since their system predicted answers for almost every question (p.c.), it is roughly that precision=recall=F1=accuracy for them. features improved overall F1 by 5%, a 13% relative improvement: a remarkable gain given that the model already learned a strong correlation between question types and answer types (explained more in discussion and Table 6 later).",
+        "noun phrases.",
+        "top 1 2 3 5 10",
+        "# 3263 3456 3532 3574 3604",
+        "% 86.4 91.5 93.5 94.6 95.4 Table 3: Evaluation on the Freebase Search API: how many questions’ top n retrieved results contain the gold standard topic. Total number of questions is 3778 (size of TRAIN-ALL). There were only 5 questions with no retrieved results.",
+        "P R F1",
+        "basic 57.3 30.1 39.5",
+        "+ word overlap 56.0 31.4 40.2",
+        "+ CluewebMapping 59.9 35.4 44.5",
+        "+both 59.0 35.4 44.3",
+        "Table 4: F1 on DEV with different feature settings. Model Tuning We treat QA on Freebase as a binary classification task: for each node in the topic graph, we extract features and judge whether it is the answer node. Every question was processed by the Stanford CoreNLP suite with the caseless model. Then the question features (§4.1) and node features (§4.2) were combined (§4.3) for each node. The learning problem is challenging: for about 3000 questions in TRAIN, there are 3 million nodes (1000 nodes per topic graph), and 7 million feature types. We employed a high-performance machine learning tool, Classias (Okazaki, 2009). Training usually took around 4 hours. We experimented with various discriminative learners on DEV, including logistic regression, perceptron and SVM, and found L1 regularized logistic regression to give the best result. The L1 regularization encourages sparse features by driving feature weights towards zero, which was ideal for the over-generated feature space. After training, we had around 30 thousand features with non-zero weights, a 200 fold reduc-tion from the original features.",
+        "Also, we did an ablation test on DEV about how additional features on the mapping between Freebase relations and the original questions help, with three feature settings: 1) “basic” features include feature productions read off from the feature graph (Figure 1); 2) “+ word overlap” adds additional features on whether sub-relations have overlap with the question; and 3) “+ CluewebMapping” adds the ranking of relation prediction given the question according to CluewebMapping. Table 4 shows that the additional CluewebMapping 963",
+        "P R F1",
+        "Gold Retrieval 45.4 52.2 48.6",
+        "Freebase Search API 38.8 45.8 42.0",
+        "Berant et al. (2013) - - 31.4 Table 5: F1 on TEST with Gold Retrieval and Freebase Search API as the IR front end. Berant et al. (2013) actually reported accuracy on this dataset. However, since their system predicted answers for almost every question (p.c.), it is roughly that precision=recall=F1=accuracy for them. features improved overall F1 by 5%, a 13% relative improvement: a remarkable gain given that the model already learned a strong correlation between question types and answer types (explained more in discussion and Table 6 later).",
         "Finally, the ratio of positive vs. negative examples affect final F1: the more positive examples, the lower the precision and the higher the recall. Under the original setting, this ratio was about 1 : 275. This produced precision around 60% and recall around 35% (c.f. Table 4). To optimize for F1, we down-sampled the negative examples to 20%, i.e., a new ratio of 1 : 55. This boosted the finalF1 on DEV to 48%. We report the finalTEST result under this down-sampled training. In practice the precision/recall balance can be adjusted by the positive/negative ratio. Test Results Table 5 gives the finalF1 on TEST. “Gold Retrieval” always ranked the correct topic node top 1, a perfect IR front-end assumption. In a more realistic scenario, we had already evaluated that the Freebase Search API returned the correct topic node 95% of the time in its top 10 results (c.f. Table 3), thus we also tested on the top 10 results returned by the Search API. To keep things simple, we did not perform answer voting, but simply extracted answers from the first (ranked by the Search API) topic node with predicted answer(s) found. The finalF1 of 42.0% gives a relative improvement over previous best result (Berant et al., 2013) of 31.4% by one third.",
         "One question of interest is whether our system, aided by the massive web data, can be fairly compared to the semantic parsing approaches (note that Berant et al. (2013) also used ClueWeb in-directly through ReVerb). Thus we took out the word overlapping and CluewebMapping based features, and the new F1 on TEST was 36.9%.",
         "The other question of interest is that whether our system has acquired some level of “machine wgt. feature 5.56 qfocus=money|type=Currency 5.35 qverb=die|type=Cause Of Death 5.11 qword=when|type=datetime 4.56 qverb=border|rel=location.adjoins 3.90 qword=why|incoming relation rank=top 3 2.94 qverb=go|qtopic=location|type=Tourist attraction -3.94 qtopic=location|rel=location.imports exports.date -2.93 qtopic=person|rel=education.end date Table 6: A sample of the top 50 most positive/negative features. Features are production between question and node features (c.f. Figure 1). intelligence”: how much does it know what the question inquires? We discuss it below through feature and error analysis. Discussion The combination between questions and Freebase nodes captures some real gist of QA pattern typing, shown in Table 6 with sampled features and weights. Our system learned, for in-stance, when the question asks for geographic adjacency information (qverb=border), the correct answer relation to look for is location.adjoins. Detailed comparison with the output from Berant et al. (2013) is a work in progress and will be presented in a follow-up report."
@@ -246,29 +198,37 @@
         "Jérôme Euzenat and Pavel Shvaiko. 2007. Ontology matching. Springer.",
         "Anthony Fader, Stephen Soderland, and Oren Etzioni. 2011. Identifying relations for open information extraction. In Proceedings of EMNLP.",
         "Anthony Fader, Luke Zettlemoyer, and Oren Etzioni. 2013. Paraphrase-Driven Learning for Open Question Answering. In Proceedings of ACL.",
-        "Anette Frank, Hans-Ulrich Krieger, Feiyu Xu, Hans Uszkoreit, Berthold Crysmann, Brigitte Jörg, and Ulrich Schäfer. 2007. Question answering from structured knowledge sources. Journal of Applied Logic, 5(1):20–48. Freebase. 2013a. Freebase Search API. https://developers.google.com/freebase/v1/search-overview. Freebase. 2013b. Freebase Topic API. https://developers.google.com/freebase/v1/topic-overview.",
+        "Anette Frank, Hans-Ulrich Krieger, Feiyu Xu, Hans Uszkoreit, Berthold Crysmann, Brigitte Jörg, and Ulrich Schäfer. 2007. Question answering from structured knowledge sources. Journal of Applied Logic, 5(1):20–48.",
+        "Freebase. 2013a. Freebase Search API. https://developers.google.com/freebase/v1/search-overview.",
+        "Freebase. 2013b. Freebase Topic API. https://developers.google.com/freebase/v1/topic-overview.",
         "Evgeniy Gabrilovich, Michael Ringgaard, , and Amarnag Subramanya. 2013. FACC1: Freebase annotation of ClueWeb corpora, Version 1 (Release date 2013-06-26, Format version 1, Correction level 0). http://lemurproject.org/clueweb09/FACC1/, June.",
         "Bert F Green Jr, Alice K Wolf, Carol Chomsky, and Kenneth Laughery. 1961. Baseball: an automatic question-answerer. In Papers presented at the May 9-11, 1961, western joint IRE-AIEE-ACM computer conference, pages 219–224. ACM.",
-        "Jerry R Hobbs. 1985. Ontological promiscuity. In Proceedings of ACL. Johannes Hoffart, Fabian M Suchanek, Klaus Berberich, Edwin Lewis-Kelham, Gerard De Melo, and Gerhard Weikum. 2011. Yago2: exploring and querying world knowledge in time, space, context, and many languages. In Proceedings of the 20th international conference companion on World Wide Web, pages 229–232. ACM.",
+        "Jerry R Hobbs. 1985. Ontological promiscuity. In Proceedings of ACL.",
+        "Johannes Hoffart, Fabian M Suchanek, Klaus Berberich, Edwin Lewis-Kelham, Gerard De Melo, and Gerhard Weikum. 2011. Yago2: exploring and querying world knowledge in time, space, context, and many languages. In Proceedings of the 20th international conference companion on World Wide Web, pages 229–232. ACM.",
         "Bevan Keeley Jones, Mark Johnson, and Sharon Goldwater. 2012. Semantic parsing with bayesian tree transducers. In Proceedings of ACL.",
         "Rohit J Kate and Raymond J Mooney. 2006. Using string-kernels for learning semantic parsers. In Proceedings of ACL.",
         "Tibor Kiss and Jan Strunk. 2006. Unsupervised multilingual sentence boundary detection. Computational Linguistics, 32(4):485–525.",
-        "Philipp Koehn. 2010. Statistical Machine Translation. Cambridge University Press, New York, NY, USA. Jayant Krishnamurthy and Tom M Mitchell. 2012. Weakly supervised training of semantic parsers. In Proceedings of EMNLP-CoNLL.",
+        "Philipp Koehn. 2010. Statistical Machine Translation. Cambridge University Press, New York, NY, USA.",
+        "Jayant Krishnamurthy and Tom M Mitchell. 2012. Weakly supervised training of semantic parsers. In Proceedings of EMNLP-CoNLL.",
         "Tom Kwiatkowski, Luke Zettlemoyer, Sharon Goldwater, and Mark Steedman. 2010. Inducing probabilistic CCG grammars from logical form with higher-order unification. InProceedings of EMNLP, pages 1223–1233.",
         "Tom Kwiatkowski, Luke Zettlemoyer, Sharon Goldwater, and Mark Steedman. 2011. Lexical generaliza-tion in CCG grammar induction for semantic parsing. In Proceedings of EMNLP.",
         "Tom Kwiatkowski, Eunsol Choi, Yoav Artzi, and Luke Zettlemoyer. 2013. Scaling Semantic Parsers with On-the-fly Ontology Matching. In Proceedings of EMNLP.",
         "Percy Liang, Michael I. Jordan, and Dan Klein. 2011. Learning Dependency-Based Compositional Semantics. In Proceedings of ACL.",
         "Thomas Lin, Oren Etzioni, et al. 2012. Entity Linking at Web Scale. In Proceedings of Knowledge Extraction Workshop (AKBC-WEKEX), pages 84–88. 965",
         "Vanessa Lopez, Michele Pasin, and Enrico Motta. 2005. Aqualog: An ontology-portable question answering system for the semantic web. In The Semantic Web: Research and Applications, pages 546–562. Springer.",
-        "Franz Josef Och and Hermann Ney. 2003. A systematic comparison of various statistical alignment models. Computational linguistics, 29(1):19–51. Naoaki Okazaki. 2009. Classias: a collection of machine-learning algorithms for classification.",
+        "Franz Josef Och and Hermann Ney. 2003. A systematic comparison of various statistical alignment models. Computational linguistics, 29(1):19–51.",
+        "Naoaki Okazaki. 2009. Classias: a collection of machine-learning algorithms for classification.",
         "Dave Orr, Amar Subramanya, Evgeniy Gabrilovich, and Michael Ringgaard. 2013. 11 billion clues in 800 million documents: A web re-search corpus annotated with freebase concepts. http://googleresearch.blogspot.com/2013/07/11-billion-clues-in-800-million.html, July.",
         "Erhard Rahm and Philip A Bernstein. 2001. A survey of approaches to automatic schema matching. the VLDB Journal, 10(4):334–350.",
         "Saeedeh Shekarpour, Axel-Cyrille Ngonga Ngomo, and Sören Auer. 2013. Question answering on interlinked data. In Proceedings of WWW.",
         "Lappoon R Tang and Raymond J Mooney. 2001. Using multiple clause constructors in inductive logic programming for semantic parsing. In Machine Learning: ECML 2001, pages 466–477. Springer.",
-        "Christina Unger, Lorenz Bühmann, Jens Lehmann, Axel-Cyrille Ngonga Ngomo, Daniel Gerber, and Philipp Cimiano. 2012. Template-based question answering over RDF data. In Proceedings of the 21st international conference on World Wide Web. Yuk Wah Wong and Raymond J Mooney. 2007. Learning synchronous grammars for semantic parsing with lambda calculus. In Proceedings of ACL.",
+        "Christina Unger, Lorenz Bühmann, Jens Lehmann, Axel-Cyrille Ngonga Ngomo, Daniel Gerber, and Philipp Cimiano. 2012. Template-based question answering over RDF data. In Proceedings of the 21st international conference on World Wide Web.",
+        "Yuk Wah Wong and Raymond J Mooney. 2007. Learning synchronous grammars for semantic parsing with lambda calculus. In Proceedings of ACL.",
         "William A Woods. 1977. Lunar rocks in natural english: Explorations in natural language question answering. Linguistic structures processing, 5:521– 569.",
-        "Mohamed Yahya, Klaus Berberich, Shady Elbassuoni, Maya Ramanath, Volker Tresp, and Gerhard Weikum. 2012. Natural language questions for the web of data. In Proceedings of EMNLP. Luke S Zettlemoyer and Michael Collins. 2005. Learning to map sentences to logical form: Structured classification with probabilistic categorial grammars. Uncertainty in Artificial Intelligence (UAI).",
-        "Luke S Zettlemoyer and Michael Collins. 2007. Online learning of relaxed CCG grammars for parsing to logical form. In Proceedings of EMNLP-CoNLL. Luke S Zettlemoyer and Michael Collins. 2009. Learning context-dependent mappings from sentences to logical form. In Proceedings of ACL-CoNLL. 966"
+        "Mohamed Yahya, Klaus Berberich, Shady Elbassuoni, Maya Ramanath, Volker Tresp, and Gerhard Weikum. 2012. Natural language questions for the web of data. In Proceedings of EMNLP.",
+        "Luke S Zettlemoyer and Michael Collins. 2005. Learning to map sentences to logical form: Structured classification with probabilistic categorial grammars. Uncertainty in Artificial Intelligence (UAI).",
+        "Luke S Zettlemoyer and Michael Collins. 2007. Online learning of relaxed CCG grammars for parsing to logical form. In Proceedings of EMNLP-CoNLL.",
+        "Luke S Zettlemoyer and Michael Collins. 2009. Learning context-dependent mappings from sentences to logical form. In Proceedings of ACL-CoNLL. 966"
       ]
     }
   ]

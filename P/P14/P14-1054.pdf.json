@@ -7,7 +7,7 @@
       ]
     },
     {
-      "title": "Omni-word Feature and Soft Constraintfor Chinese Relation ExtractionYanping Chen",
+      "title": "Omni-word Feature and Soft Constraint for Chinese Relation Extraction Yanping Chen",
       "paragraphs": [
         "†"
       ]
@@ -19,13 +19,13 @@
       ]
     },
     {
-      "title": "MOEKLINNS Lab, Department of Computer Science and TechnologyXi’an Jiaotong University, Chinaypench@gmail.com, qhzheng@mail.xjtu.edu.cn",
+      "title": "MOEKLINNS Lab, Department of Computer Science and Technology Xi’an Jiaotong University, China ypench@gmail.com, qhzheng@mail.xjtu.edu.cn",
       "paragraphs": [
         "‡"
       ]
     },
     {
-      "title": "Amazon.com, Inc.wzhan@amazon.com Wei Zhang",
+      "title": "Amazon.com, Inc. wzhan@amazon.com Wei Zhang",
       "paragraphs": [
         "‡"
       ]
@@ -97,18 +97,21 @@
         "In this section, methodologies of the Omni-word feature and the soft constraint are tested. Then they are compared with the state-of-the-art methods. 3.3 Settings and Results We use the ACE 2005 RDC Chinese corpus, which was collected from newswires, broadcasts and we-blogs, containing 633 documents with 6 major relation types and 18 subtypes. There are 8,023 relations and 9,317 relation mentions. After deleting 5 documents containing wrong annotations6",
         ", we keep 9,244 relation mentions as positive instances.",
         "To get the negative instances, each document is segmented into sentences7",
-        ". Those sentences that do not contain any entity mention pair are deleted. For each of the remained sentences, we iteratively extract every entity mention pair as the arguments of relation instances for predicting. For example, suppose a sentence has three entity mentions: A,B 6 DAVYZW {20041230.1024, 20050110.1403, 20050111.1514, 20050127.1720, 20050201.1538}.",
-        "7",
-        "The five punctuations are used as sentence boundaries: Period (。), Question mark (?), Exclamatory mark (!), Semicolon (;) and Comma (,). and C. Because the relation arguments are order sensitive, six entity mention pairs can be generated: [A,B], [A,C], [B,C], [B,A], [C,A] and [C,B]. After discarding the entity mention pairs that were used as positive instances, we generated 93,283 negative relation instances labelled as “OTHER”. Then, we have 7 relation types and 19 subtypes.",
+        ". Those sentences that do not contain any entity mention pair are deleted. For each of the remained sentences, we iteratively extract every entity mention pair as the arguments of relation instances for predicting. For example, suppose a sentence has three entity mentions: A,B 6 DAVYZW {20041230.1024, 20050110.1403,",
+        "20050111.1514, 20050127.1720, 20050201.1538}. 7 The five punctuations are used as sentence boundaries:",
+        "Period (。), Question mark (?), Exclamatory mark (!),",
+        "Semicolon (;) and Comma (,). and C. Because the relation arguments are order sensitive, six entity mention pairs can be generated: [A,B], [A,C], [B,C], [B,A], [C,A] and [C,B]. After discarding the entity mention pairs that were used as positive instances, we generated 93,283 negative relation instances labelled as “OTHER”. Then, we have 7 relation types and 19 subtypes.",
         "A maximum entropy multi-class classifier is trained and tested on the generated relation instances. We adopt the five-fold cross validation for training and testing. Because we are interested in the 6 annotated major relation types and the 18 subtypes, we average the results of five runs on the 6 positive relation types (and 18 subtypes) as the final performance. F-score is computed by",
         "2 × (P recision × Recall) P recision + Recall To implement the maximum entropy model, the toolkit provided by Le (2004) is employed. The iteration is set to 30.",
         "Five candidate feature sets are employed to generate the combined features. The entity type and subtype, head noun, position feature are referred to as Fthp8",
-        ". The POS tags are referred to as Fpos. The Omni-word feature set is denoted by Fow.",
+        ". The POS tags are referred to as F",
+        "pos. The Omni-word feature set is denoted by Fow.",
         "Table 1 gives the performance of our system on the 6 types and 18 subtypes. Note that, in this paper, bare numbers and numbers in the parentheses represent the results of the 6 types and the 18 subtypes respectively. Table 1: Performance on Type (Subtype) Features P R F Fthp 61.51 48.85 54.46 (52.92) (36.92) (43.49) Fow 80.16 75.45 77.74 (66.98) (54.85) (60.31) Fthp ∪ Fpos 83.93 77.81 80.76 (69.83) (61.63) (65.47) Fthp ∪ Fow 92.40 88.37 90.34 (81.94) (70.69) (75.90) Fthp ∪ Fpos ∪ Fow 92.26 88.51 90.35 (80.52) (70.96) (75.44)",
         "In Row 1, because Fthp are features directly obtained from annotated corpus, we take this per-",
         "8",
         "“thp” is an acronym of “ type, head, position”. Features in Fthp are the candidate features combined with the corresponding constraint conditions. The following Fpos and Fow are the same. 576 formance as our referential performance. In Row 2, with only the Fow feature, the F-score already reaches 77.74% in 6 types and 60.31% in 18 subtypes. The last row shows that adding the Fpos al-most has no effect on the performance when both the Fthp and Fow are in use. The results show that Fow is effective for Chinese relation extraction.",
-        "The superiorities of Owni-word feature depend on three reasons. First, the specificity of Chinese word-formation indicates that the subphrases of Chinese word (or phrase) are also informative. Second, most of relation instances have limited context. The Owni-word feature, utilizing every possible word in them, is a better way to capture more information. Third, the entity mentions are manually annotated. They can precisely segment the relation instance into corresponding bins. Segmentation of bins bears the sentence structure information. Therefore, the Owni-word feature with bin information can make a better use of both the syntactic information and the local dependency. 3.4 Comparison Various systems were proposed for Chinese relation extraction. We mainly focus on systems trained and tested on the ACE corpus. Table 2 lists three systems. Table 2: Survey of Other Systems System P R F Che et al. (2005) 76.13 70.18 73.27 Zhang et al. (2011) 80.71 62.48 70.43 (77.75) (60.20) (67.86) Liu et al. (2012) 81.1 61.0 69.0 (79.1) (57.5) (66.6)",
+        "The superiorities of Owni-word feature depend on three reasons. First, the specificity of Chinese word-formation indicates that the subphrases of Chinese word (or phrase) are also informative. Second, most of relation instances have limited context. The Owni-word feature, utilizing every possible word in them, is a better way to capture more information. Third, the entity mentions are manually annotated. They can precisely segment the relation instance into corresponding bins. Segmentation of bins bears the sentence structure information. Therefore, the Owni-word feature with bin information can make a better use of both the syntactic information and the local dependency. 3.4 Comparison Various systems were proposed for Chinese relation extraction. We mainly focus on systems trained and tested on the ACE corpus. Table 2 lists three systems. Table 2: Survey of Other Systems",
+        "System P R F Che et al. (2005) 76.13 70.18 73.27 Zhang et al. (2011) 80.71 62.48 70.43 (77.75) (60.20) (67.86) Liu et al. (2012) 81.1 61.0 69.0 (79.1) (57.5) (66.6)",
         "Che et al. (2005) was implemented on the ACE 2004 corpus, with 2/3 data for training and 1/3 for testing. The performance was reported on 7 relation types: 6 major relation types and the none relation (or negative instance). Zhang et al. (2011) was based on the ACE 2005 corpus with 75% data for training and 25% for testing. Performances about the 7 types and 19 subtypes were given. Both of them are feature based methods. Liu et al. (2012) is a kernel based method evaluated on the ACE 2005 corpus. The five-fold cross validation was used and declared the performances on 6 relation types and 18 subtypes.",
         "The data preprocessing makes differences from our experiments to others. In order to give a better comparison with the state-of-the-art methods, based on our experiment settings and data, we implement the two feature based methods proposed by Che et al. (2005) and Zhang et al. (2011) in Table 2. The results are shown in Table 3.",
         "In Table 3, Ei (i ∈ 1, 2) represents entity mention. “Order” in Che et al. (2005) denotes the position structure of entity mention pair. Four types of order are employed (the same as ours). W ordEi+",
@@ -196,7 +199,8 @@
         "Shingo Takamatsu, Issei Sato, and Hiroshi Nakagawa. 2012. Reducing wrong labels in distant supervision for relation extraction. In Proceedings of ACL ’12, pages 721–729.",
         "Fei Wu and Daniel S. Weld. 2007. Autonomously semantifying wikipedia. In Proceedings of CIKM ’07, pages 41–50.",
         "Nianwen Xue. 2003. Chinese word segmentation as character tagging. Computational Linguistics and Chinese Language Processing, 8(1):29–48.",
-        "Ming Yan, Reinhold Kliegl, Eike Richter, Antje Nuthmann, and Hua Shu. 2010. Flexible saccade-target selection in chinese reading. The Quarterly Journal of Experimental Psychology, 63(4):705–725. Dmitry Zelenko, Chinatsu Aone, and Anthony Richardella. 2003. Kernel methods for relation extraction. The Journal of Machine Learning Research, 3:1083–1106.",
+        "Ming Yan, Reinhold Kliegl, Eike Richter, Antje Nuthmann, and Hua Shu. 2010. Flexible saccade-target selection in chinese reading. The Quarterly Journal of Experimental Psychology, 63(4):705–725.",
+        "Dmitry Zelenko, Chinatsu Aone, and Anthony Richardella. 2003. Kernel methods for relation extraction. The Journal of Machine Learning Research, 3:1083–1106.",
         "Hua-Ping Zhang, Hong-Kui Yu, De-Yi Xiong, and Qun Liu. 2003. Hhmm-based chinese lexical analyzer ictclas. In Proceedings of SIGHAN ’03, pages 184– 187.",
         "Min Zhang, Jie Zhang, and Jian Su. 2006a. Exploring syntactic features for relation extraction using a convolution tree kernel. In Proceedings of HLT-NAACL ’06, pages 288–295.",
         "Min Zhang, Jie Zhang, Jian Su, and Guodong Zhou. 2006b. A composite kernel to extract relations between entities with both flat and structured features. In Proceedings of ACL ’06, pages 825–832.",

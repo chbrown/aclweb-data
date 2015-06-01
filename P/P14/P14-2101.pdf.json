@@ -7,7 +7,7 @@
       ]
     },
     {
-      "title": "Automatic Labelling of Topic Models Learned from Twitter bySummarisationAmparo Elizabeth Cano Basave",
+      "title": "Automatic Labelling of Topic Models Learned from Twitter by Summarisation Amparo Elizabeth Cano Basave",
       "paragraphs": [
         "†"
       ]
@@ -37,7 +37,7 @@
       ]
     },
     {
-      "title": "Key Laboratory of Network Oriented Intelligent ComputationShenzhen Graduate School, Harbin Institute of Technology, Chinaamparo.cano@open.ac.uk, y.he@cantab.net, xuruifeng@hitsz.edu.cnAbstract",
+      "title": "Key Laboratory of Network Oriented Intelligent Computation Shenzhen Graduate School, Harbin Institute of Technology, China amparo.cano@open.ac.uk, y.he@cantab.net, xuruifeng@hitsz.edu.cn Abstract",
       "paragraphs": [
         "Latent topics derived by topic models such as Latent Dirichlet Allocation (LDA) are the result of hidden thematic structures which provide further insights into the data. The automatic labelling of such topics derived from social media poses however new challenges since topics may characterise novel events happening in the real world. Existing automatic topic labelling approaches which depend on external knowledge sources become less applicable here since relevant articles/concepts of the extracted topics may not exist in external sources. In this paper we propose to address the problem of automatic labelling of latent topics learned from Twitter as a summarisation problem. We in-troduce a framework which apply summarisation algorithms to generate topic labels. These algorithms are independent of external sources and only rely on the identification of dominant terms in documents related to the latent topic. We compare the efficiency of existing state of the art summarisation algorithms. Our results suggest that summarisation algorithms generate better topic labels which capture event-related context compared to the top-n terms returned by LDA."
       ]
@@ -71,7 +71,7 @@
       ]
     },
     {
-      "title": "3 Experimental Setup3.1 Dataset",
+      "title": "3 Experimental Setup 3.1 Dataset",
       "paragraphs": [
         "Our Twitter Corpus (TW) was collected between November 2010 and January 2011. TW comprises over 1 million tweets. We used the OpenCalais’ document categorisation service1",
         "to generate categorical sets. In particular, we considered four different categories which contain many real-world events, namely: War and Conflict (War), Disaster and Accident (DisAc), Education (Edu) and Law and Crime (LawCri). The final TW dataset after removing retweets and short microposts (less than 5 words after removing stopwords) contains 7000 tweets in each category.",
@@ -83,11 +83,10 @@
         "tributions of topic ti and topic tj. 4: end for 5: Select topic j which has the highest similarity to i and",
         "whose similarity measure is greater than a threshold",
         "(in this case 0.7) 6: end for 7: for each of the extracted topic pairs (ti − tj) do 8: Collect relevant news articles Cj",
-        "NW of topic tj from",
-        "the NW set. 9: Extract the headlines of news articles from Cj",
-        "NW and",
-        "select the top x most frequent words as the gold stan-",
-        "dard label for topic ti in the TW set 10: end for",
+        "NW of topic tj from the NW set.",
+        "9: Extract the headlines of news articles from Cj",
+        "NW and select the top x most frequent words as the gold standard label for topic ti in the TW set",
+        "10: end for",
         "These steps can be outlined as follows:1) We ran LDA on TW and NW separately for each category with the number of topics set to 100; 2) We then aligned the Twitter topics and Newswire topics by the similarity measurement of word distributions of these topics (Ercan and Cicekli, 2008; Haghighi and Vanderwende, 2009; Wang et al., 2009; Delort and Alfonseca, 2012); 3) Finally to generate the GS label for each aligned topic pair (ti − tj), we extracted the headlines of the news articles relevant to tj and selected the top x most frequent words (after stop word removal and stemming). The generated label was used as the gold standard label for the corresponding Twitter topic ti in the topic pair."
       ]
     },
@@ -96,7 +95,8 @@
       "paragraphs": [
         "We compared the results of the summarisation techniques with the top terms (TT) of a topic as our baseline. These TT set corresponds to the top x terms ranked based on the probability of the word given the topic (p(w|k)) from the topic model. We evaluated these summarisation approaches with the ROUGE-1 method (Lin, 2004), a widely used summarisation evaluation metric that correlates well with human evaluation (Liu and Liu, 2008). This method measures the over-lap of words between the generated summary and a reference, in our case the GS generated from the NW dataset.",
         "The evaluation was performed at x = {1, .., 10}. Figure 1 presents the ROUGE-1 performance of the summarisation approaches as the lengthx of the generated topic label increases. We can see in all four categories that the SB and TFIDF approaches provide a better summarisation coverage as the length of the topic label in-creases. In particular, in both the Education and Law & Crime categories, both SB and TFIDF outperforms TT and TR by a large margin. The obtained ROUGE-1 performance is within the same range of performance previously reported on Social Media summarisation (Inouye and Kalita, 2011; Nichols et al., 2012; Ren et al., 2013).",
-        "Table 1 presents average results for ROUGE-1 in the four categories. Particularly the SB and TFIDF summarisation techniques consistently outperform the TT baseline across all four categories. SB gives the best results in three categories except War. ROUGE-1 TT SB TFIDF MMR TR War 0.162 0.184 0.192 0.154 0.141 DisAc 0.134 0.194 0.160 0.132 0.124 Edu 0.106 0.240 0.187 0.104 0.023 LawCri 0.035 0.159 0.149 0.034 0.115 Table 1: Average ROUGE-1 for topic labels at x = {1..10}, generated from the TW dataset.",
+        "Table 1 presents average results for ROUGE-1 in the four categories. Particularly the SB and TFIDF summarisation techniques consistently outperform the TT baseline across all four categories. SB gives the best results in three categories except War. ROUGE-1",
+        "TT SB TFIDF MMR TR War 0.162 0.184 0.192 0.154 0.141 DisAc 0.134 0.194 0.160 0.132 0.124 Edu 0.106 0.240 0.187 0.104 0.023 LawCri 0.035 0.159 0.149 0.034 0.115 Table 1: Average ROUGE-1 for topic labels at x = {1..10}, generated from the TW dataset.",
         "The generated labels with summarisation at x = 5 are presented in Table 2, where GS represents the label generated from the Newswire headlines.",
         "Different summarisation techniques reveal words which do not appear in the top terms but 621 0.05 0.10 0.15 0.20 0.25",
         "2.5 5.0 7.5 10.0 x Rouge War_Conflict 0.10 0.15 0.20 0.25",
@@ -111,8 +111,19 @@
     {
       "title": "5 Conclusions and Future Work",
       "paragraphs": [
-        "In this paper we proposed a novel alternative to topic labelling which do not rely on external data sources. To the best of out knowledge no existing work has been formally studied for automatic labelling through summarisation. This experiment shows that existing summarisation techniques can be exploited to provide a better label of a topic, extending in this way a topic’s information by pro-War DisAc GS protest brief polic afghanistan attack world leader bomb obama pakistan mine zealand rescu miner coal fire blast kill man disast TT polic offic milit recent mosqu mine coal pike river zealand SB terror war polic arrest offic mine coal explos river pike TFIDF polic war arrest offic terror mine coal pike safeti zealand MMR recent milit arrest attack target trap zealand coal mine explos TR war world peac terror hope mine zealand plan fire fda Edu LawCri GS school protest student fee choic motherlod tuition teacher anger polic man charg murder arrest polic brief woman attack inquiri found TT student univers protest occupi plan man law child deal jail SB student univers school protest educ man arrest law kill judg",
-        "TFIDF student univers protest plan colleg man arrest law judg kill MMR nation colleg protest student occupi found kid wife student jail TR student tuition fee group hit man law child deal jail Table 2: Labelling examples for topics generated from the TW Dataset. GS represents the gold-standard generated from the relevant Newswire dataset. All terms are Porter stemmed as described in subsection 3.1 viding a richer context than top-terms. These results show that there is room to further improve upon existing summarisation techniques to cater for generating candidate labels."
+        "In this paper we proposed a novel alternative to topic labelling which do not rely on external data sources. To the best of out knowledge no existing work has been formally studied for automatic labelling through summarisation. This experiment shows that existing summarisation techniques can be exploited to provide a better label of a topic, extending in this way a topic’s information by pro-War DisAc",
+        "GS protest brief polic afghanistan attack world leader bomb obama pakistan mine zealand rescu miner coal fire blast kill man disast",
+        "TT polic offic milit recent mosqu mine coal pike river zealand",
+        "SB terror war polic arrest offic mine coal explos river pike",
+        "TFIDF polic war arrest offic terror mine coal pike safeti zealand",
+        "MMR recent milit arrest attack target trap zealand coal mine explos",
+        "TR war world peac terror hope mine zealand plan fire fda Edu LawCri",
+        "GS school protest student fee choic motherlod tuition teacher anger polic man charg murder arrest polic brief woman attack inquiri found",
+        "TT student univers protest occupi plan man law child deal jail",
+        "SB student univers school protest educ man arrest law kill judg",
+        "TFIDF student univers protest plan colleg man arrest law judg kill",
+        "MMR nation colleg protest student occupi found kid wife student jail",
+        "TR student tuition fee group hit man law child deal jail Table 2: Labelling examples for topics generated from the TW Dataset. GS represents the gold-standard generated from the relevant Newswire dataset. All terms are Porter stemmed as described in subsection 3.1 viding a richer context than top-terms. These results show that there is room to further improve upon existing summarisation techniques to cater for generating candidate labels."
       ]
     },
     {
@@ -133,7 +144,8 @@
         "Robert L. Donaway, Kevin W. Drummey, and Laura A. Mather. 2000. A comparison of rankings produced by summarization evaluation measures. In Proceedings of the 2000 NAACL-ANLP Workshop on Automatic Summarization, NAACL-ANLP-AutoSum ’00, pages 69–78, Stroudsburg, PA, USA. Association for Computational Linguistics.",
         "Gonenc Ercan and Ilyas Cicekli. 2008. Lexical cohesion based topic modeling for summarization. In Proceedings of the 9th International Conference on Computational Linguistics and Intelligent Text Processing, CICLing’08, pages 582–592, Berlin, Heidelberg. Springer-Verlag.",
         "Thomas L. Griffiths and Mark Steyvers. 2004. Finding scientific topics. PNAS, 101(suppl. 1):5228–5235.",
-        "Aria Haghighi and Lucy Vanderwende. 2009. Exploring content models for multi-document summarization. In Proceedings of Human Language Technologies: The 2009 Annual Conference of the North American Chapter of the Association for Computational Linguistics, NAACL ’09, pages 362–370, Stroudsburg, PA, USA. Association for Computational Linguistics. Yulan He. 2012. Incorporating sentiment prior knowledge for weakly supervised sentiment analysis. ACM Transactions on Asian Language Information Processing, 11(2):4:1–4:19, June.",
+        "Aria Haghighi and Lucy Vanderwende. 2009. Exploring content models for multi-document summarization. In Proceedings of Human Language Technologies: The 2009 Annual Conference of the North American Chapter of the Association for Computational Linguistics, NAACL ’09, pages 362–370, Stroudsburg, PA, USA. Association for Computational Linguistics.",
+        "Yulan He. 2012. Incorporating sentiment prior knowledge for weakly supervised sentiment analysis. ACM Transactions on Asian Language Information Processing, 11(2):4:1–4:19, June.",
         "Ioana Hulpus, Conor Hayes, Marcel Karnstedt, and Derek Greene. 2013. Unsupervised graph-based topic labelling using dbpedia. In Proceedings of the sixth ACM international conference on Web search and data mining, WSDM ’13, pages 465–474, New York, NY, USA. ACM.",
         "David Inouye and Jugal K. Kalita. 2011. Comparing twitter summarization algorithms for multiple post summaries. In SocialCom/PASSAT, pages 298–306. IEEE.",
         "Jey Han Lau, David Newman, Karimi Sarvnaz, and Timothy Baldwin. 2010. Best Topic Word Selec-tion for Topic Labelling. CoLing.",
@@ -144,7 +156,8 @@
         "Annie Louis and Ani Nenkova. 2009. Automatically evaluating content selection in summarization without human models. In Proceedings of the 2009 Conference on Empirical Methods in Natural Language Processing: Volume 1 - Volume 1, EMNLP ’09, pages 306–314, Stroudsburg, PA, USA. Association for Computational Linguistics.",
         "Annie Louis and Ani Nenkova. 2013. Automatically assessing machine summary content without a gold 623 standard. Computational Linguistics, 39(2):267– 300.",
         "Davide Magatti, Silvia Calegari, Davide Ciucci, and Fabio Stella. 2009. Automatic labeling of topics. In Proceedings of the 2009 Ninth International Conference on Intelligent Systems Design and Applications, ISDA ’09, pages 1227–1232, Washington, DC, USA. IEEE Computer Society.",
-        "Qiaozhu Mei, Xuehua Shen, and ChengXiang Zhai. 2007. Automatic labeling of multinomial topic models. In Proceedings of the 13th ACM SIGKDD international conference on Knowledge discovery and data mining, KDD ’07, pages 490–499, New York, NY, USA. ACM. Rada Mihalcea and Paul Tarau. 2004. TextRank: Bringing Order into Texts. In Conference on Empirical Methods in Natural Language Processing, EMNLP ’04, pages 404–411, Barcelona, Spain. Association for Computational Linguistics.",
+        "Qiaozhu Mei, Xuehua Shen, and ChengXiang Zhai. 2007. Automatic labeling of multinomial topic models. In Proceedings of the 13th ACM SIGKDD international conference on Knowledge discovery and data mining, KDD ’07, pages 490–499, New York, NY, USA. ACM.",
+        "Rada Mihalcea and Paul Tarau. 2004. TextRank: Bringing Order into Texts. In Conference on Empirical Methods in Natural Language Processing, EMNLP ’04, pages 404–411, Barcelona, Spain. Association for Computational Linguistics.",
         "David Mimno, Hanna M. Wallach, Edmund Talley, Miriam Leenders, and Andrew McCallum. 2011. Optimizing semantic coherence in topic models. In Proceedings of the Conference on Empirical Methods in Natural Language Processing, EMNLP ’11, pages 262–272, Stroudsburg, PA, USA. Association for Computational Linguistics.",
         "Ani Nenkova and Lucy Vanderwende. 2005. The impact of frequency on summarization. Microsoft Research, Redmond, Washington, Tech. Rep. MSR-TR-2005-101.",
         "Ani Nenkova. 2005. Automatic text summarization of newswire: Lessons learned from the document understanding conference. In Proceedings of the 20th National Conference on Artificial Intelligence - Volume 3, AAAI’05, pages 1436–1441. AAAI Press.",

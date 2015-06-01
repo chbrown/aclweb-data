@@ -21,13 +21,7 @@
     {
       "title": ", Shou-De Lin",
       "paragraphs": [
-        "†‡"
-      ]
-    },
-    {
-      "title": "",
-      "paragraphs": [
-        "†"
+        "†‡  †"
       ]
     },
     {
@@ -45,7 +39,7 @@
     {
       "title": "Computer and Information Science Department, University of Pennsylvania, Philadelphia, PA 19104, U.S.A.",
       "paragraphs": [
-        " {r02922050, d97944007, sdlin}@csie.ntu.edu.tw, ruiyan@seas.upenn.edu "
+        "{r02922050, d97944007, sdlin}@csie.ntu.edu.tw, ruiyan@seas.upenn.edu "
       ]
     },
     {
@@ -77,36 +71,38 @@
     {
       "title": "2 Methodology 2.1 Social-Driven Personalized Language Model",
       "paragraphs": [
-        "The language model of a collection of documents can be estimated by normalizing the counts of words in the entire collection (Zhai, 2008). To build a user language model, one naïve way is to first normalize word frequency �(�, �) within each document, and then average over all the documents in a user’s document collection. The resulting unigram user language model is: P�(�) = 1 |D�| ∑",
-        "�(�, �) |�| �∈Du  = 1 |D�| ∑ P�(�) �∈Du  (1) where P�(�) is the language model of a particular document, and D� is the user’s document collection. This formulation is basically an equalweighted finite mixture model.",
-        "A simple yet effective way to smooth a language model is to linearly interpolate with a background language model (Chen and Goodman, 1996; Zhai and Lafferty, 2001). In the linear interpolation method, all background documents are treated equally. The entire document collection is added to the user language model P�(�) with the same interpolation coefficient.",
-        "Our main idea is to specify a set of relevant documents for the target user using information embedded in a social network, and enrich the smoothing procedure with these documents. Let D��� denote the content from relevant persons (e.g. social neighbors) of u1, our idea can be concisely expressed as:",
-        "P�1′ (�) = λ�1P�1(�) + ∑ λ��P��(�) ��∈Drel (2) where λ�� is the mixture weight of the language model of document di, and λ�1 + ∑ λ�� = 1 . Documents posted by irrelevant users are not included as we believe the user language model can be better personalized by exploiting the social relationship in a more structured way. In our experiment, we choose the first degree neighbor documents as D���.",
-        "Also note that we have made no assumption about how the “base” user language model P�1(�) is built. In practice, it need not be models following maximum likelihood estimation, but any language model can be integrated into our framework to achieve a better refined model. Furthermore, any smoothing method can be applied to the language model without degrading the effectiveness. 2.2 Factor Graph Model (FGM) Now we discuss how the mixture weights can be estimated. We introduce a factor graph model (FGM) to make use of the diverse information on a social network. Factor graph (Kschischang et al., 2006) is a bipartite graph consisting of a set of random variables and a set of factors which signifies the relationships among the variables. It is best suited in situations where the data is clearly of a relational nature (Wang et al., 2012). The joint distribution of the variables is factored according to the graph structure. Using FGM, one can incorporate the knowledge into the potential function for optimization and perform joint inference over documents. As shown in Figure 1, the variables included in the model are described as follows:",
-        "Candidate variables �� = 〈u, ��〉 . The random variables in the top layer stand for the degrees of belief that a document di should be included in the PLM of the target user u. Figure 1: A two-layered factor graph (FGM) proposed to estimate the mixture weights. 612",
+        "The language model of a collection of documents can be estimated by normalizing the counts of words in the entire collection (Zhai, 2008). To build a user language model, one naïve way is to first normalize word frequency c(w, d) within each document, and then average over all the documents in a user’s document collection. The resulting unigram user language model is: Pu(w) = 1 |Du| ∑",
+        "c(w, d) |d|d∈Du  = 1 |Du|",
+        "∑ Pd(w) d∈Du  (1) where Pd(w) is the language model of a particular document, and Du is the user’s document collection. This formulation is basically an equalweighted finite mixture model.",
+        "A simple yet effective way to smooth a language model is to linearly interpolate with a background language model (Chen and Goodman, 1996; Zhai and Lafferty, 2001). In the linear interpolation method, all background documents are treated equally. The entire document collection is added to the user language model Pu(w) with the same interpolation coefficient.",
+        "Our main idea is to specify a set of relevant documents for the target user using information embedded in a social network, and enrich the smoothing procedure with these documents. Let Drel denote the content from relevant persons (e.g. social neighbors) of u1, our idea can be concisely expressed as: Pu1′ (w) = λ",
+        "u1Pu1(w) + ∑ λdiPdi(w) di∈Drel (2) where λdi is the mixture weight of the language model of document di, and λu1 + ∑ λdi = 1 . Documents posted by irrelevant users are not included as we believe the user language model can be better personalized by exploiting the social relationship in a more structured way. In our experiment, we choose the first degree neighbor documents as Drel.",
+        "Also note that we have made no assumption about how the “base” user language model Pu1(w) is built. In practice, it need not be models following maximum likelihood estimation, but any language model can be integrated into our framework to achieve a better refined model. Furthermore, any smoothing method can be applied to the language model without degrading the effectiveness. 2.2 Factor Graph Model (FGM) Now we discuss how the mixture weights can be estimated. We introduce a factor graph model (FGM) to make use of the diverse information on a social network. Factor graph (Kschischang et al., 2006) is a bipartite graph consisting of a set of random variables and a set of factors which signifies the relationships among the variables. It is best suited in situations where the data is clearly of a relational nature (Wang et al., 2012). The joint distribution of the variables is factored according to the graph structure. Using FGM, one can incorporate the knowledge into the potential function for optimization and perform joint inference over documents. As shown in Figure 1, the variables included in the model are described as follows:",
+        "Candidate variables yi = 〈u, di〉 . The random variables in the top layer stand for the degrees of belief that a document di should be included in the PLM of the target user u. Figure 1: A two-layered factor graph (FGM) proposed to estimate the mixture weights. 612",
         "Attribute variables xi. Local information is stored as the random variables in the bottom layer. For example, x1 might represent the number of common friends between the author of a document di and our target user.",
         "The potential functions in the FGM are:",
-        "Attribute-to-candidate function. This potential function captures the local dependencies of a candidate variable to the relevant attributes. Let the candidate variable yi correspond to a document di, the attribute-to-candidate function of yi is defined in a log-linear form:",
-        "�(��, A) = 1 �� ��p{�T",
-        "�(��, A)} (3) where A is the set of attributes of either the document di or target user u; f is a vector of feature functions which locally model the value of yi with attributes in A; �� is the local partition function and � is the weight vector to be learnt. In our experiment, we define the vector of functions as � = 〈����, ����, ����, ����, �a�〉T",
-        "as:  Similarity function ���� . The similarity between language models of the target user and a document should play an important role. We use cosine similarity between two unigram models in our experiments.  Document quality function ����. The out-of-vocabulary (OOV) ratio is used to measure the quality of a document. It is defined as",
-        "���� = 1 − |{�: � ∈ �� ∩ � ∉ V}| |��| (4) where V is the vocabulary set of the entire corpus, with stop words excluded.",
-        " Document popularity function ���� . This function is defined as the number of times di is shared to model the popularity of documents.",
-        " Common friend function ����. It is defined as the number of common friends between the target user u1 and the author of di.",
-        " Author friendship function �a� . Assuming that documents posted by a user with more friends are more influential, this function is defined as the number of friends of di’s author. Candidate-to-candidate function. This po-",
+        "Attribute-to-candidate function. This potential function captures the local dependencies of a candidate variable to the relevant attributes. Let the candidate variable yi correspond to a document di, the attribute-to-candidate function of yi is defined in a log-linear form: f(yi, A) = 1 Zα",
+        "exp{αT f(yi, A)} (3) where A is the set of attributes of either the document di or target user u; f is a vector of feature functions which locally model the value of yi with attributes in A; Zα is the local partition function and α is the weight vector to be learnt. In our experiment, we define the vector of functions as f = 〈fsim, foov, fpop, fcmf, faf〉T",
+        "as:  Similarity function fsim . The similarity between language models of the target user and a document should play an important role. We use cosine similarity between two unigram models in our experiments.  Document quality function foov. The out-of-vocabulary (OOV) ratio is used to measure the quality of a document. It is defined as foov = 1 −",
+        "|{w: w ∈ di ∩ w ∉ V}| |di| (4) where V is the vocabulary set of the entire corpus, with stop words excluded.",
+        " Document popularity function fpop . This function is defined as the number of times di is shared to model the popularity of documents.",
+        " Common friend function fcmf. It is defined as the number of common friends between the target user u1 and the author of di.",
+        " Author friendship function faf . Assuming that documents posted by a user with more friends are more influential, this function is defined as the number of friends of di’s author. Candidate-to-candidate function. This po-",
         "tential function defines the correlation of a can-",
         "didate variable yi with another candidate variable",
-        "yj in the factor graph. The function is defined as �(��, ��) = 1 ���,� ��p{�T",
-        "�(��, ��)} (5) where g is a vector of feature functions indicat-ing whether two variables are correlated. If we further denote the set of all related variables as G(��) , then for any candidate variable yi, we have the following brief expression: �(��, G(��)) = ∏ �(��, ��) y�∈G(y�)  (6) For two candidate variables, let the corre-",
+        "yj in the factor graph. The function is defined as g(yi, yj) = 1 Zij,β",
+        "exp{βT g(yi, yj)} (5) where g is a vector of feature functions indicat-ing whether two variables are correlated. If we further denote the set of all related variables as G(yi) , then for any candidate variable yi, we have the following brief expression:",
+        "g(yi, G(yi)) = ∏ g(yi, yj) yj∈G(yi) (6) For two candidate variables, let the corre-",
         "sponding document be di and dj, respectively, we",
-        "define the vector � = 〈����, ��a�〉T",
+        "define the vector g = 〈grel, gcat〉T",
         "as:",
-        " User relationship function ����. We assume that two candidate variables have higher dependency if they represent documents of the same author or the two authors are friends. The dependency should be even greater if two documents are similar. Let �(�) denote the author of a document d and N[u] denote the closed neighborhood of a user u, we define",
-        "���� = I{�(��) ∈ N[�(��)]} × sim(��, ��) (7)",
-        " Co-category function ��a�. For any two candidate variables, it is intuitive that the two variables would have a higher correlation if di and dj are of the same category. Let �(�) denote the category of document d, we define ��a� = I{�(��) = �(��)} × sim(��, ��) (8) 2.3 Model Inference and Optimization Let Y and X be the set of all candidate variables and attribute variables, respectively. The joint distribution encoded by the FGM is given by multiplying all potential functions.",
-        "P(�, �) = ∏ �(��, A)�(��, G(��)) � (9)",
-        "The desired marginal distribution can be obtained by marginalizing all other variables. Since under most circumstances, however, the factor graph is densely connected, the exact inference is intractable and approximate inference is required. After obtaining the marginal probabilities, the mixture weights λ�� in Eq. 2 are estimated by normalizing the corresponding marginal probabilities P(��) over all candidate variables, which can be written as λ�� = (1 − λ�1) P(��) ∑ P(��) �:��∈Drel  (10) where the constraint λ�1 + ∑ λ�� = 1 leads to a valid probability distribution for our mixture model.",
-        "A factor graph is normally optimized by gradient-based methods. Unfortunately, since the ground truth values of the mixture weights are not available, we are prohibited from using supervised approaches. Here we propose a two-step iterative procedure to optimize our model. At 613 first, all the model parameters (i.e. �, �, λ�) are randomly initialized. Then, we infer the marginal probabilities of candidate variables. Given these marginal probabilities, we can evaluate the perplexity of the user language model on a held-out dataset, and search for better parameters. This procedure is repeated until convergence. Also, notice that by using FGM, we reduce the number of parameters from 1 + |D���| to 1 + |�| + |�|, lowering the risk of overfitting."
+        " User relationship function grel. We assume that two candidate variables have higher dependency if they represent documents of the same author or the two authors are friends. The dependency should be even greater if two documents are similar. Let a(d) denote the author of a document d and N[u] denote the closed neighborhood of a user u, we define",
+        "grel = I{a(dj) ∈ N[a(di)]} × sim(di, dj) (7)",
+        " Co-category function gcat. For any two candidate variables, it is intuitive that the two variables would have a higher correlation if di and dj are of the same category. Let c(d) denote the category of document d, we define gcat = I{c(di) = c(dj)} × sim(di, dj) (8) 2.3 Model Inference and Optimization Let Y and X be the set of all candidate variables and attribute variables, respectively. The joint distribution encoded by the FGM is given by multiplying all potential functions.",
+        "P(Y, X) = ∏ f(yi, A)g(yi, G(yi)) i (9)",
+        "The desired marginal distribution can be obtained by marginalizing all other variables. Since under most circumstances, however, the factor graph is densely connected, the exact inference is intractable and approximate inference is required. After obtaining the marginal probabilities, the mixture weights λdi in Eq. 2 are estimated by normalizing the corresponding marginal probabilities P(yi) over all candidate variables, which can be written as λdi = (1 − λu1)",
+        "P(yi) ∑ P(yj)j:dj∈Drel (10) where the constraint λu1 + ∑ λdi = 1 leads to a valid probability distribution for our mixture model.",
+        "A factor graph is normally optimized by gradient-based methods. Unfortunately, since the ground truth values of the mixture weights are not available, we are prohibited from using supervised approaches. Here we propose a two-step iterative procedure to optimize our model. At 613 first, all the model parameters (i.e. α, β, λu) are randomly initialized. Then, we infer the marginal probabilities of candidate variables. Given these marginal probabilities, we can evaluate the perplexity of the user language model on a held-out dataset, and search for better parameters. This procedure is repeated until convergence. Also, notice that by using FGM, we reduce the number of parameters from 1 + |Drel| to 1 + |α| + |β|, lowering the risk of overfitting."
       ]
     },
     {
@@ -114,25 +110,37 @@
       "paragraphs": [
         "We perform experiments on the Twitter dataset collected by Galuba et al. (2010). Twitter data have been used to verify models with different purposes (Lin et al., 2011; Tan et al., 2011). To emphasize on the cold start scenario, we randomly selected 15 users with about 35 tweets and 70 friends as candidates for an authorship attribution task. Our experiment corpus consists of 4322 tweets. All words with less than 5 occurrences are removed. Stop words and URLs are also removed and all tweets are stemmed. We identify the 100 most frequent terms as categories. The size of the vocabulary set is 1377.",
         "We randomly partitioned the tweets of each user into training, validation and testing sets. The reported result is the average of 10 random splits. In all experiments, we vary the size of training data from 1% to 15%, and hold out the same number of tweets from each user as validation and testing data. The statistics of our dataset, given 15% training data, are shown in Table 1.",
-        "Loopy belief propagation (LBP) is used to obtain the marginal probabilities of the variables (Murphy et al., 1999). Parameters are searched with the pattern search algorithm (Audet and Dennis, 2002). To not lose generality, we use the default configuration in all experiments. # of Max. Min. Avg. Tweets 70 19 35.4 Friends 139 24 68.9 Variables 467 97 252.7 Edges 9216 231 3427.1 Table 1: Dataset statistics 3.2 Baseline Methods We compare our framework with two baseline methods. The first (“Cosine”) is a straightforward implementation that sets all mixture weights λ�� to the cosine similarity between the probability mass vectors of the document and user unigram language models. The second (“PS”) uses the pattern search algorithm to perform constrained optimization over the mixture weights. As mentioned in section 2.3, the main difference between this method and ours (“FGM”) is that we reduce the search space of the parameters by FGM. Furthermore, social network information is exploited in our framework, while the PS method performs a direct search over mixture weights, discarding valuable knowledge.",
-        "Different from other smoothing methods that are usually mutually exclusive, any other smoothing methods can be easily merged into our framework. In Eq. 2, the base language model P�1(�) can be already smoothed by any techniques before being plugged into our framework. Our framework then enriches the user language model with social network information. We select four popular smoothing methods to demonstrate such effect, namely additive smoothing, absolute smoothing (Ney et al., 1995), Jelinek-Mercer smoothing (Jelinek and Mercer, 1980) and Dirichlet smoothing (MacKay and Peto, 1994). The results of using only the base model (i.e. set λ�� = 0 in Eq. 2) are denoted as “Base” in the following tables. Train % Additive Absolute Base Cosine PS FGM Base Cosine PS FGM 1% 900.4 712.6 725.5",
-        "537.5**  895.3 703.1 722.1",
-        "544.5**  5% 814.5 623.4 690.5",
-        "506.8**  782.4 607.9 678.4",
-        "510.2**  10% 757.7 566.6 684.8",
-        "481.2**  708.4 552.7 661.0",
-        "485.8**  15% 693.8 521.0 635.2",
-        "474.8**  647.4 504.3 622.3",
-        "474.1**  Train % Jelinek-Mercer Dirichlet Base Cosine PS FGM Base Cosine PS FGM 1% 637.8 571.4 643.1",
-        "541.0**  638.5 571.3 643.1",
-        "541.0**  5% 593.9 526.1 602.9",
-        "505.4**  595.0 526.6 616.5",
-        "507.2**  10% 559.2 494.1 573.8",
-        "483.6**  560.4 494.9 579.6",
-        "486.0**  15% 535.3 473.4 560.2 473.0 535.7 473.6 563.2 474.4 Table 2: Testing set perplexity. ** indicates that the best score among all methods is significantly better than the next highest score, by t-test at a significance level of 0.05. 614 3.3 Perplexity As an intrinsic evaluation, we first compute the perplexity of unseen sentences under each user language model. The result is shown in Table 2.",
+        "Loopy belief propagation (LBP) is used to obtain the marginal probabilities of the variables (Murphy et al., 1999). Parameters are searched with the pattern search algorithm (Audet and Dennis, 2002). To not lose generality, we use the default configuration in all experiments. # of Max. Min. Avg. Tweets 70 19 35.4 Friends 139 24 68.9 Variables 467 97 252.7 Edges 9216 231 3427.1",
+        "Table 1: Dataset statistics 3.2 Baseline Methods We compare our framework with two baseline methods. The first (“Cosine”) is a straightforward implementation that sets all mixture weights λdi to the cosine similarity between the probability mass vectors of the document and user unigram language models. The second (“PS”) uses the pattern search algorithm to perform constrained optimization over the mixture weights. As mentioned in section 2.3, the main difference between this method and ours (“FGM”) is that we reduce the search space of the parameters by FGM. Furthermore, social network information is exploited in our framework, while the PS method performs a direct search over mixture weights, discarding valuable knowledge.",
+        "Different from other smoothing methods that are usually mutually exclusive, any other smoothing methods can be easily merged into our framework. In Eq. 2, the base language model Pu1(w) can be already smoothed by any techniques before being plugged into our framework. Our framework then enriches the user language model with social network information. We select four popular smoothing methods to demonstrate such effect, namely additive smoothing, absolute smoothing (Ney et al., 1995), Jelinek-Mercer smoothing (Jelinek and Mercer, 1980) and Dirichlet smoothing (MacKay and Peto, 1994). The results of using only the base model (i.e. set λdi = 0 in Eq. 2) are denoted as “Base” in the following tables. Train %",
+        "Additive Absolute",
+        "Base Cosine PS FGM Base Cosine PS FGM",
+        "1% 900.4 712.6 725.5 537.5** 895.3 703.1 722.1 544.5**",
+        "",
+        "5% 814.5 623.4 690.5 506.8** 782.4 607.9 678.4 510.2**",
+        "",
+        "10% 757.7 566.6 684.8 481.2** 708.4 552.7 661.0 485.8**",
+        "",
+        "15% 693.8 521.0 635.2 474.8** 647.4 504.3 622.3 474.1**",
+        " Train %",
+        "Jelinek-Mercer Dirichlet",
+        "Base Cosine PS FGM Base Cosine PS FGM",
+        "1% 637.8 571.4 643.1 541.0**",
+        "638.5 571.3 643.1 541.0**",
+        "",
+        "5% 593.9 526.1 602.9 505.4**",
+        "595.0 526.6 616.5 507.2**",
+        "",
+        "10% 559.2 494.1 573.8 483.6**",
+        "560.4 494.9 579.6 486.0**",
+        "",
+        "15% 535.3 473.4 560.2 473.0 535.7 473.6 563.2 474.4",
+        "Table 2: Testing set perplexity. ** indicates that the best score among all methods is significantly bet-",
+        "ter than the next highest score, by t-test at a significance level of 0.05. 614 3.3 Perplexity As an intrinsic evaluation, we first compute the perplexity of unseen sentences under each user language model. The result is shown in Table 2.",
         "Our method significantly outperforms all of the methods in almost all settings. We observe that the “PS” method takes a long time to converge and is prone to overfitting, likely because it has to search about a few hundred parameters on average. As expected, the advantage of our model is more apparent when the data is sparse. 3.4 Authorship Attribution (AA) The authorship attribution (AA) task is chosen as the extrinsic evaluation metric. Here the goal is not about comparing with the state-of-the-art approaches in AA, but showing that LM-based approaches can benefit from our framework.",
         "To apply PLM on this task, a naïve Bayes classifier is implemented (Peng et al., 2004). The most probable author of a document d is the one whose PLM yields the highest probability, and is determined by u∗",
-        "= argmax�{∏ P�(�)�∈� }.",
+        "= argmax",
+        "u{∏ Pu(w)w∈d }.",
         "The result is shown in Table 3. Our model improves personalization and outperforms the base-lines under cold start settings. When data is sparse, the “PS” method tends to overfit the noise, while the “Cosine” method contains too few information and is severely biased. Our method strikes a balance between model com-plexity and the amount of information included, and hence performs better than the others."
       ]
     },
@@ -151,16 +159,23 @@
     {
       "title": "6 Acknowledgement",
       "paragraphs": [
-        "This work was sponsored by AOARD grant number No. FA2386-13-1-4045 and National Science Council, National Taiwan University and Intel Corporation under Grants NSC102-2911-I-002-001 and NTU103R7501 and grant 102-2923-E-002-007-MY2, 102-2221-E-002-170, 101-2628-E-002-028-MY2. Train % Additive Absolute Base Cosine PS FGM Base Cosine PS FGM 1% 54.67 58.27 61.07 63.74 49.47 57.60 58.27",
-        "64.27**  5% 61.47 63.20 62.67",
-        "68.40**  59.60 62.40 61.33",
-        "66.53**  10% 61.47 65.73 66.27",
-        "69.20**  61.47 65.20 64.67",
-        "71.87**  15% 64.27 67.07 62.13",
-        "70.40**  64.67 68.27 63.33",
-        "71.60**  Train % Jelinek-Mercer Dirichlet Base Cosine PS FGM Base Cosine PS FGM 1% 54.00 60.93 62.00",
-        "64.80**  52.80 60.40 61.87",
-        "64.67**  5% 62.67 65.47 64.00 68.00 60.80 65.33 62.40 66.93 10% 63.87 68.00 67.87 68.53 62.53 67.87 66.40 68.53 15% 65.87 70.40 64.14 69.87 65.47 70.27 64.53 68.40 Table 3: Accuracy (%) of authorship attribution. ** indicates that the best score among all methods is significantly better than the next highest score, by t-test at a significance level of 0.05. 615"
+        "This work was sponsored by AOARD grant number No. FA2386-13-1-4045 and National Science Council, National Taiwan University and Intel Corporation under Grants NSC102-2911-I-002-001 and NTU103R7501 and grant 102-2923-E-002-007-MY2, 102-2221-E-002-170, 101-2628-E-002-028-MY2. Train %",
+        "Additive Absolute",
+        "Base Cosine PS FGM Base Cosine PS FGM",
+        "1% 54.67 58.27 61.07 63.74 49.47 57.60 58.27 64.27**",
+        "",
+        "5% 61.47 63.20 62.67 68.40** 59.60 62.40 61.33 66.53**",
+        "",
+        "10% 61.47 65.73 66.27 69.20** 61.47 65.20 64.67 71.87**",
+        "",
+        "15% 64.27 67.07 62.13 70.40** 64.67 68.27 63.33 71.60**",
+        " Train %",
+        "Jelinek-Mercer Dirichlet",
+        "Base Cosine PS FGM Base Cosine PS FGM 1% 54.00 60.93 62.00 64.80**",
+        "52.80 60.40 61.87 64.67**",
+        " 5% 62.67 65.47 64.00 68.00 60.80 65.33 62.40 66.93 10% 63.87 68.00 67.87 68.53 62.53 67.87 66.40 68.53 15% 65.87 70.40 64.14 69.87 65.47 70.27 64.53 68.40",
+        "Table 3: Accuracy (%) of authorship attribution. ** indicates that the best score among all methods is",
+        "significantly better than the next highest score, by t-test at a significance level of 0.05. 615"
       ]
     },
     {

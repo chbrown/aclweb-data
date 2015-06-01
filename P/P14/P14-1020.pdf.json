@@ -7,7 +7,7 @@
       ]
     },
     {
-      "title": "Sparser, Better, Faster GPU ParsingDavid Hall Taylor Berg-Kirkpatrick John Canny Dan KleinComputer Science DivisionUniversity of California, Berkeley{dlwh,tberg,jfc,klein}@cs.berkeley.eduAbstract",
+      "title": "Sparser, Better, Faster GPU Parsing David Hall Taylor Berg-Kirkpatrick John Canny Dan Klein Computer Science Division University of California, Berkeley {dlwh,tberg,jfc,klein}@cs.berkeley.edu Abstract",
       "paragraphs": [
         "Due to their origin in computer graphics, graphics processing units (GPUs) are highly optimized for dense problems, where the exact same operation is applied repeatedly to all data points. Natural language processing algorithms, on the other hand, are traditionally constructed in ways that exploit structural sparsity. Recently, Canny et al. (2013) presented an approach to GPU parsing that sacrifices traditional sparsity in exchange for raw computational power, obtaining a system that can compute Viterbi parses for a high-quality grammar at about 164 sentences per second on a mid-range GPU. In this work, we reintroduce sparsity to GPU parsing by adapting a coarse-to-fine pruning approach to the constraints of a GPU. The resulting system is capable of computing over 404 Viterbi parses per second—more than a 2x speedup—on the same hardware. Moreover, our approach allows us to efficiently implement less GPU-friendly minimum Bayes risk inference, improv-ing throughput for this more accurate algorithm from only 32 sentences per second unpruned to over 190 sentences per second using pruning—nearly a 6x speedup."
       ]
@@ -61,13 +61,14 @@
         "This architecture environment puts very different constraints on parsing algorithms from a CPU environment. Canny et al. (2013) proposed an implementation of a PCFG parser that sacrifices standard sparse methods like coarse-to-fine pruning, focusing instead on maximizing the instruction and memory throughput of the parser. They as-sume that they are parsing many sentences at once, with throughput being more important than latency. In this section, we describe their dense algorithm, which we take as the baseline for our work; we present it in a way that sets up the changes to follow.",
         "At the top level, the CPU and GPU communicate via a work queue of parse items of the form (s, i, k, j), where s is an identifier of a sentence, i is the start of a span, k is the split point, and j",
         "3",
-        "A thread can use more registers than this, but the full complement of 48 warps cannot execute if too many are used. 210 Clustering Pruning Sent/Sec Speedup Canny et al. – 164.0 – Reimpl – 192.9 1.0x Reimpl Empty, Coarse 185.5 0.96x Reimpl Labeled, Coarse 187.5 0.97x Parent – 158.6 0.82x Parent Labeled, Coarse 278.9 1.4x Parent Labeled, 1-split 404.7 2.1x Parent Labeled, 2-split 343.6 1.8x Table 1: Performance numbers for computing Viterbi inside charts on 20,000 sentences of length ≤40 from the Penn Treebank. All times are measured on an NVIDIA GeForce GTX 680. ‘Reimpl’ is our reimplementation of their approach. Speedups are measured in reference to this reimplementation. See Section 7 for discussion of the clustering algorithms and Section 6 for a description of the pruning methods. The Canny et al. (2013) system is benchmarked on a batch size of 1200 sentences, the others on 20,000. is the end point. The GPU takes large numbers of parse items and applies the entire grammar to them in parallel. These parse items are enqueued in order of increasing span size, blocking until all items of a given length are complete. This approach is diagrammed in Figure 2.",
+        "A thread can use more registers than this, but the full complement of 48 warps cannot execute if too many are used. 210 Clustering Pruning Sent/Sec Speedup",
+        "Canny et al. – 164.0 – Reimpl – 192.9 1.0x Reimpl Empty, Coarse 185.5 0.96x Reimpl Labeled, Coarse 187.5 0.97x Parent – 158.6 0.82x Parent Labeled, Coarse 278.9 1.4x Parent Labeled, 1-split 404.7 2.1x Parent Labeled, 2-split 343.6 1.8x Table 1: Performance numbers for computing Viterbi inside charts on 20,000 sentences of length ≤40 from the Penn Treebank. All times are measured on an NVIDIA GeForce GTX 680. ‘Reimpl’ is our reimplementation of their approach. Speedups are measured in reference to this reimplementation. See Section 7 for discussion of the clustering algorithms and Section 6 for a description of the pruning methods. The Canny et al. (2013) system is benchmarked on a batch size of 1200 sentences, the others on 20,000. is the end point. The GPU takes large numbers of parse items and applies the entire grammar to them in parallel. These parse items are enqueued in order of increasing span size, blocking until all items of a given length are complete. This approach is diagrammed in Figure 2.",
         "Because all rules are applied to all parse items, all threads are executing the same sequence of instructions. Thus, there is no concern of warp divergence. 5.1 Grammar Compilation One important feature of Canny et al. (2013)’s system is grammar compilation. Because registers are so much faster than thread-local memory, it is critical to keep as many variables in registers as possible. One way to accomplish this is to unroll loops at compilation time. Therefore, they inlined the iteration over the grammar directly into the GPU kernels (i.e. the code itself), which allows the compiler to more effectively use all of its registers.",
         "However, register space is limited on GPUs. Because the Berkeley grammar is so large, the compiler is not able to efficiently schedule all of the operations in the grammar, resulting in register spills. Canny et al. (2013) found they had to partition the grammar into multiple different kernels. We discuss this partitioning in more detail in Section 7. However, in short, the entire grammar G is broken into multiple clusters Gi where each rule belongs to exactly one cluster. NP DT NN VB VP NP NP PP IN NP S VP"
       ]
     },
     {
-      "title": "(0, 1, 3)(0, 2, 3)(1, 2, 4)(1, 3, 4)(2, 3, 5)(2, 4, 5)",
+      "title": "(0, 1, 3) (0, 2, 3) (1, 2, 4) (1, 3, 4) (2, 3, 5) (2, 4, 5)",
       "paragraphs": [
         "Grammar Queue (i, k, j) Figure 2: Schematic representation of the work queue used in Canny et al. (2013). The Viterbi inside loop for the grammar is inlined into a kernel. The kernel is applied to all items in the queue in a blockwise manner. NP DT NNNP DT NNNP DT NN"
       ]
@@ -75,17 +76,13 @@
     {
       "title": "NP",
       "paragraphs": [
-        "NP PP",
-        "IN NP PP IN",
-        "NPPP IN"
+        "NP PP IN NP PP IN NP PP IN"
       ]
     },
     {
       "title": "PP",
       "paragraphs": [
-        "VB VP NP",
-        "VBVP NP",
-        "VBVP NP"
+        "VB VP NP VB VP NP VB VP NP"
       ]
     },
     {
@@ -135,25 +132,27 @@
         "Here, we implement the Max Recall algorithm of Goodman (1996). This algorithm maximizes the expected number of correct coarse symbols (A, i, j) with respect to the posterior distribution over parses for a sentence.",
         "This particular MBR algorithm has the advantage that it is relatively straightforward to implement. In essence, we must compute the marginal probability of each fine-labeled span μ(Ax, i, j), and then marginalize to obtain μ(A, i, j). Then, for each span (i, j), we find the best possible split 213 point k that maximizes C(i, j) = μ(A, i, j) + maxk (C(i, k) + C(k, j)). Parse extraction is then just a matter of following back pointers from the root, as in the Viterbi algorithm. 9.1 Computing marginal probabilities The easiest way to compute marginal probabilities is to use the log space semiring rather than the Viterbi semiring, and then to run the inside and outside algorithms as before. We should expect this algorithm to be at least a factor of two slower: the outside pass performs at least as much work as the inside pass. Moreover, it typically has worse memory access patterns, leading to slower performance.",
         "Without pruning, our approach does not handle these log domain computations well at all: we are only able to compute marginals for 32.1 sentences/second, more than a factor of 5 slower than our coarse pass. To begin, log space addition requires significantly more operations than max, which is a primitive operation on GPUs. Beyond the obvious consequence that executing more operations means more time taken, the sheer number of operations becomes too much for the compiler to handle. Because the grammars are compiled into code, the additional operations are all inlined into the kernels, producing much larger kernels. Indeed, in practice the compiler will often hang if we use the same size grammar clusters as we did for Viterbi. In practice, we found there is an effective maximum of 2000 rules per kernel using log sums, while we can use more than 10,000 rules rules in a single kernel with Viterbi.",
-        "With coarse pruning, however, we can avoid much of the increased cost associated with log domain computations. Because so many labeled spans are pruned, we are able to skip many of the grammar clusters and thus avoid many of the expensive operations. Using coarse pruning and log domain calculations, our system produces MBR trees at a rate of 130.4 sentences per second, a four-fold increase. 9.2 Scaling with the Coarse Pass One way to avoid the expense of log domain computations is to use scaled probabilities rather than log probabilities. Scaling is one of the folk techniques that are commonly used in the NLP community, but not generally written about. Recall that floating point numbers are composed of a mantissa m and an exponent e, giving a number System Sent/Sec Speedup Unpruned Log Sum MBR 32.1 – Pruned Log Sum MBR 130.4 4.1x Pruned Scaling MBR 190.6 5.9x Pruned Viterbi 404.7 12.6x Table 2: Performance numbers for computing max constituent (Goodman, 1996) trees on 20,000 sentences of length 40 or less from the Penn Treebank. For convenience, we have copied our pruned Viterbi system’s result. f = m · 2e",
+        "With coarse pruning, however, we can avoid much of the increased cost associated with log domain computations. Because so many labeled spans are pruned, we are able to skip many of the grammar clusters and thus avoid many of the expensive operations. Using coarse pruning and log domain calculations, our system produces MBR trees at a rate of 130.4 sentences per second, a four-fold increase. 9.2 Scaling with the Coarse Pass One way to avoid the expense of log domain computations is to use scaled probabilities rather than log probabilities. Scaling is one of the folk techniques that are commonly used in the NLP community, but not generally written about. Recall that floating point numbers are composed of a mantissa m and an exponent e, giving a number",
+        "System Sent/Sec Speedup",
+        "Unpruned Log Sum MBR 32.1 – Pruned Log Sum MBR 130.4 4.1x Pruned Scaling MBR 190.6 5.9x",
+        "Pruned Viterbi 404.7 12.6x Table 2: Performance numbers for computing max constituent (Goodman, 1996) trees on 20,000 sentences of length 40 or less from the Penn Treebank. For convenience, we have copied our pruned Viterbi system’s result. f = m · 2e",
         ". When a float underflows, the exponent becomes too low to represent the available number of bits. In scaling, floating point numbers are paired with an additional number that extends the exponent. That is, the number is represented as f ′",
         "= f · exp(s). Whenever f becomes either too big or too small, the number is rescaled back to a less “dangerous” range by shifting mass from the exponent e to the scaling factor s.",
         "In practice, one scale s is used for an entire span (i, j), and all scores for that span are rescaled in concert. In our GPU system, multiple scores in any given span are being updated at the same time, which makes this dynamic rescaling tricky and expensive, especially since inter-warp communication is fairly limited.",
         "We propose a much simpler static solution that exploits the coarse pass. In the coarse pass, we compute Viterbi inside and outside scores for every span. Because the grammar used in the coarse pass is a projection of the grammar used in the fine pass, these coarse scores correlate reasonably closely with the probabilities computed in the fine pass: If a span has a very high or very low score in the coarse pass, it typically has a similar score in the fine pass. Thus, we can use the coarse pass’s inside and outside scores as the scaling values for the fine pass’s scores. That is, in addition to computing a pruning mask, in the coarse pass we store the maximum inside and outside score in each span, giving two arrays of scores sI",
         "i,j and sO",
         "i,j. Then, when applying rules in the fine pass, each fine inside score over a split span (i, k, j) is scaled to the appropriate sI",
-        "i,j by multiplying the score by",
-        "exp ( sI i,k + sI",
+        "i,j by multiplying the score by exp",
+        "( sI i,k + sI",
         "k,j − sI",
-        "i,j)",
+        "i,j )",
         ", where sI",
         "i,k, sI",
         "k,j, sI",
         "i,j are",
         "the scaling factors for the left child, right child,",
         "and parent, respectively. The outside scores are",
-        "scaled analogously.",
-        "By itself, this approach works on nearly ev-",
+        "scaled analogously. By itself, this approach works on nearly ev-",
         "ery sentence. However, scores for approximately 214 0.5% of sentences overflow (sic). Because we are summing instead of maxing scores in the fine pass, the scaling factors computed using max scores are not quite large enough, and so the rescaled inside probabilities grow too large when multiplied together. Most of this difference arises at the leaves, where the lexicon typically has more uncertainty than higher up in the tree. Therefore, in the fine pass, we normalize the inside scores at the leaves to sum to 1.0.5",
         "Using this slight modification, no sentences from the Treebank under- or overflow.",
         "We know of no reason why this same trick cannot be employed in more traditional parsers, but it is especially useful here: with this static scaling, we can avoid the costly log sums without in-troducing any additional inter-thread communication, making the kernels much smaller and much faster. Using scaling, we are able to push our parser to 190.6 sentences/second for MBR extraction, just under half the speed of the Viterbi system. 9.3 Parsing Accuracies It is of course important verify the correctness of our system; one easy way to do so is to examine parsing accuracy, as compared to the original Berkeley parser. We measured parsing accuracy on sentences of length ≤ 40 from section 22 of the Penn Treebank. Our Viterbi parser achieves 89.7 F1, while our MBR parser scores 91.0. These results are nearly identical to the Berkeley parsers most comparable numbers: 89.8 for Viterbi, and 90.9 for their “Max-Rule-Sum” MBR algorithm. These slight differences arise from the usual minor variation in implementation details. In particular, we use one coarse pass instead of several, and a different MBR algorithm. In addition, there are some differences in unary processing."
@@ -162,20 +161,22 @@
     {
       "title": "10 Analyzing System Performance",
       "paragraphs": [
-        "In this section we attempt to break down how exactly our system is spending its time. We do this in an effort to give a sense of how time is spent during computation on GPUs. These timing numbers are computed using the built-in profiling capabilities of the programming environment. As usual, profiles exhibit an observer effect, where the act of measuring the system changes the execution. Nev-",
-        "5",
-        "One can instead interpret this approach as changing the",
+        "In this section we attempt to break down how exactly our system is spending its time. We do this in an effort to give a sense of how time is spent during computation on GPUs. These timing numbers are computed using the built-in profiling capabilities of the programming environment. As usual, profiles exhibit an observer effect, where the act of measuring the system changes the execution. Nev-5 One can instead interpret this approach as changing the",
         "scaling factors to sI′",
         "i,j = sI",
-        "i,j · ∏",
-        "i≤k<j ∑",
+        "i,j ·",
+        "∏ i≤k<j ∑",
         "A inside(A, k, k +",
-        "1), where inside is the array of scores for the fine pass. System Coarse Pass Fine Pass Unpruned Viterbi – 6.4 Pruned Viterbi 1.2 1.5 Unpruned Logsum MBR — 28.6 Pruned Scaling MBR 1.2 4.3 Table 3: Time spent in the passes of our different systems, in seconds per 1000 sentences. Pruning refers to using a 1-split grammar for the coarse pass. ertheless, the general trends should more or less be preserved as compared to the unprofiled code.",
+        "1), where inside is the array of scores for the fine pass.",
+        "System Coarse Pass Fine Pass Unpruned Viterbi – 6.4 Pruned Viterbi 1.2 1.5",
+        "Unpruned Logsum MBR — 28.6 Pruned Scaling MBR 1.2 4.3 Table 3: Time spent in the passes of our different systems, in seconds per 1000 sentences. Pruning refers to using a 1-split grammar for the coarse pass. ertheless, the general trends should more or less be preserved as compared to the unprofiled code.",
         "To begin, we can compute the number of seconds needed to parse 1000 sentences. (We use seconds per sentence rather than sentences per second because the former measure is additive.) The results are in Table 3. In the case of pruned Viterbi, pruning reduces the amount of time spent in the fine pass by more than 4x, though half of those gains are lost to computing the pruning masks.",
         "In Table 4, we break down the time taken by our system into individual components. As expected, binary rules account for the vast majority of the time in the unpruned Viterbi case, but much less time in the pruned case, with the total time taken for binary rules in the coarse and fine passes taking about 1/5 of the time taken by binaries in the unpruned version. Queueing, which involves copying memory around within the GPU to process the individual parse items, takes a fairly consistent amount of time in all systems. Overhead, which includes transport time between the CPU and GPU and other processing on the CPU, is relatively small for most system configurations. There is greater overhead in the scaling system, because scaling factors are copied to the CPU between the coarse and fine passes.",
         "A final question is: how many sentences per second do we need to process to saturate the GPU’s processing power? We computed Viterbi parses of successive powers of 10, from 1 to 100,000 sentences.6",
         "In Figure 4, we then plotted the throughput, in terms of number of sentences per second. Throughput increases through parsing 10,000 sentences, and then levels off by the time it reaches 100,000 sentences. 6 We replicated the Treebank for the 100,000 sentences",
-        "pass. 215 System Coarse Pass Fine Pass Binary Unary Queueing Masks Overhead Binary Unary Queueing Overhead Unpruned Viterbi – – – – – 5.42 0.14 0.33 0.40 Pruned Viterbi 0.59 0.02 0.19 0.04 0.22 0.56 0.10 0.34 0.22 Pruned Scaling 0.59 0.02 0.19 0.04 0.20 1.74 0.24 0.46 0.84 Table 4: Breakdown of time spent in our different systems, in seconds per 1000 sentences. Binary and Unary refer to spent processing binary rules. Queueing refers to the amount of time used to move memory around within the GPU for processing. Overhead includes all other time, which includes communication between the GPU and the CPU. S e nt e nc e s / S e c ond 0 100 200 300 400 Number of Sentences 1 10 100 1K 10K 100K Figure 4: Plot of speeds (sentences / second) for various sizes of input corpora. The full power of the GPU parser is only reached when run on large numbers of sentences."
+        "pass. 215",
+        "System Coarse Pass Fine Pass",
+        "Binary Unary Queueing Masks Overhead Binary Unary Queueing Overhead Unpruned Viterbi – – – – – 5.42 0.14 0.33 0.40 Pruned Viterbi 0.59 0.02 0.19 0.04 0.22 0.56 0.10 0.34 0.22 Pruned Scaling 0.59 0.02 0.19 0.04 0.20 1.74 0.24 0.46 0.84 Table 4: Breakdown of time spent in our different systems, in seconds per 1000 sentences. Binary and Unary refer to spent processing binary rules. Queueing refers to the amount of time used to move memory around within the GPU for processing. Overhead includes all other time, which includes communication between the GPU and the CPU. S e nt e nc e s / S e c ond 0 100 200 300 400 Number of Sentences 1 10 100 1K 10K 100K Figure 4: Plot of speeds (sentences / second) for various sizes of input corpora. The full power of the GPU parser is only reached when run on large numbers of sentences."
       ]
     },
     {

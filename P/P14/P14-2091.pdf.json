@@ -7,7 +7,7 @@
       ]
     },
     {
-      "title": "A joint inference of deep case analysis and zero subject generation forJapanese-to-English statistical machine translationTaku Kudo, Hiroshi Ichikawa, Hideto KazawaGoogle Japan{taku,ichikawa,kazawa}@google.comAbstract",
+      "title": "A joint inference of deep case analysis and zero subject generation for Japanese-to-English statistical machine translation Taku Kudo, Hiroshi Ichikawa, Hideto Kazawa Google Japan {taku,ichikawa,kazawa}@google.com Abstract",
       "paragraphs": [
         "We present a simple joint inference of deep case analysis and zero subject generation for the pre-ordering in Japanese-to-English machine translation. The detection of subjects and objects from Japanese sentences is more difficult than that from English, while it is the key process to generate correct English word orders. In addi-tion, subjects are often omitted in Japanese when they are inferable from the context. We propose a new Japanese deep syntactic parser that consists of pointwise probabilistic models and a global inference with linguistic constraints. We applied our new deep parser to pre-ordering in Japanese-to-English SMT system and show substantial improvements in automatic evaluations."
       ]
@@ -23,9 +23,9 @@
       ]
     },
     {
-      "title": "2 What makes Japanese-to-Englishtranslation difficult?",
+      "title": "2 What makes Japanese-to-English translation difficult?",
       "paragraphs": [
-        "Japanese syntactic relations between arguments and predicates are usually specified by particles. There are several types of particles, but we focus on (ga), (wo) and (wa) for the sake of 557 Table 1: An example of difficult sentence for parsing Sentence:      . Gloss: today wa TOP liquor ga NOM can drink. Translation: (I) can drink liquor today.",
+        "Japanese syntactic relations between arguments and predicates are usually specified by particles. There are several types of particles, but we focus on (ga), (wo) and (wa) for the sake of 557 Table 1: An example of difficult sentence for parsing Sentence: . Gloss: today wa TOP liquor ga NOM can drink. Translation: (I) can drink liquor today.",
         "simplicity 1 .",
         "• ga is usually a subject marker. However, it becomes an object marker if the predicate has a potential voice type, which is usually translated into can, be able to, want to, or would like to. • wo is an object marker.",
         "• wa is a topic case marker. The topic can be anything that a speaker wants to talk about. It can be subject, object, location, time or any other grammatical elements.",
@@ -45,7 +45,7 @@
       ]
     },
     {
-      "title": "3 A joint inference of deep case analysisand zero subject generation3.1 Probabilistic model overpredicate-argument structures",
+      "title": "3 A joint inference of deep case analysis and zero subject generation 3.1 Probabilistic model over predicate-argument structures",
       "paragraphs": [
         "Our deep parser runs on the top of a dependency parse tree. First, it extracts all predicates and their arguments from a dependency tree by using manual rules over POS tags. Since our pre-ordering system generates the final word orders from a labeled dependency tree, we formalize our deep 558 parsing task as a simple labeling problem over dependency links, where the label indicates the deep syntactic roles between head and modifier.",
         "We here define a joint probability over a predicate and its arguments as follows: P (p, z, v, A, S, D) (1) where • p: a predicate",
@@ -53,7 +53,8 @@
         "• v: voice type of the predicate p. v ∈ V = {active, passive, potential }",
         "• ak ∈ A: k-th argument which modifies or is modified by the predicate2",
         ".",
-        "• dk ∈ D: deep case label which represents a deep relation between ak and p. d ∈ { subject, object, other }, where other means that deep case is neither subject nor object. • sk ∈ S: surface relation (surface case marker) between ak and p.",
+        "• dk ∈ D: deep case label which represents a deep relation between ak and p. d ∈ { subject, object, other }, where other means that deep case is neither subject nor object.",
+        "• sk ∈ S: surface relation (surface case marker) between ak and p.",
         "We assume that a predicate p is independent from other predicates in a sentence. This assumption allows us to estimate the deep structures of p separately, with no regard to which decisions are made in other predicates.",
         "An optimal zero subject label z, deep cases D, and voice type v for a given predicate p can be solved as the following optimization problem.",
         "⟨ẑ, v̂, D̂⟩ = argmax z,v,D P (p, z, v, A, S, D) Since the inference of this joint probability is difficult, we decompose P (p, z, v, A, S, D) into small independent sub models: P (p, z, v, A, S, D) ≈ Pz(z|p, A, S)Pv(v|p, A, S) Pd(D|p, v, A, S)P (p, A, S) (2) We do not take the last term P (p, A, S) into consideration, since it is constant for the optimization. In the next sections, we describe how these probabilities Pz, Pd, and Pv are computed.",
@@ -70,19 +71,22 @@
         ". When the voice type is passive, an object role in D is considered as a syntactic subject.",
         "• A predicate can not have multiple subjects and objects respectively.",
         "These two constraints avoid the model from in-ferring syntactically irrelevant solutions.",
-        "In order to find the result with the constraints above, we formalize our model as an integer linear programming, ILP. Let {x1, , ..., xn} be binary variables, i.e., xi ∈ {0, 1}. xi corresponds to the binary decisions in our model, e.g., xk = 1 if di = subj and v = active. Let {p1, ..., pn} be probability vector corresponding to the binary decisions. ILP can be formalized as a mathematical problem, in which the objective function and the constraints are linear: {x̂1, ..., x̂n} = argmax {x1,...,xn}∈{0,1}n n∑ i=1 log(pi)xi s.t. linear constraints over {x1, .., xn}. After taking the log of (2), our optimization model can be converted into an ILP. Also, the constraints 4",
+        "In order to find the result with the constraints above, we formalize our model as an integer linear programming, ILP. Let {x1, , ..., xn} be binary variables, i.e., xi ∈ {0, 1}. xi corresponds to the binary decisions in our model, e.g., xk = 1 if di = subj and v = active. Let {p1, ..., pn} be probability vector corresponding to the binary decisions. ILP can be formalized as a mathematical problem, in which the objective function and the constraints are linear:",
+        "{x̂1, ..., x̂n} = argmax {x1,...,xn}∈{0,1}n n∑ i=1 log(pi)xi s.t. linear constraints over {x1, .., xn}. After taking the log of (2), our optimization model can be converted into an ILP. Also, the constraints 4",
         "imperative is also handled as an invisible subject described above can be represented as linear equations over binary variables X. We leave the details of the representations to (Punyakanok et al., 2004; Iida and Poesio, 2011). 3.3 Japanese pre-ordering with deep parser We use a simple rule-based approach to make preordered Japanese sentences from our deep parse trees, which is similar to the algorithms described in (Komachi et al., 2006; Katz-Brown and Collins, 2008; Hoshino et al., 2013). First, we naively reverse all the bunsetsu-chunks 5",
-        ". Then, we move a subject chunk just before its predicate. This process converts SOV to SVO. When the subject is omitted, we generate a subject with our deep parser and insert it to a subject position in the source sentence. There are three different ways to generate a subject. 1. Generate real Japanese words (Insert (I),  (you).. etc)",
+        ". Then, we move a subject chunk just before its predicate. This process converts SOV to SVO. When the subject is omitted, we generate a subject with our deep parser and insert it to a subject position in the source sentence. There are three different ways to generate a subject.",
+        "1. Generate real Japanese words (Insert (I), (you).. etc)",
         "2. Generate virtual seed Japanese words (Insert 1st person, 2nd person..., which are not in the Japanese lexicon.)",
         "3. Generate only a single virtual seed Japanese word regardless of the subject type. (Insert zero subject)",
         "1) is the most aggressive method, but it causes completely incorrect translations if the detection of subject type fails. 2) and 3) is rather conservative, since they leave SMT to generate English pronouns.",
         "We decided to use the following hybrid approach, since it shows the best performance in our preliminary experiments. • In the training of SMT, use 3).",
         "• In decoding, use 1) if the input sentence only has one predicate. Otherwise, use 3). 3.4 Examples of parsing results Table 2 shows examples of our deep parser output. It can be seen that our parser can correctly identify the deep case of topic case markers wa. 5 bunsetsu is a basic Japanese grammatical unit consisting",
-        "of one content word and functional words. 560 Table 2: Examples of deep parser output  (today wa) {d=other}  (liquor ga) {d=obj}  (can drink) {v=potential, z=I}  (news ga) {d=subj}  (was broadcast) {v=passive, z=already exist}  (pasta wa) {d=obj}  (ate+question) {v=active, z=you}  (you wa) {d=subj}  (ate+question) {v=active, z=already exist}"
+        "of one content word and functional words. 560",
+        "Table 2: Examples of deep parser output (today wa) {d=other} (liquor ga) {d=obj} (can drink) {v=potential, z=I} (news ga) {d=subj} (was broadcast) {v=passive, z=already exist} (pasta wa) {d=obj} (ate+question) {v=active, z=you} (you wa) {d=subj} (ate+question) {v=active, z=already exist}"
       ]
     },
     {
-      "title": "4 Experiments4.1 Experimental settings",
+      "title": "4 Experiments 4.1 Experimental settings",
       "paragraphs": [
         "We carried out all our experiments using a state-of-the-art phrase-based statistical Japanese-to-English machine translation system (Och, 2003) with pre-ordering. During the decoding, we use the reordering window (distortion limit) to 4 words. For parallel training data, we use an in-house collection of parallel sentences. These come from various sources with a substantial portion coming from the web. We trained our system on about 300M source words. Our test set contains about 10,000 sentences randomly sampled from the web.",
         "The dependency parser we apply is an implementation of a shift-reduce dependency parser which uses a bunsetsu-chunk as a basic unit for parsing (Kudo and Matsumoto, 2002).",
@@ -114,7 +118,8 @@
         "Hideki Isozaki, Tsutomu Hirao, Kevin Duh, Katsuhito Sudoh, and Hajime Tsukada. 2010a. Automatic evaluation of translation quality for distant language pairs. In Proc. of EMNLP. Association for Computational Linguistics.",
         "Hideki Isozaki, Katsuhito Sudoh, Hajime Tsukada, and Kevin Duh. 2010b. Head finalization: A simple reordering rule for sov languages. In Proc. of the Joint Fifth Workshop on Statistical Machine Translation and MetricsMATR.",
         "Jason Katz-Brown and Michael Collins. 2008. Syntac-tic reordering in preprocessing for japanese english translation: Mit system description for ntcir-7 patent translation task. In Proc. of the NTCIR-7 Workshop Meeting.",
-        "Mamoru Komachi, Masaaki Nagata, and Yuji Matsumoto. 2006. Phrase reordering for statistical machine translation based on predicate-argument structure. In Proc. of the International Workshop on Spoken Language Translation. Taku Kudo and Yuji Matsumoto. 2002. Japanese dependency analysis using cascaded chunking. In Proc. of CoNLL.",
+        "Mamoru Komachi, Masaaki Nagata, and Yuji Matsumoto. 2006. Phrase reordering for statistical machine translation based on predicate-argument structure. In Proc. of the International Workshop on Spoken Language Translation.",
+        "Taku Kudo and Yuji Matsumoto. 2002. Japanese dependency analysis using cascaded chunking. In Proc. of CoNLL.",
         "Uri Lerner and Slav Petrov. 2013. Source-side classifier preordering for machine translation. In Proc. of EMNLP.",
         "Graham Neubig, Taro Watanabe, and Shinsuke Mori. 2012. Inducing a discriminative parser to optimize machine translation reordering. In Proc. of EMNLP.",
         "Franz Josef Och. 2003. Minimum error rate training in statistical machine translation. In Proc. of ACL.",

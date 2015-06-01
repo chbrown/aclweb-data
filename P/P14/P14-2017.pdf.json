@@ -7,7 +7,7 @@
       ]
     },
     {
-      "title": "Automatic Detection of Cognates Using Orthographic AlignmentAlina Maria Ciobanu, Liviu P. DinuFaculty of Mathematics and Computer Science, University of BucharestCenter for Computational Linguistics, University of Bucharestalina.ciobanu@my.fmi.unibuc.ro,ldinu@fmi.unibuc.roAbstract",
+      "title": "Automatic Detection of Cognates Using Orthographic Alignment Alina Maria Ciobanu, Liviu P. Dinu Faculty of Mathematics and Computer Science, University of Bucharest Center for Computational Linguistics, University of Bucharest alina.ciobanu@my.fmi.unibuc.ro,ldinu@fmi.unibuc.ro Abstract",
       "paragraphs": [
         "Words undergo various changes when entering new languages. Based on the assumption that these linguistic changes follow certain rules, we propose a method for automatically detecting pairs of cognates employing an orthographic alignment method which proved relevant for sequence alignment in computational biology. We use aligned subsequences as features for machine learning algorithms in order to infer rules for linguistic changes undergone by words when entering new languages and to discriminate between cognates and non-cognates. Given a list of known cognates, our approach does not require any other linguistic information. However, it can be customized to integrate historical information regarding language evolution."
       ]
@@ -48,7 +48,7 @@
       ]
     },
     {
-      "title": "4 Experiments4.1 Data",
+      "title": "4 Experiments 4.1 Data",
       "paragraphs": [
         "We apply our method on an automatically extracted dataset of cognates for four pairs of languages: Romanian-French, Romanian-Italian, Romanian-Spanish and Romanian-Portuguese. In order to build the dataset, we apply the method-ology proposed by Ciobanu and Dinu (2014) on the DexOnline1",
         "machine-readable dictionary for Romanian. We discard pairs of words for which the forms across languages are identical (i.e., the Romanian word matrice and its Italian cognate pair matrice, having the same form), because these pairs do not provide any orthographic changes to be learned. For each pair of languages we determine a number of non-cognate pairs equal to the number of cognate pairs. Finally, we obtain 445 pairs of cognates for Romanian-French2",
@@ -56,8 +56,24 @@
         "1",
         "http://dexonline.ro",
         "2",
-        "The number of pairs of cognates is much lower for French than for the other languages because there are numerous Romanian words which have French etymology and, in this paper, we do not consider these words to be cognate can-didates. 101 1st 2nd 3rd 4th 5th IT iu>io un>on l->le t$>-$ -$>e$ FR un>on ne>n-iu>io ti̧>ti e$>-$ ES -$>o$ ti̧>ci –>ón ie>ió at>ad PT ie>ão at>̧ac ̧ ti̧>çã i$>-$ ă$>a$ Table 1: The most relevant orthographic cues for each pair of languages determined on the entire datasets using the χ2",
-        "attribute evaluation method implemented in Weka. 1st 2nd 3rd 4th 5th IT -$>e$ -$>o$ ă$>a$ –>re ti̧>zi FR e$>-$ un>on ne>n-iu>io ti̧>ti ES -$>o$ e$>-$ ti̧>ci ă$>a$ at>ad PT -$>o$ ă$>a$ e$>-$ -$>r$ -$>a$ Table 2: The most frequent orthographic cues for each pair of languages determined on the cognate lists using the raw frequencies. comparison across languages, we keep 400 pairs of cognates and 400 pairs of non-cognates for each pair of languages. In Tables 1 and 2 we provide, for each pair of languages, the five most relevant 2-gram orthographic changes, determined using the χ2",
+        "The number of pairs of cognates is much lower for French than for the other languages because there are numerous Romanian words which have French etymology and, in this paper, we do not consider these words to be cognate can-didates. 101 1st",
+        "2nd",
+        "3rd",
+        "4th",
+        "5th",
+        "IT iu>io un>on l->le t$>-$ -$>e$",
+        "FR un>on ne>n- iu>io ti̧>ti e$>-$",
+        "ES -$>o$ ti̧>ci –>ón ie>ió at>ad",
+        "PT ie>ão at>̧açti̧>çã i$>-$ ă$>a$ Table 1: The most relevant orthographic cues for each pair of languages determined on the entire datasets using the χ2",
+        "attribute evaluation method implemented in Weka. 1st",
+        "2nd",
+        "3rd",
+        "4th",
+        "5th",
+        "IT -$>e$ -$>o$ ă$>a$ –>re ti̧>zi",
+        "FR e$>-$ un>on ne>n- iu>io ti̧>ti",
+        "ES -$>o$ e$>-$ ti̧>ci ă$>a$ at>ad",
+        "PT -$>o$ ă$>a$ e$>-$ -$>r$ -$>a$ Table 2: The most frequent orthographic cues for each pair of languages determined on the cognate lists using the raw frequencies. comparison across languages, we keep 400 pairs of cognates and 400 pairs of non-cognates for each pair of languages. In Tables 1 and 2 we provide, for each pair of languages, the five most relevant 2-gram orthographic changes, determined using the χ2",
         "distribution implemented in Weka, and the five most frequent 2-gram orthographic changes in the cognate pairs from our dataset3",
         ". None of the top ranked orthographic cues occurs at the beginning of the word, while many of them occur at the end of the word. The most frequent operation in Tables 1 and 2 is substitution. 4.2 Results Analysis We propose a method for automatic detection of cognate pairs using orthographic alignment. We experiment with two machine-learning approaches: Naive Bayes and SVM. In Table 3 we report the results of our research. We report the n-gram values for which the best results are obtained and the hyperparameters for SVM, c and γ. The best results are obtained for French and Spanish, while the lowest accuracy is obtained for Portuguese. The SVM produces better results for all languages except Portuguese, where the accuracy is equal. For Portuguese, both Naive Bayes and SVM misclassify more non-cognates as cognates",
         "3",
@@ -67,8 +83,11 @@
         "4",
         "We use normalized similarity metrics. For the edit distance, we subtract the normalized value from 1 in order to obtain similarity.",
         "5",
-        "SpSim cannot be computed directly, as the other metrics, so we introduce an additional step in which we use 1/3 of the training set (only cognates are needed) to learn orthographic changes. In order to maintain a stratified dataset, we discard an equal number of non-cognates in the training set and then we compute the distances for the rest of the training set and for the test set. We use the remaining of the initial training set for the next step of the procedure. 102 Naive Bayes SVM P R A n P R A n c γ IT 0.72 0.93 79.0 1 0.76 0.92 81.5 1 1 0.10 FR 0.81 0.91 82.0 2 0.84 0.89 87.0 2 10 0.01 ES 0.79 0.92 84.0 1 0.85 0.88 86.5 2 4 0.01 PT 0.67 0.88 73.0 2 0.70 0.78 73.0 2 10 0.01 Table 3: Results for automatic detection of cognates using orthographic alignment. We report the precision (P), recall (R) and accuracy (A) obtained on the test sets and the optimal n-gram values. For SVM we also report the optimal hyperparameters c and γ obtained during cross-validation on the training sets. EDIT LCSR XDICE SPSIM P R A t P R A t P R A t P R A t IT",
-        "0.67 0.97 75.0 0.43 0.68 0.91 75.0 0.51 0.66 0.98 74.0 0.21 0.66 0.98 74.5 0.44 FR 0.76 0.93 82.0 0.30 0.76 0.90 81.5 0.42 0.77 0.79 78.0 0.26 0.86 0.83 85.0 0.59 ES 0.77 0.91 82.0 0.56 0.72 0.97 80.0 0.47 0.72 0.99 80.5 0.19 0.81 0.90 85.0 0.64 PT 0.62 0.99 69.5 0.34 0.59 0.99 65.5 0.34 0.57 0.99 63.5 0.10 0.62 0.97 69.0 0.39 Table 4: Comparison with previous methods for automatic detection of cognate pairs based on orthography. We report the precision (P), recall (R) and accuracy (A) obtained on the test sets and the optimal threshold t for discriminating between cognates and non-cognates."
+        "SpSim cannot be computed directly, as the other metrics, so we introduce an additional step in which we use 1/3 of the training set (only cognates are needed) to learn orthographic changes. In order to maintain a stratified dataset, we discard an equal number of non-cognates in the training set and then we compute the distances for the rest of the training set and for the test set. We use the remaining of the initial training set for the next step of the procedure. 102",
+        "Naive Bayes SVM",
+        "P R A n P R A n c γ IT 0.72 0.93 79.0 1 0.76 0.92 81.5 1 1 0.10 FR 0.81 0.91 82.0 2 0.84 0.89 87.0 2 10 0.01 ES 0.79 0.92 84.0 1 0.85 0.88 86.5 2 4 0.01 PT 0.67 0.88 73.0 2 0.70 0.78 73.0 2 10 0.01 Table 3: Results for automatic detection of cognates using orthographic alignment. We report the precision (P), recall (R) and accuracy (A) obtained on the test sets and the optimal n-gram values. For SVM we also report the optimal hyperparameters c and γ obtained during cross-validation on the training sets.",
+        "EDIT LCSR XDICE SPSIM",
+        "P R A t P R A t P R A t P R A t IT 0.67 0.97 75.0 0.43 0.68 0.91 75.0 0.51 0.66 0.98 74.0 0.21 0.66 0.98 74.5 0.44 FR 0.76 0.93 82.0 0.30 0.76 0.90 81.5 0.42 0.77 0.79 78.0 0.26 0.86 0.83 85.0 0.59 ES 0.77 0.91 82.0 0.56 0.72 0.97 80.0 0.47 0.72 0.99 80.5 0.19 0.81 0.90 85.0 0.64 PT 0.62 0.99 69.5 0.34 0.59 0.99 65.5 0.34 0.57 0.99 63.5 0.10 0.62 0.97 69.0 0.39 Table 4: Comparison with previous methods for automatic detection of cognate pairs based on orthography. We report the precision (P), recall (R) and accuracy (A) obtained on the test sets and the optimal threshold t for discriminating between cognates and non-cognates."
       ]
     },
     {
@@ -92,17 +111,21 @@
         "Quentin D. Atkinson, Russell D. Gray, Geoff K. Nicholls, and David J. Welch. 2005. From Words to Dates: Water into Wine, Mathemagic or Phylogenetic Inference? Transactions of the Philological Society, 103:193–219.",
         "Lisa Beinborn, Torsten Zesch, and Iryna Gurevych. 2013. Cognate Production using Character-based Machine Translation. In Proceedings of the 6th International Joint Conference on Natural Language Processing, IJCNLP 2013, pages 883–891.",
         "Chris Brew and David McKelvie. 1996. Word-Pair Extraction for Lexicography. In Proceeding of Text, Speech and Dialogue, TSD 1996, pages 45–55.",
-        "Chris Buckley, Mandar Mitra, Janet A. Walz, and Claire Cardie. 1997. Using Clustering and Super-Concepts Within SMART: TREC 6. In Proceedings of the 6th Text Retrieval Conference, TREC 1997, pages 107–124. Chih-Chung Chang and Chih-Jen Lin. 2011. LIBSVM: A Library for Support Vector Machines. ACM Transactions on Intelligent Systems and Technology, 2:27:1–27:27. Software available at http://www.csie.ntu. edu.tw/c̃jlin/libsvm.",
+        "Chris Buckley, Mandar Mitra, Janet A. Walz, and Claire Cardie. 1997. Using Clustering and Super-Concepts Within SMART: TREC 6. In Proceedings of the 6th Text Retrieval Conference, TREC 1997, pages 107–124.",
+        "Chih-Chung Chang and Chih-Jen Lin. 2011. LIBSVM: A Library for Support Vector Machines. ACM Transactions on Intelligent Systems and Technology, 2:27:1–27:27. Software available at http://www.csie.ntu. edu.tw/c̃jlin/libsvm.",
         "Kenneth W. Church. 1993. Char align: A program for aligning parallel texts at the character level. In Proceedings of the 31st Annual Meeting of the Association for Computational Linguistics, ACL 1993, pages 1–8.",
-        "Alina Maria Ciobanu and Liviu P. Dinu. 2014. Build-ing a Dataset of Multilingual Cognates for the Romanian Lexicon. In Proceedings of the 9th International Conference on Language Resources and Evaluation, LREC 2014. Antonella Delmestri and Nello Cristianini. 2010. String Similarity Measures and PAM-like Matrices for Cognate Identification. Bucharest Working Papers in Linguistics, 12(2):71–82.",
+        "Alina Maria Ciobanu and Liviu P. Dinu. 2014. Build-ing a Dataset of Multilingual Cognates for the Romanian Lexicon. In Proceedings of the 9th International Conference on Language Resources and Evaluation, LREC 2014.",
+        "Antonella Delmestri and Nello Cristianini. 2010. String Similarity Measures and PAM-like Matrices for Cognate Identification. Bucharest Working Papers in Linguistics, 12(2):71–82.",
         "Ton Dijkstra, Franc Grootjen, and Job Schepens. 2012. Distributions of Cognates in Europe as Based on Levenshtein Distance. Bilingualism: Language and Cognition, 15:157–166.",
         "Christiane Fellbaum, editor. 1998. WordNet: An Electronic Lexical Database. MIT Press, Cambridge, Massachusetts.",
-        "Luı́s Gomes and José Gabriel Pereira Lopes. 2011. Measuring spelling similarity for cognate identification. In Proceedings of the 15th Portugese Conference on Progress in Artificial Intelligence, EPIA 2011, pages 624–633. Software available at http: //research.variancia.com/spsim. Osamu Gotoh. 1982. An improved algorithm for matching biological sequences. Journal of Molecular Biology, 162(3):705–708.",
+        "Luı́s Gomes and José Gabriel Pereira Lopes. 2011. Measuring spelling similarity for cognate identification. In Proceedings of the 15th Portugese Conference on Progress in Artificial Intelligence, EPIA 2011, pages 624–633. Software available at http: //research.variancia.com/spsim.",
+        "Osamu Gotoh. 1982. An improved algorithm for matching biological sequences. Journal of Molecular Biology, 162(3):705–708.",
         "Dan Gusfield. 1997. Algorithms on Strings, Trees and Sequences: computer science and computational biology. Cambridge University Press New York, NY, USA.",
         "David Hall and Dan Klein. 2010. Finding Cognate Groups Using Phylogenies. In Proceedings of the 48th Annual Meeting of the Association for Computational Linguistics, ACL 2010, pages 1030–1039.",
         "Mark Hall, Eibe Frank, Geoffrey Holmes, Bernhard Pfahringer, Peter Reutemann, and Ian H. Witten. 2009. The WEKA data mining software: an update. SIGKDD Explorations, 11(1):10–18. Software available at http://www.cs.waikato. ac.nz/ml/weka.",
         "Bradley Hauer and Grzegorz Kondrak. 2011. Clustering semantically equivalent words into cognate sets in multilingual lists. In 5th International Joint Conference on Natural Language Processing, IJCNLP 2011, pages 865–873.",
-        "Diana Inkpen, Oana Frunza, and Grzegorz Kondrak. 2005. Automatic Identification of Cognates and False Friends in French and English. In Proceedings of the International Conference on Recent Advances in Natural Language Processing, RANLP 2005, pages 251–257. Philipp Koehn and Kevin Knight. 2000. Estimat-ing Word Translation Probabilities from Unrelated Monolingual Corpora Using the EM Algorithm. In Proceedings of the 17th National Conference on Artificial Intelligence and 12th Conference on Innovative Applications of Artificial Intelligence, pages 711–715.",
+        "Diana Inkpen, Oana Frunza, and Grzegorz Kondrak. 2005. Automatic Identification of Cognates and False Friends in French and English. In Proceedings of the International Conference on Recent Advances in Natural Language Processing, RANLP 2005, pages 251–257.",
+        "Philipp Koehn and Kevin Knight. 2000. Estimat-ing Word Translation Probabilities from Unrelated Monolingual Corpora Using the EM Algorithm. In Proceedings of the 17th National Conference on Artificial Intelligence and 12th Conference on Innovative Applications of Artificial Intelligence, pages 711–715.",
         "Grzegorz Kondrak, Daniel Marcu, and Keven Knight. 2003. Cognates Can Improve Statistical Translation Models. In Proceedings of the 2003 Conference of the North American Chapter of the Association for Computational Linguistics on Human Language Technology, HLT-NAACL 2003, pages 46–48.",
         "Grzegorz Kondrak. 2000. A New Algorithm for the Alignment of Phonetic Sequences. In Proceedings of the 1st North American Chapter of the Association for Computational Linguistics Conference, NAACL 2000, pages 288–295.",
         "Grzegorz Kondrak. 2004. Combining Evidence in Cognate Identification. In Proceedings of the 17th Conference of the Canadian Society for Computational Studies of Intelligence on Advances in Artificial Intelligence, pages 44–59.",

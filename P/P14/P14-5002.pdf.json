@@ -7,7 +7,7 @@
       ]
     },
     {
-      "title": "Visualization, Search, and Error Analysis for Coreference AnnotationsMarkus Gärtner Anders Björkelund Gregor Thiele Wolfgang Seeker Jonas KuhnInstitute for Natural Language ProcessingUniversity of Stuttgart{thielegr,seeker,gaertnms,anders,kuhn}@ims.uni-stuttgart.deAbstract",
+      "title": "Visualization, Search, and Error Analysis for Coreference Annotations Markus Gärtner Anders Björkelund Gregor Thiele Wolfgang Seeker Jonas Kuhn Institute for Natural Language Processing University of Stuttgart {thielegr,seeker,gaertnms,anders,kuhn}@ims.uni-stuttgart.de Abstract",
       "paragraphs": [
         "We present the ICARUS Coreference Explorer, an interactive tool to browse and search coreference-annotated data. It can display coreference annotations as a tree, as an entity grid, or in a standard text-based display mode, and lets the user switch freely between the different modes. The tool can compare two different annotations on the same document, allow-ing system developers to evaluate errors in automatic system predictions. It features a flexible search engine, which enables the user to graphically construct search queries over sets of documents annotated with coreference."
       ]
@@ -90,17 +90,20 @@
         "Regina Barzilay and Mirella Lapata. 2008. Modeling Local Coherence: An Entity-Based Approach. Computational Linguistics, 34(1):1–34.",
         "Shane Bergsma and Dekang Lin. 2006. Bootstrapping path-based pronoun resolution. In COLING-ACL, pages 33–40, Sydney, Australia, July.",
         "Anders Björkelund and Jonas Kuhn. 2014. Learning Structured Perceptrons for Coreference Resolution with Latent Antecedents and Non-local Features. In ACL, Baltimore, MD, USA, June.",
-        "Marie-Catherine de Marneffe and Christopher D. Manning. 2008. The stanford typed dependencies representation. In COLING Workshop on Crossframework and Cross-domain Parser Evaluation. Greg Durrett and Dan Klein. 2013. Easy Victories and Uphill Battles in Coreference Resolution. In EMNLP, pages 1971–1982, Seattle, Washington, USA, October.",
+        "Marie-Catherine de Marneffe and Christopher D. Manning. 2008. The stanford typed dependencies representation. In COLING Workshop on Crossframework and Cross-domain Parser Evaluation.",
+        "Greg Durrett and Dan Klein. 2013. Easy Victories and Uphill Battles in Coreference Resolution. In EMNLP, pages 1971–1982, Seattle, Washington, USA, October.",
         "Eraldo Fernandes, Cı́cero dos Santos, and Ruy Milidiú. 2012. Latent Structure Perceptron with Feature In-duction for Unrestricted Coreference Resolution. In EMNLP-CoNLL: Shared Task, pages 41–48, Jeju Island, Korea, July.",
         "Markus Gärtner, Gregor Thiele, Wolfgang Seeker, Anders Björkelund, and Jonas Kuhn. 2013. ICARUS – An Extensible Graphical Search Tool for Dependency Treebanks. In ACL: System Demonstrations, pages 55–60, Sofia, Bulgaria, August.",
         "Jonathan K. Kummerfeld and Dan Klein. 2013. Error-Driven Analysis of Challenges in Coreference Resolution. In EMNLP, pages 265–277, Seattle, Washington, USA, October.",
         "Christoph Müller and Michael Strube. 2006. Multi-level annotation of linguistic data with MMAX2. In Corpus Technology and Language Pedagogy: New Resources, New Tools, New Methods, pages 197– 214. Peter Lang.",
-        "Constantin Orăsan. 2003. PALinkA: A highly customisable tool for discourse annotation. In Akira Kurematsu, Alexander Rudnicky, and Syun Tutiya, editors, Proceedings of the Fourth SIGdial Workshop on Discourse and Dialogue, pages 39–43. Petr Pajas and Jan Štěpánek. 2009. System for Querying Syntactically Annotated Corpora. In ACL-IJCNLP: Software Demonstrations, pages 33–36, Suntec, Singapore.",
+        "Constantin Orăsan. 2003. PALinkA: A highly customisable tool for discourse annotation. In Akira Kurematsu, Alexander Rudnicky, and Syun Tutiya, editors, Proceedings of the Fourth SIGdial Workshop on Discourse and Dialogue, pages 39–43.",
+        "Petr Pajas and Jan Štěpánek. 2009. System for Querying Syntactically Annotated Corpora. In ACL-IJCNLP: Software Demonstrations, pages 33–36, Suntec, Singapore.",
         "Sameer Pradhan, Lance Ramshaw, Mitchell Marcus, Martha Palmer, Ralph Weischedel, and Nianwen Xue. 2011. CoNLL-2011 Shared Task: Modeling Unrestricted Coreference in OntoNotes. In CoNLL: Shared Task, pages 1–27, Portland, Oregon, USA, June.",
         "Sameer Pradhan, Alessandro Moschitti, Nianwen Xue, Olga Uryupina, and Yuchen Zhang. 2012. CoNLL-2012 Shared Task: Modeling Multilingual Unrestricted Coreference in OntoNotes. In EMNLP-CoNLL: Shared Task, pages 1–40, Jeju Island, Korea, July.",
         "Marta Recasens, Lluı́s Màrquez, Emili Sapena, M. Antònia Martı́, Mariona Taulé, Véronique Hoste, Massimo Poesio, and Yannick Versley. 2010. Semeval-2010 task 1: Coreference resolution in multiple languages. In Proceedings of the 5th International Workshop on Semantic Evaluation, pages 1–8, Uppsala, Sweden, July.",
         "Wee Meng Soon, Hwee Tou Ng, and Daniel Chung Yong Lim. 2001. A machine learning approach to coreference resolution of noun phrases. Computational Linguistics, 27(4):521–544.",
-        "Pontus Stenetorp, Sampo Pyysalo, Goran Topić, Tomoko Ohta, Sophia Ananiadou, and Jun’ichi Tsujii. 2012. brat: a Web-based Tool for NLP-Assisted Text Annotation. In EACL: Demonstrations, pages 102–107, April. Seid Muhie Yimam, Iryna Gurevych, Richard Eckart de Castilho, and Chris Biemann. 2013. WebAnno: A Flexible, Web-based and Visually Supported System for Distributed Annotations. In ACL: System Demonstrations, pages 1–6, August.",
+        "Pontus Stenetorp, Sampo Pyysalo, Goran Topić, Tomoko Ohta, Sophia Ananiadou, and Jun’ichi Tsujii. 2012. brat: a Web-based Tool for NLP-Assisted Text Annotation. In EACL: Demonstrations, pages 102–107, April.",
+        "Seid Muhie Yimam, Iryna Gurevych, Richard Eckart de Castilho, and Chris Biemann. 2013. WebAnno: A Flexible, Web-based and Visually Supported System for Distributed Annotations. In ACL: System Demonstrations, pages 1–6, August.",
         "Amir Zeldes, Julia Ritz, Anke Lüdeling, and Christian Chiarcos. 2009. ANNIS: a search tool for multilayer annotated corpora. In Proceedings of Corpus Linguistics. 12"
       ]
     }

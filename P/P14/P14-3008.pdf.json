@@ -7,13 +7,7 @@
       ]
     },
     {
-      "title": "Going beyond sentences when applying tree kernels Dmitry Ilvovsky School of Applied Mathematics and Information Science National Research University Higher School of Economics Moscow, Russia dilvovsky@hse.ru",
-      "paragraphs": [
-        " "
-      ]
-    },
-    {
-      "title": "Abstract",
+      "title": "Going beyond sentences when applying tree kernels Dmitry Ilvovsky School of Applied Mathematics and Information Science National Research University Higher School of Economics Moscow, Russia dilvovsky@hse.ru   Abstract",
       "paragraphs": [
         "We go beyond the level of individual sentences applying parse tree kernels to paragraphs. We build a set of extended trees for a paragraph of text from the individual parse trees for sentences and learn short texts such as search results and social profile postings to take advantage of additional discourse-related information. Extension is based on coreferences and rhetoric structure relations between the phrases in different sentences. We evaluate our approach, tracking relevance classification improvement for multi-sentence search task. The search problem is formulated as classification of search results into the classes of relevant and irrelevant, learning from the Bing search results. We compare performances of individual sentence kernels with the ones for extended parse trees and show that adding discourse information to learning data helps to improve classification results."
       ]
@@ -33,7 +27,12 @@
         "We introduce a domain where a pair-wise comparison of sentences is insufficient to properly learn certain semantic features of texts. This is due to the variability of ways information can be communicated in multiple sentences, and varia-tions in possible discourse structures of text which needs to be taken into account.",
         "We consider an example of text classification problem, where short portions of text belong to two classes:",
         " Tax liability of a landlord renting office",
-        "to a business.  Tax liability of a business owner renting an office from landlord. I rent an office space. This office is for my business. I can deduct office rental expense from my business profit to calculate net income.  To run my business, I have to rent an office. The net business profit is calculated as follows. Rental expense needs to be subtracted from revenue. ",
+        "to a business.",
+        " Tax liability of a business owner renting an office from landlord.",
+        "I rent an office space. This office is for my business. I can deduct office rental expense from my business profit to calculate net income.",
+        "",
+        "To run my business, I have to rent an office. The net business profit is calculated as follows. Rental expense needs to be subtracted from revenue.",
+        "",
         "To store goods for my retail business I rent some space. When I calculate the net income, I take revenue and subtract business expenses such as office rent. ",
         "I rent out a first floor unit of my house to a travel business. I need to add the rental income to my profit. However, when I repair my house, I can deduct the repair expense from my rental income.",
         "",
@@ -53,17 +52,21 @@
         "For every arc which connects two parse trees, we derive the extension of these trees, extending branches according to the arc (Fig. 3).",
         "In this approach, for a given parse tree, we will obtain a set of its extension, so the elements of kernel will be computed for many extensions, instead of just a single tree. The problem here is that we need to find common sub-trees for a much higher number of trees than the number of sentences in text, however by subsumption (sub-tree relation) the number of common sub-trees will be substantially reduced.",
         "If we have two parse trees P1 and P2 for two sentences in a paragraph, and a relation R12: P1i →P2j between the nodes P1i and P2j, we form the pair of extended trees P1*P2: ..., P1i-2, P1i-1, P1i, P2j, P2j+1, P2j+2,... ..., P2j-2, P2j-1, P2j, P1i, P1i+1, P2i+2,..., which would form the feature set for tree kernel learning in addition to the original trees P1 and P2. Notice that the original order of nodes of parse trees is retained under operation ‘*’ (Fig. 3).",
-        "                 Fig. 3: An arc which connects two parse trees for two sentences in a text (on the top) and the derived set of",
+        "                ",
+        "Fig. 3: An arc which connects two parse trees for two sentences in a text (on the top) and the derived set of",
         "extended trees (on the bottom). The algorithm for building an extended tree for a set of parse trees T is presented below: Input: 1) Set of parse trees T. 2) Set of relations R, which includes relations Rijk between the nodes of Ti and Tj: Ti T, Tj T, Rijk R. We use index k to range over multiple relations between the nodes of parse tree for a pair of sentences.  Output: the exhaustive set of extended trees E.  Set E = ; For each tree i=1:|T| For each relation Rijk, k= 1: |R| Obtain Tj Form the pair of extended trees Ti * Tj; Verify that each of the extended trees do not have a super-tree in E If verified, add to E; Return E.    ",
         "Notice that the resultant trees are not the proper parse trees for a sentence, but nevertheless form an adequate feature space for tree kernel learning. P11 P1i P2j P21 P2j+ 1 58 To obtain the inter-sentence links, we em-",
         "ployed the following sources:  Coreferences from Stanford NLP (Re-",
-        "casens et al., 2013, Lee et al., 2013).  Rhetoric relation extractor based on the rule-based approach to finding relations between elementary discourse units (Galitsky et al., 2013). We combined manual rules with automatically learned derived from the available discourse corpus by means of syntactic generalization."
+        "casens et al., 2013, Lee et al., 2013).",
+        " Rhetoric relation extractor based on the rule-based approach to finding relations between elementary discourse units (Galitsky et al., 2013). We combined manual rules with automatically learned derived from the available discourse corpus by means of syntactic generalization."
       ]
     },
     {
-      "title": "4 Assessment of classification improve-ment",
+      "title": "4 Assessment of classification improvement",
       "paragraphs": [
-        "To confirm that using a set of extended parse trees for paragraphs leverages additional semantic information compared to a set of parse trees for all sentences in a paragraph, we perform an evaluation of relevance in search domain:  As a baseline, we take all trees for sentences in paragraphs  As an expected improvement, we take all extended trees in a paragraph.",
+        "To confirm that using a set of extended parse trees for paragraphs leverages additional semantic information compared to a set of parse trees for all sentences in a paragraph, we perform an evaluation of relevance in search domain:",
+        " As a baseline, we take all trees for sentences in paragraphs",
+        " As an expected improvement, we take all extended trees in a paragraph.",
         "Since a benchmarking database for answering complex multi-sentence questions is not available, we form our own dataset for product-related opinions. The question answering problem is formulated as finding information on the web, relevant to a user posting / opinion expression in a blog, forum or social network.",
         "For the purpose of this evaluation it is not essential to provide the best possible set of answers. Instead, we are concerned with the comparison of relevance improvement by using extended parse tree, as long as the evaluation settings of question answering are identical. The details of the evaluation are given in Section 7."
       ]
@@ -71,8 +74,12 @@
     {
       "title": "5 Implementation of kernel learning for extended trees",
       "paragraphs": [
-        "The evaluation framework described here is implemented as an OpenNLP contribution. It relies on the following systems:  OpenNLP/Stanford NLP parser;  Stanford NLP Coreference;  Bing search;  Wrapper of TK-Light kernel learner (Moschitti, 2006).",
-        "Framework includes the following components of Apache OpenNLP.similarity project:  Rhetoric parser  Parse thicket builder and generalizer (Galitsky et al., 2012). Not used in this evaluation.  A number of applications based on the above component, including search (request handler for SOLR), speech recognition, content generation and others. One of the use cases of this OpenNLP.similarity component is a Java wrapper for tree kernel algorithms implemented in C++. It allows seamless integration of tree kernel algorithms into other open source systems available in Java for search, information retrieval and machine learning. Moreover, tree kernel algorithms can be embedded into Hadoop framework in the domains where offline performance is essential. Libraries and evaluation results described in this paper are also available at http://code.google.com/p/relevance-based-on-parse-trees and http://svn.apache.org/repos/asf/opennlp/sandbox/ opennlp-similarity/."
+        "The evaluation framework described here is implemented as an OpenNLP contribution. It relies on the following systems:  OpenNLP/Stanford NLP parser;  Stanford NLP Coreference;  Bing search;",
+        " Wrapper of TK-Light kernel learner (Moschitti, 2006).",
+        "Framework includes the following components of Apache OpenNLP.similarity project:  Rhetoric parser",
+        " Parse thicket builder and generalizer (Galitsky et al., 2012). Not used in this evaluation.",
+        " A number of applications based on the above component, including search (request handler for SOLR), speech recognition, content generation and others.",
+        "One of the use cases of this OpenNLP.similarity component is a Java wrapper for tree kernel algorithms implemented in C++. It allows seamless integration of tree kernel algorithms into other open source systems available in Java for search, information retrieval and machine learning. Moreover, tree kernel algorithms can be embedded into Hadoop framework in the domains where offline performance is essential. Libraries and evaluation results described in this paper are also available at http://code.google.com/p/relevance-based-on-parse-trees and http://svn.apache.org/repos/asf/opennlp/sandbox/ opennlp-similarity/."
       ]
     },
     {
@@ -99,16 +106,20 @@
         "We conducted two independent experiments for each search session, classifying search result snippets and also original texts, extracted from webpages. For the snippets, we split them into sentence fragments and built extended trees for these fragments of sentences. For original texts, we extracted all sentences related to the snippet fragments and built extended trees for these sentences.",
         "Training and classification occurs in the automated mode, and the classification assessment is 60 conducted by the members of research group guided by the authors. The assessors only consulted the query and answer snippets.",
         "We used the standard parameters of tree sequence kernels from http://disi.unitn.it/moschitti/Tree-Kernel.htm (Moschitti, 2006). Tree kernel is applied to all tree pairs from two forests. The latest version of tree kernel learner was obtained from the author. Products Basic",
-        "kernels Extended ker-",
-        "nels (co-",
-        "refs+RST) Texts from the pages Precision 0,5679 0,5868 Recall 0,7516 0,8458 F-measure 0,6485 0,6752 Snippets Precision 0,5625 0,6319 Recall 0,7840 0,8313 F-measure 0,6169 0,6695  Table 1: Evaluation results for products domain Answers  Basic kernels Extended kernels (corefs) Extended kernels (corefs+ RST) Texts from the pages P 0,5167 0,5083 0,5437 R 0,7361 0,7917 0,8333 F 0,6008 0,5458 0,6278 Snippets P 0,5950 0,6264 0,6794 R 0,7329 0,7492 0,7900 F 0,6249 0,6429 0,7067 ",
-        "Table 2: Evaluation results for popular answers domain Evaluation results show visible improvement of classification accuracy achieved by extended trees. For Yahoo Answers one can observe that coreferences only provide a slight improvement of accuracy, whereas RST added to coreferences gives a stronger improvement. Stronger increase of recall in comparison to precision can be explained by the following. It is due to the acquired capability of extended trees to match phrases from the search results distributed through multiple sentences, with questions."
+        "kernels Extended kernels (corefs+RST) Texts from the pages Precision 0,5679 0,5868 Recall 0,7516 0,8458 F-measure 0,6485 0,6752 Snippets Precision 0,5625 0,6319 Recall 0,7840 0,8313 F-measure 0,6169 0,6695",
+        "",
+        "Table 1: Evaluation results for products domain",
+        "Answers Basic kernels Extended kernels (corefs) Extended kernels (corefs+ RST) Texts from the pages P 0,5167 0,5083 0,5437 R 0,7361 0,7917 0,8333 F 0,6008 0,5458 0,6278 Snippets P 0,5950 0,6264 0,6794 R 0,7329 0,7492 0,7900 F 0,6249 0,6429 0,7067",
+        "",
+        "Table 2: Evaluation results for popular answers do-",
+        "main Evaluation results show visible improvement of classification accuracy achieved by extended trees. For Yahoo Answers one can observe that coreferences only provide a slight improvement of accuracy, whereas RST added to coreferences gives a stronger improvement. Stronger increase of recall in comparison to precision can be explained by the following. It is due to the acquired capability of extended trees to match phrases from the search results distributed through multiple sentences, with questions."
       ]
     },
     {
       "title": "8 Conclusions and future work",
       "paragraphs": [
-        "In this study we focused on how discourse information can help with text relevance tasks irrespectively of learning mechanisms. We compared two sets of linguistic features:  The baseline, parse trees for individual sentences,  Parse trees and discourse information, and demonstrated that the enriched set of features indeed improves the classification accuracy, having the learning framework fixed. This improvement varies from 2 to 8 % in different domains with different structure of texts. To tackle such enriched set of linguistic features, an adjustment of tree kernel algorithm itself was not necessary.",
+        "In this study we focused on how discourse information can help with text relevance tasks irrespectively of learning mechanisms. We compared two sets of linguistic features:",
+        " The baseline, parse trees for individual sentences,  Parse trees and discourse information, and demonstrated that the enriched set of features indeed improves the classification accuracy, having the learning framework fixed. This improvement varies from 2 to 8 % in different domains with different structure of texts. To tackle such enriched set of linguistic features, an adjustment of tree kernel algorithm itself was not necessary.",
         "The approach developed in this paper can also be applied to parse tree querying and manipula-tion problem (Levy and Galen, 2006). A system such as Tregex is an expressive and flexible way for single sentence parse tree querying and manipulation. Extending parse trees of individual sentences towards paragraph of text, the recall of a tree querying system would dramatically increase, and dependence on how phrases are distributed through sentences would decrease.",
         "There are a few possible directions of future development. One interesting continuation of this study is to applying standard ranking mechanisms such as NDCG. We can draw the comparison between the standard and extended kernels in terms of standard Bing ranking, as well as special ranking based on syntactic similarity between the query and search results (Galitsky et al., 2013).",
         "We also plan to generalize extended tree kernels towards graphs (DAGs) (Suzuki et al., 2003). In this case we can perform learning on Parse thickets (Galitsky et al., 2013) ‒ the structures which are the sets of parse trees for a paragraph. It will be fruitful to compare performances of various ways of kernel computation and estimate the contribution of a particular way of paragraph representation to the quality of classification.",

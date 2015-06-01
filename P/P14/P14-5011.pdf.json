@@ -7,7 +7,7 @@
       ]
     },
     {
-      "title": "DKPro TC: A Java-based Framework for Supervised LearningExperiments on Textual DataJohannes Daxenberger",
+      "title": "DKPro TC: A Java-based Framework for Supervised Learning Experiments on Textual Data Johannes Daxenberger",
       "paragraphs": [
         "†"
       ]
@@ -31,7 +31,7 @@
       ]
     },
     {
-      "title": "† UKP Lab, Technische Universität Darmstadt‡ Information Center for Education, DIPF, Frankfurt§ Language Technology Lab, University of Duisburg-Essenhttp://www.ukp.tu-darmstadt.deAbstract",
+      "title": "† UKP Lab, Technische Universität Darmstadt ‡ Information Center for Education, DIPF, Frankfurt § Language Technology Lab, University of Duisburg-Essen http://www.ukp.tu-darmstadt.de Abstract",
       "paragraphs": [
         "We present DKPro TC, a framework for supervised learning experiments on textual data. The main goal of DKPro TC is to enable researchers to focus on the actual research task behind the learning problem and let the framework handle the rest. It enables rapid prototyping of experiments by relying on an easy-to-use workflow engine and standardized document preprocessing based on the Apache Unstructured Information Management Architec-ture (Ferrucci and Lally, 2004). It ships with standard feature extraction modules, while at the same time allowing the user to add customized extractors. The extensive reporting and logging facilities make DKPro TC experiments fully replicable."
       ]
@@ -94,15 +94,9 @@
         "readerTrain: LabeledTweetReader,",
         "readerTrainParams: [LabeledTweetReader.PARAM_CORPUS_PATH, \"src/main/resources/tweets.txt\"]]), Dimension.create(\"featureMode\", \"document\"), Dimension.create(\"learningMode\", \"singleLabel\"), Dimension.create(\"featureSet\", [EmoticonRatioExtractor.name, NumberOfHashTagsExtractor.name]), Dimension.create(\"dataWriter\", WekaDataWriter.name), Dimension.create(\"classificationArguments\", [NaiveBayes.name, RandomForest.name])],",
         "reports: [BatchCrossValidationReport], // collects results from folds",
-        "numFolds: 10]; Listing 1: Groovy code to configure a DKPro TC cross-validation BatchTask on Twitter data.",
-        "public class EmoticonRatioFeatureExtractor",
-        "extends FeatureExtractorResource_ImplBase implements DocumentFeatureExtractor",
-        "{ @Override public List<Feature> extract(JCas annoDb) throws TextClassificationException {",
-        "int nrOfEmoticons = JCasUtil.select(annoDb, EMO.class).size();",
-        "int nrOfTokens = JCasUtil.select(annoDb, Token.class).size();",
-        "double ratio = (double) nrOfEmoticons / nrOfTokens;",
-        "return new Feature(\"EmoticonRatio\", ratio).asList(); }",
-        "} Listing 2: A DKPro TC document mode feature extractor measuring the ratio of emoticons to tokens. ture representation into the Weka ARFF format. For the classification, two machine learning algorithms will be iteratively tested: a Naive Bayes classifier and a Random Forest classifier. Pass-ing a list of parameters into the parameter space will automatically make DKPro TC test all possible parameter combinations. The classification task automatically trains a model on the training data and stores the results of the evaluation on the test data for each fold on the disk. Finally, the evaluation scores for each fold are collected by the BatchCrossValidationReport and written to a single file using a tabulated format."
+        "numFolds: 10]; Listing 1: Groovy code to configure a DKPro TC cross-validation BatchTask on Twitter data. public class EmoticonRatioFeatureExtractor extends FeatureExtractorResource_ImplBase implements DocumentFeatureExtractor {",
+        "@Override",
+        "public List<Feature> extract(JCas annoDb) throws TextClassificationException { int nrOfEmoticons = JCasUtil.select(annoDb, EMO.class).size(); int nrOfTokens = JCasUtil.select(annoDb, Token.class).size(); double ratio = (double) nrOfEmoticons / nrOfTokens; return new Feature(\"EmoticonRatio\", ratio).asList(); } } Listing 2: A DKPro TC document mode feature extractor measuring the ratio of emoticons to tokens. ture representation into the Weka ARFF format. For the classification, two machine learning algorithms will be iteratively tested: a Naive Bayes classifier and a Random Forest classifier. Pass-ing a list of parameters into the parameter space will automatically make DKPro TC test all possible parameter combinations. The classification task automatically trains a model on the training data and stores the results of the evaluation on the test data for each fold on the disk. Finally, the evaluation scores for each fold are collected by the BatchCrossValidationReport and written to a single file using a tabulated format."
       ]
     },
     {
@@ -133,7 +127,9 @@
     {
       "title": "References",
       "paragraphs": [
-        "S. Bird, E. Loper, and E. Klein. 2009. Natural Language Processing with Python. O’Reilly Media Inc. R. Eckart de Castilho and I. Gurevych. 2011. A Lightweight Framework for Reproducible Parameter Sweeping in Information Retrieval. In Proc. of the Workshop on Data Infrastructures for Support-ing Information Retrieval Evaluation, pages 7–10. D. Ferrucci and A. Lally. 2004. UIMA: An Architectural Approach to Unstructured Information Processing in the Corporate Research Environment. Natural Language Engineering, 10(3-4):327–348.",
+        "S. Bird, E. Loper, and E. Klein. 2009. Natural Language Processing with Python. O’Reilly Media Inc.",
+        "R. Eckart de Castilho and I. Gurevych. 2011. A Lightweight Framework for Reproducible Parameter Sweeping in Information Retrieval. In Proc. of the Workshop on Data Infrastructures for Support-ing Information Retrieval Evaluation, pages 7–10.",
+        "D. Ferrucci and A. Lally. 2004. UIMA: An Architectural Approach to Unstructured Information Processing in the Corporate Research Environment. Natural Language Engineering, 10(3-4):327–348.",
         "A. Fokkens, M. van Erp, M. Postma, T. Pedersen, P. Vossen, and N. Freire. 2013. Offspring from Reproduction Problems: What Replication Failure Teaches Us. In Proc. ACL, pages 1691–1701.",
         "K. Gimpel, N. Schneider, B. O’Connor, D. Das, D. Mills, J. Eisenstein, M. Heilman, D. Yogatama, J. Flanigan, and N. Smith. 2011. Part-of-speech tagging for Twitter: annotation, features, and experiments. In Proc. ACL, pages 42–47.",
         "M. Hall, E. Frank, G. Holmes, B. Pfahringer, P. Reutemann, and I. Witten. 2009. The WEKA Data Min-ing Software: An Update. SIGKDD Explorations, 11(1):10–18.",

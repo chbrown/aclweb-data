@@ -7,19 +7,19 @@
       ]
     },
     {
-      "title": "Resolving Lexical Ambiguity inTensor Regression Models of MeaningDimitri KartsaklisUniversity of OxfordDepartment ofComputer ScienceWolfson Bldg, Parks RoadOxford, OX1 3QD, UK",
+      "title": "Resolving Lexical Ambiguity in Tensor Regression Models of Meaning Dimitri Kartsaklis University of Oxford Department of Computer Science Wolfson Bldg, Parks Road Oxford, OX1 3QD, UK",
       "paragraphs": [
         "dimitri.kartsaklis@cs.ox.ac.uk"
       ]
     },
     {
-      "title": "Nal KalchbrennerUniversity of OxfordDepartment ofComputer ScienceWolfson Bldg, Parks RoadOxford, OX1 3QD, UK",
+      "title": "Nal Kalchbrenner University of Oxford Department of Computer Science Wolfson Bldg, Parks Road Oxford, OX1 3QD, UK",
       "paragraphs": [
         "nkalch@cs.ox.ac.uk"
       ]
     },
     {
-      "title": "Mehrnoosh SadrzadehQueen Mary Univ. of LondonSchool of Electronic Engineeringand Computer ScienceMile End RoadLondon, E1 4NS, UK",
+      "title": "Mehrnoosh Sadrzadeh Queen Mary Univ. of London School of Electronic Engineering and Computer Science Mile End Road London, E1 4NS, UK",
       "paragraphs": [
         "mehrnoosh.sadrzadeh@qmul.ac.uk"
       ]
@@ -56,9 +56,8 @@
       "title": "3 Disambiguation and composition",
       "paragraphs": [
         "The idea of separating disambiguation from composition first appears in a work of Reddy et al. (2011), where the authors show that the introduction of an explicit disambiguation step prior to simple element-wise composition is beneficial for noun-noun compounds. Subsequent work by Kartsaklis et al. (2013) reports very similar findings for verb-object structures, again on additive and multiplicative models. Finally, in (Kartsaklis and Sadrzadeh, 2013) these experiments were extended to include tensor-based models following the categorical framework of Coecke et al. (2010), where again all “unambiguous” models present superior performance compared to their “ambiguous” versions.",
-        "However, in this last work one of the dimensions of the tensors was kept empty (filled in with zeros). This simplified the calculations but also weakened the effectiveness of the multi-linear maps. If, for example, instead of using an order-3 tensor for a transitive verb, one uses some of the matrix instantiations of Kartsaklis and Sadrzadeh, Eq. 3 is reduced to one of the following forms:",
-        "play ⊙ (−−→ kids ⊗ −−−−→games) , −−→",
-        "kids ⊙ (play × −−−−→games) (−−→ kidsT",
+        "However, in this last work one of the dimensions of the tensors was kept empty (filled in with zeros). This simplified the calculations but also weakened the effectiveness of the multi-linear maps. If, for example, instead of using an order-3 tensor for a transitive verb, one uses some of the matrix instantiations of Kartsaklis and Sadrzadeh, Eq. 3 is reduced to one of the following forms: play ⊙ ( −−→ kids ⊗ −−−−→games) , −−→",
+        "kids ⊙ (play × −−−−→games) ( −−→ kidsT",
         "× play) ⊙ −−−−→games (4) where symbol ⊙ denotes element-wise multiplication and play is a matrix. Here, the model does not fully exploit the space provided by the theoretical framework (i.e. an order-3 tensor), which has two disadvantages: firstly, we lose space that could hold valuable information about the verb in this case and relational words in general; secondly, the generally non-commutative tensor contraction operation is now partly relying on element-wise multiplication, which is commutative, thus forgets (part of the) order of composition.",
         "In the next section we will see how to apply linear regression in order to create full tensors for verbs and use them for a compositional model that avoids these pitfalls."
       ]
@@ -66,8 +65,8 @@
     {
       "title": "4 Creating tensors for verbs",
       "paragraphs": [
-        "The essence of any tensor-based compositional model is the way we choose to create our sentence-producing maps, i.e. the verbs. In this paper we adopt a method proposed by Baroni and Zamparelli (2010) for building adjective matrices, which can be generally applied to any relational word. 213 In order to create a matrix for, say, the intransitive verb ‘play’, we first collect all instances of the verb occurring with some subject in the training corpus, and then we create non-compositional holistic vectors for these elementary sentences following exactly the same methodology as if they were words. We now have a dataset with instances of the form ⟨−−−→",
-        "subji, −−−−−−→",
+        "The essence of any tensor-based compositional model is the way we choose to create our sentence-producing maps, i.e. the verbs. In this paper we adopt a method proposed by Baroni and Zamparelli (2010) for building adjective matrices, which can be generally applied to any relational word. 213 In order to create a matrix for, say, the intransitive verb ‘play’, we first collect all instances of the verb occurring with some subject in the training corpus, and then we create non-compositional holistic vectors for these elementary sentences following exactly the same methodology as if they were words. We now have a dataset with instances of the form ⟨ −−−→ subji,",
+        "−−−−−−→",
         "subji play⟩ (e.g. the vector of ‘kids’ paired with the holistic vector of ‘kids play’, and so on), that can be used to train a linear regression model in order to produce an appropriate matrix for verb ‘play’. The premise of a model like this is that the multiplication of the verb matrix with the vector of a new subject will produce a result that approximates the distributional behaviour of all these elementary two-word exemplars used in training.",
         "We present examples and experiments based on this method, constructing ambiguous and disambiguated tensors of order 2 (that is, matrices) for verbs taking one argument. In principle, our method is directly applicable to tensors of higher order, following a multi-step process similar to that of Grefenstette et al. (2013) who create order-3 tensors for transitive verbs using similar means. Instead of using subject-verb constructs as above we concentrate on elementary verb phrases of the form verb-object (e.g. ‘play football’, ‘admit student’), since in general objects comprise stronger contexts for disambiguating the usage of a verb."
       ]
@@ -77,12 +76,11 @@
       "paragraphs": [
         "Our basic vector space is trained from the ukWaC corpus (Ferraresi et al., 2008), originally using as a basis the 2,000 content words with the highest frequency (but excluding a list of stop words as well as the 50 most frequent content words since they exhibit low information content). We created vectors for all content words with at least 100 occurrences in the corpus. As context we considered a 5-word window from either side of the target word, while as our weighting scheme we used local mutual information (i.e. point-wise mutual information multiplied by raw counts). This initial semantic space achieved a score of 0.77 Spearman’s ρ (and 0.71 Pearson’s r) on the well-known benchmark dataset of Rubenstein and Goodenough (1965). In order to reduce the time of regression training, our vector space was normalized and projected onto a 300-dimensional space using singular value decomposition (SVD). The performance of the reduced space on the R&G dataset was again very satisfying, specifically 0.73 Spearman’s ρ and 0.72 Pearson’s r.",
         "In order to create the vector space of the holistic verb phrase vectors, we first collected all instances where a verb participating in the experiments appeared at least 100 times in a verb-object relationship with some noun in the corpus. As context of a verb phrase we considered any content word that falls into a 5-word window from either side of the verb or the object. For the 68 verbs participating in our experiments, this procedure resulted in 22k verb phrases, a vector space that again was projected into 300 dimensions using SVD. Linear regression For each verb we use simple linear regression with gradient descent directly applied on matrices X and Y, where the rows of X correspond to vectors of the nouns that appear as objects for the given verb and the rows of Y to the holistic vectors of the corresponding verb phrases. Our objective function then becomes:",
-        "Ŵ = arg min",
-        "W 1",
-        "2m ( ∥WXT",
-        "− YT",
+        "Ŵ = arg min W 1 2m",
+        "(",
+        "∥WXT − YT",
         "∥2",
-        "+ λ∥W∥2) (5) where m is the number of training examples and λ a regularization parameter. The matrix W is used as the tensor for the specific verb."
+        "+ λ∥W∥2 ) (5) where m is the number of training examples and λ a regularization parameter. The matrix W is used as the tensor for the specific verb."
       ]
     },
     {
@@ -93,12 +91,16 @@
         "In more detail, the creation of the dataset was done in the following way: First, all verb entries with more than one definition in the Oxford Junior Dictionary (Sansome et al., 2000) were collected into a list. Next, a linguist (native speaker of English) annotated the semantic difference between the definitions of each verb in a scale from 1 (similar) to 5 (distinct). Only verbs with definitions exhibiting completely distinct meanings (marked with 5) were kept for the next step. For each one of these verbs, a list was constructed with all the nouns that appear at least 50 times under a verb-object relationship in the corpus with the specific verb. Then, each object in the list was manually annotated as exclusively belonging to one of the two senses; so, an object could be selected only if it was related to a single sense, but not both. For example, ‘attention’ was a valid object for the attract sense of verb ‘draw’, since it is unrelated to the sketch sense of that verb. On the other hand, ‘car’ is not an appropriate object for either sense of ‘draw’, since it could actually appear under both of them in different contexts. The verbs of Table 1 were the ones with the highest numbers of exemplars per sense, creating a dataset of significant size for the intended task (each holistic vector is compared with 343 composite vectors).",
         "We proceed as follows: We apply linear regression in order to train verb matrices using jointly the object sets for both meanings of each verb, as well as separately—so in this latter case we get two matrices for each verb, one for each sense. For each verb phrase, we create a composite vector by matrix-multiplying the verb matrix with the vector of the specific object. Then we use 4-fold cross validation to evaluate which version of composite vectors (the one created by the ambiguous tensors or the one created by the unambiguous ones) approximates better the holistic vectors of the verb phrases in our test set. This is done by comparing each holistic vector with all the composite ones, and then evaluating the rank of the correct composite vector within the list of results.",
         "In order to get a proper mixing of objects from both senses of a verb in training and testing sets, we set the cross-validation process as follows: We first split both sets of objects in 4 parts. For each fold then, our training set is comprised by 3",
-        "4 of set #1 plus 3",
-        "4 of set #2, while the test set consists of the remaining 1",
+        "4 of set",
+        "#1 plus 3",
+        "4 of set #2, while the test set consists of",
+        "the remaining 1",
         "4 of set #1 plus 1",
-        "4 of set #2. The data points of the training set are presented in the Accuracy MRR Avg Sim Amb. Dis. Amb. Dis. Amb. Dis. break 0.19 0.28 0.41 0.50 0.41 0.43 catch 0.35 0.37 0.58 0.61 0.51 0.57 play 0.20 0.28 0.41 0.49 0.60 0.68 admit 0.33 0.43 0.57 0.64 0.41 0.46 draw 0.24 0.29 0.45 0.51 0.40 0.44 Table 2: Results for the supervised task. ‘Amb.’ refers to models without the explicit disambiguation step, and ‘Dis.’ to models with that step. learning algorithm in random order.",
-        "We measure approximation in three different metrics. The first one, accuracy, is the strictest, and evaluates in how many cases the composite vector of a verb phrase is the closest one (the first one in the result list) to the corresponding holistic vector. A more relaxed and perhaps more representative method is to calculate the mean reciprocal rank (MRR), which is given by:",
-        "MRR = 1 m m ∑ i=1",
+        "4 of set #2. The",
+        "data points of the training set are presented in the",
+        "Accuracy MRR Avg Sim",
+        "Amb. Dis. Amb. Dis. Amb. Dis. break 0.19 0.28 0.41 0.50 0.41 0.43 catch 0.35 0.37 0.58 0.61 0.51 0.57 play 0.20 0.28 0.41 0.49 0.60 0.68 admit 0.33 0.43 0.57 0.64 0.41 0.46 draw 0.24 0.29 0.45 0.51 0.40 0.44 Table 2: Results for the supervised task. ‘Amb.’ refers to models without the explicit disambiguation step, and ‘Dis.’ to models with that step. learning algorithm in random order.",
+        "We measure approximation in three different metrics. The first one, accuracy, is the strictest, and evaluates in how many cases the composite vector of a verb phrase is the closest one (the first one in the result list) to the corresponding holistic vector. A more relaxed and perhaps more representative method is to calculate the mean reciprocal rank (MRR), which is given by: MRR = 1 m m ∑ i=1",
         "1 ranki (6) where m is the number of objects and ranki refers to the rank of the correct composite vector for the ith object.",
         "Finally, a third way to evaluate the efficiency of each model is to simply calculate the average cosine similarity between every holistic vector and its corresponding composite vector. The results are presented in Table 2, reflecting a clear superiority (p < 0.001 for average cosine similarity) of the prior disambiguation method for every verb and every metric."
       ]
@@ -136,13 +138,15 @@
         "B. Coecke, M. Sadrzadeh, and S. Clark. 2010. Mathematical Foundations for Distributed Compositional Model of Meaning. Lambek Festschrift. Linguistic Analysis, 36:345–384.",
         "Adriano Ferraresi, Eros Zanchetta, Marco Baroni, and Silvia Bernardini. 2008. Introducing and evaluating ukWaC, a very large web-derived corpus of English. In Proceedings of the 4th Web as Corpus Workshop (WAC-4) Can we beat Google, pages 47–54.",
         "Edward Grefenstette, Georgiana Dinu, Yao-Zhong Zhang, Mehrnoosh Sadrzadeh, and Marco Baroni. 2013. Multi-step regression learning for compositional distributional semantics. In Proceedings of the 10th International Conference on Computational Semantics (IWCS 2013).",
-        "N. Kalchbrenner and P. Blunsom. 2013a. Recurrent convolutional neural networks for discourse compositionality. In Proceedings of the 2013 Workshop on Continuous Vector Space Models and their Compositionality, Sofia, Bulgaria, August. Nal Kalchbrenner and Phil Blunsom. 2013b. Recurrent continuous translation models. In Proceedings of the 2013 Conference on Empirical Methods in Natural Language Processing (EMNLP), Seattle, USA, October. Association for Computational Linguistics.",
+        "N. Kalchbrenner and P. Blunsom. 2013a. Recurrent convolutional neural networks for discourse compositionality. In Proceedings of the 2013 Workshop on Continuous Vector Space Models and their Compositionality, Sofia, Bulgaria, August.",
+        "Nal Kalchbrenner and Phil Blunsom. 2013b. Recurrent continuous translation models. In Proceedings of the 2013 Conference on Empirical Methods in Natural Language Processing (EMNLP), Seattle, USA, October. Association for Computational Linguistics.",
         "Dimitri Kartsaklis and Mehrnoosh Sadrzadeh. 2013. Prior disambiguation of word tensors for constructing sentence vectors. In Proceedings of the 2013 Conference on Empirical Methods in Natural Language Processing (EMNLP), Seattle, USA, October.",
         "D. Kartsaklis, M. Sadrzadeh, and S. Pulman. 2013. Separating Disambiguation from Composition in Distributional Semantics. In Proceedings of 17th Conference on Computational Natural Language Learning (CoNLL-2013), Sofia, Bulgaria, August.",
         "Dimitri Kartsaklis. 2014. Compositional operators in distributional semantics. Springer Science Reviews, April. DOI: 10.1007/s40362-014-0017-z.",
         "J. Mitchell and M. Lapata. 2008. Vector-based Models of Semantic Composition. In Proceedings of the 46th Annual Meeting of the Association for Computational Linguistics, pages 236–244.",
         "Jeff Mitchell and Mirella Lapata. 2010. Composition in distributional models of semantics. Cognitive Science, 34(8):1388–1439.",
-        "Siva Reddy, Ioannis Klapaftis, Diana McCarthy, and Suresh Manandhar. 2011. Dynamic and static prototype vectors for semantic composition. In Proceedings of 5th International Joint Conference on Natural Language Processing, pages 705–713. Joseph Reisinger and Raymond J Mooney. 2010. Multi-prototype vector-space models of word meaning. In Human Language Technologies: The 2010 Annual Conference of the North American Chapter of the Association for Computational Linguistics, pages 109–117. Association for Computational Linguistics.",
+        "Siva Reddy, Ioannis Klapaftis, Diana McCarthy, and Suresh Manandhar. 2011. Dynamic and static prototype vectors for semantic composition. In Proceedings of 5th International Joint Conference on Natural Language Processing, pages 705–713.",
+        "Joseph Reisinger and Raymond J Mooney. 2010. Multi-prototype vector-space models of word meaning. In Human Language Technologies: The 2010 Annual Conference of the North American Chapter of the Association for Computational Linguistics, pages 109–117. Association for Computational Linguistics.",
         "H. Rubenstein and J.B. Goodenough. 1965. Contextual Correlates of Synonymy. Communications of the ACM, 8(10):627–633.",
         "R. Sansome, D. Reid, and A. Spooner. 2000. The Oxford Junior Dictionary. Oxford University Press.",
         "H. Schütze. 1998. Automatic Word Sense Discrimination. Computational Linguistics, 24:97–123.",

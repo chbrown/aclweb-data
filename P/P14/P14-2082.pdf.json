@@ -7,7 +7,7 @@
       ]
     },
     {
-      "title": "An Annotation Framework for Dense Event OrderingTaylor CassidyIBM Researchtaylor.cassidy.ctr@mail.mil Bill McDowellCarnegie Mellon Universityforkunited@gmail.comNathanael ChambersUS Naval Academynchamber@usna.edu Steven BethardUniv. of Alabama at Birminghambethard@cis.uab.eduAbstract",
+      "title": "An Annotation Framework for Dense Event Ordering Taylor Cassidy IBM Research taylor.cassidy.ctr@mail.mil Bill McDowell Carnegie Mellon University forkunited@gmail.com Nathanael Chambers US Naval Academy nchamber@usna.edu Steven Bethard Univ. of Alabama at Birmingham bethard@cis.uab.edu Abstract",
       "paragraphs": [
         "Today’s event ordering research is heavily dependent on annotated corpora. Current corpora influence shared evaluations and drive algorithm development. Partly due to this dependence, most research focuses on partial orderings of a document’s events. For instance, the TempEval competitions and the TimeBank only annotate small portions of the event graph, focusing on the most salient events or on specific types of event pairs (e.g., only events in the same sentence). Deeper temporal reasoners struggle with this sparsity because the entire temporal picture is not represented. This paper proposes a new annotation process with a mechanism to force annotators to label connected graphs. It generates 10 times more relations per document than the TimeBank, and our TimeBank-Dense corpus is larger than all current corpora. We hope this process and its dense corpus encourages research on new global models with deeper reasoning."
       ]
@@ -22,31 +22,7 @@
       ]
     },
     {
-      "title": "There were four or five people inside, and they just started firing Ms. Sanders was hit several times and was pronounced dead at the scene. The other customers fled, and the police said",
-      "paragraphs": [
-        ""
-      ]
-    },
-    {
-      "title": "it did not appear",
-      "paragraphs": [
-        ""
-      ]
-    },
-    {
-      "title": "that anyone else was injured. There were four or five people inside, and they just started firing Ms. Sanders was hit several times and was pronounced dead at the scene. The other customers fled, and the police said",
-      "paragraphs": [
-        ""
-      ]
-    },
-    {
-      "title": "it did not appear",
-      "paragraphs": [
-        ""
-      ]
-    },
-    {
-      "title": "that anyone else was injured. Current Systems & Evaluations This Proposal",
+      "title": "There were four or five people inside, and they just started firing  Ms. Sanders was hit several times and was pronounced dead at the scene.  The other customers fled, and the police said it did not appear that anyone else was injured. There were four or five people inside, and they just started firing  Ms. Sanders was hit several times and was pronounced dead at the scene.  The other customers fled, and the police said it did not appear that anyone else was injured. Current Systems & Evaluations This Proposal",
       "paragraphs": [
         "Figure 1: A TimeBank annotated document is on the left, and this paper’s TimeBank-Dense annotation is on the right. Solid arrows indicate BEFORE relations and dotted arrows indicate INCLUDED IN relations. (Bethard, 2013). We describe the first annotation framework that forces annotators to annotate all pairs1",
         ". With this new process, we created a dense ordering of document events that can properly evaluate both relation identification and relation annotation. Figure 1 illustrates one document before and after our new annotations."
@@ -57,7 +33,9 @@
       "paragraphs": [
         "The majority of corpora and competitions for event ordering contain sparse annotations. Annotators for the original TimeBank (Pustejovsky et al., 2003) only annotated relations judged to be salient by the annotator. Subsequent TempEval competitions (Verhagen et al., 2007; Verhagen et al., 2010; Uz-Zaman et al., 2013) mostly relied on the TimeBank, but also aimed to improve coverage by annotating relations between all events and times in the same sentence. However, event tokens that were mentioned fewer than 20 times were excluded and only one TempEval task considered relations between events in different sentences. In practical terms, the resulting evaluations remained sparse.",
         "A major dilemma underlying these sparse tasks is that the unlabeled event/time pairs are ambiguous. Each unlabeled pair holds 3 possibilities: 1. The annotator looked at the pair of events and decided that no temporal relation exists. 2. The annotator did not look at the pair of events, so a relation may or may not exist. 3. The annotator failed to look at the pair of events, so a single relation may exist. Training and evaluation of temporal reasoners is hampered by this ambiguity. To combat this, our 1",
-        "As discussed below, all pairs in a given window size. Events Times Rels R TimeBank 7935 1414 6418 0.7 Bramsen 2006 627 – 615 1.0 TempEval-07 6832 1249 5790 0.7 TempEval-10 5688 2117 4907 0.6 TempEval-13 11145 2078 11098 0.8 Kolomiyets-12 1233 – 1139 0.9 Do 20122 324 232 3132 5.6 This work 1729 289 12715 6.3 Table 1: Events, times, relations and the ratio of relations to events + times (R) in various corpora. annotation adopts the VAGUE relation introduced by TempEval 2007, and our approach forces annotators to use it. This is the only work that includes such a mechanism.",
+        "As discussed below, all pairs in a given window size.",
+        "Events Times Rels R TimeBank 7935 1414 6418 0.7 Bramsen 2006 627 – 615 1.0 TempEval-07 6832 1249 5790 0.7 TempEval-10 5688 2117 4907 0.6 TempEval-13 11145 2078 11098 0.8 Kolomiyets-12 1233 – 1139 0.9 Do 20122",
+        "324 232 3132 5.6 This work 1729 289 12715 6.3 Table 1: Events, times, relations and the ratio of relations to events + times (R) in various corpora. annotation adopts the VAGUE relation introduced by TempEval 2007, and our approach forces annotators to use it. This is the only work that includes such a mechanism.",
         "This paper is not the first to look into more dense annotations. Bramsen et al. (2006) annotated multi-sentence segments of text to build directed acyclic graphs. Kolomiyets et al. (2012) annotated “temporal dependency structures”, though they only focused on relations between pairs of events. Do et al. (2012) produced the densest annotation, but “the annotator was not required to annotate all pairs of event mentions, but as many as possible”. The current paper takes a different tack to annotation by requiring annotators to label every possible pair of events/times in a given window. Thus this work is the first annotation effort that can guarantee its event/time graph to be strongly connected.",
         "Table 1 compares the size and density of our corpus to others. Ours is the densest and it contains the largest number of temporal relations. 2 Do et al. (2012) reports 6264 relations, but this includes",
         "both the relations and their inverses. We thus halve the count 502"
@@ -90,7 +68,10 @@
         "The vague relation makes up 46% of the relations. This is the first empirical count of how many temporal relations in news articles are truly vague.",
         "Our lower agreement is likely due to the more difficult task. Table 5 breaks down the individual disagreements. The most frequent pertained to the VAGUE relation. Practically speaking, VAGUE was applied to the final graph if either annotator chose it. This seems appropriate since a disagreement between annotators implies that the relation is vague.",
         "The following example illustrates the difficulty of labeling edges with a VAGUE relation: No one was hurt, but firefighters ordered the evacuation of nearby homes and said they’ll monitor the ground. Both annotators chose VAGUE to label ordered and said because the order is unclear. However, they disagreed on evacuation with monitor. One chose VAGUE, but the other chose IS INCLUDED. There is a valid interpretation where a monitoring process has already begun, and continues after the evacuation. This interpretation reached 80% confidence for one annotator, but not the other. In the face of such a disagreement, the pair is labeled VAGUE.",
-        "How often do these disagreements occur? Table 4 shows the 3 sources: (1) mutual vague: annotators agree it is vague, (2) partial vague: one annotator chooses vague, but the other does not, and (3) no vague: annotators choose conflicting non-vague relations. Only 17% of these disagreements are due to hard conflicts (no vague). The released corpus includes these 3 fine-grained VAGUE relations. Annotators # Links Prec Kappa A and B 9282 .65 .56 A and D 1605 .72 .63 B and D 279 .70 .64 C and D 1549 .65 .57 Table 3: Agreement between different annotators. # Vague Mutual VAGUE 1657 (28%) Partial VAGUE 3234 (55%) No VAGUE 1019 (17%) Table 4: VAGUE relation origins. Partial vague: one annotator does not choose vague. No vague: neither annotator chooses vague. b a i ii s v b 1776 22 88 37 21 192 a 17 1444 32 102 9 155 i 71 34 642 45 23 191 ii 81 76 40 826 31 230 s 12 8 25 28 147 29 v 500 441 289 356 64 1197 Table 5: Relation agreement between the two main annotators. Most disagreements involved VAGUE."
+        "How often do these disagreements occur? Table 4 shows the 3 sources: (1) mutual vague: annotators agree it is vague, (2) partial vague: one annotator chooses vague, but the other does not, and (3) no vague: annotators choose conflicting non-vague relations. Only 17% of these disagreements are due to hard conflicts (no vague). The released corpus includes these 3 fine-grained VAGUE relations.",
+        "Annotators # Links Prec Kappa A and B 9282 .65 .56 A and D 1605 .72 .63 B and D 279 .70 .64 C and D 1549 .65 .57 Table 3: Agreement between different annotators.",
+        "# Vague Mutual VAGUE 1657 (28%) Partial VAGUE 3234 (55%) No VAGUE 1019 (17%) Table 4: VAGUE relation origins. Partial vague: one annotator does not choose vague. No vague: neither annotator chooses vague.",
+        "b a i ii s v b 1776 22 88 37 21 192 a 17 1444 32 102 9 155 i 71 34 642 45 23 191 ii 81 76 40 826 31 230 s 12 8 25 28 147 29 v 500 441 289 356 64 1197 Table 5: Relation agreement between the two main annotators. Most disagreements involved VAGUE."
       ]
     },
     {
