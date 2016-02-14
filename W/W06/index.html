@@ -1,0 +1,742 @@
+<html><head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="shortcut icon" href="../../favicon.ico" type="image/vnd.microsoft.icon">
+<title>ACL Anthology &raquo; W06</title><link rel="stylesheet" type="text/css" href="../../antho.css" />
+<script type="text/javascript">
+function toggleLayer( whichLayer ) {
+  var elem, vis;
+  if( document.getElementById ) // this is the way the standards work
+    elem = document.getElementById( whichLayer );
+  else if( document.all ) // this is the way old msie versions work
+      elem = document.all[whichLayer];
+  else if( document.layers ) // this is the way nn4 works
+    elem = document.layers[whichLayer];
+  vis = elem.style;
+  if(vis.display==''&&elem.offsetWidth!=undefined&&elem.offsetHeight!=undefined)   // if the style.display value is blank we try to figure it out here
+    vis.display = (elem.offsetWidth!=0&&elem.offsetHeight!=0)?'block':'none';
+  vis.display = (vis.display==''||vis.display=='block')?'none':'block';
+}
+</script>
+</head>
+
+<body>
+<div class="header">
+<a href="../../index.html"><img src="../../images/acl-logo.gif" width=71px height=48px border=0 align="left" alt="ACL Logo"></a>
+<span class="title">ACL Anthology</span><br/>
+<span class="subtitle">A Digital Archive of Research Papers in Computational Linguistics</span>
+</div>
+<hr>
+<!-- -------------------------------------------------------------------------------- -->
+<div id="content">
+<!-- Google CSE Search Box Begins  -->
+  <form id="searchbox_011664571474657673452:4w9swzkcxiy" action="http://www.google.com/cse">
+  <img src="http://www.google.com/coop/images/google_custom_search_smnar.gif" alt="Google search the Anthology" />
+    <input type="hidden" name="cx" value="011664571474657673452:4w9swzkcxiy" />
+    <input type="hidden" name="cof" value="FORID:0" />
+    <input name="q" type="hidden" value="W06/" />
+    <input name="q" type="text" size="40" style="font-size:8pt" />
+    <input type="submit" name="sa" value="Search this volume" style="font-size:8pt" />
+  </form>
+<!-- Google CSE Search Box Ends -->
+&raquo; <a href="javascript:toggleLayer('toc')">Toggle Table of Contents</a> <br/><div id="toc" class="toc"><table>
+<tr><th></th><td><a href="#0100">Proceedings of the Fifth SIGHAN Workshop on Chinese Language Processing</a></td></tr>
+<tr><th></th><td><a href="#0200">Proceedings of the Workshop on Information Extraction Beyond The Document</a></td></tr>
+<tr><th></th><td><a href="#0300">Proceedings of the Workshop on Sentiment and Subjectivity in Text</a></td></tr>
+<tr><th></th><td><a href="#0400">Proceedings of the Third Workshop on Constraints and Language Processing</a></td></tr>
+<tr><th></th><td><a href="#0500">Proceedings of the 2nd Workshop on Ontology Learning and Population: Bridging the Gap between Text and Knowledge</a></td></tr>
+<tr><th></th><td><a href="#0600">Proceedings of the Workshop on Frontiers in Linguistically Annotated Corpora 2006</a></td></tr>
+<tr><th></th><td><a href="#0700">Proceedings of the Workshop on Task-Focused Summarization and Question Answering</a></td></tr>
+<tr><th></th><td><a href="#0800">Proceedings of the Workshop on How Can Computational Linguistics Improve Information Retrieval?</a></td></tr>
+<tr><th></th><td><a href="#0900">Proceedings of the Workshop on Annotating and Reasoning about Time and Events</a></td></tr>
+<tr><th></th><td><a href="#1000">Proceedings of the Workshop on Multilingual Language Resources and Interoperability</a></td></tr>
+<tr><th></th><td><a href="#1100">Proceedings of the Workshop on Linguistic Distances</a></td></tr>
+<tr><th></th><td><a href="#1200">Proceedings of the Workshop on Multiword Expressions: Identifying and Exploiting Underlying Properties</a></td></tr>
+<tr><th></th><td><a href="#1300">Proceedings of the 7th SIGdial Workshop on Discourse and Dialogue</a></td></tr>
+<tr><th></th><td><a href="#1400">Proceedings of the Fourth International Natural Language Generation Conference</a></td></tr>
+<tr><th></th><td><a href="#1500">Proceedings of the Eighth International Workshop on Tree Adjoining Grammar and Related Formalisms</a></td></tr>
+<tr><th></th><td><a href="#1600">Proceedings of the 2006 Conference on Empirical Methods in Natural Language Processing</a></td></tr>
+<tr><th></th><td><a href="#1700">Proceedings of the 2nd International Workshop on Web as Corpus</a></td></tr>
+<tr><th></th><td><a href="#1800">Proceedings of the Workshop KRAQ'06: Knowledge and Reasoning for Language Processing</a></td></tr>
+<tr><th></th><td><a href="#1900">Proceedings of the Workshop on Multilingual Question Answering - MLQA '06</a></td></tr>
+<tr><th></th><td><a href="#2000">Proceedings of the Cross-Language Knowledge Induction Workshop</a></td></tr>
+<tr><th></th><td><a href="#2100">Proceedings of the Third ACL-SIGSEM Workshop on Prepositions</a></td></tr>
+<tr><th></th><td><a href="#2200">Proceedings of the Workshop on Adaptive Text Extraction and Mining (ATEM 2006)</a></td></tr>
+<tr><th></th><td><a href="#2300">Proceedings of the Workshop on ROMAND 2006:Robust Methods in Analysis of Natural language Data</a></td></tr>
+<tr><th></th><td><a href="#2400">Proceedings of the Workshop on Multi-word-expressions in a multilingual context</a></td></tr>
+<tr><th></th><td><a href="#2500">Proceedings of the Workshop on Making Sense of Sense: Bringing Psycholinguistics and Computational Linguistics Together</a></td></tr>
+<tr><th></th><td><a href="#2600">Proceedings of the Workshop on Learning Structured Information in Natural Language Applications</a></td></tr>
+<tr><th></th><td><a href="#2700">Proceedings of the 5th Workshop on NLP and XML (NLPXML-2006): Multi-Dimensional Markup in Natural Language Processing</a></td></tr>
+<tr><th></th><td><a href="#2800">Proceedings of the Workshop on NEW TEXT Wikis and blogs and other dynamic text sources</a></td></tr>
+<tr><th></th><td><a href="#2900">Proceedings of the Tenth Conference on Computational Natural Language Learning (CoNLL-X)</a></td></tr>
+<tr><th></th><td><a href="#3000">Proceedings of the Interactive Question Answering Workshop at HLT-NAACL 2006</a></td></tr>
+<tr><th></th><td><a href="#3100">Proceedings on the Workshop on Statistical Machine Translation</a></td></tr>
+<tr><th></th><td><a href="#3200">Proceedings of the Eighth Meeting of the ACL Special Interest Group on Computational Phonology and Morphology at HLT-NAACL 2006</a></td></tr>
+<tr><th></th><td><a href="#3300">Proceedings of the HLT-NAACL BioNLP Workshop on Linking Natural Language and Biology</a></td></tr>
+<tr><th></th><td><a href="#3400">Proceedings of the Analyzing Conversations in Text and Speech</a></td></tr>
+<tr><th></th><td><a href="#3500">Proceedings of the Third Workshop on Scalable Natural Language Understanding</a></td></tr>
+<tr><th></th><td><a href="#3600">Proceedings of the Workshop on Computationally Hard Problems and Joint Inference in Speech and Language Processing</a></td></tr>
+<tr><th></th><td><a href="#3700">Proceedings of the First International Workshop on Medical Speech Translation</a></td></tr>
+<tr><th></th><td><a href="#3800">Proceedings of TextGraphs: the First Workshop on Graph Based Methods for Natural Language Processing</a></td></tr>
+<tr><th></th><td><a href="#3900">Proceedings of the Fifth International Workshop on Inference in Computational Semantics (ICoS-5)</a></td></tr>
+</table></div>
+<a name="0100"></a><h1>Proceedings of the Fifth SIGHAN Workshop on Chinese Language Processing</h1>
+<p><a href="W06-01.pdf">W06-01</a> [<a href="W06-01.bib">bib</a>]: <b>Entire volume</b><p><a href=W06-0100.pdf>W06-0100</a>: <i>Front Matter</i>
+<p><a href="W06-0101.pdf">W06-0101</a> [<a href="W06-0101.bib">bib</a>]: <b>Jia-Ming You; Keh-Jiann Chen</b><br><i>Improving Context Vector Models by Feature Clustering for Automatic Thesaurus Construction</i>
+<p><a href="W06-0102.pdf">W06-0102</a> [<a href="W06-0102.bib">bib</a>]: <b>Oi Yee Kwong; Benjamin K. Tsou</b><br><i>Regional Variation of Domain-Specific Lexical Items: Toward a Pan-Chinese Lexical Resource</i>
+<p><a href="W06-0103.pdf">W06-0103</a> [<a href="W06-0103.bib">bib</a>]: <b>Jing-Shin Chang; Wei-Lun Teng</b><br><i>Mining Atomic Chinese Abbreviation Pairs: A Probabilistic Model for Single Character Word Recovery</i>
+<p><a href="W06-0104.pdf">W06-0104</a> [<a href="W06-0104.bib">bib</a>]: <b>Fei Xia; Lap Cheung</b><br><i>Features, Bagging, and System Combination for the Chinese POS Tagging Task</i>
+<p><a href="W06-0105.pdf">W06-0105</a> [<a href="W06-0105.bib">bib</a>]: <b>Yaohong Jin</b><br><i>Semantic Analysis of Chinese Garden-Path Sentences</i>
+<p><a href="W06-0106.pdf">W06-0106</a> [<a href="W06-0106.bib">bib</a>]: <b>Chi-shing Wang; Grace Ngai</b><br><i>A Clustering Approach for Unsupervised Chinese Coreference Resolution</i>
+<p><a href="W06-0107.pdf">W06-0107</a> [<a href="W06-0107.bib">bib</a>]: <b>Yang Ye; Victoria Li Fossum; Steven Abney</b><br><i>Latent Features in Automatic Tense Translation between Chinese and English</i>
+<p><a href="W06-0108.pdf">W06-0108</a> [<a href="W06-0108.bib">bib</a>]: <b>Youzheng Wu; Jun Zhao; Bo Xu</b><br><i>Cluster-Based Language Model for Sentence Retrieval in Chinese Question Answering</i>
+<p><a href="W06-0109.pdf">W06-0109</a> [<a href="W06-0109.bib">bib</a>]: <b>Jack Halpern</b><br><i>The Role of Lexical Resources in CJK Natural Language Processing</i>
+<p><a href="W06-0110.pdf">W06-0110</a> [<a href="W06-0110.bib">bib</a>]: <b>Lishuang Li; Tingting Mao; Degen Huang; Yuansheng Yang</b><br><i>Hybrid Models for Chinese Named Entity Recognition</i>
+<p><a href="W06-0111.pdf">W06-0111</a> [<a href="W06-0111.bib">bib</a>]: <b>Xiaohong Wu; Sylviane Cardey; Peter Greenfield</b><br><i>Realization of the Chinese BA-construction in an English-Chinese Machine Translation System</i>
+<p><a href="W06-0112.pdf">W06-0112</a> [<a href="W06-0112.bib">bib</a>]: <b>Fang Xu; Chengqing Zong; Jun Zhao</b><br><i>A Hybrid Approach to Chinese Base Noun Phrase Chunking</i>
+<p><a href="W06-0113.pdf">W06-0113</a> [<a href="W06-0113.bib">bib</a>]: <b>Yingze Zhao; Qiang Zhou</b><br><i>A SVM-Based Model for Chinese Functional Chunk Parsing</i>
+<p><a href="W06-0114.pdf">W06-0114</a> [<a href="W06-0114.bib">bib</a>]: <b>Yu Zou; Min Hou; Yudong Chen; Fengguo Hu; Li Fu</b><br><i>Broadcast Audio and Video Bimodal Corpus Exploitation and Application</i>
+<p><a href="W06-0115.pdf">W06-0115</a> [<a href="W06-0115.bib">bib</a>]: <b>Gina-Anne Levow</b><br><i>The Third International Chinese Language Processing Bakeoff: Word Segmentation and Named Entity Recognition</i>
+<p><a href="W06-0116.pdf">W06-0116</a> [<a href="W06-0116.bib">bib</a>]: <b>Wenliang Chen; Yujie Zhang; Hitoshi Isahara</b><br><i>Chinese Named Entity Recognition with Conditional Random Fields</i>
+<p><a href="W06-0117.pdf">W06-0117</a> [<a href="W06-0117.bib">bib</a>]: <b>Wu Liu; Heng Li; Yuan Dong; Nan He; Haitao Luo; Haila Wang</b><br><i>France Telecom R&#38;D Beijing Word Segmenter for Sighan Bakeoff 2006</i>
+<p><a href="W06-0118.pdf">W06-0118</a> [<a href="W06-0118.bib">bib</a>]: <b>Dong Song; Anoop Sarkar</b><br><i>Voting between Dictionary-Based and Subword Tagging Models for Chinese Word Segmentation</i>
+<p><a href="W06-0119.pdf">W06-0119</a> [<a href="W06-0119.bib">bib</a>]: <b>Jia-Lin Tsai</b><br><i>BMM-Based Chinese Word Segmentor with Word Support Model for the SIGHAN Bakeoff 2006</i>
+<p><a href="W06-0120.pdf">W06-0120</a> [<a href="W06-0120.bib">bib</a>]: <b>Richard Tzong-Han Tsai; Hsieh-Chuan Hung; Cheng-Lung Sung; Hong-Jie Dai; Wen-Lian Hsu</b><br><i>On Closed Task of Chinese Word Segmentation: An Improved CRF Model Coupled with Character Clustering and Automatically Generated Template Matching</i>
+<p><a href="W06-0121.pdf">W06-0121</a> [<a href="W06-0121.bib">bib</a>]: <b>Xinhao Wang; Xiaojun Lin; Dianhai Yu; Hao Tian; Xihong Wu</b><br><i>Chinese Word Segmentation with Maximum Entropy and N-gram Language Model</i>
+<p><a href="W06-0122.pdf">W06-0122</a> [<a href="W06-0122.bib">bib</a>]: <b>Chia-Wei Wu; Shyh-Yi Jan; Richard Tzong-Han Tsai; Wen-Lian Hsu</b><br><i>On Using Ensemble Methods for Chinese Named Entity Recognition</i>
+<p><a href="W06-0123.pdf">W06-0123</a> [<a href="W06-0123.bib">bib</a>]: <b>Kun Yu; Sadao Kurohashi; Hao Liu; Toshiaki Nakazawa</b><br><i>Chinese Word Segmentation and Named Entity Recognition by Character Tagging</i>
+<p><a href="W06-0124.pdf">W06-0124</a> [<a href="W06-0124.bib">bib</a>]: <b>Xiaofeng Yu; Marine Carpuat; Dekai Wu</b><br><i>Boosting for Chinese Named Entity Recognition</i>
+<p><a href="W06-0125.pdf">W06-0125</a> [<a href="W06-0125.bib">bib</a>]: <b>Min Zhang; GuoDong Zhou; LingPeng Yang; DongHong Ji</b><br><i>Chinese Word Segmentation and Named Entity Recognition Based on a Context-Dependent Mutual Information Independence Model</i>
+<p><a href="W06-0126.pdf">W06-0126</a> [<a href="W06-0126.bib">bib</a>]: <b>Suxiang Zhang; Ying Qin; Juan Wen; Xiaojie Wang</b><br><i>Word Segmentation and Named Entity Recognition for SIGHAN Bakeoff3</i>
+<p><a href="W06-0127.pdf">W06-0127</a> [<a href="W06-0127.bib">bib</a>]: <b>Hai Zhao; Chang-Ning Huang; Mu Li</b><br><i>An Improved Chinese Word Segmentation System with Conditional Random Field</i>
+<p><a href="W06-0128.pdf">W06-0128</a> [<a href="W06-0128.bib">bib</a>]: <b>Guo-Wei Bian</b><br><i>Chinese Word Segmentation Using Various Dictionaries</i>
+<p><a href="W06-0129.pdf">W06-0129</a> [<a href="W06-0129.bib">bib</a>]: <b>Bob Carpenter</b><br><i>Character Language Models for Chinese Word Segmentation and Named Entity Recognition</i>
+<p><a href="W06-0130.pdf">W06-0130</a> [<a href="W06-0130.bib">bib</a>]: <b>Aitao Chen; Fuchun Peng; Roy Shan; Gordon Sun</b><br><i>Chinese Named Entity Recognition with Conditional Probabilistic Models</i>
+<p><a href="W06-0131.pdf">W06-0131</a> [<a href="W06-0131.bib">bib</a>]: <b>Bo Chen; Weiran Xu; Tao Peng; Jun Guo</b><br><i>POC-NLW Template for Chinese Word Segmentation</i>
+<p><a href="W06-0132.pdf">W06-0132</a> [<a href="W06-0132.bib">bib</a>]: <b>Yuanyong Feng; Le Sun; Yuanhua Lv</b><br><i>Chinese Word Segmentation and Named Entity Recognition Based on Conditional Random Fields Models</i>
+<p><a href="W06-0133.pdf">W06-0133</a> [<a href="W06-0133.bib">bib</a>]: <b>Aaron J. Jacobs; Yuk Wah Wong</b><br><i>Maximum Entropy Word Segmentation of Chinese Text</i>
+<p><a href="W06-0134.pdf">W06-0134</a> [<a href="W06-0134.bib">bib</a>]: <b>Wei Jiang; Yi Guan; Xiao-Long Wang</b><br><i>A Pragmatic Chinese Word Segmentation System</i>
+<p><a href="W06-0135.pdf">W06-0135</a> [<a href="W06-0135.bib">bib</a>]: <b>Xin Li; Shuaixiang Dai</b><br><i>NetEase Automatic Chinese Word Segmentation</i>
+<p><a href="W06-0136.pdf">W06-0136</a> [<a href="W06-0136.bib">bib</a>]: <b>Dong-Hee Lim; Kyu-Baek Hwang; Seung-Shik Kang</b><br><i>N-gram Based Two-Step Algorithm for Word Segmentation</i>
+<p><a href="W06-0137.pdf">W06-0137</a> [<a href="W06-0137.bib">bib</a>]: <b>Yan Song; Jiaqing Guo; Dongfeng Cai</b><br><i>Chinese Word Segmentation Based on an Approach of Maximum Entropy Modeling</i>
+<p><a href="W06-0138.pdf">W06-0138</a> [<a href="W06-0138.bib">bib</a>]: <b>Mengqiu Wang; Yanxin Shi</b><br><i>Using Part-of-Speech Reranking to Improve Chinese Word Segmentation</i>
+<p><a href="W06-0139.pdf">W06-0139</a> [<a href="W06-0139.bib">bib</a>]: <b>Yu-Chieh Wu; Jie-Chi Yang; Qian-Xiang Lin</b><br><i>Description of the NCU Chinese Word Segmentation and Named Entity Recognition System for SIGHAN Bakeoff 2006</i>
+<p><a href="W06-0140.pdf">W06-0140</a> [<a href="W06-0140.bib">bib</a>]: <b>Junsheng Zhou; Liang He; Xinyu Dai; Jiajun Chen</b><br><i>Chinese Named Entity Recognition with a Multi-Phase Model</i>
+<p><a href="W06-0141.pdf">W06-0141</a> [<a href="W06-0141.bib">bib</a>]: <b>Muhua Zhu; Yilin Wang; Zhenxing Wang; Huizhen Wang; Jingbo Zhu</b><br><i>Designing Special Post-Processing Rules for SVM-Based Chinese Word Segmentation</i>
+<a name="0200"></a><h1>Proceedings of the Workshop on Information Extraction Beyond The Document</h1>
+<p><a href="W06-02.pdf">W06-02</a> [<a href="W06-02.bib">bib</a>]: <b>Entire volume</b><p><a href=W06-0200.pdf>W06-0200</a>: <i>Front Matter</i>
+<p><a href="W06-0201.pdf">W06-0201</a> [<a href="W06-0201.bib">bib</a>]: <b>Masaki Murata; Koji Ichii; Qing Ma; Tamotsu Shirado; Toshiyuki Kanamaru; Sachiyo Tsukawaki; Hitoshi Isahara</b><br><i>Development of an Automatic Trend Exploration System using the MuST Data Collection</i>
+<p><a href="W06-0202.pdf">W06-0202</a> [<a href="W06-0202.bib">bib</a>]: <b>Mark Stevenson; Mark A. Greenwood</b><br><i>Comparing Information Extraction Pattern Models</i>
+<p><a href="W06-0203.pdf">W06-0203</a> [<a href="W06-0203.bib">bib</a>]: <b>Stephan Walter; Manfred Pinkal</b><br><i>Automatic Extraction of Definitions from German Court Decisions</i>
+<p><a href="W06-0204.pdf">W06-0204</a> [<a href="W06-0204.bib">bib</a>]: <b>Mark A. Greenwood; Mark Stevenson</b><br><i>Improving Semi-supervised Acquisition of Relation Extraction Patterns</i>
+<p><a href="W06-0205.pdf">W06-0205</a> [<a href="W06-0205.bib">bib</a>]: <b>Ga&#235;l Dias; Cl&#225;udia Santos; Guillaume Cleuziou</b><br><i>Automatic Knowledge Representation using a Graph-based Algorithm for Language-Independent Lexical Chaining</i>
+<p><a href="W06-0206.pdf">W06-0206</a> [<a href="W06-0206.bib">bib</a>]: <b>Heng Ji; Ralph Grishman</b><br><i>Data Selection in Semi-supervised Learning for Name Tagging</i>
+<p><a href="W06-0207.pdf">W06-0207</a> [<a href="W06-0207.bib">bib</a>]: <b>Yousif Almas; Khurshid Ahmad</b><br><i>LoLo: A System based on Terminology for Multilingual Extraction</i>
+<p><a href="W06-0208.pdf">W06-0208</a> [<a href="W06-0208.bib">bib</a>]: <b>Siddharth Patwardhan; Ellen Riloff</b><br><i>Learning Domain-Specific Information Extraction Patterns from the Web</i>
+<a name="0300"></a><h1>Proceedings of the Workshop on Sentiment and Subjectivity in Text</h1>
+<p><a href="W06-03.pdf">W06-03</a> [<a href="W06-03.bib">bib</a>]: <b>Entire volume</b><p><a href=W06-0300.pdf>W06-0300</a>: <i>Front Matter</i>
+<p><a href="W06-0301.pdf">W06-0301</a> [<a href="W06-0301.bib">bib</a>]: <b>Soo-Min Kim; Eduard Hovy</b><br><i>Extracting Opinions, Opinion Holders, and Topics Expressed in Online News Media Text</i>
+<p><a href="W06-0302.pdf">W06-0302</a> [<a href="W06-0302.bib">bib</a>]: <b>Veselin Stoyanov; Claire Cardie</b><br><i>Toward Opinion Summarization: Linking the Sources</i>
+<p><a href="W06-0303.pdf">W06-0303</a> [<a href="W06-0303.bib">bib</a>]: <b>Atsushi Fujii; Tetsuya Ishikawa</b><br><i>A System for Summarizing and Visualizing Arguments in Subjective Documents: Toward Supporting Decision Making</i>
+<p><a href="W06-0304.pdf">W06-0304</a> [<a href="W06-0304.bib">bib</a>]: <b>Michelle L. Gregory; Nancy Chinchor; Paul Whitney; Richard Carter; Elizabeth Hetzler; Alan Turner</b><br><i>User-directed Sentiment Analysis: Visualizing the Affective Content of Documents</i>
+<p><a href="W06-0305.pdf">W06-0305</a> [<a href="W06-0305.bib">bib</a>]: <b>Rashmi Prasad; Nikhil Dinesh; Alan Lee; Aravind Joshi; Bonnie Webber</b><br><i>Annotating Attribution in the Penn Discourse TreeBank</i>
+<p><a href="W06-0306.pdf">W06-0306</a> [<a href="W06-0306.bib">bib</a>]: <b>Nobuaki Hiroshima; Setsuo Yamada; Osamu Furuse; Ryoji Kataoka</b><br><i>Searching for Sentences Expressing Opinions by using Declaratively Subjective Clues</i>
+<p><a href="W06-0307.pdf">W06-0307</a> [<a href="W06-0307.bib">bib</a>]: <b>Li Zhang; John A. Barnden; Robert J. Hendley; Alan M. Wallington</b><br><i>Exploitation in Affect Detection in Open-Ended Improvisational Text</i>
+<p><a href="W06-0308.pdf">W06-0308</a> [<a href="W06-0308.bib">bib</a>]: <b>Michel G&#233;n&#233;reux; Roger Evans</b><br><i>Towards a validated model for affective classification of texts</i>
+<a name="0400"></a><h1>Proceedings of the Third Workshop on Constraints and Language Processing</h1>
+<p><a href="W06-04.pdf">W06-04</a> [<a href="W06-04.bib">bib</a>]: <b>Entire volume</b><p><a href=W06-0400.pdf>W06-0400</a>: <i>Front Matter</i>
+<p><a href="W06-0401.pdf">W06-0401</a> [<a href="W06-0401.bib">bib</a>]: <b>Marieke van der Feen; Petra Hendriks; John Hoeks</b><br><i>Constraints in Language Processing: Do Grammars Count?</i>
+<p><a href="W06-0402.pdf">W06-0402</a> [<a href="W06-0402.bib">bib</a>]: <b>Gerald Penn; Stefan Banjevic; Michael Demko</b><br><i>Control Strategies for Parsing with Freer Word-Order Languages</i>
+<p><a href="W06-0403.pdf">W06-0403</a> [<a href="W06-0403.bib">bib</a>]: <b>Jean-Philippe Prost</b><br><i>Numbat: Abolishing Privileges when Licensing New Constituents in Constraint-Oriented Parsing</i>
+<p><a href="W06-0404.pdf">W06-0404</a> [<a href="W06-0404.bib">bib</a>]: <b>Yafa Al-Raheb</b><br><i>Pragmatic Constraints on Semantic Presupposition</i>
+<p><a href="W06-0405.pdf">W06-0405</a> [<a href="W06-0405.bib">bib</a>]: <b>Claude Roux</b><br><i>Coupling a Linguistic Formalism and a Script Language</i>
+<p><a href="W06-0406.pdf">W06-0406</a> [<a href="W06-0406.bib">bib</a>]: <b>Jorge Marques Pelizzoni; Maria das Gra&#231;as Volpe Nunes</b><br><i>Capturing Disjunction in Lexicalization with Extensible Dependency Grammar</i>
+<a name="0500"></a><h1>Proceedings of the 2nd Workshop on Ontology Learning and Population: Bridging the Gap between Text and Knowledge</h1>
+<p><a href="W06-05.pdf">W06-05</a> [<a href="W06-05.bib">bib</a>]: <b>Entire volume</b><p><a href=W06-0500.pdf>W06-0500</a>: <i>Front Matter</i>
+<p><a href="W06-0501.pdf">W06-0501</a> [<a href="W06-0501.bib">bib</a>]: <b>Roberto Navigli; Paola Velardi</b><br><i>Enriching a Formal Ontology with a Thesaurus: an Application in the Cultural Heritage Domain</i>
+<p><a href="W06-0502.pdf">W06-0502</a> [<a href="W06-0502.bib">bib</a>]: <b>Eric Nichols; Francis Bond; Takaaki Tanaka; Sanae Fujita; Dan Flickinger</b><br><i>Multilingual Ontology Acquisition from Multiple MRDs</i>
+<p><a href="W06-0503.pdf">W06-0503</a> [<a href="W06-0503.bib">bib</a>]: <b>Fabian M. Suchanek; Georgiana Ifrim; Gerhard Weikum</b><br><i>LEILA: Learning to Extract Information by Linguistic Analysis</i>
+<p><a href="W06-0504.pdf">W06-0504</a> [<a href="W06-0504.bib">bib</a>]: <b>Bernardo Magnini; Emanuele Pianta; Octavian Popescu; Manuela Speranza</b><br><i>Ontology Population from Textual Mentions: Task Definition and Benchmark</i>
+<p><a href="W06-0505.pdf">W06-0505</a> [<a href="W06-0505.bib">bib</a>]: <b>Koen Deschacht; Marie-Francine Moens</b><br><i>Efficient Hierarchical Entity Classifier Using Conditional Random Fields</i>
+<p><a href="W06-0506.pdf">W06-0506</a> [<a href="W06-0506.bib">bib</a>]: <b>Pum-Mo Ryu; Key-Sun Choi</b><br><i>Taxonomy Learning using Term Specificity and Similarity</i>
+<p><a href="W06-0507.pdf">W06-0507</a> [<a href="W06-0507.bib">bib</a>]: <b>Enrique Alfonseca; Maria Ruiz-Casado; Manabu Okumura; Pablo Castells</b><br><i>Towards Large-scale Non-taxonomic Relation Extraction: Estimating the Precision of Rote Extractors</i>
+<p><a href="W06-0508.pdf">W06-0508</a> [<a href="W06-0508.bib">bib</a>]: <b>Lucia Specia; Enrico Motta</b><br><i>A hybrid approach for extracting semantic relations from texts</i>
+<a name="0600"></a><h1>Proceedings of the Workshop on Frontiers in Linguistically Annotated Corpora 2006</h1>
+<p><a href="W06-06.pdf">W06-06</a> [<a href="W06-06.bib">bib</a>]: <b>Entire volume</b><p><a href=W06-0600.pdf>W06-0600</a>: <i>Front Matter</i>
+<p><a href="W06-0601.pdf">W06-0601</a> [<a href="W06-0601.bib">bib</a>]: <b>Cecilia Ovesdotter Alm; Nicolas Loeff; David A. Forsyth</b><br><i>Challenges for Annotating Images for Sense Disambiguation</i>
+<p><a href="W06-0602.pdf">W06-0602</a> [<a href="W06-0602.bib">bib</a>]: <b>Wen-Chi Chou; Richard Tzong-Han Tsai; Ying-Shan Su; Wei Ku; Ting-Yi Sung; Wen-Lian Hsu</b><br><i>A Semi-Automatic Method for Annotating a Biomedical Proposition Bank</i>
+<p><a href="W06-0603.pdf">W06-0603</a> [<a href="W06-0603.bib">bib</a>]: <b>Yang Ye; Steven Abney</b><br><i>How and Where do People Fail with Time: Temporal Reference Mapping Annotation by Chinese and English Bilinguals</i>
+<p><a href="W06-0604.pdf">W06-0604</a> [<a href="W06-0604.bib">bib</a>]: <b>Felice Dell'Orletta; Alessandro Lenci; Simonetta Montemagni; Vito Pirrelli</b><br><i>Probing the Space of Grammatical Variation: Induction of Cross-Lingual Grammatical Constraints from Treebanks</i>
+<p><a href="W06-0605.pdf">W06-0605</a> [<a href="W06-0605.bib">bib</a>]: <b>Mike Maxwell; Baden Hughes</b><br><i>Frontiers in Linguistic Annotation for Lower-Density Languages</i>
+<p><a href="W06-0606.pdf">W06-0606</a> [<a href="W06-0606.bib">bib</a>]: <b>Adam Meyers</b><br><i>Annotation Compatibility Working Group Report</i>
+<p><a href="W06-0607.pdf">W06-0607</a> [<a href="W06-0607.bib">bib</a>]: <b>Swapna Somasundaran; Janyce Wiebe; Paul Hoffmann; Diane Litman</b><br><i>Manual Annotation of Opinion Categories in Meetings</i>
+<p><a href="W06-0608.pdf">W06-0608</a> [<a href="W06-0608.bib">bib</a>]: <b>Takaaki Tanaka; Francis Bond; Sanae Fujita</b><br><i>The Hinoki Sensebank &#8212; A Large-Scale Word Sense Tagged Corpus of Japanese &#8212;</i>
+<p><a href="W06-0609.pdf">W06-0609</a> [<a href="W06-0609.bib">bib</a>]: <b>Olga Babko-Malaya; Ann Bies; Ann Taylor; Szuting Yi; Martha Palmer; Mitch Marcus; Seth Kulick; Libin Shen</b><br><i>Issues in Synchronizing the English Treebank and PropBank</i>
+<p><a href="W06-0610.pdf">W06-0610</a> [<a href="W06-0610.bib">bib</a>]: <b>V&#225;clav Nov&#225;k</b><br><i>On Distance between Deep Syntax and Semantic Representation</i>
+<p><a href="W06-0611.pdf">W06-0611</a> [<a href="W06-0611.bib">bib</a>]: <b>Elke Teich; John A. Bateman; Richard Eckart</b><br><i>Corpus Annotation by Generation</i>
+<p><a href="W06-0612.pdf">W06-0612</a> [<a href="W06-0612.bib">bib</a>]: <b>Ji&#345;&#237; Semeck&#253;; Silvie Cinkov&#225;</b><br><i>Constructing an English Valency Lexicon</i>
+<a name="0700"></a><h1>Proceedings of the Workshop on Task-Focused Summarization and Question Answering</h1>
+<p><a href="W06-07.pdf">W06-07</a> [<a href="W06-07.bib">bib</a>]: <b>Entire volume</b><p><a href=W06-0700.pdf>W06-0700</a>: <i>Front Matter</i>
+<p><a href="W06-0701.pdf">W06-0701</a> [<a href="W06-0701.bib">bib</a>]: <b>Ben Hachey; Gabriel Murray; David Reitter</b><br><i>Dimensionality Reduction Aids Term Co-Occurrence Based Multi-Document Summarization</i>
+<p><a href="W06-0702.pdf">W06-0702</a> [<a href="W06-0702.bib">bib</a>]: <b>Anna Kazantseva; Stan Szpakowicz</b><br><i>Challenges in Evaluating Summaries of Short Stories</i>
+<p><a href="W06-0703.pdf">W06-0703</a> [<a href="W06-0703.bib">bib</a>]: <b>Chuan-Jie Lin; Chun-Hung Cho</b><br><i>Question Pre-Processing in a QA System on Internet Discussion Groups</i>
+<p><a href="W06-0704.pdf">W06-0704</a> [<a href="W06-0704.bib">bib</a>]: <b>Dina Demner-Fushman; Jimmy Lin</b><br><i>Situated Question Answering in the Clinical Domain: Selecting the Best Drug Treatment for Diseases</i>
+<p><a href="W06-0705.pdf">W06-0705</a> [<a href="W06-0705.bib">bib</a>]: <b>Sanda Harabagiu; Andrew Hickl</b><br><i>Using Scenario Knowledge in Automatic Question Answering</i>
+<p><a href="W06-0706.pdf">W06-0706</a> [<a href="W06-0706.bib">bib</a>]: <b>Yuval Marom; Ingrid Zukerman</b><br><i>Automating Help-desk Responses: A Comparative Study of Information-gathering Approaches</i>
+<p><a href="W06-0707.pdf">W06-0707</a> [<a href="W06-0707.bib">bib</a>]: <b>Hoa Trang Dang</b><br><i>DUC 2005: Evaluation of Question-Focused Summarization Systems</i>
+<a name="0800"></a><h1>Proceedings of the Workshop on How Can Computational Linguistics Improve Information Retrieval?</h1>
+<p><a href="W06-08.pdf">W06-08</a> [<a href="W06-08.bib">bib</a>]: <b>Entire volume</b><p><a href=W06-0800.pdf>W06-0800</a>: <i>Front Matter</i>
+<p><a href="W06-0801.pdf">W06-0801</a> [<a href="W06-0801.bib">bib</a>]: <b>Ayu Purwarianti; Masatoshi Tsuchiya; Seiichi Nakagawa</b><br><i>Indonesian-Japanese CLIR Using Only Limited Resource</i>
+<p><a href="W06-0802.pdf">W06-0802</a> [<a href="W06-0802.bib">bib</a>]: <b>Rodolfo Delmonte</b><br><i>Hybrid Systems for Information Extraction and Question Answering</i>
+<p><a href="W06-0803.pdf">W06-0803</a> [<a href="W06-0803.bib">bib</a>]: <b>Danushka Bollegala; Yutaka Matsuo; Mitsuru Ishizuka</b><br><i>Extracting Key Phrases to Disambiguate Personal Name Queries in Web Search</i>
+<p><a href="W06-0804.pdf">W06-0804</a> [<a href="W06-0804.bib">bib</a>]: <b>Anna Ritchie; Simone Teufel; Stephen Robertson</b><br><i>How to Find Better Index Terms Through Citations</i>
+<p><a href="W06-0805.pdf">W06-0805</a> [<a href="W06-0805.bib">bib</a>]: <b>Hua Cheng; Yan Qu; Jesse Montgomery; David A. Evans</b><br><i>Exploring Semantic Constraints for Document Retrieval</i>
+<a name="0900"></a><h1>Proceedings of the Workshop on Annotating and Reasoning about Time and Events</h1>
+<p><a href="W06-09.pdf">W06-09</a> [<a href="W06-09.bib">bib</a>]: <b>Entire volume</b><p><a href=W06-0900.pdf>W06-0900</a>: <i>Front Matter</i>
+<p><a href="W06-0901.pdf">W06-0901</a> [<a href="W06-0901.bib">bib</a>]: <b>David Ahn</b><br><i>The stages of event extraction</i>
+<p><a href="W06-0902.pdf">W06-0902</a> [<a href="W06-0902.bib">bib</a>]: <b>Robert Dale; Pawe&#322; Mazur</b><br><i>Local Semantics in the Interpretation of Temporal Expressions</i>
+<p><a href="W06-0903.pdf">W06-0903</a> [<a href="W06-0903.bib">bib</a>]: <b>Angelo Dalli; Yorick Wilks</b><br><i>Automatic Dating of Documents and Temporal Text Classification</i>
+<p><a href="W06-0904.pdf">W06-0904</a> [<a href="W06-0904.bib">bib</a>]: <b>Inderjeet Mani; Ben Wellner</b><br><i>A Pilot Study on Acquiring Metric Temporal Constraints for Events</i>
+<p><a href="W06-0905.pdf">W06-0905</a> [<a href="W06-0905.bib">bib</a>]: <b>Matteo Negri; Estela Saquete; Patricio Mart&#237;nez-Barco; Rafael Mu&#241;oz</b><br><i>Evaluating Knowledge-based Approaches to the Multilingual Extension of a Temporal Expression Normalizer</i>
+<p><a href="W06-0906.pdf">W06-0906</a> [<a href="W06-0906.bib">bib</a>]: <b>Feng Pan; Rutu Mulkar; Jerry R. Hobbs</b><br><i>Extending TimeML with Typical Durations of Events</i>
+<p><a href="W06-0907.pdf">W06-0907</a> [<a href="W06-0907.bib">bib</a>]: <b>Gail Sinclair; Bonnie Webber; Duncan Davidson</b><br><i>Marking Time in Developmental Biology: Annotating Developmental Events and their Links with Molecular Events</i>
+<a name="1000"></a><h1>Proceedings of the Workshop on Multilingual Language Resources and Interoperability</h1>
+<p><a href="W06-10.pdf">W06-10</a> [<a href="W06-10.bib">bib</a>]: <b>Entire volume</b><p><a href=W06-1000.pdf>W06-1000</a>: <i>Front Matter</i>
+<p><a href="W06-1001.pdf">W06-1001</a> [<a href="W06-1001.bib">bib</a>]: <b>Gil Francopoulo; Nuria Bel; Monte George; Nicoletta Calzolari; Monica Monachini; Mandy Pet; Claudia Soria</b><br><i>Lexical Markup Framework (LMF) for NLP Multilingual Resources</i>
+<p><a href="W06-1002.pdf">W06-1002</a> [<a href="W06-1002.bib">bib</a>]: <b>Jack Halpern</b><br><i>The Role of Lexical Resources in CJK Natural Language Processing</i>
+<p><a href="W06-1003.pdf">W06-1003</a> [<a href="W06-1003.bib">bib</a>]: <b>Claudia Soria; Maurizio Tesconi; Andrea Marchetti; Francesca Bertagna; Monica Monachini; Chu-Ren Huang; Nicoletta Calzolari</b><br><i>Towards Agent-based Cross-Lingual Interoperability of Distributed Lexical Resources</i>
+<p><a href="W06-1004.pdf">W06-1004</a> [<a href="W06-1004.bib">bib</a>]: <b>Verena Lyding; Elena Chiocchetti; Gilles S&#233;rasset; Francis Brunet-Manquat</b><br><i>The LexALP Information System: Term Bank and Corpus for Multilingual Legal Terminology Consolidated</i>
+<p><a href="W06-1005.pdf">W06-1005</a> [<a href="W06-1005.bib">bib</a>]: <b>Sylviane Cardey; Rosita Chan; Peter Greenfield</b><br><i>The Development of a Multilingual Collocation Dictionary</i>
+<p><a href="W06-1006.pdf">W06-1006</a> [<a href="W06-1006.bib">bib</a>]: <b>Violeta Seretan; Eric Wehrli</b><br><i>Multilingual Collocation Extraction: Issues and Solutions</i>
+<p><a href="W06-1007.pdf">W06-1007</a> [<a href="W06-1007.bib">bib</a>]: <b>Alain Polgu&#232;re</b><br><i>Structural Properties of Lexical Systems: Monolingual and Multilingual Perspectives</i>
+<p><a href="W06-1008.pdf">W06-1008</a> [<a href="W06-1008.bib">bib</a>]: <b>Ken'ichi Fukushima; Kenjiro Taura; Takashi Chikayama</b><br><i>A Fast and Accurate Method for Detecting English-Japanese Parallel Texts</i>
+<p><a href="W06-1009.pdf">W06-1009</a> [<a href="W06-1009.bib">bib</a>]: <b>Peter A. Chew; Steve J. Verzi; Travis L. Bauer; Jonathan T. McClain</b><br><i>Evaluation of the Bible as a Resource for Cross-Language Information Retrieval</i>
+<a name="1100"></a><h1>Proceedings of the Workshop on Linguistic Distances</h1>
+<p><a href="W06-11.pdf">W06-11</a> [<a href="W06-11.bib">bib</a>]: <b>Entire volume</b><p><a href=W06-1100.pdf>W06-1100</a>: <i>Front Matter</i>
+<p><a href="W06-1101.pdf">W06-1101</a> [<a href="W06-1101.bib">bib</a>]: <b>John Nerbonne; Erhard Hinrichs</b><br><i>Linguistic Distances</i>
+<p><a href="W06-1102.pdf">W06-1102</a> [<a href="W06-1102.bib">bib</a>]: <b>Ido Dagan</b><br><i>Semantic Similarity: What for?</i>
+<p><a href="W06-1103.pdf">W06-1103</a> [<a href="W06-1103.bib">bib</a>]: <b>Claude St-Jacques; Caroline Barri&#232;re</b><br><i>Similarity Judgments: Philosophical, Psychological and Mathematical Investigations</i>
+<p><a href="W06-1104.pdf">W06-1104</a> [<a href="W06-1104.bib">bib</a>]: <b>Torsten Zesch; Iryna Gurevych</b><br><i>Automatically Creating Datasets for Measures of Semantic Relatedness</i>
+<p><a href="W06-1105.pdf">W06-1105</a> [<a href="W06-1105.bib">bib</a>]: <b>Ben Hachey</b><br><i>Comparison of Similarity Models for the Relation Discovery Task</i>
+<p><a href="W06-1106.pdf">W06-1106</a> [<a href="W06-1106.bib">bib</a>]: <b>Rebecca Dridan; Francis Bond</b><br><i>Sentence Comparison Using Robust Minimal Recursion Semantics and an Ontology</i>
+<p><a href="W06-1107.pdf">W06-1107</a> [<a href="W06-1107.bib">bib</a>]: <b>Grzegorz Kondrak; Tarek Sherif</b><br><i>Evaluation of Several Phonetic Similarity Algorithms on the Task of Cognate Identification</i>
+<p><a href="W06-1108.pdf">W06-1108</a> [<a href="W06-1108.bib">bib</a>]: <b>Wilbert Heeringa; Peter Kleiweg; Charlotte Gooskens; John Nerbonne</b><br><i>Evaluation of String Distance Algorithms for Dialectology</i>
+<p><a href="W06-1109.pdf">W06-1109</a> [<a href="W06-1109.bib">bib</a>]: <b>Anil Kumar Singh</b><br><i>Study of Some Distance Measures for Language and Encoding Identification</i>
+<p><a href="W06-1110.pdf">W06-1110</a> [<a href="W06-1110.bib">bib</a>]: <b>Sandra K&#252;bler</b><br><i>Towards Case-Based Parsing: Are Chunks Reliable Indicators for Syntax Trees?</i>
+<p><a href="W06-1111.pdf">W06-1111</a> [<a href="W06-1111.bib">bib</a>]: <b>John Nerbonne; Wybo Wiersma</b><br><i>A Measure of Aggregate Syntactic Distance</i>
+<p><a href="W06-1112.pdf">W06-1112</a> [<a href="W06-1112.bib">bib</a>]: <b>Petr Homola; Vladislav Kubo&#328;</b><br><i>A Structural Similarity Measure</i>
+<p><a href="W06-1113.pdf">W06-1113</a> [<a href="W06-1113.bib">bib</a>]: <b>Martin Emms</b><br><i>Variants of Tree Similarity in a Question Answering Task</i>
+<p><a href="W06-1114.pdf">W06-1114</a> [<a href="W06-1114.bib">bib</a>]: <b>Anca Dinu; Liviu P. Dinu</b><br><i>Total Rank Distance and Scaled Total Rank Distance: Two Alternative Metrics in Computational Linguistics</i>
+<a name="1200"></a><h1>Proceedings of the Workshop on Multiword Expressions: Identifying and Exploiting Underlying Properties</h1>
+<p><a href="W06-12.pdf">W06-12</a> [<a href="W06-12.bib">bib</a>]: <b>Entire volume</b><p><a href=W06-1200.pdf>W06-1200</a>: <i>Front Matter</i>
+<p><a href="W06-1201.pdf">W06-1201</a> [<a href="W06-1201.bib">bib</a>]: <b>Timothy Baldwin</b><br><i>Compositionality and Multiword Expressions: Six of One, Half a Dozen of the Other?</i>
+<p><a href="W06-1202.pdf">W06-1202</a> [<a href="W06-1202.bib">bib</a>]: <b>Scott S.L. Piao; Paul Rayson; Olga Mudraya; Andrew Wilson; Roger Garside</b><br><i>Measuring MWE Compositionality Using Semantic Annotation</i>
+<p><a href="W06-1203.pdf">W06-1203</a> [<a href="W06-1203.bib">bib</a>]: <b>Graham Katz; Eugenie Giesbrecht</b><br><i>Automatic Identification of Non-Compositional Multi-Word Expressions using Latent Semantic Analysis</i>
+<p><a href="W06-1204.pdf">W06-1204</a> [<a href="W06-1204.bib">bib</a>]: <b>Sriram Venkatapathy; Aravind K. Joshi</b><br><i>Using Information about Multi-word Expressions for the Word-Alignment Task</i>
+<p><a href="W06-1205.pdf">W06-1205</a> [<a href="W06-1205.bib">bib</a>]: <b>Amitabha Mukerjee; Ankit Soni; Achla M Raina</b><br><i>Detecting Complex Predicates in Hindi using POS Projection across Parallel Corpora</i>
+<p><a href="W06-1206.pdf">W06-1206</a> [<a href="W06-1206.bib">bib</a>]: <b>Yi Zhang; Valia Kordoni; Aline Villavicencio; Marco Idiart</b><br><i>Automated Multiword Expression Prediction for Grammar Engineering</i>
+<p><a href="W06-1207.pdf">W06-1207</a> [<a href="W06-1207.bib">bib</a>]: <b>Paul Cook; Suzanne Stevenson</b><br><i>Classifying Particle Semantics in English Verb-Particle Constructions</i>
+<p><a href="W06-1208.pdf">W06-1208</a> [<a href="W06-1208.bib">bib</a>]: <b>Jeremy Nicholson; Timothy Baldwin</b><br><i>Interpretation of Compound Nominalisations using Corpus and Web Statistics</i>
+<a name="1300"></a><h1>Proceedings of the 7th SIGdial Workshop on Discourse and Dialogue</h1>
+<p><a href="W06-13.pdf">W06-13</a> [<a href="W06-13.bib">bib</a>]: <b>Entire volume</b><p><a href=W06-1300.pdf>W06-1300</a>: <i>Front Matter</i>
+<p><a href="W06-1301.pdf">W06-1301</a> [<a href="W06-1301.bib">bib</a>]: <b>Alexander Hof; Eli Hagen; Alexander Huber</b><br><i>Adaptive Help for Speech Dialogue Systems Based on Learning and Forgetting of Speech Commands</i>
+<p><a href="W06-1302.pdf">W06-1302</a> [<a href="W06-1302.bib">bib</a>]: <b>Kazunori Komatani; Naoyuki Kanda; Mikio Nakano; Kazuhiro Nakadai; Hiroshi Tsujino; Tetsuya Ogata; Hiroshi G. Okuno</b><br><i>Multi-Domain Spoken Dialogue System with Extensibility and Robustness against Speech Recognition Errors</i>
+<p><a href="W06-1303.pdf">W06-1303</a> [<a href="W06-1303.bib">bib</a>]: <b>Anton Leuski; Ronakkumar Patel; David Traum; Brandon Kennedy</b><br><i>Building Effective Question Answering Characters</i>
+<p><a href="W06-1304.pdf">W06-1304</a> [<a href="W06-1304.bib">bib</a>]: <b>Sebastian Varges; Fuliang Weng; Heather Pon-Barry</b><br><i>Interactive Question Answering and Constraint Relaxation in Spoken Dialogue Systems</i>
+<p><a href="W06-1305.pdf">W06-1305</a> [<a href="W06-1305.bib">bib</a>]: <b>Jonathan Ginzburg</b><br><i>Content Recognition in Dialogue</i>
+<p><a href="W06-1306.pdf">W06-1306</a> [<a href="W06-1306.bib">bib</a>]: <b>Simon Keizer; Harry Bunt</b><br><i>Multidimensional Dialogue Management</i>
+<p><a href="W06-1307.pdf">W06-1307</a> [<a href="W06-1307.bib">bib</a>]: <b>Yafa Al-Raheb</b><br><i>DRT Representation of Degrees of Belief</i>
+<p><a href="W06-1308.pdf">W06-1308</a> [<a href="W06-1308.bib">bib</a>]: <b>Alexandre Denis; Guillaume Pitel; Matthieu Quignard</b><br><i>Resolution of Referents Groupings in Practical Dialogues</i>
+<p><a href="W06-1309.pdf">W06-1309</a> [<a href="W06-1309.bib">bib</a>]: <b>Bernd Ludwig</b><br><i>Tracing Actions Helps in Understanding Interactions</i>
+<p><a href="W06-1310.pdf">W06-1310</a> [<a href="W06-1310.bib">bib</a>]: <b>Yafa Al-Raheb</b><br><i>Semantic and Pragmatic Presupposition in Discourse Representation Theory</i>
+<p><a href="W06-1311.pdf">W06-1311</a> [<a href="W06-1311.bib">bib</a>]: <b>R. Vieira; E. Bick; J. Coelho; V. Muller; S. Collovini; J. Souza; L. Rino</b><br><i>Semantic tagging for resolution of indirect anaphora</i>
+<p><a href="W06-1312.pdf">W06-1312</a> [<a href="W06-1312.bib">bib</a>]: <b>Simone Teufel; Advaith Siddharthan; Dan Tidhar</b><br><i>An annotation scheme for citation function</i>
+<p><a href="W06-1313.pdf">W06-1313</a> [<a href="W06-1313.bib">bib</a>]: <b>Antonio Roque; David Traum</b><br><i>An Information State-Based Dialogue Manager for Call for Fire Dialogues</i>
+<p><a href="W06-1314.pdf">W06-1314</a> [<a href="W06-1314.bib">bib</a>]: <b>William Morgan; Pi-Chuan Chang; Surabhi Gupta; Jason M. Brenier</b><br><i>Automatically Detecting Action Items in Audio Meeting Recordings</i>
+<p><a href="W06-1315.pdf">W06-1315</a> [<a href="W06-1315.bib">bib</a>]: <b>T. Daniel Midgley; Shelly Harrison; Cara MacNish</b><br><i>Empirical Verification of Adjacency Pairs Using Dialogue Segmentation</i>
+<p><a href="W06-1316.pdf">W06-1316</a> [<a href="W06-1316.bib">bib</a>]: <b>Masahiro Araki; Kenji Tachibana</b><br><i>Multimodal Dialog Description Language for Rapid System Development</i>
+<p><a href="W06-1317.pdf">W06-1317</a> [<a href="W06-1317.bib">bib</a>]: <b>Ben Wellner; James Pustejovsky; Catherine Havasi; Anna Rumshisky; Roser Saur&#237;</b><br><i>Classification of Discourse Coherence Relations: An Exploratory Study using Multiple Knowledge Sources</i>
+<p><a href="W06-1318.pdf">W06-1318</a> [<a href="W06-1318.bib">bib</a>]: <b>Jeroen Geertzen; Harry Bunt</b><br><i>Measuring annotator agreement in a complex hierarchical dialogue act annotation scheme</i>
+<p><a href="W06-1319.pdf">W06-1319</a> [<a href="W06-1319.bib">bib</a>]: <b>Ingrid Zukerman; Michael Niemann; Sarah George</b><br><i>Balancing Conflicting Factors in Argument Interpretation</i>
+<p><a href="W06-1320.pdf">W06-1320</a> [<a href="W06-1320.bib">bib</a>]: <b>Maria Georgescul; Alexander Clark; Susan Armstrong</b><br><i>An Analysis of Quantitative Aspects in the Evaluation of Thematic Segmentation Algorithms</i>
+<p><a href="W06-1321.pdf">W06-1321</a> [<a href="W06-1321.bib">bib</a>]: <b>Diane J. Litman</b><br><i>Discourse and Dialogue Processing in Spoken Intelligent Tutoring Systems</i>
+<p><a href="W06-1322.pdf">W06-1322</a> [<a href="W06-1322.bib">bib</a>]: <b>Shuyin Li; Britta Wrede; Gerhard Sagerer</b><br><i>A computational model of multi-modal grounding for human robot interaction</i>
+<p><a href="W06-1323.pdf">W06-1323</a> [<a href="W06-1323.bib">bib</a>]: <b>Ryoko Tokuhisa; Ryuta Terashima</b><br><i>Relationship between Utterances and "Enthusiasm" in Non-task-oriented Conversational Dialogue</i>
+<a name="1400"></a><h1>Proceedings of the Fourth International Natural Language Generation Conference</h1>
+<p><a href="W06-14.pdf">W06-14</a> [<a href="W06-14.bib">bib</a>]: <b>Entire volume</b><p><a href=W06-1400.pdf>W06-1400</a>: <i>Front Matter</i>
+<p><a href="W06-1401.pdf">W06-1401</a> [<a href="W06-1401.bib">bib</a>]: <b>Kathleen R. McKeown</b><br><i>Lessons Learned from Large Scale Evaluation of Systems that Produce Text: Nightmares and Pleasant Surprises</i>
+<p><a href="W06-1402.pdf">W06-1402</a> [<a href="W06-1402.bib">bib</a>]: <b>Karin Harbusch; Gerard Kempen; Camiel van Breugel; Ulrich Koch</b><br><i>A Generation-Oriented Workbench for Performance Grammar: Capturing Linear Order Variability in German and Dutch</i>
+<p><a href="W06-1403.pdf">W06-1403</a> [<a href="W06-1403.bib">bib</a>]: <b>Michael White</b><br><i>CCG Chart Realization from Disjunctive Inputs</i>
+<p><a href="W06-1404.pdf">W06-1404</a> [<a href="W06-1404.bib">bib</a>]: <b>Sebastian Varges</b><br><i>Overgeneration and Ranking for Spoken Dialogue Systems</i>
+<p><a href="W06-1405.pdf">W06-1405</a> [<a href="W06-1405.bib">bib</a>]: <b>Amy Isard; Carsten Brockmann; Jon Oberlander</b><br><i>Individuality and Alignment in Generated Dialogues</i>
+<p><a href="W06-1406.pdf">W06-1406</a> [<a href="W06-1406.bib">bib</a>]: <b>Jing Lin</b><br><i>Using Distributional Similarity to Identify Individual Verb Choice</i>
+<p><a href="W06-1407.pdf">W06-1407</a> [<a href="W06-1407.bib">bib</a>]: <b>Atsushi Fujita; Naruaki Masuno; Satoshi Sato; Takehito Utsuro</b><br><i>Adjective-to-Verb Paraphrasing in Japanese Based on Lexical Constraints of Verbs</i>
+<p><a href="W06-1408.pdf">W06-1408</a> [<a href="W06-1408.bib">bib</a>]: <b>Helmut Horacek</b><br><i>Generating References to Parts of Recursively Structured Objects</i>
+<p><a href="W06-1409.pdf">W06-1409</a> [<a href="W06-1409.bib">bib</a>]: <b>Ivandr&#233; Paraboni; Judith Masthoff; Kees van Deemter</b><br><i>Overspecified Reference in Hierarchical Domains: Measuring the Benefits for Readers</i>
+<p><a href="W06-1410.pdf">W06-1410</a> [<a href="W06-1410.bib">bib</a>]: <b>Jette Viethen; Robert Dale</b><br><i>Algorithms for Generating Referring Expressions: Do They Do What People Do?</i>
+<p><a href="W06-1411.pdf">W06-1411</a> [<a href="W06-1411.bib">bib</a>]: <b>Kotaro Funakoshi; Satoru Watanabe; Takenobu Tokunaga</b><br><i>Group-Based Generation of Referring Expressions</i>
+<p><a href="W06-1412.pdf">W06-1412</a> [<a href="W06-1412.bib">bib</a>]: <b>Laura Stoia; Darla Magdalene Shockley; Donna K. Byron; Eric Fosler-Lussier</b><br><i>Noun Phrase Generation for Situated Dialogs</i>
+<p><a href="W06-1413.pdf">W06-1413</a> [<a href="W06-1413.bib">bib</a>]: <b>Imtiaz Hussain Khan; Graeme Ritchie; Kees van Deemter</b><br><i>The Clarity-Brevity Trade-off in Generating Referring Expressions</i>
+<p><a href="W06-1414.pdf">W06-1414</a> [<a href="W06-1414.bib">bib</a>]: <b>Catalina Hallett</b><br><i>Generic Querying of Relational Databases using Natural Language Generation Techniques</i>
+<p><a href="W06-1415.pdf">W06-1415</a> [<a href="W06-1415.bib">bib</a>]: <b>V&#233;ronique Moriceau</b><br><i>Generating Intelligent Numerical Answers in a Question-Answering System</i>
+<p><a href="W06-1416.pdf">W06-1416</a> [<a href="W06-1416.bib">bib</a>]: <b>Nikiforos Karamanis; Le An Ha; Ruslan Mitkov</b><br><i>Generating Multiple-Choice Test Items from Medical Text: A Pilot Study</i>
+<p><a href="W06-1417.pdf">W06-1417</a> [<a href="W06-1417.bib">bib</a>]: <b>Nancy Green</b><br><i>Generation of Biomedical Arguments for Lay Readers</i>
+<p><a href="W06-1418.pdf">W06-1418</a> [<a href="W06-1418.bib">bib</a>]: <b>Anja Belz; Robert Dale</b><br><i>Introduction to the INLG'06 Special Session on Sharing Data and Comparative Evaluation</i>
+<p><a href="W06-1419.pdf">W06-1419</a> [<a href="W06-1419.bib">bib</a>]: <b>C&#233;cile Paris; Nathalie Colineau; Ross Wilkinson</b><br><i>Evaluations of NLG Systems: Common Corpus and Tasks or Common Dimensions and Metrics?</i>
+<p><a href="W06-1420.pdf">W06-1420</a> [<a href="W06-1420.bib">bib</a>]: <b>Kees van Deemter; Ielka van der Sluis; Albert Gatt</b><br><i>Building a Semantically Transparent Corpus for the Generation of Referring Expressions.</i>
+<p><a href="W06-1421.pdf">W06-1421</a> [<a href="W06-1421.bib">bib</a>]: <b>Anja Belz; Adam Kilgarriff</b><br><i>Shared-Task Evaluations in HLT: Lessons for NLG</i>
+<p><a href="W06-1422.pdf">W06-1422</a> [<a href="W06-1422.bib">bib</a>]: <b>Ehud Reiter; Anja Belz</b><br><i>GENEVAL: A Proposal for Shared-task Evaluation in NLG</i>
+<a name="1500"></a><h1>Proceedings of the Eighth International Workshop on Tree Adjoining Grammar and Related Formalisms</h1>
+<p><a href="W06-15.pdf">W06-15</a> [<a href="W06-15.bib">bib</a>]: <b>Entire volume</b><p><a href=W06-1500.pdf>W06-1500</a>: <i>Front Matter</i>
+<p><a href="W06-1501.pdf">W06-1501</a> [<a href="W06-1501.bib">bib</a>]: <b>David Chiang; Owen Rambow</b><br><i>The Hidden TAG Model: Synchronous Grammars for Parsing Resource-Poor Languages</i>
+<p><a href="W06-1502.pdf">W06-1502</a> [<a href="W06-1502.bib">bib</a>]: <b>Joseph Le Roux; Beno&#238;t Crabb&#233;; Yannick Parmentier</b><br><i>A Constraint Driven Metagrammar</i>
+<p><a href="W06-1503.pdf">W06-1503</a> [<a href="W06-1503.bib">bib</a>]: <b>Alexandra Kinyon; Owen Rambow; Tatjana Scheffler; SinWon Yoon; Aravind K. Joshi</b><br><i>The Metagrammar Goes Multilingual: A Cross-Linguistic Look at the V2-Phenomenon</i>
+<p><a href="W06-1504.pdf">W06-1504</a> [<a href="W06-1504.bib">bib</a>]: <b>David Chiang</b><br><i>The Weak Generative Capacity of Linear Tree-Adjoining Grammars</i>
+<p><a href="W06-1505.pdf">W06-1505</a> [<a href="W06-1505.bib">bib</a>]: <b>Chung-hye Han; Nancy Hedberg</b><br><i>A Tree Adjoining Grammar Analysis of the Syntax and Semantics of  It-Clefts</i>
+<p><a href="W06-1506.pdf">W06-1506</a> [<a href="W06-1506.bib">bib</a>]: <b>Chung-hye Han</b><br><i>Pied-Piping in Relative Clauses: Syntax and Compositional Semantics Based on Synchronous Tree Adjoining Grammar</i>
+<p><a href="W06-1507.pdf">W06-1507</a> [<a href="W06-1507.bib">bib</a>]: <b>Frederick M. Hoyt</b><br><i>Negative Concord and Restructuring in Palestinian Arabic: A Comparison of TAG and CCG Analyses</i>
+<p><a href="W06-1508.pdf">W06-1508</a> [<a href="W06-1508.bib">bib</a>]: <b>Yuki Kato; Hiroyuki Seki; Tadao Kasami</b><br><i>Stochastic Multiple Context-Free Grammar for RNA Pseudoknot Modeling</i>
+<p><a href="W06-1509.pdf">W06-1509</a> [<a href="W06-1509.bib">bib</a>]: <b>Neville Ryant; Tatjana Scheffler</b><br><i>Binding of Anaphors in LTAG</i>
+<p><a href="W06-1510.pdf">W06-1510</a> [<a href="W06-1510.bib">bib</a>]: <b>Laura Kallmeyer; Maribel Romero</b><br><i>Quantifier Scope in German: An MCTAG Analysis</i>
+<p><a href="W06-1511.pdf">W06-1511</a> [<a href="W06-1511.bib">bib</a>]: <b>Timm Lichte; Laura Kallmeyer</b><br><i>Licensing German Negative Polarity Items in LTAG</i>
+<p><a href="W06-1512.pdf">W06-1512</a> [<a href="W06-1512.bib">bib</a>]: <b>Olga Babko-Malaya</b><br><i>Semantic Interpretation of Unrealized Syntactic Material in LTAG</i>
+<p><a href="W06-1513.pdf">W06-1513</a> [<a href="W06-1513.bib">bib</a>]: <b>Claire Gardent; Eric Kow</b><br><i>Three Reasons to Adopt TAG-Based Surface Realisation</i>
+<p><a href="W06-1514.pdf">W06-1514</a> [<a href="W06-1514.bib">bib</a>]: <b>Carlos G&#243;mez-Rodr&#237;guez; Miguel A. Alonso; Manuel Vilares</b><br><i>Generating XTAG Parsers from Algebraic Specifications</i>
+<p><a href="W06-1515.pdf">W06-1515</a> [<a href="W06-1515.bib">bib</a>]: <b>Laura Kallmeyer; Frank Richter</b><br><i>Constraint-Based Computational Semantics: A Comparison between LTAG and LRS</i>
+<p><a href="W06-1516.pdf">W06-1516</a> [<a href="W06-1516.bib">bib</a>]: <b>Eric Kow; Yannick Parmentier; Claire Gardent</b><br><i>SemTAG, the LORIA toolbox for TAG-based Parsing and Generation</i>
+<p><a href="W06-1517.pdf">W06-1517</a> [<a href="W06-1517.bib">bib</a>]: <b>Marco Kuhlmann; Mathias M&#246;hl</b><br><i>Extended Cross-Serial Dependencies in Tree Adjoining Grammars</i>
+<p><a href="W06-1518.pdf">W06-1518</a> [<a href="W06-1518.bib">bib</a>]: <b>Yudong Liu; Anoop Sarkar</b><br><i>Using LTAG-Based Features for Semantic Role Labeling</i>
+<p><a href="W06-1519.pdf">W06-1519</a> [<a href="W06-1519.bib">bib</a>]: <b>Jungyeul Park</b><br><i>Extracting Syntactic Features from a Korean Treebank</i>
+<p><a href="W06-1520.pdf">W06-1520</a> [<a href="W06-1520.bib">bib</a>]: <b>Carlos A. Prolo</b><br><i>Handling Unlike Coordinated Phrases in TAG by Mixing Syntactic Category and Grammatical Function</i>
+<p><a href="W06-1521.pdf">W06-1521</a> [<a href="W06-1521.bib">bib</a>]: <b>Sylvain Salvati</b><br><i>Parsing TAG with Abstract Categorial Grammar</i>
+<p><a href="W06-1522.pdf">W06-1522</a> [<a href="W06-1522.bib">bib</a>]: <b>Djam&#233; Seddah; Beno&#238;t Sagot</b><br><i>Modeling and Analysis of Elliptic Coordination by Dynamic Exploitation of Derivation Forests in LTAG Parsing</i>
+<p><a href="W06-1523.pdf">W06-1523</a> [<a href="W06-1523.bib">bib</a>]: <b>Arthur Stepanov</b><br><i>'Single Cycle' Languages: Empirical Evidence for TAG-Adjoining</i>
+<p><a href="W06-1524.pdf">W06-1524</a> [<a href="W06-1524.bib">bib</a>]: <b>Dennis Ryan Storoshenko</b><br><i>Reconsidering Raising and Experiencers in English</i>
+<a name="1600"></a><h1>Proceedings of the 2006 Conference on Empirical Methods in Natural Language Processing</h1>
+<p><a href="W06-16.pdf">W06-16</a> [<a href="W06-16.bib">bib</a>]: <b>Entire volume</b><p><a href=W06-1600.pdf>W06-1600</a>: <i>Front Matter</i>
+<p><a href="W06-1601.pdf">W06-1601</a> [<a href="W06-1601.bib">bib</a>]: <b>Trond Grenager; Christopher D. Manning</b><br><i>Unsupervised Discovery of a Statistical Verb Lexicon</i>
+<p><a href="W06-1602.pdf">W06-1602</a> [<a href="W06-1602.bib">bib</a>]: <b>Johan Bos; Malvina Nissim</b><br><i>An Empirical Approach to the Interpretation of Superlatives</i>
+<p><a href="W06-1603.pdf">W06-1603</a> [<a href="W06-1603.bib">bib</a>]: <b>Long Qiu; Min-Yen Kan; Tat-Seng Chua</b><br><i>Paraphrase Recognition via Dissimilarity Significance Classification</i>
+<p><a href="W06-1604.pdf">W06-1604</a> [<a href="W06-1604.bib">bib</a>]: <b>Alexander Yates; Stefan Schoenmackers; Oren Etzioni</b><br><i>Detecting Parser Errors Using Web-based Semantic Filters</i>
+<p><a href="W06-1605.pdf">W06-1605</a> [<a href="W06-1605.bib">bib</a>]: <b>Saif Mohammad; Graeme Hirst</b><br><i>Distributional measures of concept-distance: A task-oriented evaluation</i>
+<p><a href="W06-1606.pdf">W06-1606</a> [<a href="W06-1606.bib">bib</a>]: <b>Daniel Marcu; Wei Wang; Abdessamad Echihabi; Kevin Knight</b><br><i>SPMT: Statistical Machine Translation with Syntactified Target Language Phrases</i>
+<p><a href="W06-1607.pdf">W06-1607</a> [<a href="W06-1607.bib">bib</a>]: <b>George Foster; Roland Kuhn; Howard Johnson</b><br><i>Phrasetable Smoothing for Statistical Machine Translation</i>
+<p><a href="W06-1608.pdf">W06-1608</a> [<a href="W06-1608.bib">bib</a>]: <b>Chris Quirk; Simon Corston-Oliver</b><br><i>The impact of parse quality on syntactically-informed statistical machine translation</i>
+<p><a href="W06-1609.pdf">W06-1609</a> [<a href="W06-1609.bib">bib</a>]: <b>Marta R. Costa-juss&#224;; Jos&#233; A. R. Fonollosa</b><br><i>Statistical Machine Reordering</i>
+<p><a href="W06-1610.pdf">W06-1610</a> [<a href="W06-1610.bib">bib</a>]: <b>Liang Zhou; Chin-Yew Lin; Eduard Hovy</b><br><i>Re-evaluating Machine Translation Results with Paraphrase Support</i>
+<p><a href="W06-1611.pdf">W06-1611</a> [<a href="W06-1611.bib">bib</a>]: <b>Mihai Rotaru; Diane J. Litman</b><br><i>Exploiting Discourse Structure for Spoken Dialogue Performance Analysis</i>
+<p><a href="W06-1612.pdf">W06-1612</a> [<a href="W06-1612.bib">bib</a>]: <b>Malvina Nissim</b><br><i>Learning Information Status of Discourse Entities</i>
+<p><a href="W06-1613.pdf">W06-1613</a> [<a href="W06-1613.bib">bib</a>]: <b>Simone Teufel; Advaith Siddharthan; Dan Tidhar</b><br><i>Automatic classification of citation function</i>
+<p><a href="W06-1614.pdf">W06-1614</a> [<a href="W06-1614.bib">bib</a>]: <b>Sandra K&#252;bler; Erhard W. Hinrichs; Wolfgang Maier</b><br><i>Is it Really that Difficult to Parse German?</i>
+<p><a href="W06-1615.pdf">W06-1615</a> [<a href="W06-1615.bib">bib</a>]: <b>John Blitzer; Ryan McDonald; Fernando Pereira</b><br><i>Domain Adaptation with Structural Correspondence Learning</i>
+<p><a href="W06-1616.pdf">W06-1616</a> [<a href="W06-1616.bib">bib</a>]: <b>Sebastian Riedel; James Clarke</b><br><i>Incremental Integer Linear Programming for Non-projective Dependency Parsing</i>
+<p><a href="W06-1617.pdf">W06-1617</a> [<a href="W06-1617.bib">bib</a>]: <b>Zheng Ping Jiang; Hwee Tou Ng</b><br><i>Semantic Role Labeling of NomBank: A Maximum Entropy Approach</i>
+<p><a href="W06-1618.pdf">W06-1618</a> [<a href="W06-1618.bib">bib</a>]: <b>Steven Bethard; James H. Martin</b><br><i>Identification of Event Mentions and their Semantic Class</i>
+<p><a href="W06-1619.pdf">W06-1619</a> [<a href="W06-1619.bib">bib</a>]: <b>Takashi Ninomiya; Takuya Matsuzaki; Yoshimasa Tsuruoka; Yusuke Miyao; Jun'ichi Tsujii</b><br><i>Extremely Lexicalized Models for Accurate and Fast HPSG Parsing</i>
+<p><a href="W06-1620.pdf">W06-1620</a> [<a href="W06-1620.bib">bib</a>]: <b>Phil Blunsom; Timothy Baldwin</b><br><i>Multilingual Deep Lexical Acquisition for HPSGs via Supertagging</i>
+<p><a href="W06-1621.pdf">W06-1621</a> [<a href="W06-1621.bib">bib</a>]: <b>Oren Glickman; Eyal Shnarch; Ido Dagan</b><br><i>Lexical Reference: a Semantic Matching Subtask</i>
+<p><a href="W06-1622.pdf">W06-1622</a> [<a href="W06-1622.bib">bib</a>]: <b>Chi-san Althon Lin; Tony C. Smith</b><br><i>Semantic Role Labeling via Instance-Based Learning</i>
+<p><a href="W06-1623.pdf">W06-1623</a> [<a href="W06-1623.bib">bib</a>]: <b>Philip Bramsen; Pawan Deshpande; Yoong Keok Lee; Regina Barzilay</b><br><i>Inducing Temporal Graphs</i>
+<p><a href="W06-1624.pdf">W06-1624</a> [<a href="W06-1624.bib">bib</a>]: <b>Wei-Lin Wu; Ru-Zhan Lu; Jian-Yong Duan; Hui Liu; Feng Gao; Yu-Quan Chen</b><br><i>A Weakly Supervised Learning Approach for Spoken Language Understanding</i>
+<p><a href="W06-1625.pdf">W06-1625</a> [<a href="W06-1625.bib">bib</a>]: <b>Amruta Purandare; Diane Litman</b><br><i>Humor: Prosody Analysis and Automatic Recognition for F*R*I*E*N*D*S*</i>
+<p><a href="W06-1626.pdf">W06-1626</a> [<a href="W06-1626.bib">bib</a>]: <b>Ying Zhang; Almut Silja Hildebrand; Stephan Vogel</b><br><i>Distributed Language Modeling for $N$-best List Re-ranking</i>
+<p><a href="W06-1627.pdf">W06-1627</a> [<a href="W06-1627.bib">bib</a>]: <b>Hao Zhang; Daniel Gildea</b><br><i>Efficient Search for Inversion Transduction Grammar</i>
+<p><a href="W06-1628.pdf">W06-1628</a> [<a href="W06-1628.bib">bib</a>]: <b>Brooke Cowan; Ivona Ku&#269;erov&#225;; Michael Collins</b><br><i>A Discriminative Model for Tree-to-Tree Translation</i>
+<p><a href="W06-1629.pdf">W06-1629</a> [<a href="W06-1629.bib">bib</a>]: <b>LiLi Xu; Atsushi Fujii; Tetsuya Ishikawa</b><br><i>Modeling Impression in Probabilistic Transliteration into Chinese</i>
+<p><a href="W06-1630.pdf">W06-1630</a> [<a href="W06-1630.bib">bib</a>]: <b>Tao Tao; Su-Youn Yoon; Andrew Fister; Richard Sproat; ChengXiang Zhai</b><br><i>Unsupervised Named Entity Transliteration Using Temporal and Phonetic Correlation</i>
+<p><a href="W06-1631.pdf">W06-1631</a> [<a href="W06-1631.bib">bib</a>]: <b>Abdusalam F.A. Nwesri; S.M.M. Tahaghoghi; Falk Scholer</b><br><i>Capturing Out-of-Vocabulary Words in Arabic Text</i>
+<p><a href="W06-1632.pdf">W06-1632</a> [<a href="W06-1632.bib">bib</a>]: <b>Katja Filippova; Michael Strube</b><br><i>Using linguistically motivated features for paragraph boundary identification</i>
+<p><a href="W06-1633.pdf">W06-1633</a> [<a href="W06-1633.bib">bib</a>]: <b>Cristina Nicolae; Gabriel Nicolae</b><br><i>BESTCUT: A Graph Algorithm for Coreference Resolution</i>
+<p><a href="W06-1634.pdf">W06-1634</a> [<a href="W06-1634.bib">bib</a>]: <b>Akane Yakushiji; Yusuke Miyao; Tomoko Ohta; Yuka Tateisi; Jun'ichi Tsujii</b><br><i>Automatic Construction of Predicate-argument Structure Patterns for Biomedical Information Extraction</i>
+<p><a href="W06-1635.pdf">W06-1635</a> [<a href="W06-1635.bib">bib</a>]: <b>Julia Hockenmaier; Aravind K. Joshi; Ken A. Dill</b><br><i>Protein folding and chart parsing</i>
+<p><a href="W06-1636.pdf">W06-1636</a> [<a href="W06-1636.bib">bib</a>]: <b>William P. Headden III; Eugene Charniak; Mark Johnson</b><br><i>Learning Phrasal Categories</i>
+<p><a href="W06-1637.pdf">W06-1637</a> [<a href="W06-1637.bib">bib</a>]: <b>David Reitter; Julia Hockenmaier; Frank Keller</b><br><i>Priming Effects in Combinatory Categorial Grammar</i>
+<p><a href="W06-1638.pdf">W06-1638</a> [<a href="W06-1638.bib">bib</a>]: <b>Markus Dreyer; Jason Eisner</b><br><i>Better Informed Training of Latent Syntactic Features</i>
+<p><a href="W06-1639.pdf">W06-1639</a> [<a href="W06-1639.bib">bib</a>]: <b>Matt Thomas; Bo Pang; Lillian Lee</b><br><i>Get out the vote: Determining support or opposition from Congressional floor-debate transcripts</i>
+<p><a href="W06-1640.pdf">W06-1640</a> [<a href="W06-1640.bib">bib</a>]: <b>Veselin Stoyanov; Claire Cardie</b><br><i>Partially Supervised Coreference Resolution for Opinion Summarization through Structured Rule Learning</i>
+<p><a href="W06-1641.pdf">W06-1641</a> [<a href="W06-1641.bib">bib</a>]: <b>Koji Eguchi; Victor Lavrenko</b><br><i>Sentiment Retrieval using Generative Models</i>
+<p><a href="W06-1642.pdf">W06-1642</a> [<a href="W06-1642.bib">bib</a>]: <b>Hiroshi Kanayama; Tetsuya Nasukawa</b><br><i>Fully Automatic Lexicon Expansion for Domain-oriented Sentiment Analysis</i>
+<p><a href="W06-1643.pdf">W06-1643</a> [<a href="W06-1643.bib">bib</a>]: <b>Michel Galley</b><br><i>A Skip-Chain Conditional Random Field for Ranking Meeting Utterances by Importance</i>
+<p><a href="W06-1644.pdf">W06-1644</a> [<a href="W06-1644.bib">bib</a>]: <b>Bo-June (Paul) Hsu; James Glass</b><br><i>Style &#38; Topic Language Model Adaptation Using HMM-LDA</i>
+<p><a href="W06-1645.pdf">W06-1645</a> [<a href="W06-1645.bib">bib</a>]: <b>Abhinav Sethy; Panayiotis G. Georgiou; Shrikanth Narayanan</b><br><i>Text data acquisition for domain-specific language models</i>
+<p><a href="W06-1646.pdf">W06-1646</a> [<a href="W06-1646.bib">bib</a>]: <b>Izhak Shafran; Keith Hall</b><br><i>Corrective Models for Speech Recognition of Inflected Languages</i>
+<p><a href="W06-1647.pdf">W06-1647</a> [<a href="W06-1647.bib">bib</a>]: <b>Kevin Duh; Katrin Kirchhoff</b><br><i>Lexicon Acquisition for Dialectal Arabic Using Transductive Learning</i>
+<p><a href="W06-1648.pdf">W06-1648</a> [<a href="W06-1648.bib">bib</a>]: <b>Walid Magdy; Kareem Darwish</b><br><i>Arabic OCR Error Correction Using Character Segment Correction, Language Modeling, and Shallow Morphology</i>
+<p><a href="W06-1649.pdf">W06-1649</a> [<a href="W06-1649.bib">bib</a>]: <b>Zheng-Yu Niu; Dong-Hong Ji; Chew Lim Tan</b><br><i>Partially Supervised Sense Disambiguation by Learning Sense Number from Tagged and Untagged Corpora</i>
+<p><a href="W06-1650.pdf">W06-1650</a> [<a href="W06-1650.bib">bib</a>]: <b>Soo-Min Kim; Patrick Pantel; Tim Chklovski; Marco Pennacchiotti</b><br><i>Automatically Assessing Review Helpfulness</i>
+<p><a href="W06-1651.pdf">W06-1651</a> [<a href="W06-1651.bib">bib</a>]: <b>Yejin Choi; Eric Breck; Claire Cardie</b><br><i>Joint Extraction of Entities and Relations for Opinion Recognition</i>
+<p><a href="W06-1652.pdf">W06-1652</a> [<a href="W06-1652.bib">bib</a>]: <b>Ellen Riloff; Siddharth Patwardhan; Janyce Wiebe</b><br><i>Feature Subsumption for Opinion Analysis</i>
+<p><a href="W06-1653.pdf">W06-1653</a> [<a href="W06-1653.bib">bib</a>]: <b>Masao Utiyama; Mikio Yamamoto</b><br><i>Relevance Feedback Models for Recommendation</i>
+<p><a href="W06-1654.pdf">W06-1654</a> [<a href="W06-1654.bib">bib</a>]: <b>James Gorman; James R. Curran</b><br><i>Random Indexing using Statistical Weight Functions</i>
+<p><a href="W06-1655.pdf">W06-1655</a> [<a href="W06-1655.bib">bib</a>]: <b>Galen Andrew</b><br><i>A Hybrid Markov/Semi-Markov Conditional Random Field for Sequence Segmentation</i>
+<p><a href="W06-1656.pdf">W06-1656</a> [<a href="W06-1656.bib">bib</a>]: <b>Ronen Feldman; Benjamin Rosenfeld</b><br><i>Boosting Unsupervised Relation Extraction by Using NER</i>
+<p><a href="W06-1657.pdf">W06-1657</a> [<a href="W06-1657.bib">bib</a>]: <b>Conrad Sanderson; Simon Guenter</b><br><i>Short Text Authorship Attribution via Sequence Kernels, Markov Chains and Author Unmasking: An Investigation</i>
+<p><a href="W06-1658.pdf">W06-1658</a> [<a href="W06-1658.bib">bib</a>]: <b>Ganesh Ramakrishnan; Sreeram Balakrishnan; Sachindra Joshi</b><br><i>Entity Annotation based on Inverse Index Operations</i>
+<p><a href="W06-1659.pdf">W06-1659</a> [<a href="W06-1659.bib">bib</a>]: <b>Hany Hassan; Ahmed Hassan; Ossama Emam</b><br><i>Unsupervised Information Extraction Approach Using Graph Mutual Reinforcement</i>
+<p><a href="W06-1660.pdf">W06-1660</a> [<a href="W06-1660.bib">bib</a>]: <b>Hong Lei Guo; Li Zhang; Zhong Su</b><br><i>Empirical Study on the Performance Stability of Named Entity Recognition Model across Domains</i>
+<p><a href="W06-1661.pdf">W06-1661</a> [<a href="W06-1661.bib">bib</a>]: <b>Erik Velldal; Stephan Oepen</b><br><i>Statistical Ranking in Tactical Generation</i>
+<p><a href="W06-1662.pdf">W06-1662</a> [<a href="W06-1662.bib">bib</a>]: <b>Paul D Ji; Stephen Pulman</b><br><i>Sentence ordering with manifold-based classification in multi-document summarization</i>
+<p><a href="W06-1663.pdf">W06-1663</a> [<a href="W06-1663.bib">bib</a>]: <b>Montse Cuadros; German Rigau</b><br><i>Quality Assessment of Large Scale Knowledge Resources</i>
+<p><a href="W06-1664.pdf">W06-1664</a> [<a href="W06-1664.bib">bib</a>]: <b>Yutaka Matsuo; Takeshi Sakaki; K&#244;ki Uchiyama; Mitsuru Ishizuka</b><br><i>Graph-based Word Clustering using a Web Search Engine</i>
+<p><a href="W06-1665.pdf">W06-1665</a> [<a href="W06-1665.bib">bib</a>]: <b>Jing Bai; Jian-Yun Nie; Guihong Cao</b><br><i>Context-Dependent Term Relations for Information Retrieval</i>
+<p><a href="W06-1666.pdf">W06-1666</a> [<a href="W06-1666.bib">bib</a>]: <b>Ivan Titov; James Henderson</b><br><i>Loss Minimization in Parse Reranking</i>
+<p><a href="W06-1667.pdf">W06-1667</a> [<a href="W06-1667.bib">bib</a>]: <b>Jinxiu Chen; Donghong Ji; ChewLim Tan; Zhengyu Niu</b><br><i>Unsupervised Relation Disambiguation with Order Identification Capabilities</i>
+<p><a href="W06-1668.pdf">W06-1668</a> [<a href="W06-1668.bib">bib</a>]: <b>Kristina Toutanova</b><br><i>Competitive generative models with structure learning for NLP classification tasks</i>
+<p><a href="W06-1669.pdf">W06-1669</a> [<a href="W06-1669.bib">bib</a>]: <b>Eneko Agirre; David Mart&#237;nez; Oier L&#243;pez de Lacalle; Aitor Soroa</b><br><i>Two graph-based algorithms for state-of-the-art WSD</i>
+<p><a href="W06-1670.pdf">W06-1670</a> [<a href="W06-1670.bib">bib</a>]: <b>Massimiliano Ciaramita; Yasemin Altun</b><br><i>Broad-Coverage Sense Disambiguation and Information Extraction with a Supersense Sequence Tagger</i>
+<p><a href="W06-1671.pdf">W06-1671</a> [<a href="W06-1671.bib">bib</a>]: <b>Michael Wick; Aron Culotta; Andrew McCallum</b><br><i>Learning Field Compatibilities to Extract Database Records from Unstructured Text</i>
+<p><a href="W06-1672.pdf">W06-1672</a> [<a href="W06-1672.bib">bib</a>]: <b>Dmitry Zelenko; Chinatsu Aone</b><br><i>Discriminative Methods for Transliteration</i>
+<p><a href="W06-1673.pdf">W06-1673</a> [<a href="W06-1673.bib">bib</a>]: <b>Jenny Rose Finkel; Christopher D. Manning; Andrew Y. Ng</b><br><i>Solving the Problem of Cascading Errors: Approximate Bayesian Inference for Linguistic Annotation Pipelines</i>
+<a name="1700"></a><h1>Proceedings of the 2nd International Workshop on Web as Corpus</h1>
+<p><a href=W06-1700.pdf>W06-1700</a>: <i>Front Matter</i>
+<p><a href="W06-1701.pdf">W06-1701</a>: <b>Andr&#225;s Kornai; P&#233;ter Hal&#225;csy; Viktor Nagy; Csaba Oravecz; Viktor Tr&#243;n; D&#225;niel Varga</b><br><i>Web-based frequency dictionaries for medium density languages</i>
+<p><a href="W06-1702.pdf">W06-1702</a>: <b>Mike Cafarella; Oren Etzioni</b><br><i>BE: A search engine for NLP research</i>
+<p><a href="W06-1703.pdf">W06-1703</a>: <b>Masatsugu Tonoike; Mitsuhiro Kida; Toshihiro Takagi; Yasuhiro Sasaki; Takehito Utsuro ; S. Sato</b><br><i>A comparative study on compositional translation estimation using a domain/topic-specific corpus collected from the Web</i>
+<p><a href="W06-1704.pdf">W06-1704</a>: <b>Gemma Boleda; Stefan Bott; Rodrigo Meza; Carlos Castillo; Toni Badia; Vicente L&#243;pez</b><br><i>CUCWeb: A Catalan corpus built from the Web</i>
+<p><a href="W06-1705.pdf">W06-1705</a>: <b>Paul Rayson; James Walkerdine; William H. Fletcher; Adam Kilgarriff</b><br><i>Annotated Web as corpus</i>
+<p><a href="W06-1706.pdf">W06-1706</a>: <b>Arno Scharl; Albert Weichselbraun</b><br><i>Web coverage of the 2004 US Presidential election</i>
+<p><a href="W06-1707.pdf">W06-1707</a>: <b>C&#233;drick Fairon</b><br><i>Corporator: A tool for creating RSS-based specialized corpora </i>
+<p><a href="W06-1708.pdf">W06-1708</a>: <b>Davide Fossati; Gabriele Ghidoni; Barbara Di Eugenio; Isabel Cruz; Huiyong Xiao; Rajen Subba</b><br><i>The problem of ontology alignment on the Web: A first report</i>
+<p><a href="W06-1709.pdf">W06-1709</a>: <b>Kie Zuraw</b><br><i>Using the Web as a phonological corpus: A case study from Tagalog</i>
+<p><a href="W06-1710.pdf">W06-1710</a>: <b>R&#252;diger Gleim; Alexander Mehler ; Matthias Dehmer</b><br><i>Web corpus mining by instance of Wikipedia</i>
+<a name="1800"></a><h1>Proceedings of the Workshop KRAQ'06: Knowledge and Reasoning for Language Processing</h1>
+<p><a href=W06-1800.pdf>W06-1800</a>: <i>Front Matter</i>
+<p><a href="W06-1801.pdf">W06-1801</a>: <b>Farah Benamara</b><br><i>Language and Reasoning for Question Answering: State of the Artand Future Directions</i>
+<p><a href="W06-1802.pdf">W06-1802</a>: <b>Gosse Boum</b><br><i>Linguistic Knowledge and Question Answering</i>
+<p><a href="W06-1803.pdf">W06-1803</a>: <b>Myroslava O. Dzikovska; Charles B. Callaway; Elaine Farrow</b><br><i>Interpretation and Generation in a Knowledge-Based TutorialSystem</i>
+<p><a href="W06-1804.pdf">W06-1804</a>: <b>Matra Gatius; Maritxell Gonz&#225;les</b><br><i>Using Application-Specific Ontologies To Improve Performancein a Bottom-up Parser</i>
+<p><a href="W06-1805.pdf">W06-1805</a>: <b>Marilisa Amoia; Claire Gardent</b><br><i>Adjective based inference</i>
+<p><a href="W06-1806.pdf">W06-1806</a>: <b>Martin Magnusson</b><br><i>Natural Language Understanding using Temporal Action Logic</i>
+<p><a href="W06-1807.pdf">W06-1807</a>: <b>Fiona McNeill; Harry Halpin; Ewan Klein; Alan Bundy</b><br><i>Merging Stories with Shallow Semantics</i>
+<p><a href="W06-1808.pdf">W06-1808</a>: <b>V&#233;ronique Moriceau</b><br><i>Numerical Data Integration for Cooperative Question-Answering</i>
+<p><a href="W06-1809.pdf">W06-1809</a>: <b>Silvia Quarteroni; Suresh Manandhar</b><br><i>Incorporating User Models in Question Answering to ImproveReadability</i>
+<a name="1900"></a><h1>Proceedings of the Workshop on Multilingual Question Answering - MLQA '06</h1>
+<p><a href=W06-1900.pdf>W06-1900</a>: <i>Front Matter</i>
+<p><a href="W06-1901.pdf">W06-1901</a>: <b>Dominique Laurent; Patrick S&#233;gu&#233;la; Sophie N&#232;gre</b><br><i>QA better than IR ?</i>
+<p><a href="W06-1902.pdf">W06-1902</a>: <b>Azzah Al-Maskari; Mark Sanderson</b><br><i>The Effect of Machine Translation on the Performance of Arabic-EnglishQA System</i>
+<p><a href="W06-1903.pdf">W06-1903</a>: <b>Bogdan Sacaleanu; G&#252;nter Neumann</b><br><i>Cross-Cutting Aspects of Cross-Language Question Answering Systems</i>
+<p><a href="W06-1904.pdf">W06-1904</a>: <b>Anne-Laure Ligozat; Brigitte Grau; Isabelle Robba; Anne Vilnat</b><br><i>Evaluation and Improvement of Cross-Lingual Question AnsweringStrategies</i>
+<p><a href="W06-1905.pdf">W06-1905</a>: <b>Teruko Mitamura; Mengqiu Wang; Hideki Shima; Frank Lin</b><br><i>Keyword Translation Accuracy and Cross-Lingual Question Answering inChinese and Japanese</i>
+<p><a href="W06-1906.pdf">W06-1906</a>: <b>Miguel &#193;. Garc&#237;a Cumbreras; L. Alfonso Ure&#241;a L&#243;pez; Fernando Mart&#237;nez Santiago</b><br><i>BRUJA: Question Classification for Spanish. Using Machine Translationand an English Classifier</i>
+<p><a href="W06-1907.pdf">W06-1907</a>: <b>E.W.D. Whittaker; J. Hamonic; D. Yang; T. Klingberg; S. Furui</b><br><i>Monolingual Web-based Factoid Question Answering in Chinese, Swedish, English and Japanese</i>
+<p><a href="W06-1908.pdf">W06-1908</a>: <b>Rami Reddy; Nandi Reddy; Sivaji Bandyopadhyay</b><br><i>Dialogue based Question Answering System in Telugu</i>
+<p><a href="W06-1909.pdf">W06-1909</a>: <b>Sven Hartrumpf</b><br><i>Adapting a Semantic Question Answering System to the Web</i>
+<p><a href="W06-1910.pdf">W06-1910</a>: <b>Daniel Ferr&#233;s; Horacio Rodr&#237;guez</b><br><i>Experiments Adapting an Open-Domain Question Answering System to the Geographical Domain Using Scope-Based Resources</i>
+<a name="2000"></a><h1>Proceedings of the Cross-Language Knowledge Induction Workshop</h1>
+<p><a href=W06-2000.pdf>W06-2000</a>: <i>Front Matter</i>
+<p><a href="W06-2001.pdf">W06-2001</a>: <b>E. Saquete; P. Martnez-Barco; R. Muoz; M. Negri; M. Speranza; R. Sprugnoli</b><br><i>Multilingual Extension of a Temporal Expression Normalizer using Annotated Corpora</i>
+<p><a href="W06-2002.pdf">W06-2002</a>: <b>Mark Hopkins; Jonas Kuhn</b><br><i>A Framework for Incorporating Alignment Information in Parsing</i>
+<p><a href="W06-2003.pdf">W06-2003</a>: <b>Ari Rappoport; Tsahi Levent-Levi</b><br><i>Induction of cross-language affix and letter sequence correspondence</i>
+<p><a href="W06-2004.pdf">W06-2004</a>: <b>Ted Pedersen; Anagha Kulkarni; Roxana Angheluta; Zornitsa Kozareva; Thamar Solorio</b><br><i>Improving Name Discrimination: A Language Salad Approach</i>
+<p><a href="W06-2005.pdf">W06-2005</a>: <b>Jirka Hana; Anna Feldman; Luiz Amaral; Chris Brew</b><br><i>Tagging Portuguese with a Spanish Tagger</i>
+<p><a href="W06-2006.pdf">W06-2006</a>: <b>Kisuh Ahn; Matthew Frampton</b><br><i>Automatic Generation of Translation Dictionaries Using Intermediary Languages</i>
+<p><a href="W06-2007.pdf">W06-2007</a>: <b>Xinglong Wang; David Martinez</b><br><i>Word Sense Disambiguation Using Automatically Translated Sense Examples</i>
+<p><a href="W06-2008.pdf">W06-2008</a>: <b>Sylwia Ozdowska</b><br><i>Projecting POS tags and syntactic dependencies from English and French to Polish in aligned corpora</i>
+<a name="2100"></a><h1>Proceedings of the Third ACL-SIGSEM Workshop on Prepositions</h1>
+<p><a href=W06-2100.pdf>W06-2100</a>: <i>Front Matter</i>
+<p><a href="W06-2101.pdf">W06-2101</a>: <b>Fintan J. Costello; John D. Kelleher</b><br><i>Spatial Prepositions in Context: The Semantics of near in the Presence of Distractor Objects</i>
+<p><a href="W06-2102.pdf">W06-2102</a>: <b>Iwona Kna&#x15B;</b><br><i>Polish Equivalents of Spatial at</i>
+<p><a href="W06-2103.pdf">W06-2103</a>: <b>Beata Trawi&#x144;ski</b><br><i>A Quantitative Approach to Preposition-Pronoun Contraction in Polish</i>
+<p><a href="W06-2104.pdf">W06-2104</a>: <b>Sander Lestrade</b><br><i>Marked Adpositions</i>
+<p><a href="W06-2105.pdf">W06-2105</a>: <b>Sven Hartrumpf; Hermann Helbig; Rainer Osswald</b><br><i>Semantic Interpretation of Prepositions for NLP Applications</i>
+<p><a href="W06-2106.pdf">W06-2106</a>: <b>Kenneth C. Litkowski; Orin Hargraves</b><br><i>Coverage and Inheritance in The Preposition Project</i>
+<p><a href="W06-2107.pdf">W06-2107</a>: <b>Tine Lassen</b><br><i>An Ontology-based View on Prepositional Senses</i>
+<p><a href="W06-2108.pdf">W06-2108</a>: <b>Asanee Kawtrakul; Mukda Suktarachan; Bali Ranaivo-Malancon; Pek Kuan; Achla Raina; Sudeshna Sarkar; Alda Mari; Sina Zarriess; Elixabete Murguia; Patrick Saint-Dizier</b><br><i>A Conceptual Analysis of the Notion of Instrumentality via a Multilingual Analysis</i>
+<p><a href="W06-2109.pdf">W06-2109</a>: <b>Ines Rehbein; Josef van Genabith</b><br><i>German Particle Verbs and Pleonastic Prepositions</i>
+<p><a href="W06-2110.pdf">W06-2110</a>: <b>Su Nam Kim; Timothy Baldwin</b><br><i>Automatic Identification of English Verb Particle Constructions using Linguistic Features</i>
+<p><a href="W06-2111.pdf">W06-2111</a>: <b>Frank Van Eynde</b><br><i>On the Prepositions which Introduce an Adjunct of Duration</i>
+<p><a href="W06-2112.pdf">W06-2112</a>: <b>Martin Volk</b><br><i>How Bad is the Problem of PP-Attachment? A Comparison of English, German and Swedish</i>
+<p><a href="W06-2113.pdf">W06-2113</a>: <b>Sudip Kumar Naskar; Sivaji Bandyopadhyayn</b><br><i>Handling of Prepositions in English to Bengali Machine Translation</i>
+<a name="2200"></a><h1>Proceedings of the Workshop on Adaptive Text Extraction and Mining (ATEM 2006)</h1>
+<p><a href=W06-2200.pdf>W06-2200</a>: <i>Front Matter</i>
+<a name="2200"></a><h1>Proceedings of the Workshop on Adaptive Text Extraction and Mining (ATEM 2006)</h1>
+<p><a href=W06-2200.pdf>W06-2200</a>: <i>Front Matter</i>
+<p><a href="W06-2201.pdf">W06-2201</a>: <b>Gijs Geleijnse; Jan Korst</b><br><i>Learning Effective Surface Text Patterns for Information Extraction</i>
+<p><a href="W06-2202.pdf">W06-2202</a>: <b>Claudio Giuliano; Alberto Lavelli; Lorenza Romano</b><br><i>Simple Information Extraction (SIE): A Portable and Effective IE System</i>
+<p><a href="W06-2203.pdf">W06-2203</a>: <b>Jose Iria; Neil Ireson; Fabio Ciravegna</b><br><i>An Experimental Study on Boundary Classification Algorithms for Information Extraction using SVM</i>
+<p><a href="W06-2204.pdf">W06-2204</a>: <b>Brian McLernon; Nicholas Kushmerick</b><br><i>Transductive Pattern Learning for Information Extraction</i>
+<p><a href="W06-2205.pdf">W06-2205</a>: <b>Peter Siniakov</b><br><i>Recognition of synonyms by a lexical graph</i>
+<p><a href="W06-2206.pdf">W06-2206</a>: <b>Caroline Sporleder; Marieke van Erp; Tijn Porcelijn; Antal van den Bosch</b><br><i>Spotting the âOdd-one-outâ: Data-Driven Error Detection and Correction in Textual Databases</i>
+<p><a href="W06-2207.pdf">W06-2207</a>: <b>Mihai Surdeanu; Jordi Turmo; Alicia Ageno</b><br><i>A Hybrid Approach for the Acquisition of Information Extraction Patterns</i>
+<p><a href="W06-2208.pdf">W06-2208</a>: <b>Junji Tomita; Stephen Soderland; Oren Etzioni</b><br><i>Expanding the Recall of Relation Extraction by Bootstrapping</i>
+<p><a href="W06-2209.pdf">W06-2209</a>: <b>Andreas Vlachos</b><br><i>Active Annotation</i>
+<a name="2300"></a><h1>Proceedings of the Workshop on ROMAND 2006:Robust Methods in Analysis of Natural language Data</h1>
+<p><a href=W06-2300.pdf>W06-2300</a>: <i>Front Matter</i>
+<p><a href="W06-2301.pdf">W06-2301</a>: <b>Gertjan van Noord</b><br><i>Robust Parsing, Error Mining, Automated Lexical Acquisition, and Evaluation</i>
+<p><a href="W06-2302.pdf">W06-2302</a>: <b>Rodolfo Delmonte; Antonella Bristot; Marco Aldo Piccolino Boniforti; Sara Tonelli</b><br><i>Another Evaluation of Anaphora Resolution Algorithms and a Comparison with GETARUNS' Knowledge Rich Approach</i>
+<p><a href="W06-2303.pdf">W06-2303</a>: <b>Gabriele Musillo; Paola Merlo</b><br><i>Robust Parsing of the Proposition Bank</i>
+<p><a href="W06-2304.pdf">W06-2304</a>: <b>Philippe Blache</b><br><i>A Robust and Efficient Parser for Non-Canonical Inputs</i>
+<p><a href="W06-2305.pdf">W06-2305</a>: <b>Kilian Foth; Wolfgang Menzel</b><br><i>Robust Parsing: More with Less</i>
+<a name="2400"></a><h1>Proceedings of the Workshop on Multi-word-expressions in a multilingual context</h1>
+<p><a href=W06-2400.pdf>W06-2400</a>: <i>Front Matter</i>
+<p><a href="W06-2401.pdf">W06-2401</a>: <b>I&#241;aki Alegria; Nerea Ezeiza; Izaskun Fernandez</b><br><i>Named Entities Translation Based on Comparable Corpora</i>
+<p><a href="W06-2402.pdf">W06-2402</a>: <b>Patrik Lambert; Rafael Banchs</b><br><i>Grouping Multi-word Expressions According to Part-Of-Speech in Statistical Machine Translation</i>
+<p><a href="W06-2403.pdf">W06-2403</a>: <b>Scott S.L. Piao; Guangfan Sun; Paul Rayson; Qi Yuan</b><br><i>Automatic Extraction of Chinese Multiword Expressions with a Statistical Tool</i>
+<p><a href="W06-2404.pdf">W06-2404</a>: <b>Masatoshi Tsuchiya; Takao Shime; Toshihiro Takagi; Takehito Utsuro; Kiyotaka Uchimoto; Suguru Matsuyoshi; Satoshi Sato; Seiichi Nakagawa</b><br><i>Chunking Japanese Compound Functional Expressions by Machine Learning</i>
+<p><a href="W06-2405.pdf">W06-2405</a>: <b>Bego&#241;a Villada Moir&#243;n; J&#246;rg Tiedemann</b><br><i>Identifying idiomatic expressions using automatic word-alignment</i>
+<p><a href="W06-2406.pdf">W06-2406</a>: <b>Julia Ritz</b><br><i>Collocation Extraction: Needs, Feeds and Results of an Extraction System for German</i>
+<p><a href="W06-2407.pdf">W06-2407</a>: <b>Yee Fan Tan; Min-Yen Kan; Hang Cui</b><br><i>Extending corpus-based identification of light verb constructions using a supervised learning framework</i>
+<p><a href="W06-2408.pdf">W06-2408</a>: <b>Heiki-Jaan Kaalep; Kadri Muischnek</b><br><i>Multi-word verbs in a flective language: the case of Estonian</i>
+<p><a href="W06-2409.pdf">W06-2409</a>: <b>Dennis Spohr; Ulrich Heid</b><br><i>Modeling Monolingual and Bilingual Collocation Dictionaries in Description Logics</i>
+<p><a href="W06-2410.pdf">W06-2410</a>: <b>Tam&#225;s V&#225;radi</b><br><i>Multiword Units in an MT Lexicon</i>
+<a name="2500"></a><h1>Proceedings of the Workshop on Making Sense of Sense: Bringing Psycholinguistics and Computational Linguistics Together</h1>
+<p><a href=W06-2500.pdf>W06-2500</a>: <i>Front Matter</i>
+<p><a href="W06-2501.pdf">W06-2501</a>: <b>Siddharth Patwardhan; Ted Pedersen</b><br><i>Using WordNet-based Context Vectors to Estimate the Semantic Relatedness of Concepts</i>
+<p><a href="W06-2502.pdf">W06-2502</a>: <b>Guergana Savova; Terry Therneau; Christopher Chute</b><br><i>Cluster Stopping Rules for Word Sense Discrimination</i>
+<p><a href="W06-2503.pdf">W06-2503</a>: <b>Diana McCarthy</b><br><i>Relating WordNet Senses for Word Sense Disambiguation</i>
+<p><a href="W06-2504.pdf">W06-2504</a>: <b>Yves Peirsman</b><br><i>Whats in a Name? The Automatic Recognition of Metonymical Location Names</i>
+<p><a href="W06-2505.pdf">W06-2505</a>: <b>Lucia Specia; Maria das Gra&#231;asVolpe Nunes; Mark Stevenson; Gabriela Castelo Branco Ribeiro</b><br><i>Multilingual versus Monolingual WSD</i>
+<p><a href="W06-2506.pdf">W06-2506</a>: <b>Alissa Melinger; Sabine Schulte im Walde; Andrea Weber</b><br><i>Characterizing Response Types and Revealing Noun Ambiguity in German Association Norms</i>
+<a name="2600"></a><h1>Proceedings of the Workshop on Learning Structured Information in Natural Language Applications</h1>
+<p><a href=W06-2600.pdf>W06-2600</a>: <i>Front Matter</i>
+<p><a href="W06-2601.pdf">W06-2601</a>: <b>Vanessa Sandrini; Marcello Federico; Mauro Cettolo</b><br><i>Maximum Entropy Tagging with Binary and Real-Valued Features</i>
+<p><a href="W06-2602.pdf">W06-2602</a>: <b>Sander Canisius; Antal van den Bosch; Walter Daelemans</b><br><i>Constraint Satisfaction Inference: Non-probabilistic Global Inference for Sequence Labelling</i>
+<p><a href="W06-2603.pdf">W06-2603</a>: <b>Fabrizio Costa; Sauro Menchetti; Alessio Ceroni; Andrea Passerini; Paolo Frasconi</b><br><i>Decomposition Kernels for Natural Language Processing</i>
+<p><a href="W06-2604.pdf">W06-2604</a>: <b>Ana Zelaia; I&#241;aki Alegria; Olatz Arregi; Basilio Sierra</b><br><i>A Multiclassifier based Document Categorization System: profiting from the Singular Value Decomposition Dimensionality Reduction Technique</i>
+<p><a href="W06-2605.pdf">W06-2605</a>: <b>Rajen Subba; Barbara Di Eugenio; Su Nam Kim</b><br><i>Discourse Parsing: Learning FOL Rules based on Rich Verb Semantic Representations to automatically label Rhetorical Relations</i>
+<p><a href="W06-2606.pdf">W06-2606</a>: <b>Sa&#351;a Hasan; Oliver Bender; Hermann Ney</b><br><i>Reranking Translation Hypotheses Using Structural Properties</i>
+<p><a href="W06-2607.pdf">W06-2607</a>: <b>Alessandro Moschitti; Daniele Pighin; Roberto Basili</b><br><i>Tree Kernel Engineering in Semantic Role Labeling Systems</i>
+<p><a href="W06-2608.pdf">W06-2608</a>: <b>Claudio Giuliano; Alfio Gliozzo; Carlo Strapparava</b><br><i>Syntagmatic Kernels: a Word Sense Disambiguation Case Study</i>
+<p><a href="W06-2609.pdf">W06-2609</a>: <b>Ismail Fahmi; Gosse Bouma</b><br><i>Learning to Identify Definitions using Syntactic Features</i>
+<p><a href="W06-2610.pdf">W06-2610</a>: <b>Tine Lassen; Thomas Vestskov Terney</b><br><i>An Ontology-Based Approach to Disambiguation of Semantic Relations</i>
+<p><a href="W06-2611.pdf">W06-2611</a>: <b>Ana-Maria Giuglea; Alessandro Moschitti</b><br><i>Towards Free-text Semantic Parsing: A Unified Framework Based on FrameNet, VerbNet and PropBank</i>
+<p><a href="W06-2612.pdf">W06-2612</a>: <b>Chakkrit Snae</b><br><i>Constructing a Rule Based Naming System for Thai Names Using the Concept of Ontologies</i>
+<a name="2700"></a><h1>Proceedings of the 5th Workshop on NLP and XML (NLPXML-2006): Multi-Dimensional Markup in Natural Language Processing</h1>
+<p><a href=W06-2700.pdf>W06-2700</a>: <i>Front Matter</i>
+<p><a href="W06-2701.pdf">W06-2701</a>: <b>Wouter Alink; Valentin Jijkoun; David Ahn; Maarten de Rijke; Peter Boncz; Arjen de Vries</b><br><i>Representing and Querying Multi-dimensional Markup for Question Answering</i>
+<p><a href="W06-2702.pdf">W06-2702</a>: <b>Dietrich Rebholz-Schuhmann; Harald Kirsch; Sylvain Gaudan; Miguel Arregui; Goran Nenadic</b><br><i>Annotation and Disambiguation of Semantic Types in Biomedical Text: A Cascaded Approach to Named Entity Recognition</i>
+<p><a href="W06-2703.pdf">W06-2703</a>: <b>Claire Grover; Michael Matthews; Richard Tobin</b><br><i>Tools to Address the Interdependence between Tokenisation and Standoff Annotation</i>
+<p><a href="W06-2704.pdf">W06-2704</a>: <b>Neil Mayo; Jonathan Kilgour; Jean Carletta</b><br><i>Towards an Alternative Implementation of NXTs Query Language via XQuery</i>
+<p><a href="W06-2705.pdf">W06-2705</a>: <b>Silvia Hansen-Schirra; Stella Neumann; Mihaela Vela</b><br><i>Multi-dimensional Annotation and Alignment in an English-German Translation Corpus</i>
+<p><a href="W06-2706.pdf">W06-2706</a>: <b>Peter Siniakov</b><br><i>Querying XML documents with multi-dimensional markup</i>
+<p><a href="W06-2707.pdf">W06-2707</a>: <b>Thierry Declerck; Stephan Busemann; Herwig Rehatschek; Gert Kienast</b><br><i>Annotating text using the Linguistic Description Scheme of MPEG-7: The DIRECT-INFO Scenario</i>
+<p><a href="W06-2708.pdf">W06-2708</a>: <b>Myroslava Dzikovska; Charles Callaway; Elaine Farrow</b><br><i>Tools for hierarchical annotation of typed dialogue</i>
+<p><a href="W06-2709.pdf">W06-2709</a>: <b>Michael Götze; Stefanie Dipper</b><br><i>ANNIS: Complex Multilevel Annotations in a Linguistic Database</i>
+<p><a href="W06-2710.pdf">W06-2710</a>: <b>Jonathan Kilgour; Jean Carletta</b><br><i>The NITE XML Toolkit: Demonstration from five corpora</i>
+<p><a href="W06-2711.pdf">W06-2711</a>: <b>Ivana Kruijff-Korbayov&#225;; Verena Rieser; Ciprian Gerstenberger; Jan Schehl; Tilman Becker</b><br><i>The SAMMIE Multimodal Dialogue Corpus Meets the Nite XML Toolkit</i>
+<p><a href="W06-2712.pdf">W06-2712</a>: <b>Christoph M&#252;ller</b><br><i>Representing and Accessing Multi-Level Annotations in MMAX2</i>
+<p><a href="W06-2713.pdf">W06-2713</a>: <b>Emanuele Pianta; Luisa Bentivogli; Christian Girardi; Bernardo Magnini</b><br><i>Representing and Accessing Multilevel Linguistic Annotation using the MEANING Format</i>
+<p><a href="W06-2714.pdf">W06-2714</a>: <b>Ulrich Schäfer</b><br><i>Middleware for Creating and Combining Multi-dimensional NLP Markup</i>
+<p><a href="W06-2715.pdf">W06-2715</a>: <b>Maik St&#252;hrenberg; Andreas Witt; Daniela Goecke; Dieter Metzing; Oliver Schonefeld</b><br><i>Multidimensional markup and heterogeneous linguistic resources</i>
+<p><a href="W06-2716.pdf">W06-2716</a>: <b>Keith Suderman; Nancy Ide</b><br><i>Layering and Merging Linguistic Annotations</i>
+<p><a href="W06-2717.pdf">W06-2717</a>: <b>Martin Volk; Sofia Gustafson-Capkov&#225;; Joakim Lundborg; Torsten Marek; Yvonne Samuelsson; Frida Tidström</b><br><i>XML-based Phrase Alignment in Parallel Treebanks</i>
+<p><a href="W06-2718.pdf">W06-2718</a>: <b>Benjamin Waldron; Ann Copestake</b><br><i>A Standoff Annotation Interface between DELPH-IN Components</i>
+<a name="2800"></a><h1>Proceedings of the Workshop on NEW TEXT Wikis and blogs and other dynamic text sources</h1>
+<p><a href=W06-2800.pdf>W06-2800</a>: <i>Front Matter</i>
+<p><a href="W06-2801.pdf">W06-2801</a>: <b>Alexander Mehler</b><br><i>Text Linkage in the Wiki Medium - A Comparative Study</i>
+<p><a href="W06-2802.pdf">W06-2802</a>: <b>Ann Copestake</b><br><i>Errors in wikis</i>
+<p><a href="W06-2803.pdf">W06-2803</a>: <b>Mirko Tavosanis</b><br><i>Linguistic features of Italian blogs: literary language</i>
+<p><a href="W06-2804.pdf">W06-2804</a>: <b>Antonella Elia</b><br><i>An analysis of Wikipedia digital writing</i>
+<p><a href="W06-2805.pdf">W06-2805</a>: <b>Erik Elgersma; Maarten de Rijke</b><br><i>Learning to Recognize Blogs: A Preliminary Exploration</i>
+<p><a href="W06-2806.pdf">W06-2806</a>: <b>Marina Santini</b><br><i>Interpreting Genre Evolution on the Web</i>
+<p><a href="W06-2807.pdf">W06-2807</a>: <b>Federico Gobbo; Michele Chinosi; Massimiliano Pepe</b><br><i>Novelle, a collaborative open source writing tool software</i>
+<p><a href="W06-2808.pdf">W06-2808</a>: <b>Yunqing Xia; Kam-Fai Wong</b><br><i>Anomaly Detecting within Dynamic Chinese Chat Text</i>
+<p><a href="W06-2809.pdf">W06-2809</a>: <b>Antonio Toral; Rafael Mu&#241;oz</b><br><i>A proposal to automatically build and maintain gazetteers for Named Entity Recognition by using Wikipedia</i>
+<p><a href="W06-2810.pdf">W06-2810</a>: <b>Sisay Fissaha Adafre; Maarten de Rijke</b><br><i>Finding Similar Sentences across Multiple Languages in Wikipedia</i>
+<p><a href="W06-2811.pdf">W06-2811</a>: <b>Paul D Clough; Julio Gonzales; Jussi Karlgren</b><br><i>Multilingual interactive experiments with Flickr</i>
+<a name="2900"></a><h1>Proceedings of the Tenth Conference on Computational Natural Language Learning (CoNLL-X)</h1>
+<p><a href="W06-29.pdf">W06-29</a> [<a href="W06-29.bib">bib</a>]: <b>Entire volume</b><p><a href=W06-2900.pdf>W06-2900</a>: <i>Front Matter</i>
+<p><a href="W06-2901.pdf">W06-2901</a> [<a href="W06-2901.bib">bib</a>]: <b>Walter Daelemans</b><br><i>A Mission for Computational Natural Language Learning</i>
+<p><a href="W06-2902.pdf">W06-2902</a> [<a href="W06-2902.bib">bib</a>]: <b>Ivan Titov; James Henderson</b><br><i>Porting Statistical Parsers with Data-Defined Kernels</i>
+<p><a href="W06-2903.pdf">W06-2903</a> [<a href="W06-2903.bib">bib</a>]: <b>Slav Petrov; Leon Barrett; Dan Klein</b><br><i>Non-Local Modeling with a Mixture of PCFGs</i>
+<p><a href="W06-2904.pdf">W06-2904</a> [<a href="W06-2904.bib">bib</a>]: <b>Qin Iris Wang; Colin Cherry; Dan Lizotte; Dale Schuurmans</b><br><i>Improved Large Margin Dependency Parsing via Local Constraints and Laplacian Regularization</i>
+<p><a href="W06-2905.pdf">W06-2905</a> [<a href="W06-2905.bib">bib</a>]: <b>Willem Zuidema</b><br><i>What are the Productive Units of Natural Language Grammar? A DOP Approach to the Automatic Identification of Constructions.</i>
+<p><a href="W06-2906.pdf">W06-2906</a> [<a href="W06-2906.bib">bib</a>]: <b>Nikesh Garera; David Yarowsky</b><br><i>Resolving and Generating Definite Anaphora by Modeling Hypernymy using Unlabeled Corpora</i>
+<p><a href="W06-2907.pdf">W06-2907</a> [<a href="W06-2907.bib">bib</a>]: <b>Oren Glickman; Ido Dagan; Walter Daelemans; Mikaela Keller; Samy Bengio</b><br><i>Investigating Lexical Substitution Scoring for Subtitle Generation</i>
+<p><a href="W06-2908.pdf">W06-2908</a> [<a href="W06-2908.bib">bib</a>]: <b>Jun'ichi Kazama; Kentaro Torisawa</b><br><i>Semantic Role Recognition Using Kernels on Weighted Marked Ordered Labeled Trees</i>
+<p><a href="W06-2909.pdf">W06-2909</a> [<a href="W06-2909.bib">bib</a>]: <b>Alessandro Moschitti; Daniele Pighin; Roberto Basili</b><br><i>Semantic Role Labeling via Tree Kernel Joint Inference</i>
+<p><a href="W06-2910.pdf">W06-2910</a> [<a href="W06-2910.bib">bib</a>]: <b>Sabine Schulte im Walde</b><br><i>Can Human Verb Associations Help Identify Salient Features for Semantic Verb Classification?</i>
+<p><a href="W06-2911.pdf">W06-2911</a> [<a href="W06-2911.bib">bib</a>]: <b>Rie Kubota Ando</b><br><i>Applying Alternating Structure Optimization to Word Sense Disambiguation</i>
+<p><a href="W06-2912.pdf">W06-2912</a> [<a href="W06-2912.bib">bib</a>]: <b>Rens Bod</b><br><i>Unsupervised Parsing with U-DOP</i>
+<p><a href="W06-2913.pdf">W06-2913</a> [<a href="W06-2913.bib">bib</a>]: <b>Michaela Atterer; Hinrich Sch&#252;tze</b><br><i>A Lattice-Based Framework for Enhancing Statistical Parsers with Information from Unlabeled Corpora</i>
+<p><a href="W06-2914.pdf">W06-2914</a> [<a href="W06-2914.bib">bib</a>]: <b>Maria Georgescul; Alexander Clark; Susan Armstrong</b><br><i>Word Distributions for Thematic Segmentation in a Support Vector Machine Approach</i>
+<p><a href="W06-2915.pdf">W06-2915</a> [<a href="W06-2915.bib">bib</a>]: <b>Wei-Hao Lin; Theresa Wilson; Janyce Wiebe; Alexander Hauptmann</b><br><i>Which Side are You on? Identifying Perspectives at the Document and Sentence Levels</i>
+<p><a href="W06-2916.pdf">W06-2916</a> [<a href="W06-2916.bib">bib</a>]: <b>David J. Brooks</b><br><i>Unsupervised Grammar Induction by Distribution and Attachment</i>
+<p><a href="W06-2917.pdf">W06-2917</a> [<a href="W06-2917.bib">bib</a>]: <b>Alexander Clark; R&#233;mi Eyraud</b><br><i>Learning Auxiliary Fronting with Grammatical Inference</i>
+<p><a href="W06-2918.pdf">W06-2918</a> [<a href="W06-2918.bib">bib</a>]: <b>Andrew Smith; Miles Osborne</b><br><i>Using Gazetteers in Discriminative Information Extraction</i>
+<p><a href="W06-2919.pdf">W06-2919</a> [<a href="W06-2919.bib">bib</a>]: <b>Partha Pratim Talukdar; Thorsten Brants; Mark Liberman; Fernando Pereira</b><br><i>A Context Pattern Induction Method for Named Entity Extraction</i>
+<p><a href="W06-2920.pdf">W06-2920</a> [<a href="W06-2920.bib">bib</a>]: <b>Sabine Buchholz; Erwin Marsi</b><br><i>CoNLL-X Shared Task on Multilingual Dependency Parsing</i>
+<p><a href="W06-2921.pdf">W06-2921</a> [<a href="W06-2921.bib">bib</a>]: <b>Yuval Krymolowski</b><br><i>The Treebanks Used in the Shared Task</i>
+<p><a href="W06-2922.pdf">W06-2922</a> [<a href="W06-2922.bib">bib</a>]: <b>Giuseppe Attardi</b><br><i>Experiments with a Multilanguage Non-Projective Dependency Parser</i>
+<p><a href="W06-2923.pdf">W06-2923</a> [<a href="W06-2923.bib">bib</a>]: <b>Eckhard Bick</b><br><i>LingPars, a Linguistically Inspired, Language-Independent Machine Learner for Dependency Treebanks</i>
+<p><a href="W06-2924.pdf">W06-2924</a> [<a href="W06-2924.bib">bib</a>]: <b>Sander Canisius; Toine Bogers; Antal van den Bosch; Jeroen Geertzen; Erik Tjong Kim Sang</b><br><i>Dependency Parsing by Inference over High-recall Dependency Predictions</i>
+<p><a href="W06-2925.pdf">W06-2925</a> [<a href="W06-2925.bib">bib</a>]: <b>Xavier Carreras; Mihai Surdeanu; Llu&#237;s M&#224;rquez</b><br><i>Projective Dependency Parsing with Perceptron</i>
+<p><a href="W06-2926.pdf">W06-2926</a> [<a href="W06-2926.bib">bib</a>]: <b>Ming-Wei Chang; Quang Do; Dan Roth</b><br><i>A Pipeline Model for Bottom-Up Dependency Parsing</i>
+<p><a href="W06-2927.pdf">W06-2927</a> [<a href="W06-2927.bib">bib</a>]: <b>Yuchang Cheng; Masayuki Asahara; Yuji Matsumoto</b><br><i>Multi-lingual Dependency Parsing at NAIST</i>
+<p><a href="W06-2928.pdf">W06-2928</a> [<a href="W06-2928.bib">bib</a>]: <b>Simon Corston-Oliver; Anthony Aue</b><br><i>Dependency Parsing with Reference to Slovene, Spanish and Swedish</i>
+<p><a href="W06-2929.pdf">W06-2929</a> [<a href="W06-2929.bib">bib</a>]: <b>Markus Dreyer; David A. Smith; Noah A. Smith</b><br><i>Vine Parsing and Minimum Risk Reranking for Speed and Precision</i>
+<p><a href="W06-2930.pdf">W06-2930</a> [<a href="W06-2930.bib">bib</a>]: <b>Richard Johansson; Pierre Nugues</b><br><i>Investigating Multilingual Dependency Parsing</i>
+<p><a href="W06-2931.pdf">W06-2931</a> [<a href="W06-2931.bib">bib</a>]: <b>Ting Liu; Jinshan Ma; Huijia Zhu; Sheng Li</b><br><i>Dependency Parsing Based on Dynamic Local Optimization</i>
+<p><a href="W06-2932.pdf">W06-2932</a> [<a href="W06-2932.bib">bib</a>]: <b>Ryan McDonald; Kevin Lerman; Fernando Pereira</b><br><i>Multilingual Dependency Analysis with a Two-Stage Discriminative Parser</i>
+<p><a href="W06-2933.pdf">W06-2933</a> [<a href="W06-2933.bib">bib</a>]: <b>Joakim Nivre; Johan Hall; Jens Nilsson; G&#252;l sen Eryi git; Svetoslav Marinov</b><br><i>Labeled Pseudo-Projective Dependency Parsing with Support Vector Machines</i>
+<p><a href="W06-2934.pdf">W06-2934</a> [<a href="W06-2934.bib">bib</a>]: <b>Sebastian Riedel; Ruket  Cakc; Ivan Meza-Ruiz</b><br><i>Multi-lingual Dependency Parsing with Incremental Integer Linear Programming</i>
+<p><a href="W06-2935.pdf">W06-2935</a> [<a href="W06-2935.bib">bib</a>]: <b>Michael Schiehlen; Kristina Spranger</b><br><i>Language Independent Probabilistic Context-Free Parsing Bolstered by Machine Learning</i>
+<p><a href="W06-2936.pdf">W06-2936</a> [<a href="W06-2936.bib">bib</a>]: <b>Nobuyuki Shimizu</b><br><i>Maximum Spanning Tree Algorithm for Non-projective Labeled Dependency Parsing</i>
+<p><a href="W06-2937.pdf">W06-2937</a> [<a href="W06-2937.bib">bib</a>]: <b>Yu-Chieh Wu; Yue-Shi Lee; Jie-Chi Yang</b><br><i>The Exploration of Deterministic and Efficient Dependency Parsing</i>
+<p><a href="W06-2938.pdf">W06-2938</a> [<a href="W06-2938.bib">bib</a>]: <b>Deniz Yuret</b><br><i>Dependency Parsing as a Classication Problem</i>
+<a name="3000"></a><h1>Proceedings of the Interactive Question Answering Workshop at HLT-NAACL 2006</h1>
+<p><a href="W06-30.pdf">W06-30</a> [<a href="W06-30.bib">bib</a>]: <b>Entire volume</b><p><a href=W06-3000.pdf>W06-3000</a>: <i>Front Matter</i>
+<p><a href="W06-3001.pdf">W06-3001</a> [<a href="W06-3001.bib">bib</a>]: <b>N&#250;ria Bertomeu; Hans Uszkoreit; Anette Frank; Hans-Ulrich Krieger; Brigitte J&#246;rg</b><br><i>Contextual phenomena and thematic relations in database QA dialogues: results from a Wizard-of-Oz Experiment</i>
+<p><a href="W06-3002.pdf">W06-3002</a> [<a href="W06-3002.bib">bib</a>]: <b>Tsuneaki Kato; Jun'ichi Fukumoto; Fumito Masui; Noriko Kando</b><br><i>WoZ Simulation of Interactive Question Answering</i>
+<p><a href="W06-3003.pdf">W06-3003</a> [<a href="W06-3003.bib">bib</a>]: <b>Nancy J. McCracken; Anne R. Diekema; Grant Ingersoll; Sarah C. Harwell; Eileen E. Allen; Ozgur Yilmazel; Elizabeth D. Liddy</b><br><i>Modeling Reference Interviews as a Basis for Improving Automatic QA Systems</i>
+<p><a href="W06-3004.pdf">W06-3004</a> [<a href="W06-3004.bib">bib</a>]: <b>Andrew Hickl; Sanda Harabagiu</b><br><i>Enhanced Interactive Question-Answering with Conditional Random Fields</i>
+<p><a href="W06-3005.pdf">W06-3005</a> [<a href="W06-3005.bib">bib</a>]: <b>Fan Yang; Junlan Feng; Giuseppe Di Fabbrizio</b><br><i>A Data Driven Approach to Relevancy Recognition for Contextual Question Answering</i>
+<p><a href="W06-3006.pdf">W06-3006</a> [<a href="W06-3006.bib">bib</a>]: <b>Jun'ichi Fukumoto</b><br><i>Answering questions of Information Access Dialogue (IAD) task using ellipsis handling of follow-up questions</i>
+<p><a href="W06-3007.pdf">W06-3007</a> [<a href="W06-3007.bib">bib</a>]: <b>Diane Kelly; Paul Kantor; Emile Morse; Jean Scholtz; Ying Sun</b><br><i>User-Centered Evaluation of Interactive Question Answering Systems</i>
+<a name="3100"></a><h1>Proceedings on the Workshop on Statistical Machine Translation</h1>
+<p><a href="W06-31.pdf">W06-31</a> [<a href="W06-31.bib">bib</a>]: <b>Entire volume</b><p><a href=W06-3100.pdf>W06-3100</a>: <i>Front Matter</i>
+<p><a href="W06-3101.pdf">W06-3101</a> [<a href="W06-3101.bib">bib</a>]: <b>Maja Popovic; Adri&#224; de Gispert; Deepa Gupta; Patrik Lambert; Hermann Ney; Jos&#233; B. Mari&#241;o; Marcello Federico; Rafael Banchs</b><br><i>Morpho-syntactic Information for Automatic Error Analysis of Statistical Machine Translation Output</i>
+<p><a href="W06-3102.pdf">W06-3102</a> [<a href="W06-3102.bib">bib</a>]: <b>ilknur Durgar El-Kahlout; Kemal Oflazer</b><br><i>Initial Explorations in English to Turkish Statistical Machine Translation</i>
+<p><a href="W06-3103.pdf">W06-3103</a> [<a href="W06-3103.bib">bib</a>]: <b>Anas El Isbihani; Shahram Khadivi; Oliver Bender; Hermann Ney</b><br><i>Morpho-syntactic Arabic Preprocessing for Arabic to English Statistical Machine Translation</i>
+<p><a href="W06-3104.pdf">W06-3104</a> [<a href="W06-3104.bib">bib</a>]: <b>David Smith; Jason Eisner</b><br><i>Quasi-Synchronous Grammars: Alignment by Soft Projection of Syntactic Dependencies</i>
+<p><a href="W06-3105.pdf">W06-3105</a> [<a href="W06-3105.bib">bib</a>]: <b>John DeNero; Dan Gillick; James Zhang; Dan Klein</b><br><i>Why Generative Phrase Models Underperform Surface Heuristics</i>
+<p><a href="W06-3106.pdf">W06-3106</a> [<a href="W06-3106.bib">bib</a>]: <b>Philippe Langlais; Fabrizio Gotti</b><br><i>Phrase-Based SMT with Shallow Tree-Phrases</i>
+<p><a href="W06-3107.pdf">W06-3107</a> [<a href="W06-3107.bib">bib</a>]: <b>Luis Rodr&#237;guez; Ismael Garc&#237;a-Varea; Jose A. G&#225;mez</b><br><i>Searching for alignments in SMT. A novel approach based on an Estimation of Distribution Algorithm</i>
+<p><a href="W06-3108.pdf">W06-3108</a> [<a href="W06-3108.bib">bib</a>]: <b>Richard Zens; Hermann Ney</b><br><i>Discriminative Reordering Models for Statistical Machine Translation</i>
+<p><a href="W06-3109.pdf">W06-3109</a> [<a href="W06-3109.bib">bib</a>]: <b>Daniel Ortiz-Mart&#237;nez; Ismael Garc&#237;a-Varea; Francisco Casacuberta</b><br><i>Generalized Stack Decoding Algorithms for Statistical Machine Translation</i>
+<p><a href="W06-3110.pdf">W06-3110</a> [<a href="W06-3110.bib">bib</a>]: <b>Richard Zens; Hermann Ney</b><br><i>N-Gram Posterior Probabilities for Statistical Machine Translation</i>
+<p><a href="W06-3111.pdf">W06-3111</a> [<a href="W06-3111.bib">bib</a>]: <b>Jia Xu; Richard Zens; Hermann Ney</b><br><i>Partitioning Parallel Documents Using Binary Segmentation</i>
+<p><a href="W06-3112.pdf">W06-3112</a> [<a href="W06-3112.bib">bib</a>]: <b>Karolina Owczarzak; Declan Groves; Josef Van Genabith; Andy Way</b><br><i>Contextual Bitext-Derived Paraphrases in Automatic MT Evaluation</i>
+<p><a href="W06-3113.pdf">W06-3113</a> [<a href="W06-3113.bib">bib</a>]: <b>Marcello Federico; Nicola Bertoldi</b><br><i>How Many Bits Are Needed To Store Probabilities for Phrase-Based Translation?</i>
+<p><a href="W06-3114.pdf">W06-3114</a> [<a href="W06-3114.bib">bib</a>]: <b>Philipp Koehn; Christof Monz</b><br><i>Manual and Automatic Evaluation of Machine Translation between European Languages</i>
+<p><a href="W06-3115.pdf">W06-3115</a> [<a href="W06-3115.bib">bib</a>]: <b>Taro Watanabe; Hajime Tsukada; Hideki Isozaki</b><br><i>NTT System Description for the WMT2006 Shared Task</i>
+<p><a href="W06-3116.pdf">W06-3116</a> [<a href="W06-3116.bib">bib</a>]: <b>Alexandre Patry; Fabrizio Gotti; Philippe Langlais</b><br><i>Mood at work: Ramses versus Pharaoh</i>
+<p><a href="W06-3117.pdf">W06-3117</a> [<a href="W06-3117.bib">bib</a>]: <b>Joan Andreu S&#225;nchez; Jos&#233; Miguel Bened&#237;</b><br><i>Stochastic Inversion Transduction Grammars for Obtaining Word Phrases for Phrase-based Statistical Machine Translation</i>
+<p><a href="W06-3118.pdf">W06-3118</a> [<a href="W06-3118.bib">bib</a>]: <b>Howard Johnson; Fatiha Sadat; George Foster; Roland Kuhn; Michel Simard; Eric Joanis; Samuel Larkin</b><br><i>PORTAGE: with Smoothed Phrase Tables and Segment Choice Models</i>
+<p><a href="W06-3119.pdf">W06-3119</a> [<a href="W06-3119.bib">bib</a>]: <b>Andreas Zollmann; Ashish Venugopal</b><br><i>Syntax Augmented Machine Translation via Chart Parsing</i>
+<p><a href="W06-3120.pdf">W06-3120</a> [<a href="W06-3120.bib">bib</a>]: <b>Marta R. Costa-juss&#224;; Josep M. Crego; Adri&#224; de Gispert; Patrik Lambert; Maxim Khalilov; Jos&#233; B. Mari&#241;o; Jos&#233; A. R. Fonollosa; Rafael Banchs</b><br><i>TALP Phrase-based statistical translation system for European language pairs</i>
+<p><a href="W06-3121.pdf">W06-3121</a> [<a href="W06-3121.bib">bib</a>]: <b>Marian Olteanu; Chris Davis; Ionut Volosen; Dan Moldovan</b><br><i>Phramer - An Open Source Statistical Phrase-Based Translator</i>
+<p><a href="W06-3122.pdf">W06-3122</a> [<a href="W06-3122.bib">bib</a>]: <b>Marian Olteanu; Pasin Suriyentrakorn; Dan Moldovan</b><br><i>Language Models and Reranking for Machine Translation</i>
+<p><a href="W06-3123.pdf">W06-3123</a> [<a href="W06-3123.bib">bib</a>]: <b>Alexandra Birch; Chris Callison-Burch; Miles Osborne; Philipp Koehn</b><br><i>Constraining the Phrase-Based, Joint Probability Statistical Translation Model</i>
+<p><a href="W06-3124.pdf">W06-3124</a> [<a href="W06-3124.bib">bib</a>]: <b>Arul Menezes; Kristina Toutanova; Chris Quirk</b><br><i>Microsoft Research Treelet Translation System: NAACL 2006 Europarl Evaluation</i>
+<p><a href="W06-3125.pdf">W06-3125</a> [<a href="W06-3125.bib">bib</a>]: <b>Josep M. Crego; Adri&#224; de Gispert; Patrik Lambert; Marta R. Costa-juss&#224;; Maxim Khalilov; Rafael Banchs; Jos&#233; B. Mari&#241;o; Jos&#233; A. R. Fonollosa</b><br><i>N-gram-based SMT System Enhanced with Reordering Patterns</i>
+<p><a href="W06-3126.pdf">W06-3126</a> [<a href="W06-3126.bib">bib</a>]: <b>Jes&#250;s Gim&#233;nez; Llu&#237;s M&#224;rquez</b><br><i>The LDV-COMBO system for SMT</i>
+<a name="3200"></a><h1>Proceedings of the Eighth Meeting of the ACL Special Interest Group on Computational Phonology and Morphology at HLT-NAACL 2006</h1>
+<p><a href="W06-32.pdf">W06-32</a> [<a href="W06-32.bib">bib</a>]: <b>Entire volume</b><p><a href=W06-3200.pdf>W06-3200</a>: <i>Front Matter</i>
+<p><a href="W06-3201.pdf">W06-3201</a> [<a href="W06-3201.bib">bib</a>]: <b>Lynette Melnar; Chen Liu</b><br><i>A Combined Phonetic-Phonological Approach to Estimating Cross-Language Phoneme Similarity in an ASR Environment</i>
+<p><a href="W06-3202.pdf">W06-3202</a> [<a href="W06-3202.bib">bib</a>]: <b>Karin M&#252;ller</b><br><i>Improving Syllabification Models with Phonotactic Knowledge</i>
+<p><a href="W06-3203.pdf">W06-3203</a> [<a href="W06-3203.bib">bib</a>]: <b>Jeffrey Heinz</b><br><i>Learning Quantity Insensitive Stress Systems via Local Inference</i>
+<p><a href="W06-3204.pdf">W06-3204</a> [<a href="W06-3204.bib">bib</a>]: <b>Paul Boersma</b><br><i>Invited Talk: Universal Constraint Rankings Result from Learning and Evolution</i>
+<p><a href="W06-3205.pdf">W06-3205</a> [<a href="W06-3205.bib">bib</a>]: <b>Aris Xanthos; Yu Hu; John Goldsmith</b><br><i>Exploring variant definitions of pointer length in MDL</i>
+<p><a href="W06-3206.pdf">W06-3206</a> [<a href="W06-3206.bib">bib</a>]: <b>Antal van den Bosch; Sander Canisius</b><br><i>Improved morpho-phonological sequence processing with constraint satisfaction inference</i>
+<p><a href="W06-3207.pdf">W06-3207</a> [<a href="W06-3207.bib">bib</a>]: <b>Gaja Jarosz</b><br><i>Richness of the Base and Probabilistic Unsupervised Learning in Optimality Theory</i>
+<p><a href="W06-3208.pdf">W06-3208</a> [<a href="W06-3208.bib">bib</a>]: <b>Burcu Karagol-Ayan; David Doermann; Amy Weinberg</b><br><i>Morphology Induction from Limited Noisy Data Using Approximate String Matching</i>
+<p><a href="W06-3209.pdf">W06-3209</a> [<a href="W06-3209.bib">bib</a>]: <b>Erwin Chan</b><br><i>Learning Probabilistic Paradigms for Morphology in a Latent Class Model</i>
+<p><a href="W06-3210.pdf">W06-3210</a> [<a href="W06-3210.bib">bib</a>]: <b>Harald Hammarstr&#246;m</b><br><i>A Naive Theory of Affixation and an Algorithm for Extraction</i>
+<a name="3300"></a><h1>Proceedings of the HLT-NAACL BioNLP Workshop on Linking Natural Language and Biology</h1>
+<p><a href="W06-33.pdf">W06-33</a> [<a href="W06-33.bib">bib</a>]: <b>Entire volume</b><p><a href=W06-3300.pdf>W06-3300</a>: <i>Front Matter</i>
+<p><a href="W06-3301.pdf">W06-3301</a> [<a href="W06-3301.bib">bib</a>]: <b>Hong Yu; Ying Wei</b><br><i>The Semantics of a Definiendum Constrains both the Lexical Semantics and the Lexicosyntactic Patterns in the Definiens</i>
+<p><a href="W06-3302.pdf">W06-3302</a> [<a href="W06-3302.bib">bib</a>]: <b>Jisheng Liang; Thien Nguyen; Krzysztof Koperski; Giovanni Marchisio</b><br><i>Ontology-Based Natural Language Query Processing for the Biological Domain</i>
+<p><a href="W06-3303.pdf">W06-3303</a> [<a href="W06-3303.bib">bib</a>]: <b>Alona Fyshe; Duane Szafron</b><br><i>Term Generalization and Synonym Resolution for Biological Abstracts: Using the Gene Ontology for Subcellular Localization Prediction</i>
+<p><a href="W06-3304.pdf">W06-3304</a> [<a href="W06-3304.bib">bib</a>]: <b>Antonio Sanfilippo; Christian Posse; Banu Gopalan; Stephen Tratz; Michelle Gregory</b><br><i>Integrating Ontological Knowledge and Textual Evidence in Estimating Gene and Gene Product Similarity</i>
+<p><a href="W06-3305.pdf">W06-3305</a> [<a href="W06-3305.bib">bib</a>]: <b>Lorraine Tanabe; W. John Wilbur</b><br><i>A Priority Model for Named Entities</i>
+<p><a href="W06-3306.pdf">W06-3306</a> [<a href="W06-3306.bib">bib</a>]: <b>Haw-ren Fang; Kevin Murphy; Yang Jin; Jessica Kim; Peter White</b><br><i>Human Gene Name Normalization using Text Matching with Automatically Extracted Synonym Dictionaries</i>
+<p><a href="W06-3307.pdf">W06-3307</a> [<a href="W06-3307.bib">bib</a>]: <b>Razvan Bunescu; Raymond Mooney; Arun Ramani; Edward Marcotte</b><br><i>Integrating Co-occurrence Statistics with Information Extraction for Robust Retrieval of Protein Interactions from Medline</i>
+<p><a href="W06-3308.pdf">W06-3308</a> [<a href="W06-3308.bib">bib</a>]: <b>Richard Tzong-Han Tsai; Wen-Chi Chou; Yu-Chun Lin; Cheng-Lung Sung; Wei Ku; Ying-Shan Su; Ting-Yi Sung; Wen-Lian Hsu</b><br><i>BIOSMILE: Adapting Semantic Role Labeling for Biomedical Verbs:</i>
+<p><a href="W06-3309.pdf">W06-3309</a> [<a href="W06-3309.bib">bib</a>]: <b>Jimmy Lin; Damianos Karakos; Dina Demner-Fushman; Sanjeev Khudanpur</b><br><i>Generative Content Models for Structural Analysis of Medical Abstracts</i>
+<p><a href="W06-3310.pdf">W06-3310</a> [<a href="W06-3310.bib">bib</a>]: <b>Barry Rafkind; Minsuk Lee; Shih-Fu Chang; Hong Yu</b><br><i>Exploring Text and Image Features to Classify Images in Bioscience Literature</i>
+<p><a href="W06-3311.pdf">W06-3311</a> [<a href="W06-3311.bib">bib</a>]: <b>Andrey Rzhetsky</b><br><i>Mining biomedical texts for disease-related pathways</i>
+<p><a href="W06-3312.pdf">W06-3312</a> [<a href="W06-3312.bib">bib</a>]: <b>Jonathan Schuman; Sabine Bergler</b><br><i>Postnominal Prepositional Phrase Attachment in Proteomics</i>
+<p><a href="W06-3314.pdf">W06-3314</a> [<a href="W06-3314.bib">bib</a>]: <b>Sabine Bergler; Jonathan Schuman; Julien Dubuc; Alexandr Lebedev</b><br><i>BioKI:Enzymes - an adaptable system to locate low-frequency information in full-text proteomics articles</i>
+<p><a href="W06-3315.pdf">W06-3315</a> [<a href="W06-3315.bib">bib</a>]: <b>William Cohen</b><br><i>A Graph-Search Framework for GeneId Ranking</i>
+<p><a href="W06-3316.pdf">W06-3316</a> [<a href="W06-3316.bib">bib</a>]: <b>Caroline Gasperin</b><br><i>Semi-supervised anaphora resolution in biomedical texts</i>
+<p><a href="W06-3317.pdf">W06-3317</a> [<a href="W06-3317.bib">bib</a>]: <b>Ben Goertzel; Hugo Pinto; Ari Heljakka; Michael Ross; Cassio Pennachin; Izabela Goertzel</b><br><i>Using Dependency Parsing and Probabilistic Inference to Extract Relationships between Genes, Proteins and Malignancies Implicit Among Multiple Biomedical Research Abstracts</i>
+<p><a href="W06-3318.pdf">W06-3318</a> [<a href="W06-3318.bib">bib</a>]: <b>Baohua Gu</b><br><i>Recognizing Nested Named Entities in GENIA corpus</i>
+<p><a href="W06-3319.pdf">W06-3319</a> [<a href="W06-3319.bib">bib</a>]: <b>Sittichai Jiampojamarn; Grzegorz Kondrak; Colin Cherry</b><br><i>Biomedical Term Recognition with the Perceptron HMM Algorithm</i>
+<p><a href="W06-3320.pdf">W06-3320</a> [<a href="W06-3320.bib">bib</a>]: <b>Helen L. Johnson; William A. Baumgartner; Martin Krallinger; K. Bretonnel Cohen; Lawrence Hunter</b><br><i>Refactoring Corpora</i>
+<p><a href="W06-3321.pdf">W06-3321</a> [<a href="W06-3321.bib">bib</a>]: <b>John E. Miller; Michael Bloodgood; Manabu Torii; K. Vijay-Shanker</b><br><i>Rapid Adaptation of POS Tagging for Domain Specific Uses</i>
+<p><a href="W06-3322.pdf">W06-3322</a> [<a href="W06-3322.bib">bib</a>]: <b>Leif Arda Nielsen</b><br><i>Extracting Protein-Protein interactions using simple contextual features</i>
+<p><a href="W06-3323.pdf">W06-3323</a> [<a href="W06-3323.bib">bib</a>]: <b>Meeta Oberoi; Craig A. Struble; Sonia L. Sugg</b><br><i>Identifying Experimental Techniques in Biomedical Literature</i>
+<p><a href="W06-3324.pdf">W06-3324</a> [<a href="W06-3324.bib">bib</a>]: <b>Graciela Rosemblat; Laurel Graham</b><br><i>A Pragmatic Approach to Summary Extraction in Clinical Trials</i>
+<p><a href="W06-3325.pdf">W06-3325</a> [<a href="W06-3325.bib">bib</a>]: <b>Guido Sautter; Klemens B&#246;hm</b><br><i>The Difficulties of Taxonomic Name Extraction and a Solution</i>
+<p><a href="W06-3326.pdf">W06-3326</a> [<a href="W06-3326.bib">bib</a>]: <b>Ariel S. Schwartz; Marti Hearst</b><br><i>Summarizing Key Concepts using Citation Sentences</i>
+<p><a href="W06-3327.pdf">W06-3327</a> [<a href="W06-3327.bib">bib</a>]: <b>Yuka Tateisi; Yoshimasa Tsuruoka; Jun'ichi Tsujii</b><br><i>Subdomain adaptation of a POS tagger with a small corpus</i>
+<p><a href="W06-3328.pdf">W06-3328</a> [<a href="W06-3328.bib">bib</a>]: <b>Andreas Vlachos; Caroline Gasperin</b><br><i>Bootstrapping and Evaluating Named Entity Recognition in the Biomedical Domain</i>
+<a name="3400"></a><h1>Proceedings of the Analyzing Conversations in Text and Speech</h1>
+<p><a href="W06-34.pdf">W06-34</a> [<a href="W06-34.bib">bib</a>]: <b>Entire volume</b><p><a href=W06-3400.pdf>W06-3400</a>: <i>Front Matter</i>
+<p><a href="W06-3401.pdf">W06-3401</a> [<a href="W06-3401.bib">bib</a>]: <b>Gabriel Murray; Maite Taboada; Steve Renals</b><br><i>Prosodic Correlates of Rhetorical Relations</i>
+<p><a href="W06-3402.pdf">W06-3402</a> [<a href="W06-3402.bib">bib</a>]: <b>Robin Stewart; Andrea Danyluk; Yang Liu</b><br><i>Off-Topic Detection in Conversational Telephone Speech</i>
+<p><a href="W06-3403.pdf">W06-3403</a> [<a href="W06-3403.bib">bib</a>]: <b>David Huffaker; Joseph Jorgensen; Francisco Iacobelli; Paul Tepper; Justine Cassell</b><br><i>Computational Measures for Language Similarity Across Time in Online Communities</i>
+<p><a href="W06-3404.pdf">W06-3404</a> [<a href="W06-3404.bib">bib</a>]: <b>Satanjeev Banerjee; Alexander Rudnicky</b><br><i>You Are What You Say: Using Meeting Participants' Speech to Detect their Roles and Expertise</i>
+<p><a href="W06-3405.pdf">W06-3405</a> [<a href="W06-3405.bib">bib</a>]: <b>Matthew Purver; Patrick Ehlen; John Niekrasz</b><br><i>Shallow Discourse Structure for Action Item Detection</i>
+<p><a href="W06-3406.pdf">W06-3406</a> [<a href="W06-3406.bib">bib</a>]: <b>Vitor Carvalho; William Cohen</b><br><i>Improving Email Speech Acts Analysis via N-gram Selection</i>
+<p><a href="W06-3407.pdf">W06-3407</a> [<a href="W06-3407.bib">bib</a>]: <b>Jaime Arguello; Carolyn Rose</b><br><i>Topic-Segmentation of Dialogue</i>
+<p><a href="W06-3408.pdf">W06-3408</a> [<a href="W06-3408.bib">bib</a>]: <b>Michelle Gregory Michelle Gregory; Douglas Love Douglast Love; Stuart Rose Stuart Rose; Anne Schur Anne Schur</b><br><i>ChAT: A Time-Linked System for Conversational Analysis</i>
+<p><a href="W06-3409.pdf">W06-3409</a> [<a href="W06-3409.bib">bib</a>]: <b>Yafa Al-Raheb</b><br><i>Pragmatic Discourse Representation Theory</i>
+<p><a href="W06-3410.pdf">W06-3410</a> [<a href="W06-3410.bib">bib</a>]: <b>Andrew Cowell; Jereme Haack; Adrienne Andrew</b><br><i>Retrospective Analysis of Communication Events - Understanding the Dynamics of Collaborative Multi-Party Discourse</i>
+<a name="3500"></a><h1>Proceedings of the Third Workshop on Scalable Natural Language Understanding</h1>
+<p><a href="W06-35.pdf">W06-35</a> [<a href="W06-35.bib">bib</a>]: <b>Entire volume</b><p><a href=W06-3500.pdf>W06-3500</a>: <i>Front Matter</i>
+<p><a href="W06-3501.pdf">W06-3501</a> [<a href="W06-3501.bib">bib</a>]: <b>Shigeko Nariyama</b><br><i>Pragmatic information extraction from subject ellipsis in informal English</i>
+<p><a href="W06-3502.pdf">W06-3502</a> [<a href="W06-3502.bib">bib</a>]: <b>Myroslava O. Dzikovska; Carolyn P. Ros&#233;</b><br><i>Backbone Extraction and Pruning for Speeding Up a Deep Parser for Dialogue Systems</i>
+<p><a href="W06-3503.pdf">W06-3503</a> [<a href="W06-3503.bib">bib</a>]: <b>Pamela W. Jordan; Maxim Makatchev; Umarani Pappuswamy</b><br><i>Understanding Complex Natural Language Explanations in Tutorial Applications</i>
+<p><a href="W06-3504.pdf">W06-3504</a> [<a href="W06-3504.bib">bib</a>]: <b>Benoit Crabb&#233;; Myroslava O. Dzikovska; William de Beaumont; Mary Swift</b><br><i>Increasing the coverage of a domain independent dialogue lexicon with VERBNET</i>
+<p><a href="W06-3505.pdf">W06-3505</a> [<a href="W06-3505.bib">bib</a>]: <b>Berenike Loos</b><br><i>Scaling Natural Language Understanding via User-driven Ontology Learning</i>
+<p><a href="W06-3506.pdf">W06-3506</a> [<a href="W06-3506.bib">bib</a>]: <b>Matt Gedigian; John Bryant; Srini Narayanan; Branimir Ciric</b><br><i>Catching Metaphors</i>
+<p><a href="W06-3507.pdf">W06-3507</a> [<a href="W06-3507.bib">bib</a>]: <b>Guillaume Pitel</b><br><i>Scaling Construction Grammar up to Production Systems: the Situated Constructional Interpretation Model</i>
+<p><a href="W06-3508.pdf">W06-3508</a> [<a href="W06-3508.bib">bib</a>]: <b>Vanessa Micelli</b><br><i>Searching for Grammar Right</i>
+<p><a href="W06-3509.pdf">W06-3509</a> [<a href="W06-3509.bib">bib</a>]: <b>Anders Sogaard</b><br><i>Embodied construction grammar as layered modal languages</i>
+<p><a href="W06-3510.pdf">W06-3510</a> [<a href="W06-3510.bib">bib</a>]: <b>Luc Steels; Joachim de Beule</b><br><i>A (very) Brief Introduction to Fluid Construction Grammar</i>
+<a name="3600"></a><h1>Proceedings of the Workshop on Computationally Hard Problems and Joint Inference in Speech and Language Processing</h1>
+<p><a href="W06-36.pdf">W06-36</a> [<a href="W06-36.bib">bib</a>]: <b>Entire volume</b><p><a href=W06-3600.pdf>W06-3600</a>: <i>Front Matter</i>
+<p><a href="W06-3601.pdf">W06-3601</a> [<a href="W06-3601.bib">bib</a>]: <b>Liang Huang; Kevin Knight; Aravind Joshi</b><br><i>A Syntax-Directed Translator with Extended Domain of Locality</i>
+<p><a href="W06-3602.pdf">W06-3602</a> [<a href="W06-3602.bib">bib</a>]: <b>Christoph Tillmann</b><br><i>Efficient Dynamic Programming Search Algorithms for Phrase-Based SMT</i>
+<p><a href="W06-3603.pdf">W06-3603</a> [<a href="W06-3603.bib">bib</a>]: <b>Joseph Turian; I. Dan Melamed</b><br><i>Computational Challenges in Parsing by Classification</i>
+<p><a href="W06-3604.pdf">W06-3604</a> [<a href="W06-3604.bib">bib</a>]: <b>Antal van den Bosch</b><br><i>All-word Prediction as the Ultimate Confusible Disambiguation</i>
+<p><a href="W06-3605.pdf">W06-3605</a> [<a href="W06-3605.bib">bib</a>]: <b>Filip Ginter; Aleksandr Myll&#228;ri; Tapio Salakoski</b><br><i>A Probabilistic Search for the Best Solution Among Partially Completed Candidates</i>
+<p><a href="W06-3606.pdf">W06-3606</a> [<a href="W06-3606.bib">bib</a>]: <b>Aron Culotta; Andrew McCallum</b><br><i>Practical Markov Logic Containing First-Order Quantifiers with Application to Identity Uncertainty</i>
+<p><a href="W06-3607.pdf">W06-3607</a> [<a href="W06-3607.bib">bib</a>]: <b>Heng Ji; Cynthia Rudin; Ralph Grishman</b><br><i>Re-Ranking Algorithms for Name Tagging</i>
+<a name="3700"></a><h1>Proceedings of the First International Workshop on Medical Speech Translation</h1>
+<p><a href="W06-37.pdf">W06-37</a> [<a href="W06-37.bib">bib</a>]: <b>Entire volume</b><p><a href=W06-3700.pdf>W06-3700</a>: <i>Front Matter</i>
+<p><a href="W06-3701.pdf">W06-3701</a> [<a href="W06-3701.bib">bib</a>]: <b>Mark Seligman; Mike Dillinger</b><br><i>Usability Issues in an Interactive Speech-to-Speech Translation System for Healthcare</i>
+<p><a href="W06-3702.pdf">W06-3702</a> [<a href="W06-3702.bib">bib</a>]: <b>Nikos Chatzichrisafis; Pierrette Bouillon; Manny Rayner; Marianne Santaholma; Marianne Starlander; Beth Ann Hockey</b><br><i>Evaluating Task Performance for a Unidirectional Controlled Language Medical Speech Translation System</i>
+<p><a href="W06-3703.pdf">W06-3703</a> [<a href="W06-3703.bib">bib</a>]: <b>Farzad Ehsani; Jim Kinzey; Demetrios Master; Karen Lesea; Hunil Park</b><br><i>Speech to Speech Translation for Medical Triage in Korean</i>
+<p><a href="W06-3704.pdf">W06-3704</a> [<a href="W06-3704.bib">bib</a>]: <b>Daniel T. Heinze; Alexander Turchin; V. Jagannathan</b><br><i>Automated Interpretation of Clinical Encounters with Cultural Cues and Electronic Health Record Generation</i>
+<p><a href="W06-3705.pdf">W06-3705</a> [<a href="W06-3705.bib">bib</a>]: <b>Harold Somers</b><br><i>Language Engineering and the Pathway to Healthcare: A User-Oriented View</i>
+<p><a href="W06-3706.pdf">W06-3706</a> [<a href="W06-3706.bib">bib</a>]: <b>Mike Dillinger; Mark Seligman</b><br><i>Converser (TM): Highly Interactive Speech-to-Speech Translation for Healthcare</i>
+<p><a href="W06-3707.pdf">W06-3707</a> [<a href="W06-3707.bib">bib</a>]: <b>Manny Rayner; Pierrette Bouillon; Nikos Chatzichrisafis; Marianne Santaholma; Marianne Starlander; Beth Ann Hockey; Yukie Nakao; Hitoshi Isahara; Kyoko Kanzaki</b><br><i>MedSLT: A Limited-Domain Unidirectional Grammar-Based Medical Speech Translator</i>
+<p><a href="W06-3708.pdf">W06-3708</a> [<a href="W06-3708.bib">bib</a>]: <b>Farzad Ehsani; Jim Kinzey; Demetrios Master; Karen Sudre; David Domingo; Hunil Park</b><br><i>S-MINDS 2-Way Speech-to-Speech Translation System</i>
+<p><a href="W06-3709.pdf">W06-3709</a> [<a href="W06-3709.bib">bib</a>]: <b>Daniel T. Heinze; Alexander Turchin; V. Jagannathan</b><br><i>Accultran: Automated Interpretation of Clinical Encounters with Cultural Cues and Electronic Health Record Generation</i>
+<p><a href="W06-3710.pdf">W06-3710</a> [<a href="W06-3710.bib">bib</a>]: <b>David Dinh; Dennis Chan; Jack Chen</b><br><i>A Multi-Lingual Decision Support Prototype for the Medical Domain</i>
+<p><a href="W06-3711.pdf">W06-3711</a> [<a href="W06-3711.bib">bib</a>]: <b>Yuqing Gao; Bowen Zhou; Ruhi Sarikaya; Mohamed Afify; Hong-Kwang Kuo; Wei-zhong Zhu; Yonggang Deng; Charles Prosser; Wei Zhang; Laurent Besacier</b><br><i>IBM MASTOR SYSTEM: Multilingual Automatic Speech-to-Speech Translator</i>
+<a name="3800"></a><h1>Proceedings of TextGraphs: the First Workshop on Graph Based Methods for Natural Language Processing</h1>
+<p><a href="W06-38.pdf">W06-38</a> [<a href="W06-38.bib">bib</a>]: <b>Entire volume</b><p><a href=W06-3800.pdf>W06-3800</a>: <i>Front Matter</i>
+<p><a href="W06-3801.pdf">W06-3801</a> [<a href="W06-3801.bib">bib</a>]: <b>Einat Minkov; William Cohen; Andrew Ng</b><br><i>A Graphical Framework for Contextual Search and Name Disambiguation in Email</i>
+<p><a href="W06-3802.pdf">W06-3802</a> [<a href="W06-3802.bib">bib</a>]: <b>Hany Hassan; Ahmed Hassan; Sara Noeman</b><br><i>Graph Based Semi-Supervised Approach for Information Extraction</i>
+<p><a href="W06-3803.pdf">W06-3803</a> [<a href="W06-3803.bib">bib</a>]: <b>Michael Gamon</b><br><i>Graph-Based Text Representation for Novelty Detection</i>
+<p><a href="W06-3804.pdf">W06-3804</a> [<a href="W06-3804.bib">bib</a>]: <b>Marie-Francine Moens; Patrick Jeuniaux; Roxana Angheluta; Rudradeb Mitra</b><br><i>Measuring Aboutness of an Entity in a Text</i>
+<p><a href="W06-3805.pdf">W06-3805</a> [<a href="W06-3805.bib">bib</a>]: <b>Vivi Nastase; Stan Szpakowicz</b><br><i>A Study of Two Graph Algorithms in Topic-driven Summarization</i>
+<p><a href="W06-3806.pdf">W06-3806</a> [<a href="W06-3806.bib">bib</a>]: <b>Fabio Massimo Zanzotto; Alessandro Moschitti</b><br><i>Similarity between Pairs of Co-indexed Trees for Textual Entailment Recognition</i>
+<p><a href="W06-3807.pdf">W06-3807</a> [<a href="W06-3807.bib">bib</a>]: <b>Diego Molla</b><br><i>Learning of Graph-based Question Answering Rules</i>
+<p><a href="W06-3808.pdf">W06-3808</a> [<a href="W06-3808.bib">bib</a>]: <b>Andrew Goldberg; Xiaojin Zhu</b><br><i>Seeing stars when there aren't many stars: Graph-based semi-supervised learning for sentiment categorization</i>
+<p><a href="W06-3809.pdf">W06-3809</a> [<a href="W06-3809.bib">bib</a>]: <b>Samer Hassan; Carmen Banea</b><br><i>Random-Walk Term Weighting for Improved Text Classification</i>
+<p><a href="W06-3810.pdf">W06-3810</a> [<a href="W06-3810.bib">bib</a>]: <b>Irina Matveeva; Gina-Anne Levow</b><br><i>Graph-based Generalized Latent Semantic Analysis for Document Representation</i>
+<p><a href="W06-3811.pdf">W06-3811</a> [<a href="W06-3811.bib">bib</a>]: <b>Philippe Muller; Nabil Hathout; Bruno Gaume</b><br><i>Synonym Extraction Using a Semantic Distance on a Dictionary</i>
+<p><a href="W06-3812.pdf">W06-3812</a> [<a href="W06-3812.bib">bib</a>]: <b>Chris Biemann</b><br><i>Chinese Whispers - an Efficient Graph Clustering Algorithm and its Application to Natural Language Processing Problems</i>
+<p><a href="W06-3813.pdf">W06-3813</a> [<a href="W06-3813.bib">bib</a>]: <b>Vivi Nastase; Stan Szpakowicz</b><br><i>Matching syntactic-semantic graphs for semantic relation assignment</i>
+<p><a href="W06-3814.pdf">W06-3814</a> [<a href="W06-3814.bib">bib</a>]: <b>Eneko Agirre; David Mart&#237;nez; Oier L&#243;pez de Lacalle; Aitor Soroa</b><br><i>Evaluating and optimizing the parameters of an unsupervised graph-based WSD algorithm</i>
+<p><a href="W06-3815.pdf">W06-3815</a> [<a href="W06-3815.bib">bib</a>]: <b>Vivian Tsang; Suzanne Stevenson</b><br><i>Context Comparison as a Minimum Cost Flow Problem</i>
+<a name="3900"></a><h1>Proceedings of the Fifth International Workshop on Inference in Computational Semantics (ICoS-5)</h1>
+<p><a href="W06-39.pdf">W06-39</a>: <b>Entire volume</b><p><a href=W06-3900.pdf>W06-3900</a>: <i>Front Matter</i>
+<p><a href="W06-3901.pdf">W06-3901</a>: <b>Ariel Cohen</b><br><i>Anaphora resolution and minimal models</i>
+<p><a href="W06-3902.pdf">W06-3902</a>: <b>Nikhil Dinesh; Aravind Joshi; Insup Lee; Bonnie Webber</b><br><i>Extracting formal specifications from natural language regulatory documents</i>
+<p><a href="W06-3903.pdf">W06-3903</a>: <b>Debora Field; Allan Ramsay</b><br><i>How to change a person's mind: Understanding the difference between the effects and consequences of speech acts</i>
+<p><a href="W06-3904.pdf">W06-3904</a>: <b>Alexander Koller; Stefan Thater</b><br><i>Towards a redundancy elimination algorithm for underspecified descriptions</i>
+<p><a href="W06-3905.pdf">W06-3905</a>: <b>Leonardo Lesmo; Livio Robaldo; Jelle Gerbrandy</b><br><i>Towards a redundancy elimination algorithm for underspecified descriptions</i>
+<p><a href="W06-3906.pdf">W06-3906</a>: <b>Sela Mador-Haim; Yoad Winter; Anthony Braun</b><br><i>Controlled Language for Geographical Information System Queries</i>
+<p><a href="W06-3907.pdf">W06-3907</a>: <b>Rowan Nairn; Cleo Condoravdi; Lauri Karttunen</b><br><i>Computing relative polarity for textual inference</i>
+<p><a href="W06-3908.pdf">W06-3908</a>: <b>Farid Nouioua; Pascal Nicolas</b><br><i>Using Answer Set Programming in an inference-based approach to Natural Language Semantics</i>
+<p><a href="W06-3909.pdf">W06-3909</a>: <b>Marco Pennacchiotti; Patrick Pantel</b><br><i>A Bootstrapping Algorithm for Automatically Harvesting Semantic Relations</i>
+<p><a href="W06-3910.pdf">W06-3910</a>: <b>Hilke Reckman; Crit Cremers</b><br><i>Concepts across categories</i>
+<p><a href="W06-3911.pdf">W06-3911</a>: <b>Satoshi Tojo</b><br><i>Multi-dimensional Temporal Logic for Events and States</i>
+<p><a href="W06-3912.pdf">W06-3912</a>: <b>A.M. Wallington; R. Agerri; J.A. Barnden; S.R. Glasbey; M.G. Lee</b><br><i>Considerations on the nature of metaphorical meaning arising from a computational treatment of metaphor interpretation</i>
+<p><a href="W06-3913.pdf">W06-3913</a>: <b>David Ahn; Steven Schockaert; Martine De Cock; Etienne Kerre</b><br><i>Supporting temporal question answering: strategies for offline data collection</i>
+<p><a href="W06-3914.pdf">W06-3914</a>: <b>Igor Boyko</b><br><i>Formal semantics of verbs for knowledge inference</i>
+<p><a href="W06-3915.pdf">W06-3915</a>: <b>Philipp Cimiano</b><br><i>Ingredients of a first-order account of bridging</i>
+<p><a href="W06-3916.pdf">W06-3916</a>: <b>Albert Goldfain</b><br><i>A Computational Theory of Inference for Arithmetic Explanation</i>
+<p><a href="W06-3917.pdf">W06-3917</a>: <b>Hermann Helbig; Ingo Gl&#246;ckner</b><br><i>Towards a Logical Foundation of Semantic Networks - A Typology of Descriptive Means for Semantic Inference</i>
+<p><a href="W06-3918.pdf">W06-3918</a>: <b>Paul Piwek</b><br><i>The Alligator theorem prover for dependent type systems: Description and proof samples</i>
+</div>
+<hr><div class="footer">
+<a href="../../index.html">Back to the ACL Anthology Home</a></p>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+<script type="text/javascript">_uacct = "UA-2482907-1";urchinTracker();</script>
+</div></body></html>
