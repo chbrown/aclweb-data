@@ -1,0 +1,23 @@
+{
+  "name": "acl-anthology",
+  "version": "0.0.0",
+  "description": "ACL Anthology derivations",
+  "keywords": [
+    "acl",
+    "anthology"
+  ],
+  "homepage": "https://github.com/chbrown/acl-anthology",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chbrown/acl-anthology.git"
+  },
+  "license": "MIT",
+  "author": "Christopher Brown <io@henrian.com> (http://henrian.com)",
+  "private": true,
+  "dependencies": {
+    "academia": "*",
+    "acl": "git://github.com/chbrown/acl.git",
+    "tex-node": "*",
+    "pdfi-node": "*"
+  }
+}
